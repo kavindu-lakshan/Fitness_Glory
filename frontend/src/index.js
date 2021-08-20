@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import "./bootstrap.min.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
+import "./bootstrap.min.css";
+
+// const store = createStore(reducers, compose(applyMiddleware(thunk)));
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 import store from "./store";
 
 ReactDOM.render(

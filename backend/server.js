@@ -19,6 +19,8 @@ const workout_programs_routes = require('./routes/workout_programs');
 // import cookieParser from 'body-cookie';
 
 require("dotenv").config();
+
+const workoutRoutes = require("./routes/workouts.js");
 dotenv.config();
 connectDB();
 
@@ -31,6 +33,8 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 
 
@@ -59,6 +63,8 @@ connection.once("open", () => {
 app.use("/FitnessGlory/users", userRoutes);
 
 //K shehan
+
+app.use("/workouts", workoutRoutes);
 
 //B Shehan
 
