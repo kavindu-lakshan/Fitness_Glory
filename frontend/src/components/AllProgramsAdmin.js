@@ -64,7 +64,7 @@ export default class AllProgramsAdmin extends Component {
               </tbody>
             </table>
     
-            <button className="btn btn-success"> <a href="/add" style ={{textDecoration: 'none', color: 'white'}}>Create New Post</a></button>
+            <button className="btn btn-success"> <a href="/admin-add-program" style ={{textDecoration: 'none', color: 'white'}}>Create New Post</a></button>
           </div>
         )
       }
