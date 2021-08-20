@@ -1,9 +1,11 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const dotenv = require ('dotenv');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const dotenv = require("dotenv");
 const app = express();
+const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 
 const workout_programs_routes = require('./routes/workout_programs');
@@ -17,48 +19,50 @@ const workout_programs_routes = require('./routes/workout_programs');
 // import cookieParser from 'body-cookie';
 
 require("dotenv").config();
-
+dotenv.config();
+connectDB();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({
+app.use(
+  cors({
     origin: ["http://localhost:3000"],
     credentials: true,
-}));
+  })
+);
 app.use(bodyParser.json());
 
-app.use(workout_programs_routes); 
+
 
 app.get("/test", (req, res) => {
-    res.send("It works"); 
+  res.send("It works");
 });
 
 app.use(express.json());
 app.use(cookieParser());
- 
+
 //connect to mongoDB
-const URL= process.env.MONGODB_URL;
-
-//shehan's testing DB url
-const shehanBartholomeuszURL = 'mongodb+srv://Shehanx86:test123@cluster0.prwte.mongodb.net/fitness_glory_shehan?retryWrites=true&w=majority';
-
-mongoose.connect(shehanBartholomeuszURL,{
-    useCreateIndex:true,
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-    useFindAndModify:false
-})
-const connection =mongoose.connection;
-connection.once("open", ()=>{
-    console.log("connection success")
-})
-
+/*const URL = process.env.MONGODB_URL;
+mongoose.connect(URL, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("connection success");
+});*/
 
 //Lakshan
+
+app.use("/FitnessGlory/users", userRoutes);
 
 //K shehan
 
 //B Shehan
+
+app.use(workout_programs_routes); 
 
 //Dulshan
 
@@ -70,6 +74,6 @@ connection.once("open", ()=>{
 
 //Sandani
 
-app.listen(PORT,()=>{
-    console.log(`Server running on PORT: ${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`Server running on PORT: ${PORT}`);
+});
