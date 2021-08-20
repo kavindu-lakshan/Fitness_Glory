@@ -39,7 +39,10 @@ const Workout = ({ workout, setCurrentId }) => {
         <br></br>
       </div>
       <div className="card-header">
-        <Link to={"/update/" + workout._id} style={{ textDecoration: "none" }}>
+        <Link
+          to={"/trainer/workouts/update/" + workout._id}
+          style={{ textDecoration: "none" }}
+        >
           <Button
             size="small"
             color="primary"
