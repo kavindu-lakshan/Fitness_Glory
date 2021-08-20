@@ -5,6 +5,17 @@ const cors = require('cors');
 const dotenv = require ('dotenv');
 const app = express();
 const cookieParser = require("cookie-parser");
+
+const workout_programs_routes = require('./routes/workout_programs');
+
+
+// import express from 'express';
+// import mongoose from 'mongoose';
+// import bodyParser from 'body-parser';
+// import cors from 'body-cors';
+// import dotenv from 'dotenv';
+// import cookieParser from 'body-cookie';
+
 require("dotenv").config();
 
 
@@ -16,6 +27,8 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 
+app.use(workout_programs_routes); 
+
 app.get("/test", (req, res) => {
     res.send("It works"); 
 });
@@ -26,7 +39,10 @@ app.use(cookieParser());
 //connect to mongoDB
 const URL= process.env.MONGODB_URL;
 
-mongoose.connect(URL,{
+//shehan's testing DB url
+const shehanBartholomeuszURL = 'mongodb+srv://Shehanx86:test123@cluster0.prwte.mongodb.net/fitness_glory_shehan?retryWrites=true&w=majority';
+
+mongoose.connect(shehanBartholomeuszURL,{
     useCreateIndex:true,
     useNewUrlParser:true,
     useUnifiedTopology:true,
