@@ -39,4 +39,15 @@ const updateWorkout = async (req, res) => {
   res.json(updatedWorkout);
 };
 
-module.exports = {updateWorkout, createWorkout, getWorkouts}
+const deleteWorkout = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No post with that id");
+
+  await workout.findByIdAndRemove(id);
+
+  res.json({ message: "Post deleted successfully" });
+};
+
+module.exports = { updateWorkout, createWorkout, getWorkouts, deleteWorkout };
