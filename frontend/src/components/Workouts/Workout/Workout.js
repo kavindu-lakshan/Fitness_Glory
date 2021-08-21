@@ -4,8 +4,12 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteWorkout } from "../../../actions/workouts";
 
 const Workout = ({ workout, setCurrentId }) => {
+  const dispatch = useDispatch();
+
   return (
     <Grid item xs={12} sm={6}>
       <br></br>
@@ -52,7 +56,15 @@ const Workout = ({ workout, setCurrentId }) => {
             &nbsp; Update
           </Button>
         </Link>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => {
+            if (window.confirm("Are you sure you want to delete this")) {
+              dispatch(deleteWorkout(workout._id));
+            }
+          }}
+        >
           <DeleteIcon fontSize="small" />
           &nbsp; Delete
         </Button>

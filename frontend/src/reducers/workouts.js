@@ -8,6 +8,8 @@ export const work = (workouts = [], action) => {
       return workouts.map((workout) =>
         workout._id === action.payload._id ? action.payload : workout
       );
+    case "DELETE":
+      return workouts.filter((workout) => workout._id !== action.payload);
     default:
       return workouts;
   }

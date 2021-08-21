@@ -12,7 +12,13 @@ const Workouts = ({ setCurrentId }) => {
   console.log(workouts);
 
   return !workouts.length ? (
-    <CircularProgress />
+    <CircularProgress
+      size={40}
+      left={-20}
+      top={10}
+      status={"loading"}
+      style={{ marginLeft: "50%", marginTop: "50px" }}
+    />
   ) : (
     <div>
       <div style={{ textAlign: "center", fontSize: "25px" }}>

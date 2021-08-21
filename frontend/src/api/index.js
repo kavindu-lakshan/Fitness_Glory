@@ -9,3 +9,6 @@ export const updateWorkout = (id, updatedWorkout) =>
     `${"http://localhost:5000/workouts/update"}/${id}`,
     updatedWorkout
   );
+
+export const deleteWorkout = (id) =>
+  axios.delete(`${"http://localhost:5000/workouts"}/${id}`);

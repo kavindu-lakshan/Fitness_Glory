@@ -28,3 +28,12 @@ export const updateWorkout = (id, work) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const deleteWorkout = (id) => async (dispatch) => {
+  try {
+    await api.deleteWorkout(id);
+    dispatch({ type: "DELETE", payload: id });
+  } catch (error) {
+    console.log(error);
+  }
+};
