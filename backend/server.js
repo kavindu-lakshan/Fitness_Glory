@@ -71,6 +71,11 @@ app.use("/workouts", workoutRoutes);
 app.use(workout_programs_routes); 
 
 //Dulshan
+const qRouter = require("./routes/Question.js");
+app.use("/qu", qRouter);
+
+const aRouter = require("./routes/Answer.js");
+app.use("/an", aRouter);
 
 //Amantha
 
