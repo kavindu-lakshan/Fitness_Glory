@@ -18,6 +18,18 @@ import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
+//Dulshan QandA section
+import { QandA } from './components/QAndASection/QandA';
+import { CreateQuestion } from './components/QAndASection/CreateQuestion';
+import { UpdateQuestion } from './components/QAndASection/UpdateQuestion';
+import { DeleteQuestion } from './components/QAndASection/DeleteQuestion';
+import { OtherQuestions } from './components/QAndASection/OtherQuestions';
+import { CreateAnswer } from './components/QAndASection/CreateAnswer';
+import { MyAnswers } from './components/QAndASection/MyAnswers';
+import { UpdateAnswer } from './components/QAndASection/UpdateAnswer';
+import { DeleteAnswer } from './components/QAndASection/DeleteAnswer';
+
+
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
@@ -77,6 +89,17 @@ const App = () => {
           path="/admin-expand-program/:id"
           component={ProgramDetailsAdmin}
         ></Route>
+        
+        <Route exact path = "/QandA/:mUsername" component = {QandA}/>
+        <Route exact path = "/q/createQ/:mUsername" component = {CreateQuestion}/>
+        <Route exact path = "/updateQ/:id" component = {UpdateQuestion}/>
+        <Route exact path = "/deleteQ/:id" component = {DeleteQuestion}/>
+        <Route exact path = "/otherQ/" component = {OtherQuestions}/>
+        <Route exact path = "/a/createA/:id" component = {CreateAnswer}/>
+        <Route exact path = "/myAnswers/:mUsername" component = {MyAnswers}/>
+        <Route exact path = "/updateA/:id" component = {UpdateAnswer}/>
+        <Route exact path = "/deleteA/:id" component = {DeleteAnswer}/>
+
       </main>
 
       <Footer />
