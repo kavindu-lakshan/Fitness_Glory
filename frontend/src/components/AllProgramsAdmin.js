@@ -52,7 +52,7 @@ export default class AllProgramsAdmin extends Component {
                     <td>{program.description}</td>
                     <td>{program.time}</td>
                     <td>
-                      <a className="btn btn-warning" href='#'>
+                      <a className="btn btn-warning" href={'/admin-edit-program/' + program._id}>
                         <i className="fas fa-edit"></i>&nbsp;Edit
                       </a>
                       <a className="btn btn-danger" href='#'>

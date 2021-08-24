@@ -40,7 +40,9 @@ export default class CreateProgramAdmin extends Component {
         }
         axios.post("http://localhost:5000/program/save",data).then((res) =>{
             if(res.data.success){
-                //resetting states to use for another time
+                alert(data.name+' created successfully');
+                window.location = '/admin-programs';
+
                 this.setState({
                     name:'',
                     description:'',

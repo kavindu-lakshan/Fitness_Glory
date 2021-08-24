@@ -58,11 +58,12 @@ const updateProgram = (req, res) => {
         (err,program) => {
             if (err){
                 return res.status(400).json({
-                    error: err
+                    error: err,
+                    success: true
                 })
             } else {
                 return res.status(200).json({
-                    seccess: "updated successfully"
+                    success: true
                 })
             }
         }
