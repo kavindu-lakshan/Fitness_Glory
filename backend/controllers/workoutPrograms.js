@@ -74,11 +74,12 @@ const deleteProgram = (req, res) => {
     workout_programs.findByIdAndRemove(req.params.id).exec((err,deletedProgram) => {
         if (err){
             return res.status(400).json({
-                error: err
+                error: err,
+                success: false
             })
         } else { 
             return res.status(200).json({
-                seccess: "deleted successfully", deletedProgram
+                success: true, deletedProgram
             })
         }
     })

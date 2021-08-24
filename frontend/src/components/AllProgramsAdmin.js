@@ -26,6 +26,17 @@ export default class AllProgramsAdmin extends Component {
         })
     }
 
+    onDelete = (id, name) => {
+      if(window.confirm('Are sre you want to delete '+name+'?')){
+        axios.delete('http://localhost:5000/program/delete/'+id).then((res) => {
+       
+          if(res.data.success){
+              alert(res.data.deletedProgram.name+' deleted successfully');
+            }
+          })
+      }
+    }
+
     render() {
         return (
           <div className="container">
@@ -55,7 +66,7 @@ export default class AllProgramsAdmin extends Component {
                       <a className="btn btn-warning" href={'/admin-edit-program/' + program._id}>
                         <i className="fas fa-edit"></i>&nbsp;Edit
                       </a>
-                      <a className="btn btn-danger" href='#'>
+                      <a className="btn btn-danger" href='' onClick={() =>this.onDelete(program._id, program.name) }>
                         <i className="fas fa-trash-alt"></i>&nbsp;Delete
                       </a>
                     </td>
