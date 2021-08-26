@@ -19,6 +19,7 @@ const Header = () => {
   useEffect(() => {}, [userInfo]);
 
   return (
+
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand>
@@ -51,6 +52,7 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
   );
 };
 

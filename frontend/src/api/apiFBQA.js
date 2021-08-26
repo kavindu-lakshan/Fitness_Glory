@@ -46,7 +46,7 @@ export const allQuestions =() =>fetch("http://localhost:5000/qu/").then(res => r
 //Display Qdetails
 export const selectQuestionDetails = (id) => fetch(`http://localhost:5000/qu/selectedQ/${id}`).then(res => res.clone().json());
 
-//Display Qdetails
+//Display Qdetails in Answer Form
 export const selectQuestionDetailsA = (id) => fetch(`http://localhost:5000/an/a/${id}`).then(res => res.clone().json());
 
 
@@ -60,7 +60,7 @@ export const createAnswer = (answer) => fetch("http://localhost:5000/an/a/create
     body:JSON.stringify(answer)
 })
 
-//Display all the questions related to the user.
+//Display all the answers related to the user.
 export const getAnswer = (mUsername) => fetch(`http://localhost:5000/an/answer/${mUsername}`).then(res=>res.clone().json());
 
 //Display all answers
@@ -69,7 +69,7 @@ export const allAnswers =() =>fetch("http://localhost:5000/an/").then(res => res
 //Display Adetails
 export const getAnswers = (id) => fetch(`http://localhost:5000/an/as/${id}`).then(res => res.clone().json());
 
-//Updates the question details
+//Updates the answer details
 export const updateAnswer =  (answer, id)=> fetch(`http://localhost:5000/an/as/updateA/${id}`,{
     method: "POST",
     headers: {
@@ -79,7 +79,7 @@ export const updateAnswer =  (answer, id)=> fetch(`http://localhost:5000/an/as/u
     body:JSON.stringify(answer)
 });
 
-//Deletes selected Question
+//Deletes selected answer
 export const deleteAnswer = (answer, id) => fetch(`http://localhost:5000/an/as/deleteA/${id}`, {
     method:"DELETE", 
     headers:{
