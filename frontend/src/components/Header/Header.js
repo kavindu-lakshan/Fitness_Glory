@@ -3,6 +3,8 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/userActions";
+import "./Header.css";
+import Logo from "../../logo.png";
 
 const Header = () => {
   const history = useHistory();
@@ -23,7 +25,9 @@ const Header = () => {
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand>
-          <Link to="/">Fitness Glory</Link>
+          <Link to="/">
+            <img className="nav-logo" src={Logo} alt="FitnessGlory Logo" />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
