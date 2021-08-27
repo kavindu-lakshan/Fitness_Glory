@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useForm} from 'react-hook-form'
+import Button from '@material-ui/core/Button';
 
 
 export const QuestionFormUpdate = ({questions, onSubmit}) =>{
@@ -14,35 +15,65 @@ export const QuestionFormUpdate = ({questions, onSubmit}) =>{
     const submitHandler = handleSubmit((data) =>{
         onSubmit(data)
     })
-   
+    
     return(
         <form onSubmit={submitHandler}>
-        <h4>Question Details</h4>
+        <h4 style={head}>Question Details</h4>
         <div className="form-group">
         <div className="form-group col-md-100">
-            <label for="mUsername" className="form-label">Member Username</label>
-            <input className="form-control" {...register("mUsername", { required: true })} type ="text" name="mUsername" id="mUsername" disabled = "true"/>
+            <label style={labelStyle} for="mUsername" className="form-label">Member Username</label>
+            <input style={inputFieldStyle} className="form-control" {...register("mUsername", { required: true })} type ="text" name="mUsername" id="mUsername" disabled = "true"/>
         <br/>
         </div>
         <div className="form-group col-md-100">
-            <label for="qTopic" className="form-label">Question Topic</label>
-            <input className="form-control" {...register("qTopic", { required: true })} type ="text" name="qTopic" id="qTopic"/>
+            <label style={labelStyle} for="qTopic" className="form-label">Question Topic</label>
+            <input style={inputFieldStyle} className="form-control" {...register("qTopic", { required: true })} type ="text" name="qTopic" id="qTopic"/>
         <br/>
         </div>
 
         <div className="form-group col-md-100">
-            <label for="question" className="form-label">Question Description</label>
-            <input className="form-control" {...register("question", { required: true })} type ="text" name="question" id="question"/>
+            <label style={labelStyle} for="question" className="form-label">Question Description</label>
+            <input style={inputFieldStyle} className="form-control" {...register("question", { required: true })} type ="text" name="question" id="question"/>
         <br/>
         </div>
         <div className="form-group col-md-100">
-            <label for="date" className="form-label">Select Date</label>
-            <input className="form-control" {...register("date", { required: true })} type ="text" name="date" id="date" disabled="true"/>
+            <label style={labelStyle} for="date" className="form-label">Select Date</label>
+            <input style={inputFieldStyle} className="form-control" {...register("date", { required: true })} type ="text" name="date" id="date" disabled="true"/>
         </div>
         <br/>
         </div>
-            <button type="submit" className="btn btn-primary">Update Details</button><br/><br/>
+        <center><Button style={btn} size="large" type="submit" className="btn btn-primary">Update Details</Button></center><br/><br/>
         </form>
     )
 
+}
+
+const inputFieldStyle={
+
+    border:'3px solid white',
+    background:'transparent',
+    color:'white',
+    fontFamily: 'Helvetica',
+    fontWeight:'bold',
+
+}
+const labelStyle={
+    color:'white',
+    fontFamily: 'Helvetica',
+    fontWeight:'bold',
+    fontSize:'15pt'
+}
+
+const head ={
+    padding: '10px',
+    textAlignVertical: "center",
+    textAlign: "center",
+    background: '#04938b',
+    color:'white'
+}
+
+const btn ={
+    backgroundColor: 'transparent', 
+    border: '2px solid #04938b',
+    color:'#04d0c4'
 }

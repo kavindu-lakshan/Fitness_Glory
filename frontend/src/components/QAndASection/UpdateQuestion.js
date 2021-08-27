@@ -3,6 +3,7 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 import { updateQuestion } from '../../api/apiFBQA'
 import { QuestionFormUpdate } from './Forms/QuestionFormUpdate'
 import { selectQuestion } from '../../api/apiFBQA'
+import updateAnsBg from '../ImagesD/ansUpdate.png';
 
 
 
@@ -26,8 +27,10 @@ export const UpdateQuestion = () =>{
     }
     
     return question ?(
-            <div><br/>
-            <h3 className = "text-center">Update Question</h3><br/>
+
+            <div style={bgImg}>
+                <br/>
+            <h3 style={{color:'white'}}className = "text-center">Update Question</h3><br/>
             <div>
             <div className="row justify-content-center">
             <div className="row justify-content-center text-center">
@@ -36,8 +39,21 @@ export const UpdateQuestion = () =>{
             </div>
             </div>
             </div>
+
             </div>
     </div>
     ) : (<div>Loading Data .......</div>
     )
+}
+
+const bgImg ={
+    background: `linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.58)) ,url(${updateAnsBg})`,
+    backgroundSize: 'cover',
+    position: 'realative',
+
+    right:'0%',
+    left:'0%',
+    width: '100%',
+    height: '100%',
+    opacity:'1'
 }

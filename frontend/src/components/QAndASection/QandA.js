@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, Redirect, useRouteMatch } from 'react-router-dom'
 import { Button, AppBar, Tabs, Tab, } from '@material-ui/core';
-import { color } from '@material-ui/system';
 import { getQuestions } from '../../api/apiFBQA'
+import { NavBar } from './NavBar';
+import gymBg from '../ImagesD/testImg.png'
 
 export const QandA = () =>{
     const match = useRouteMatch()
@@ -17,27 +18,17 @@ export const QandA = () =>{
     }, [])
     return(
         <div>
+        <div style={bgImg}>
         <div className="container">
-        <div className="mt-3">
-        <Router>
-            <div>
-                <AppBar position="static">
-                    <Tabs  aria-label="simple tabs example">
-                        <Tab label="My Questions" href="/QandA/:mUsername"/>
-                        <Tab label="My Answers" href="/myAnswers/:mUsername"/>
-                        <Tab label="New Questions" href="/q/createQ/:mUsername"/>
-                        <Tab label="Other Questions" href="/otherQ/"/>
-                    </Tabs>
-                </AppBar>
-            </div>
-        </Router>
+        <div className="mt-3"><br/>
+            <NavBar/>
         </div>
         </div>
-        <div className="container">
+        <div className="container"> 
         <div className="mt-3">
-            <h3>My Questions</h3>
             <br/>
-            <table class="table">
+            <h3 style={labelStyle}className = "text-center">My Questions</h3>
+            <table style ={textStyle} class="table">
             <thead>
                 <tr>
                     <th scope="col">Topic of Question</th>
@@ -53,10 +44,10 @@ export const QandA = () =>{
                         {row.qTopic}
                     </td>
                     <td>
-                    <Link to={`/updateQ/${row._id}`} style={{ textDecoration: 'none' }}><Button  color="Secondary" variant="contained">Update Question</Button></Link>
+                    <Link to={`/updateQ/${row._id}`} style={{ textDecoration: 'none' }}><Button style={btn} color="Secondary" variant="contained">Update Question</Button></Link>
                     </td>
                     <td>
-                    <Link to={`/deleteQ/${row._id}`} style={{ textDecoration: 'none'}}><Button  color="Secondary" variant="contained">Delete Question</Button></Link>
+                    <Link to={`/deleteQ/${row._id}`} style={{ textDecoration: 'none'}}><Button style={btn} color="Secondary" variant="contained">Delete Question</Button></Link>
                     </td>
                     </tr>
                      ))
@@ -65,6 +56,40 @@ export const QandA = () =>{
             </table>
         </div>
         </div>
+        </div>
     </div>
     )
+}
+
+const bgImg ={
+    background: `linear-gradient( rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)) ,url(${gymBg})`,
+    backgroundSize: 'cover',
+    position: 'center',
+    marginTop:'-20px',
+    right:'0%',
+    left:'0%',
+    width: '100%',
+    height: '100%',
+    opacity:'1'
+}
+
+const labelStyle={
+    color:'white',
+    fontFamily: 'Helvetica',
+    fontWeight:'bold',
+
+}
+
+const textStyle={
+    background:'transparent',
+    color:'white',
+    fontFamily: 'Helvetica',
+    fontWeight:'bold',
+
+}
+
+const btn ={
+    backgroundColor: '#04938b', 
+    border: '2px solid #04938b',
+    color:'white'
 }
