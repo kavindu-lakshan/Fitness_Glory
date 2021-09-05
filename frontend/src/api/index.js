@@ -1,6 +1,13 @@
 import axios from "axios";
 
-export const fetchWorkouts = () => axios.get("http://localhost:5000/workouts");
+export const fetchWorkouts = (page) =>
+  axios.get(`http://localhost:5000/workouts?page=${page}`);
+export const fetchWorkoutsBySearch = (searchQuery) =>
+  axios.get(
+    `http://localhost:5000/workouts/search?searchQuery=${
+      searchQuery.search || "none"
+    }`
+  );
 export const createWorkout = (newWorkout) =>
   axios.post("http://localhost:5000/workouts/add", newWorkout);
 

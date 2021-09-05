@@ -11,7 +11,7 @@ const Workout = ({ workout, setCurrentId }) => {
   const dispatch = useDispatch();
 
   return (
-    <Grid item xs={12} sm={6}>
+    <Grid item xs={6} sm={3}>
       <br></br>
       <div className="card-header">
         {workout.workout_name}
@@ -20,24 +20,25 @@ const Workout = ({ workout, setCurrentId }) => {
           Created {moment(workout.createdAt).fromNow()}
         </div>
       </div>
-      <div className="card-body">
-        <h5 className="card-title">
+      <div className="card-body" style={{ fontSize: "14px" }}>
+        <h6 className="card-title">
           Workout Category: {workout.workout_category}
-        </h5>
-        <p className="card-text">
+        </h6>
+        {/* <p className="card-text">
           Main Targer Muscle Group: {workout.muscle_group}
         </p>
+        <p className="card-text">Instruction: {workout.instructions}</p>
         <p className="card-text">Action: {workout.action}</p>
-        <p className="card-text">Tips: {workout.tips}</p>
+        <p className="card-text">Tips: {workout.tips}</p> */}
         <img
           src={workout.starting_position_img}
-          style={{ height: "100px", width: "100px" }}
+          style={{ height: "85px", width: "85px" }}
           alt=""
         />
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <img
           src={workout.mid_position_img}
-          style={{ height: "100px", width: "100px" }}
+          style={{ height: "85px", width: "85px" }}
           alt=""
         />
         <br></br>
