@@ -19,7 +19,7 @@ const LoginScreen = ({ history }) => {
 
   useEffect(() => {
     if (userInfo) {
-      history.push("/Home");
+      history.push("/member/Home");
     }
   }, [history, userInfo]);
 
@@ -59,7 +59,7 @@ const LoginScreen = ({ history }) => {
         </Form>
         <Row className="py-3">
           <Col>
-            New Member ? <Link to="/register">Register Here</Link>
+            New Member ? <Link to="/member/register">Register Here</Link>
           </Col>
         </Row>
       </div>

@@ -8,8 +8,7 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 
-const workout_programs_routes = require('./routes/workout_programs');
-
+const workout_programs_routes = require("./routes/workout_programs");
 
 // import express from 'express';
 // import mongoose from 'mongoose';
@@ -36,8 +35,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-
-
 app.get("/test", (req, res) => {
   res.send("It works");
 });
@@ -62,13 +59,16 @@ connection.once("open", () => {
 
 app.use("/FitnessGlory/users", userRoutes);
 
+const memDetailsRoute = require("./routes/memberDetails");
+app.use(memDetailsRoute);
+
 //K shehan
 
 app.use("/workouts", workoutRoutes);
 
 //B Shehan
 
-app.use(workout_programs_routes); 
+app.use(workout_programs_routes);
 
 //Dulshan
 const qRouter = require("./routes/Question.js");
