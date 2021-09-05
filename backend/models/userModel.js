@@ -22,6 +22,20 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+
+    //new
+    isPaid: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    createdAt: {
+      type: Date,
+      required: true,
+      default: new Date(),
+    },
+    //new
+
     pic: {
       type: String,
       required: true,

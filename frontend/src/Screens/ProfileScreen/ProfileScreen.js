@@ -25,7 +25,7 @@ const ProfileScreen = ({ location, history }) => {
 
   useEffect(() => {
     if (!userInfo) {
-      history.push("/");
+      history.push("/member");
     } else {
       setName(userInfo.name);
       setEmail(userInfo.email);

@@ -15,17 +15,16 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
-    history.push("/");
+    history.push("/member");
   };
 
   useEffect(() => {}, [userInfo]);
 
   return (
-
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand>
-          <Link to="/">
+          <Link to="/member">
             <img className="nav-logo" src={Logo} alt="FitnessGlory Logo" />
           </Link>
         </Navbar.Brand>
@@ -34,11 +33,13 @@ const Header = () => {
           <Nav className="m-auto"></Nav>
           {userInfo ? (
             <Nav className="me-auto">
-              <Nav.Link href="/Home">
-                <Link to="/Home">Home</Link>
+              <Nav.Link href="/member/Home">
+                <Link to="/member/Home">Home</Link>
               </Nav.Link>
               <NavDropdown title={userInfo?.name} id="basic-nav-dropdown">
-                <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
+                <NavDropdown.Item href="/member/profile">
+                  My Profile
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logoutHandler}>
                   Logout
@@ -49,14 +50,13 @@ const Header = () => {
             <Nav>
               {""}
               <Nav.Link>
-                <Link to="/login">Login</Link>
+                <Link to="/member/login">Login</Link>
               </Nav.Link>
             </Nav>
           )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
   );
 };
 
