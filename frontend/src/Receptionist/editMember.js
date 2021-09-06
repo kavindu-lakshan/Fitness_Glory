@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Redirect } from "react-router";
+import Swal from "sweetalert2";
 
 export default class editMember extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ export default class editMember extends Component {
     this.state = {
       name: "",
       email: "",
-      isPaid: false,
+      // isPaid: false,
+      packageType: "",
       redirect: false,
     };
   }
@@ -26,28 +28,37 @@ export default class editMember extends Component {
     e.preventDefault();
     const id = this.props.match.params.id;
 
-    const { name, email } = this.state;
-    let isPaid = this.state;
-    if ((isPaid = "Yes") || (isPaid = "yes")) {
-      isPaid = true;
-    } else {
-      isPaid = false;
-    }
+    const { name, email, packageType } = this.state;
+    // let isPaid = this.state;
+    // if ((isPaid = "Yes") || (isPaid = "yes")) {
+    //   isPaid = true;
+    // } else {
+    //   isPaid = false;
+    // }
 
     const data = {
       name: name,
       email: email,
-      isPaid: isPaid,
+      packageType: packageType,
+      // isPaid: isPaid,
     };
     console.log(data);
 
     axios.put(`/memberDetail/update/${id}`, data).then((res) => {
       if (res.data.success) {
-        alert("Post Updated Successfully");
+        // alert("Post Updated Successfully");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "User Updated Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         this.setState({
           name: "",
           email: "",
-          isPaid: "",
+          packageType: "",
+          // isPaid: "",
         });
       }
     });
@@ -62,7 +73,8 @@ export default class editMember extends Component {
         this.setState({
           name: res.data.user.name,
           email: res.data.user.email,
-          isPaid: res.data.user.isPaid,
+          packageType: res.data.user.packageType,
+          // isPaid: res.data.user.isPaid,
         });
 
         console.log(this.state.user);
@@ -70,11 +82,11 @@ export default class editMember extends Component {
     });
   }
 
-  payment = (paid) => {
-    if (!paid) {
-      return "No";
-    } else return "Yes";
-  };
+  // payment = (paid) => {
+  //   if (!paid) {
+  //     return "No";
+  //   } else return "Yes";
+  // };
 
   render() {
     if (this.state.redirect) {
@@ -109,6 +121,23 @@ export default class editMember extends Component {
           </div>
 
           <div className="form-group" style={{ marginBottom: "15px" }}>
+            <label style={{ marginBottom: "5px" }}>Package</label>
+            <select
+              type="text"
+              className="form-select form-select-sm"
+              name="packageType"
+              value={this.state.packageType}
+              onChange={this.handleInputChange}
+            >
+              <option selected>Null</option>
+              <option value="Individual Male">Individual Male</option>
+              <option value="Individual Female">Individual Female</option>
+              <option value="Student">Student</option>
+              <option value="Family">Family</option>
+            </select>
+          </div>
+
+          {/* <div className="form-group" style={{ marginBottom: "15px" }}>
             <label style={{ marginBottom: "5px" }}>Paid</label>
             <input
               type="text"
@@ -118,7 +147,7 @@ export default class editMember extends Component {
               value={this.payment(this.state.isPaid)}
               onChange={this.handleInputChange}
             />
-          </div>
+          </div> */}
 
           <button
             className="btn btn-success"
