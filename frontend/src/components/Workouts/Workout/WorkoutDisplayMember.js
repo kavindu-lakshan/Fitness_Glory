@@ -1,11 +1,7 @@
 import React from "react";
-import { Button, Grid, ButtonBase } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
+import { Grid, ButtonBase } from "@material-ui/core";
 import moment from "moment";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { deleteWorkout } from "../../../actions/workouts";
 import { useHistory } from "react-router";
 
 const Workout = ({ workout, setCurrentId }) => {
@@ -16,7 +12,7 @@ const Workout = ({ workout, setCurrentId }) => {
   return (
     <Grid item xs={6} sm={3}>
       <br></br>
-      <div class="card border-dark text-dark">
+      <div className="card border-dark text-dark">
         <div className="card-header">
           {workout.workout_name}
           <br></br>
@@ -50,33 +46,6 @@ const Workout = ({ workout, setCurrentId }) => {
             <br></br>
           </div>
         </ButtonBase>
-        <div className="card-header">
-          <Link
-            to={"/trainer/workouts/update/" + workout._id}
-            style={{ textDecoration: "none" }}
-          >
-            <Button
-              size="small"
-              color="primary"
-              onClick={() => setCurrentId(workout._id)}
-            >
-              <EditIcon fontSize="small" />
-              &nbsp; Update
-            </Button>
-          </Link>
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => {
-              if (window.confirm("Are you sure you want to delete this")) {
-                dispatch(deleteWorkout(workout._id));
-              }
-            }}
-          >
-            <DeleteIcon fontSize="small" />
-            &nbsp; Delete
-          </Button>
-        </div>
       </div>
     </Grid>
   );
