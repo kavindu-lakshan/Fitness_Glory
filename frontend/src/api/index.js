@@ -10,5 +10,4 @@ export const createWorkout = (newWorkout) =>
 export const updateWorkout = (id, updatedWorkout) =>
   API.patch(`${"/workouts/update"}/${id}`, updatedWorkout);
 
-export const deleteWorkout = (id) =>
-  axios.delete(`${"http://localhost:5000/workouts"}/${id}`);
+export const deleteWorkout = (id) => API.delete(`${"/workouts"}/${id}`);

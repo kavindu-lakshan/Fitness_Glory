@@ -120,12 +120,27 @@ const Form = ({ currentId, setCurrentId }) => {
     setActionError({});
   };
 
+  const add = () => {
+    setWorkoutData({
+      workout_name: "Ab Rollout (Ball)",
+      workout_category: "Cardio",
+      muscle_group: "Abs",
+      starting_position_img: "",
+      mid_position_img: "",
+      instructions:
+        "Lie on your knees, place your hands on top of the ball in front of you, arms extended and back straight.",
+      action:
+        "Keeping your back and arms extended, roll on top of the ball until your upper arms are pressed against it and pull yourself back up after a short pause.",
+      tips: "Keep your arms extended and your back straight throughout.",
+    });
+  };
+
   return (
     <div className="wrapper">
       <div className="title">{currentId ? "Edit" : "Create New"} Workout</div>
       <div className="form">
         <div className="input_field">
-          <label>Workout Name</label>
+          <label>Workout Name *</label>
           <input
             type="text"
             className="input"
@@ -140,7 +155,7 @@ const Form = ({ currentId, setCurrentId }) => {
         })}
 
         <div className="input_field">
-          <label>Workout Category</label>
+          <label>Workout Category *</label>
           <div className="custom_select">
             <select
               value={workoutData.workout_category}
@@ -162,7 +177,7 @@ const Form = ({ currentId, setCurrentId }) => {
         })}
 
         <div className="input_field">
-          <label>Muscle Group</label>
+          <label>Muscle Group *</label>
           <input
             type="text"
             className="input"
@@ -177,7 +192,7 @@ const Form = ({ currentId, setCurrentId }) => {
         })}
 
         <div className="input_field">
-          <label>Instructions</label>
+          <label>Instructions *</label>
           <textarea
             className="textarea"
             value={workoutData.instructions}
@@ -191,7 +206,7 @@ const Form = ({ currentId, setCurrentId }) => {
         })}
 
         <div className="input_field">
-          <label>Action</label>
+          <label>Action *</label>
           <textarea
             className="textarea"
             value={workoutData.action}
@@ -216,7 +231,7 @@ const Form = ({ currentId, setCurrentId }) => {
         </div>
 
         <div className="input_field">
-          <label>Starting Position Image</label>
+          <label>Starting Position Image *</label>
           <FileBase
             type="file"
             multiple={false}
@@ -230,7 +245,7 @@ const Form = ({ currentId, setCurrentId }) => {
         </div>
 
         <div className="input_field">
-          <label>Mid Position Image</label>
+          <label>Mid Position Image *</label>
           <FileBase
             type="file"
             multiple={false}
@@ -251,6 +266,7 @@ const Form = ({ currentId, setCurrentId }) => {
           Submit
         </Button>
         <Button
+          className={classes.buttonSubmit}
           variant="contained"
           color="secondary"
           size="large"
@@ -258,6 +274,15 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
         >
           Clear
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          onClick={add}
+          fullWidth
+        >
+          DEMO
         </Button>
       </div>
     </div>

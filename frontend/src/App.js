@@ -5,8 +5,13 @@ import { Redirect } from "react-router";
 
 import { getWorkouts } from "./actions/workouts";
 import Workouts from "./components/Workouts/Workouts";
+import WorkoutsDisplayMember from "./components/Workouts/WorkoutsDisplayMember";
 import WorkoutDetails from "./components/WorkoutDetails/WorkoutDetails";
 import Form from "./components/Form/Form";
+
+//shehan imports
+import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
+import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
 import AllProgramsAdmin from "./components/AllProgramsAdmin";
 import CreateProgramAdmin from "./components/CreateProgramAdmin";
 import EditProgramAdmin from "./components/EditProgramAdmin";
@@ -69,6 +74,12 @@ const App = () => {
         )}
       ></Route>
       <Route path="/workouts/:id" component={WorkoutDetails} />
+      <Route path="/member/workouts" component={WorkoutsDisplayMember} />
+      <Route
+        exact
+        path="/trainer/workouts"
+        component={() => <Redirect to="/workouts" />}
+      />
       <main>
         <Route path="/member" component={LandingPage} exact />
         <Route path="/member/login" component={LoginScreen} />
@@ -78,7 +89,9 @@ const App = () => {
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
-
+        
+        <Route path="/member/workout-programs" component={AllprogramsMemer}></Route>
+        <Route path="/admin-card" component={workoutprogramcard}></Route>
         <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
         <Route
