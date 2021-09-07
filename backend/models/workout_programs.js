@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const workoutProgramSchema = new mongoose.Schema({
+    photoURL: {
+        type: String, required: true
+    },
     name: {
         type: String, required: true
     }, 
