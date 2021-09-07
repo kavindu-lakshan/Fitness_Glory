@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import Workout from "./Workout/Workout";
+import WorkoutDisplayMember from "./Workout/WorkoutDisplayMember";
 import useStyles from "./styles";
-import Pagination from "../Pagination";
+import PaginationMember from "../PaginationMember";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-const Workouts = ({ setCurrentId }) => {
+const WorkoutsDisplayMember = ({ setCurrentId }) => {
   const { workouts } = useSelector((state) => state.workouts);
   const classes = useStyles();
   const query = useQuery();
@@ -38,7 +38,6 @@ const Workouts = ({ setCurrentId }) => {
             aria-describedby="search-addon"
           />
         </div>
-        <div></div>
       </div>
       <Grid
         className={classes.container}
@@ -57,7 +56,7 @@ const Workouts = ({ setCurrentId }) => {
             }
           })
           .map((workout) => (
-            <Workout
+            <WorkoutDisplayMember
               workout={workout}
               setCurrentId={setCurrentId}
               key={workout._id}
@@ -65,9 +64,9 @@ const Workouts = ({ setCurrentId }) => {
           ))}
       </Grid>
       &nbsp;
-      <Pagination page={page} />
+      <PaginationMember page={page} />
     </div>
   );
 };
 
-export default Workouts;
+export default WorkoutsDisplayMember;
