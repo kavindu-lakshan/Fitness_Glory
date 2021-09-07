@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import Workout from "./Workout/WorkoutDisplayMember";
+import WorkoutDisplayMember from "./Workout/WorkoutDisplayMember";
 import useStyles from "./styles";
 import PaginationMember from "../PaginationMember";
 
@@ -54,10 +54,9 @@ const WorkoutsDisplayMember = ({ setCurrentId }) => {
             ) {
               return val;
             }
-            return val;
           })
           .map((workout) => (
-            <Workout
+            <WorkoutDisplayMember
               workout={workout}
               setCurrentId={setCurrentId}
               key={workout._id}

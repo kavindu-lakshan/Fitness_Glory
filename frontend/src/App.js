@@ -71,6 +71,11 @@ const App = () => {
       ></Route>
       <Route path="/workouts/:id" component={WorkoutDetails} />
       <Route path="/member/workouts" component={WorkoutsDisplayMember} />
+      <Route
+        exact
+        path="/trainer/workouts"
+        component={() => <Redirect to="/workouts" />}
+      />
       <main>
         <Route path="/member" component={LandingPage} exact />
         <Route path="/member/login" component={LoginScreen} />

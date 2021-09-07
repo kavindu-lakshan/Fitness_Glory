@@ -4,8 +4,7 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
-const Workout = ({ workout, setCurrentId }) => {
-  const dispatch = useDispatch();
+const WorkoutDisplayMember = ({ workout, setCurrentId }) => {
   const history = useHistory();
   const openWorkout = () => history.push(`/workouts/${workout._id}`);
 
@@ -51,4 +50,4 @@ const Workout = ({ workout, setCurrentId }) => {
   );
 };
 
-export default Workout;
+export default WorkoutDisplayMember;

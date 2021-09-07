@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Workout from "./Workout/Workout";
 import useStyles from "./styles";
 import Pagination from "../Pagination";
@@ -38,6 +38,7 @@ const Workouts = ({ setCurrentId }) => {
             aria-describedby="search-addon"
           />
         </div>
+        <div></div>
       </div>
       <Grid
         className={classes.container}

@@ -70,6 +70,7 @@ const Workout = ({ workout, setCurrentId }) => {
             onClick={() => {
               if (window.confirm("Are you sure you want to delete this")) {
                 dispatch(deleteWorkout(workout._id));
+                history.push("/trainer/workouts");
               }
             }}
           >
