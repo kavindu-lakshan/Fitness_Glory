@@ -2,15 +2,18 @@
   min-height: 93vh;
   display: flex;
   align-items: center;
+  background-image: url("../../components/ImagesD/background4.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .title {
   font-size: 95px;
+  color: #e2f516;
 }
 .subtitle {
   font-size: 25px;
+  color: #9dc209;
   padding-top: 10px;
 }
 

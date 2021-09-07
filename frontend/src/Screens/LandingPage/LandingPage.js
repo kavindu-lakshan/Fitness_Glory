@@ -22,15 +22,15 @@ const LandingPage = ({ history }) => {
             </div>
             <div className="buttonContainer">
               <a href="/member/login">
-                <Button size="lg" className="landingbutton">
+                <Button size="md" className="landingbutton">
                   Login
                 </Button>
               </a>
               <a href="/member/register">
                 <Button
-                  size="lg"
+                  size="md"
                   className="landingbutton"
-                  variant="outline-primary"
+                  variant="outline-light"
                 >
                   Signup
                 </Button>
