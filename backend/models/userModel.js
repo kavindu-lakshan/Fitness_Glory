@@ -23,18 +23,17 @@ const userSchema = mongoose.Schema(
       default: false,
     },
 
-    //new
-    isPaid: {
-      type: Boolean,
+    packageType: {
+      type: String,
       required: true,
-      default: false,
-    },
-    createdAt: {
-      type: Date,
-      required: true,
-      default: new Date(),
+      default: "Null",
     },
     //new
+    // isPaid: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false,
+    // },
 
     pic: {
       type: String,
