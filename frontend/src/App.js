@@ -7,6 +7,10 @@ import { getWorkouts } from "./actions/workouts";
 import Workouts from "./components/Workouts/Workouts";
 import WorkoutDetails from "./components/WorkoutDetails/WorkoutDetails";
 import Form from "./components/Form/Form";
+
+//shehan imports
+import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
+import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
 import AllProgramsAdmin from "./components/AllProgramsAdmin";
 import CreateProgramAdmin from "./components/CreateProgramAdmin";
 import EditProgramAdmin from "./components/EditProgramAdmin";
@@ -78,7 +82,9 @@ const App = () => {
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
-
+        
+        <Route path="/member/workout-programs" component={AllprogramsMemer}></Route>
+        <Route path="/admin-card" component={workoutprogramcard}></Route>
         <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
         <Route
