@@ -1,9 +1,22 @@
 import * as api from "../api";
 
 //Action Creators
-export const getWorkouts = () => async (dispatch) => {
+export const getWorkout = (id) => async (dispatch) => {
   try {
-    const { data } = await api.fetchWorkouts();
+    const { data } = await api.fetchWorkout(id);
+
+    console.log(data);
+    dispatch({ type: "FETCH_WORKOUT", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getWorkouts = (page) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchWorkouts(page);
+
+    console.log(data);
     dispatch({ type: "FETCH_ALL", payload: data });
   } catch (error) {
     console.log(error.message);

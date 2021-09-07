@@ -1,16 +1,23 @@
-export const work = (workouts = [], action) => {
+export const work = (state = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
-      return action.payload;
+      return {
+        ...state,
+        workouts: action.payload.data,
+        currentPage: action.payload.currentPage,
+        numberOfPages: action.payload.numberOfPages,
+      };
+    case "FETCH_WORKOUT":
+      return { ...state, workout: action.payload };
     case "CREATE":
-      return [...workouts, action.payload];
+      return [...state, action.payload];
     case "UPDATE":
-      return workouts.map((workout) =>
+      return state.map((workout) =>
         workout._id === action.payload._id ? action.payload : workout
       );
     case "DELETE":
-      return workouts.filter((workout) => workout._id !== action.payload);
+      return state.filter((workout) => workout._id !== action.payload);
     default:
-      return workouts;
+      return state;
   }
 };

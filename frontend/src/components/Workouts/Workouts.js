@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
 import Workout from "./Workout/Workout";
-import Filters from "../Filter/Filters";
 import useStyles from "./styles";
+import Pagination from "../Pagination";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 const Workouts = ({ setCurrentId }) => {
-  const workouts = useSelector((state) => state.workouts);
+  const { workouts } = useSelector((state) => state.workouts);
   const classes = useStyles();
+  const query = useQuery();
+  const page = query.get("page") || 1;
+  const [search, setSearch] = useState("");
 
   console.log(workouts);
 
-  return !workouts.length ? (
-    <CircularProgress
-      size={40}
-      left={-20}
-      top={10}
-      status={"loading"}
-      style={{ marginLeft: "50%", marginTop: "50px" }}
-    />
+  return !workouts?.length ? (
+    <CircularProgress />
   ) : (
     <div>
-      <div style={{ textAlign: "center", fontSize: "25px" }}>
-        <Filters />
+      <div className="container">
+        <div className="input-group" style={{ marginTop: "20px" }}>
+          <input
+            type="search"
+            name="search"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+            className="form-control rounded"
+            placeholder="Search Workout"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+        </div>
       </div>
       <Grid
         className={classes.container}
@@ -30,16 +45,26 @@ const Workouts = ({ setCurrentId }) => {
         alignItems="stretch"
         spacing={3}
       >
-        {workouts.map((workout) => (
-          // <Grid key={workout._id} item xs={12} sm={0} item>
-          <Workout
-            workout={workout}
-            setCurrentId={setCurrentId}
-            key={workout._id}
-          />
-          // </Grid>
-        ))}
+        {workouts
+          .filter((val) => {
+            if (search === "") {
+              return val;
+            } else if (
+              val.workout_name.toLowerCase().includes(search.toLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .map((workout) => (
+            <Workout
+              workout={workout}
+              setCurrentId={setCurrentId}
+              key={workout._id}
+            />
+          ))}
       </Grid>
+      &nbsp;
+      <Pagination page={page} />
     </div>
   );
 };

@@ -1,11 +1,35 @@
 const mongoose = require("mongoose");
 const workout = require("../models/workout.js");
 
-const getWorkouts = async (req, res) => {
-  try {
-    const workouts = await workout.find();
+const getWorkout = async (req, res) => {
+  const { id } = req.params;
 
-    res.status(200).json(workouts);
+  try {
+    const work = await workout.findById(id);
+
+    res.status(200).json(work);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+const getWorkouts = async (req, res) => {
+  const { page } = req.query;
+  try {
+    const LIMIT = 8;
+    const startIndex = (Number(page) - 1) * LIMIT;
+    const total = await workout.countDocuments({});
+    const workouts = await workout
+      .find()
+      .sort({ _id: -1 })
+      .limit(LIMIT)
+      .skip(startIndex);
+
+    res.status(200).json({
+      data: workouts,
+      currentPage: Number(page),
+      numberOfPages: Math.ceil(total / LIMIT),
+    });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -50,4 +74,10 @@ const deleteWorkout = async (req, res) => {
   res.json({ message: "Post deleted successfully" });
 };
 
-module.exports = { updateWorkout, createWorkout, getWorkouts, deleteWorkout };
+module.exports = {
+  updateWorkout,
+  createWorkout,
+  getWorkouts,
+  deleteWorkout,
+  getWorkout,
+};

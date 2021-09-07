@@ -26,7 +26,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const [actionError, setActionError] = useState({});
 
   const workout = useSelector((state) =>
-    currentId ? state.workouts.find((p) => p._id === currentId) : null
+    currentId ? state.workouts.workouts.find((p) => p._id === currentId) : null
   );
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -45,11 +45,11 @@ const Form = ({ currentId, setCurrentId }) => {
       if (currentId) {
         dispatch(updateWorkout(currentId, workoutData));
         alert("Workout Updated Successfully");
-        history.push("/");
+        history.push("/workouts");
       } else {
         dispatch(createWorkout(workoutData));
         alert("Workout Created Successfully");
-        history.push("/");
+        history.push("/workouts");
       }
       clear();
     }
