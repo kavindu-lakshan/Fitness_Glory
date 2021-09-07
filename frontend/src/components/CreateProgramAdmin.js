@@ -12,7 +12,8 @@ export default class CreateProgramAdmin extends Component {
             conducted_by:'',
             fee:'',
             day:'',
-            time:''
+            time:'',
+            photo: ''
         }
     }
 
@@ -25,10 +26,15 @@ export default class CreateProgramAdmin extends Component {
         })
     }
 
+    
+    handlePhoto = (e) => {
+        this.setState({...this.state, photo: e.target.files[0]});
+    }
+
     onSubmit = (e) => {
         e.preventDefault();
 
-        const {name,description,conducted_by,fee,day,time} = this.state;
+        const {name,description,conducted_by,fee,day,time,photo} = this.state;
 
         const data ={
             name:name,
@@ -36,18 +42,22 @@ export default class CreateProgramAdmin extends Component {
             conducted_by:conducted_by,
             day:day,
             fee:fee,
-            time:time
+            time:time,
+            photo:photo
         }
         axios.post("http://localhost:5000/program/save",data).then((res) =>{
             if(res.data.success){
-                //resetting states to use for another time
+                alert(data.name+' created successfully');
+                window.location = '/admin-programs';
+
                 this.setState({
                     name:'',
                     description:'',
                     conducted_by:'',
                     fee:'',
                     day:'',
-                    time:''
+                    time:'',
+                    photo:''
                 })
             }
         })
@@ -57,7 +67,13 @@ export default class CreateProgramAdmin extends Component {
         return (
             <div className='col-md-8 mt-4 mx-auto'>
                 <h1 className='h3 mb-3 font-weight-normal'>Create new program</h1>
-                    <form className='needs-validation' noValidate>
+                    <form className='needs-validation' noValidate encType='multipart/form-data'>
+                        <input 
+                            type="file" 
+                            accept=".png, .jpg, .jpeg"
+                            name="photo"
+                            onChange={this.handlePhoto}
+                        />
                         <div className='form-group' style={{marginBottom:'15px'}}>
                             <label style={{marginBottom:'5px'}}>Name</label>
                             <input type="text"
