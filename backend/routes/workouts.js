@@ -5,13 +5,13 @@ const {
   createWorkout,
   updateWorkout,
   deleteWorkout,
-  getWorkoutsBySearch,
+  getWorkout,
 } = require("../controllers/workouts.js");
 
 const router = express.Router();
 
 router.get("/", getWorkouts);
-router.get("/search", getWorkoutsBySearch);
+router.get("/:id", getWorkout);
 router.post("/add", createWorkout);
 router.patch("/update/:id", updateWorkout);
 router.delete("/:id", deleteWorkout);

@@ -16,7 +16,7 @@ const Paginate = ({ page }) => {
 
   return (
     <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-end">
+      <ul className="pagination justify-content-end">
         <Pagination
           classes={{ ul: classes.ul }}
           count={numberOfPages}

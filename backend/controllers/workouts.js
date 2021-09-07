@@ -1,10 +1,22 @@
 const mongoose = require("mongoose");
 const workout = require("../models/workout.js");
 
+const getWorkout = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const work = await workout.findById(id);
+
+    res.status(200).json(work);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 const getWorkouts = async (req, res) => {
   const { page } = req.query;
   try {
-    const LIMIT = 4;
+    const LIMIT = 8;
     const startIndex = (Number(page) - 1) * LIMIT;
     const total = await workout.countDocuments({});
     const workouts = await workout
@@ -18,19 +30,6 @@ const getWorkouts = async (req, res) => {
       currentPage: Number(page),
       numberOfPages: Math.ceil(total / LIMIT),
     });
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
-const getWorkoutsBySearch = async (req, res) => {
-  const { searchQuery } = req.query;
-  try {
-    const workout_name = new RegExp(searchQuery, "i");
-
-    const workouts = await workout.find({ workout_name });
-
-    res.json({ data: workouts });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -80,5 +79,5 @@ module.exports = {
   createWorkout,
   getWorkouts,
   deleteWorkout,
-  getWorkoutsBySearch,
+  getWorkout,
 };

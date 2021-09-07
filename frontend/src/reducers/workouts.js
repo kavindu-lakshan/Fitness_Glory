@@ -7,8 +7,8 @@ export const work = (state = [], action) => {
         currentPage: action.payload.currentPage,
         numberOfPages: action.payload.numberOfPages,
       };
-    case "FETCH_BY_SEARCH":
-      return { ...state, workouts: action.payload };
+    case "FETCH_WORKOUT":
+      return { ...state, workout: action.payload };
     case "CREATE":
       return [...state, action.payload];
     case "UPDATE":

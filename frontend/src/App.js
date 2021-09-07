@@ -5,6 +5,7 @@ import { Redirect } from "react-router";
 
 import { getWorkouts } from "./actions/workouts";
 import Workouts from "./components/Workouts/Workouts";
+import WorkoutDetails from "./components/WorkoutDetails/WorkoutDetails";
 import Form from "./components/Form/Form";
 import AllProgramsAdmin from "./components/AllProgramsAdmin";
 import CreateProgramAdmin from "./components/CreateProgramAdmin";
@@ -44,7 +45,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* <Header /> */}
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
       <div className="container-fluid">
@@ -54,7 +54,6 @@ const App = () => {
           component={() => <Workouts setCurrentId={setCurrentId} />}
         ></Route>
       </div>
-      {/* <Workouts path="/" setCurrentId={setCurrentId} exact /> */}
       <Route
         path="/trainer/workouts/add"
         exact
@@ -62,8 +61,6 @@ const App = () => {
           <Form currentId={currentId} setCurrentId={setCurrentId} />
         )}
       ></Route>
-      {/* <Form path="/add" exact /> */}
-
       <Route
         path="/trainer/workouts/update/:id"
         exact
@@ -71,14 +68,7 @@ const App = () => {
           <Form currentId={currentId} setCurrentId={setCurrentId} />
         )}
       ></Route>
-      {/* <Form
-              path="/update/:id"
-              currentId={currentId}
-              setCurrentId={setCurrentId}
-              exact
-            /> */}
-      <Route path="/workouts/search" exact component={Workouts} />
-
+      <Route path="/workouts/:id" component={WorkoutDetails} />
       <main>
         <Route path="/member" component={LandingPage} exact />
         <Route path="/member/login" component={LoginScreen} />

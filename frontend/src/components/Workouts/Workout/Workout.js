@@ -1,14 +1,17 @@
 import React from "react";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, ButtonBase } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteWorkout } from "../../../actions/workouts";
+import { useHistory } from "react-router";
 
 const Workout = ({ workout, setCurrentId }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const openWorkout = () => history.push(`/workouts/${workout._id}`);
 
   return (
     <Grid item xs={6} sm={3}>
@@ -20,29 +23,32 @@ const Workout = ({ workout, setCurrentId }) => {
           Created {moment(workout.createdAt).fromNow()}
         </div>
       </div>
-      <div className="card-body" style={{ fontSize: "14px" }}>
-        <h6 className="card-title">
-          Workout Category: {workout.workout_category}
-        </h6>
-        {/* <p className="card-text">
-          Main Targer Muscle Group: {workout.muscle_group}
-        </p>
-        <p className="card-text">Instruction: {workout.instructions}</p>
-        <p className="card-text">Action: {workout.action}</p>
-        <p className="card-text">Tips: {workout.tips}</p> */}
-        <img
-          src={workout.starting_position_img}
-          style={{ height: "85px", width: "85px" }}
-          alt=""
-        />
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <img
-          src={workout.mid_position_img}
-          style={{ height: "85px", width: "85px" }}
-          alt=""
-        />
-        <br></br>
-      </div>
+
+      <ButtonBase onClick={openWorkout}>
+        <div className="card-body" style={{ fontSize: "14px" }}>
+          <h6 className="card-title">
+            Workout Category: {workout.workout_category}
+          </h6>
+          <p className="card-text">
+            Main Targert Muscle Group: {workout.muscle_group}
+          </p>
+          {/* <p className="card-text">Instruction: {workout.instructions}</p>
+          <p className="card-text">Action: {workout.action}</p>
+          <p className="card-text">Tips: {workout.tips}</p> */}
+          <img
+            src={workout.starting_position_img}
+            style={{ height: "85px", width: "85px" }}
+            alt=""
+          />
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <img
+            src={workout.mid_position_img}
+            style={{ height: "85px", width: "85px" }}
+            alt=""
+          />
+          <br></br>
+        </div>
+      </ButtonBase>
       <div className="card-header">
         <Link
           to={"/trainer/workouts/update/" + workout._id}

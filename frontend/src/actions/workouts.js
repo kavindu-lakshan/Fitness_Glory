@@ -1,6 +1,17 @@
 import * as api from "../api";
 
 //Action Creators
+export const getWorkout = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchWorkout(id);
+
+    console.log(data);
+    dispatch({ type: "FETCH_WORKOUT", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const getWorkouts = (page) => async (dispatch) => {
   try {
     const { data } = await api.fetchWorkouts(page);
@@ -9,18 +20,6 @@ export const getWorkouts = (page) => async (dispatch) => {
     dispatch({ type: "FETCH_ALL", payload: data });
   } catch (error) {
     console.log(error.message);
-  }
-};
-
-export const getWorkoutsBySearch = (searchQuery) => async (dispatch) => {
-  try {
-    const {
-      data: { data },
-    } = await api.fetchWorkoutsBySearch(searchQuery);
-
-    dispatch({ type: "FETCH_BY_SEARCH", payload: data });
-  } catch (error) {
-    console.log(error);
   }
 };
 
