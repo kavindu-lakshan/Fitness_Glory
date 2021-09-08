@@ -121,6 +121,15 @@ export default class viewMembers extends Component {
             />
           </div>
         </div>
+        <button className="btn btn-success">
+          {" "}
+          <a
+            href="/employee/adminPanel"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Summary
+          </a>
+        </button>
         <table class="table">
           <thead>
             <tr>
