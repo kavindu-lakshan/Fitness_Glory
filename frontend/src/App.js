@@ -12,10 +12,10 @@ import Form from "./components/WorkoutSupportManagement/Form/Form";
 //shehan imports
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
 import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
-import AllProgramsAdmin from "./components/AllProgramsAdmin";
-import CreateProgramAdmin from "./components/CreateProgramAdmin";
-import EditProgramAdmin from "./components/EditProgramAdmin";
-import ProgramDetailsAdmin from "./components/ProgramDetailsAdmin";
+import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/AllProgramsAdmin";
+import CreateProgramAdmin from "./components/WorkoutProgramAdmin/CreateProgramAdmin/CreateProgramAdmin";
+import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/EditProgramAdmin";
+import ProgramDetailsAdmin from "./components/WorkoutProgramAdmin/ProgramDetailsAdmin/ProgramDetailsAdmin";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/footer";
@@ -91,23 +91,16 @@ const App = () => {
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
-
-        <Route
-          path="/member/workout-programs"
-          component={AllprogramsMemer}
-        ></Route>
-        <Route path="/admin-card" component={workoutprogramcard}></Route>
+        
+        {/*Shehan routes */}
+        <Route path="/employee/memberDetails" component={viewMembers}></Route>
+        <Route path="/employee/editDetails/:id" component={editMember}></Route>
+        <Route path="/member/workout-programs" component={AllprogramsMemer}></Route>
         <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
-        <Route
-          path="/admin-edit-program/:id"
-          component={EditProgramAdmin}
-        ></Route>
-        <Route
-          path="/admin-expand-program/:id"
-          component={ProgramDetailsAdmin}
-        ></Route>
-        
+        <Route path="/admin-edit-program/:id" component={EditProgramAdmin}></Route>
+        <Route path="/admin-expand-program/:id" component={ProgramDetailsAdmin}></Route>
+
         <Route exact path = "/member/QandA/:mUsername" component = {QandA}/>
         <Route exact path = "/member/q/createQ/:mUsername" component = {CreateQuestion}/>
         <Route exact path = "/member/updateQ/:id" component = {UpdateQuestion}/>
