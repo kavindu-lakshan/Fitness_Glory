@@ -39,6 +39,7 @@ import { DeleteAnswer } from "./components/QAndASection/DeleteAnswer";
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
+import memberPannel from "./Receptionist/memberPannel";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -89,8 +90,12 @@ const App = () => {
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
-        
-        <Route path="/member/workout-programs" component={AllprogramsMemer}></Route>
+        <Route path="/employee/adminPanel" component={memberPannel}></Route>
+
+        <Route
+          path="/member/workout-programs"
+          component={AllprogramsMemer}
+        ></Route>
         <Route path="/admin-card" component={workoutprogramcard}></Route>
         <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
