@@ -30,6 +30,14 @@ import { UpdateAnswer } from './components/QAndASection/UpdateAnswer';
 import { DeleteAnswer } from './components/QAndASection/DeleteAnswer';
 
 
+//Amantha Trainer Login
+import TrainerLandingPage from "./Screens/LandingPage/TrainerLandingPage";
+import TrainerHomePage from "./Screens/HomePage/TrainerHomePage";
+import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
+import TrainerRegisterScreen from "./Screens/RegisterScreen/TrainerRegisterScreen";
+import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
+import TrainerHeader from "./components/Header/TrainerHeader";
+
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
@@ -40,7 +48,13 @@ const App = () => {
 
   return (
     <BrowserRouter>
+<<<<<<< HEAD
       <Header />
+=======
+       <Route exact path="/" render={() => <Redirect to="/member" />} /> 
+       <Route path="/member" component={Header} /> 
+      <Route path="/employee" component={TrainerHeader} />
+>>>>>>> cfbec9a (Trainer SignIn/Signup)
       <div className="container-fluid">
         <Route
           path="/workouts"
@@ -72,12 +86,23 @@ const App = () => {
               exact
             /> */}
 
+<<<<<<< HEAD
       <main>
         <Route path="/" component={LandingPage} exact />
         <Route path="/login" component={LoginScreen} />
         <Route path="/profile" component={ProfileScreen} />
         <Route path="/register" component={RegisterScreen} />
         <Route path="/Home" component={() => <HomePage />} />
+=======
+        <Route path="/employee/" component={TrainerLandingPage} exact />
+        <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
+        <Route path="/employee/trainer-profile" component={TrainerProfileScreen} />
+        <Route path="/employee/trainer-register" component={TrainerRegisterScreen} />
+        <Route path="/employee/trainerHome" component={() => <TrainerHomePage />} />
+
+        <Route path="/employee/memberDetails" component={viewMembers}></Route>
+        <Route path="/employee/editDetails/:id" component={editMember}></Route>
+>>>>>>> cfbec9a (Trainer SignIn/Signup)
 
         <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
