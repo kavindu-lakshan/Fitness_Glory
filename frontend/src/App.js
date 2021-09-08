@@ -53,6 +53,7 @@ const App = () => {
     <BrowserRouter>
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
+
       <div className="container-fluid">
         <Route
           path="/workouts"
