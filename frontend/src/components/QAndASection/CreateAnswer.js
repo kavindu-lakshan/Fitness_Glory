@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import { useRouteMatch } from 'react-router-dom';
-import { createAnswer } from '../../api/apiFBQA';
-import { useHistory } from 'react-router';
+import { useRouteMatch, useHistory } from 'react-router-dom';
+import { createAnswer, selectQuestionDetailsA } from '../../api/apiFBQA';
 import { AnswerForm } from './Forms/AnswerForm';
-import {selectQuestionDetailsA} from '../../api/apiFBQA';
-import squat from '../ImagesD/squat1.png'
-
+import createAnswerBg from './ImagesD/createAnswerBg.png'
+ 
 export const CreateAnswer = () =>{
     const history = useHistory();
     const match = useRouteMatch();
@@ -21,7 +19,7 @@ export const CreateAnswer = () =>{
 
     const onSubmit = async (data) =>{
         await createAnswer(data)
-        history.push("/myAnswers/:mUsername");
+        history.push("/member/myAnswers/:mUsername");
     };
     
     return question ?(
@@ -44,11 +42,9 @@ const heading={
 }
 
 const bgImg ={
-    background: `linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)) ,url(${squat})`,
+    background: `linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)) ,url(${createAnswerBg})`,
     backgroundSize: 'cover',
-    position: 'relative',
-    right:'0%',
-    left:'0%',
+    position: 'center',
     width: '100%',
     height: '100%',
     opacity:'1'

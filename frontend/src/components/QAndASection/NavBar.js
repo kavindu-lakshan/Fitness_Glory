@@ -24,17 +24,17 @@ export const NavBar = () =>{
             <Router>
             <div>
                 <AppBar style={nav}position="static">
-                <div className={classes.flexGrow} />
+                <div className={classes.flexGrow}/>
                     <Tabs  aria-label="simple tabs example">
-                        <Tab className={classes.button} label="My Questions" href="/QandA/:mUsername"/>
-                        <Tab className={classes.button} label="My Answers" href="/myAnswers/:mUsername"/>
-                        <Tab className={classes.button} label="New Questions" href="/q/createQ/:mUsername"/>
-                        <Tab className={classes.button} label="Other Questions" href="/otherQ"/>
+                        <Tab className={classes.button} label="My Questions" href="/member/QandA/:mUsername"/>
+                        <Tab className={classes.button} label="My Answers" href="/member/myAnswers/:mUsername"/>
+                        <Tab className={classes.button} label="New Questions" href="/member/q/createQ/:mUsername"/>
+                        <Tab className={classes.button} label="Other Questions" href="/member/otherQ"/>
                     </Tabs>
                 </AppBar>
             </div>
             </Router>
-    </div>
+        </div>
     )
 }
 
