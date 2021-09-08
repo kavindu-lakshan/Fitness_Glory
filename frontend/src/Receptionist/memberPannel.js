@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Bar } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import { Card, CardGroup } from "react-bootstrap";
+import jspdf from "jspdf";
+import "jspdf-autotable";
+import Logo from "../logo.png";
 
 export default class memberPannel extends Component {
   constructor(props) {
@@ -52,65 +55,166 @@ export default class memberPannel extends Component {
     return countTypes.length;
   }
 
+  generatePDF(details) {
+    const doc = new jspdf();
+    const tableColumn = ["Name", "Email", "Package"];
+    const tableRows = [];
+
+    details.map((detail) => {
+      const memberDetail = [detail.name, detail.email, detail.packageType];
+      tableRows.push(memberDetail);
+    });
+    doc.text("Members Report", 14, 15).setFontSize(12);
+    doc.addImage(Logo, "JPEG", 115, 5, 80, 30);
+    doc.autoTable(tableColumn, tableRows, {
+      styles: { fontSize: 8 },
+      startY: 35,
+    });
+    doc.save("Member_Report.pdf");
+  }
+
+  generatePDFFamily(type) {
+    const doc = new jspdf();
+    const tableColumn = ["Name", "Email", "Package"];
+    const tableRows = [];
+    const countTypes = this.state.details.filter(
+      (packageType) => packageType.packageType === type
+    );
+
+    countTypes.map((detail) => {
+      const memberDetail = [detail.name, detail.email, detail.packageType];
+      tableRows.push(memberDetail);
+    });
+    doc.text("Members Report", 14, 15).setFontSize(12);
+    doc.addImage(Logo, "JPEG", 190, 5, 15, 15);
+    doc.autoTable(tableColumn, tableRows, {
+      styles: { fontSize: 8 },
+      startY: 35,
+    });
+    doc.save("Member_Report.pdf");
+  }
+
   render() {
     return (
       <div className="container">
         <CardGroup style={{ padding: 50 }}>
-          <Card style={{ textAlign: "center" }}>
-            Individual Male: {this.countType("Individual Male")}
+          <Card style={{ padding: 50 }}>
+            <Card.Title>
+              <h1>Number of Users</h1>
+            </Card.Title>
+            <br />
+            <Card.Text>
+              <h4> Individual Male: {this.countType("Individual Male")}</h4>
+              <h4>Individual Female: {this.countType("Individual Female")}</h4>
+              <h4>Student: {this.countType("Student")}</h4>
+              <h4>Family: {this.countType("Family")}</h4>
+              <br />
+              <h1>Reports</h1>
+              <br />
+              <button
+                type="button"
+                className="btn btn-success"
+                style={{ width: 200 }}
+                onClick={() => this.generatePDF(this.state.details)}
+              >
+                All Users
+              </button>
+              <br />
+              <br />
+              <button
+                type="button"
+                className="btn btn-success"
+                style={{ width: 200 }}
+                onClick={() => this.generatePDFFamily("Individual Male")}
+              >
+                Individual Male
+              </button>
+              <br />
+              <br />
+              <button
+                type="button"
+                className="btn btn-success"
+                style={{ width: 200 }}
+                onClick={() => this.generatePDFFamily("Individual Female")}
+              >
+                Individual Female
+              </button>
+              <br />
+              <br />
+              <button
+                type="button"
+                className="btn btn-success"
+                style={{ width: 200 }}
+                onClick={() => this.generatePDFFamily("Student")}
+              >
+                Student
+              </button>
+              <br />
+              <br />
+              <button
+                type="button"
+                className="btn btn-success"
+                style={{ width: 200 }}
+                onClick={() => this.generatePDFFamily("Family")}
+              >
+                Family
+              </button>
+            </Card.Text>
           </Card>
-          <Card style={{ textAlign: "center" }}>
-            Individual Female: {this.countType("Individual Female")}
-          </Card>
-          <Card style={{ textAlign: "center" }}>
-            Student: {this.countType("Student")}
-          </Card>
-          <Card style={{ textAlign: "center" }}>
-            Family: {this.countType("Family")}
+
+          <Card bg="primary" text="white" style={{ width: "30rem" }}>
+            <Card.Title style={{ padding: 40 }}>Users of Packages</Card.Title>
+            <div>
+              <Pie
+                style={{ width: 900, height: 500, padding: 10 }}
+                data={{
+                  labels: [
+                    "Individual Male",
+                    "Individual Female",
+                    "Student",
+                    "Family",
+                  ],
+                  datasets: [
+                    {
+                      label: "Members",
+                      backgroundColor: [
+                        "#B21F00",
+                        "#C9DE00",
+                        "#2FDE00",
+                        "#00A6B4",
+                        "#6800B4",
+                      ],
+                      hoverBackgroundColor: [
+                        "#501800",
+                        "#4B5000",
+                        "#175000",
+                        "#003350",
+                        "#35014F",
+                      ],
+                      data: [
+                        this.countType("Individual Male"),
+                        this.countType("Individual Female"),
+                        this.countType("Student"),
+                        this.countType("Family"),
+                      ],
+                    },
+                  ],
+                }}
+                options={{
+                  title: {
+                    display: true,
+                    text: "Users of Packages",
+                    fontSize: 20,
+                  },
+                  legend: {
+                    display: true,
+                    position: "right",
+                  },
+                }}
+              />
+            </div>
           </Card>
         </CardGroup>
-        <Card style={{ padding: 50 }}>
-          <Card.Title style={{ padding: 40 }}>Users of Packages</Card.Title>
-          <div>
-            <Bar
-              width={10}
-              height={5}
-              data={{
-                labels: [
-                  "Individual Male",
-                  "Individual Female",
-                  "Student",
-                  "Family",
-                ],
-                datasets: [
-                  {
-                    label: "Members",
-                    backgroundColor: "rgba(75,192,192,1)",
-                    borderColor: "rgba(0,0,0,1)",
-                    borderWidth: 2,
-                    data: [
-                      this.countType("Individual Male"),
-                      this.countType("Individual Female"),
-                      this.countType("Student"),
-                      this.countType("Family"),
-                    ],
-                  },
-                ],
-              }}
-              options={{
-                title: {
-                  display: true,
-                  text: "Users of Packages",
-                  fontSize: 10,
-                },
-                legend: {
-                  display: true,
-                  position: "right",
-                },
-              }}
-            />
-          </div>
-        </Card>
       </div>
     );
   }
