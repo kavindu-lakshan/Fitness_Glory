@@ -41,6 +41,14 @@ import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
 import memberPannel from "./Receptionist/memberPannel";
 
+//Amantha Trainer Login
+import TrainerLandingPage from "./Screens/LandingPage/TrainerLandingPage";
+import TrainerHomePage from "./Screens/HomePage/TrainerHomePage";
+import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
+import TrainerRegisterScreen from "./Screens/RegisterScreen/TrainerRegisterScreen";
+import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
+import TrainerHeader from "./components/Header/TrainerHeader";
+
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
@@ -53,6 +61,7 @@ const App = () => {
     <BrowserRouter>
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
+      <Route path="/employee" component={TrainerHeader} />
       <div className="container-fluid">
         <Route
           path="/workouts"
@@ -87,6 +96,12 @@ const App = () => {
         <Route path="/member/profile" component={ProfileScreen} />
         <Route path="/member/register" component={RegisterScreen} />
         <Route path="/member/Home" component={() => <HomePage />} />
+
+        <Route path="/employee/" component={TrainerLandingPage} exact />
+        <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
+        <Route path="/employee/trainer-profile" component={TrainerProfileScreen} />
+        <Route path="/employee/trainer-register" component={TrainerRegisterScreen} />
+        <Route path="/employee/trainerHome" component={() => <TrainerHomePage />} />
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
