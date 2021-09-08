@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Pagination, PaginationItem } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getWorkouts } from "../actions/workouts";
+import { getWorkouts } from "../../actions/workouts";
 import useStyles from "./styles";
 
 const Paginate = ({ page }) => {
@@ -27,7 +27,7 @@ const Paginate = ({ page }) => {
             <PaginationItem
               {...item}
               component={Link}
-              to={`/member/workouts?page=${item.page}`}
+              to={`/workouts?page=${item.page}`}
             />
           )}
           style={{ height: "100px" }}
