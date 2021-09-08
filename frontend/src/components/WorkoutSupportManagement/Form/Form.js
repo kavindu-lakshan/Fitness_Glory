@@ -3,7 +3,7 @@ import { Button } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
-import { createWorkout, updateWorkout } from "../../actions/workouts";
+import { createWorkout, updateWorkout } from "../../../actions/workouts";
 import { useHistory } from "react-router-dom";
 import "./style.css";
 

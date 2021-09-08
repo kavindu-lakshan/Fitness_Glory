@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Paper, Typography, Divider } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getWorkout } from "../../actions/workouts";
+import { getWorkout } from "../../../actions/workouts";
 import useStyles from "./styles";
 
 const WorkoutDetails = () => {
