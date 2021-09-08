@@ -4,10 +4,10 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Redirect } from "react-router";
 
 import { getWorkouts } from "./actions/workouts";
-import Workouts from "./components/Workouts/Workouts";
-import WorkoutsDisplayMember from "./components/Workouts/WorkoutsDisplayMember";
-import WorkoutDetails from "./components/WorkoutDetails/WorkoutDetails";
-import Form from "./components/Form/Form";
+import Workouts from "./components/WorkoutSupportManagement/Workouts/Workouts";
+import WorkoutsDisplayMember from "./components/WorkoutSupportManagement/Workouts/WorkoutsDisplayMember";
+import WorkoutDetails from "./components/WorkoutSupportManagement/WorkoutDetails/WorkoutDetails";
+import Form from "./components/WorkoutSupportManagement/Form/Form";
 
 //shehan imports
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
