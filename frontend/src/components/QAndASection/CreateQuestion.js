@@ -31,11 +31,11 @@ export const CreateQuestion = () =>{
             question,
             date
         }
-        axios.post(`http://localhost:5000/qu/q/createQ`, newQuestion).then(()=>{
-            history.push('/QandA/:cUsername?Question Added');
+        axios.post(`http://localhost:5000/qu/member/q/createQ`, newQuestion).then(()=>{
+            history.push('/member/QandA/:mUsername?Question Added');
         }).catch((err)=>{
             alert(err)
-            history.push('/member/QandA/:cUsername?Question not Added')
+            history.push('/member/QandA/:mUsername?Question not Added')
         })
     }
     
