@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import { allQuestions } from '../../api/apiFBQA'
-import gymBg from '../ImagesD/testImg.png'
 import { NavBar } from './NavBar';
+import otherQuestionBg from './ImagesD/otherQuestionBg.png'
 
 export const OtherQuestions = () => {
-    const match = useRouteMatch()
     const [questions, setQuestions] = useState([]);
 
     useEffect(()=>{
@@ -18,7 +17,6 @@ export const OtherQuestions = () => {
     },[])
     
     return (
-        
         <div>
             <div style={bgImg}>
             <div className="container">
@@ -30,7 +28,9 @@ export const OtherQuestions = () => {
             <div className="mt-3">
                 <br/>
                 <h3 style={labelStyle} className = "text-center">All Questions</h3>
-                <table style ={textStyle}class="table">
+                <div style={hideScroll}>
+                <div style={scrollable}>
+                <table style ={textStyle} class="table">
                 <thead>
                     <tr>
                         <th scope="col">Topic of Question</th>
@@ -45,14 +45,15 @@ export const OtherQuestions = () => {
                         {row.qTopic}
                     </td>
                     <td>
-                    <Link to={`/a/createA/${row._id}`} style={{ textDecoration: 'none' }}><Button style={btn} color="Secondary" variant="contained">Select Question</Button></Link>
+                    <Link to={`/member/a/createA/${row._id}`} style={{ textDecoration: 'none' }}><Button style={btn} color="Secondary" variant="contained">Select Question</Button></Link>
                     </td>
                     </tr>
                     ))
                 }
-               
                 </tbody>
                 </table>
+                </div>
+                </div>
             </div>
             </div>
             </div>
@@ -61,12 +62,10 @@ export const OtherQuestions = () => {
 } 
 
 const bgImg ={
-    background: `linear-gradient( rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)) ,url(${gymBg})`,
+    background: `linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.58)) ,url(${otherQuestionBg})`,
     backgroundSize: 'cover',
     position: 'center',
     marginTop:'-20px',
-    right:'0%',
-    left:'0%',
     width: '100%',
     height: '100%',
     opacity:'1'
@@ -76,7 +75,6 @@ const labelStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-
 }
 
 const textStyle={
@@ -84,11 +82,21 @@ const textStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-
 }
 
 const btn ={
     backgroundColor: '#04938b', 
     border: '2px solid #04938b',
     color:'white'
+}
+
+const scrollable ={
+    height: '600px',
+    overflowY: 'scroll',
+    paddingRight:'20px'
+}
+
+const hideScroll ={
+    height: '600px',
+    overflow:'hidden'
 }

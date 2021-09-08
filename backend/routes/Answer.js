@@ -4,16 +4,18 @@ let Answer = require("../models/Answers")
 let Questions = require("../models/Questions")
 
 //Create Answer
-router.route("/a/createA").post((req, res)=>{
+router.route("/member/a/createA").post((req, res)=>{
     const mUsername = req.body.mUsername;
     const QID = req.body.QID;
     const qTopic = req.body.qTopic;
+    const question = req.body.question;
     const answer = req.body.answer;
 
     const nAnswer = new Answer({
         mUsername,
         QID,
         qTopic,
+        question,
         answer
 
     })
@@ -25,14 +27,14 @@ router.route("/a/createA").post((req, res)=>{
 });
 
 //Fetch Selected Question
-router.route("/a/:id").get((req, res)=>{
+router.route("/member/a/:id").get((req, res)=>{
     const questions = Questions.findById(req.params.id, (err, questions)=>{
         res.json(questions)
     });
 });
 
 //Display Answer Posted by User
-router.route("/answer/:mUsername").get((req, res) =>{
+router.route("/member/answer/:mUsername").get((req, res) =>{
     let uName = req.params.mUsername;
     const answer = Answer.find({mUsername:uName}).exec().then(answer =>{
         res.json(answer)
@@ -44,14 +46,14 @@ router.route("/answer/:mUsername").get((req, res) =>{
 });
 
 //Display Answer details
-router.route("/as/:id").get((req, res)=>{
+router.route("/member/as/:id").get((req, res)=>{
     const answer = Answer.findById(req.params.id, (err, answer)=>{
         res.json(answer)
     });
 });
 
 //Update selected Answer
-router.route("/as/updateA/:id").post((req, res)=>{
+router.route("/member/as/updateA/:id").post((req, res)=>{
     Answers.findById(req.params.id, (err, answer) =>{
         if(!answer){
             res.status(404).send("Answer not Found!")
@@ -72,7 +74,7 @@ router.route("/as/updateA/:id").post((req, res)=>{
 });
 
 //Delete Selected Answer
-router.route("/as/deleteA/:id").delete((req, res) =>{
+router.route("/member/as/deleteA/:id").delete((req, res) =>{
     Answer.findByIdAndDelete(req.params.id, (err, answers) =>{
         if(!answers){
             res.status(404).send("Answer not Found!")

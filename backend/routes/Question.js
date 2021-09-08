@@ -4,7 +4,7 @@ let Member = require("../models/Members")
 const Questions = require("../models/Questions");
 
 //Create Question
-router.route("/q/createQ").post((req, res)=>{
+router.route("/member/q/createQ").post((req, res)=>{
     const mUsername = req.body.mUsername;
     const qTopic = req.body.qTopic;
     const question = req.body.question;
@@ -25,7 +25,7 @@ router.route("/q/createQ").post((req, res)=>{
 });
 
 //Display Questions Posted by User
-router.route("/QandA/:mUsername").get((req, res) =>{
+router.route("/member/QandA/:mUsername").get((req, res) =>{
     let uName = req.params.mUsername;
     const question = Question.find({mUsername:uName}).exec().then(question =>{
         res.json(question)
@@ -37,7 +37,7 @@ router.route("/QandA/:mUsername").get((req, res) =>{
 });
 
 //Display Member Username on forms
-router.route("/q/:mUsername").get((req, res) =>{
+router.route("/member/q/:mUsername").get((req, res) =>{
     let uName = req.params.mUsername;
     const question = Member.find({mUsername:uName}).exec().then(question =>{
         res.json(question)
@@ -49,14 +49,14 @@ router.route("/q/:mUsername").get((req, res) =>{
 });
 
 //Fetch Selected Question
-router.route("/:id").get((req, res)=>{
+router.route("/member/:id").get((req, res)=>{
     const question = Questions.findById(req.params.id, (err, question)=>{
         res.json(question)
     });
 });
 
 //Fetch Selected Question
-router.route("/selectedQ/:id").get((req, res)=>{
+router.route("/member/selectedQ/:id").get((req, res)=>{
     const questions = Questions.findById(req.params.id, (err, questions)=>{
         res.json(questions)
     });
@@ -64,7 +64,7 @@ router.route("/selectedQ/:id").get((req, res)=>{
 
 
 //Update selected Question
-router.route("/updateQ/:id").post((req, res)=>{
+router.route("/member/updateQ/:id").post((req, res)=>{
     Question.findById(req.params.id, (err, questions) =>{
         if(!questions){
             res.status(404).send("Question not Found!")
@@ -83,7 +83,7 @@ router.route("/updateQ/:id").post((req, res)=>{
 });
 
 //Delete Selected Question
-router.route("/deleteQ/:id").delete((req, res) =>{
+router.route("/member/deleteQ/:id").delete((req, res) =>{
     Question.findByIdAndDelete(req.params.id, (err, questions) =>{
         if(!questions){
             res.status(404).send("Question not Found!")
@@ -94,7 +94,7 @@ router.route("/deleteQ/:id").delete((req, res) =>{
 });
 
 //Display all Quesions
-router.route('/').get((req, res) =>{
+router.route('/member/').get((req, res) =>{
     Question.find((err, question) =>{ 
         if(err){
             console.log(err);
