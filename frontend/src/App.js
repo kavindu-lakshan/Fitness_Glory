@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
+import { Redirect } from "react-router";
 
 import { getWorkouts } from "./actions/workouts";
 import Workouts from "./components/Workouts/Workouts";
+import WorkoutsDisplayMember from "./components/Workouts/WorkoutsDisplayMember";
+import WorkoutDetails from "./components/WorkoutDetails/WorkoutDetails";
 import Form from "./components/Form/Form";
+
+//shehan imports
+import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
+import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
 import AllProgramsAdmin from "./components/AllProgramsAdmin";
 import CreateProgramAdmin from "./components/CreateProgramAdmin";
 import EditProgramAdmin from "./components/EditProgramAdmin";
@@ -19,16 +26,19 @@ import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
 //Dulshan QandA section
-import { QandA } from './components/QAndASection/QandA';
-import { CreateQuestion } from './components/QAndASection/CreateQuestion';
-import { UpdateQuestion } from './components/QAndASection/UpdateQuestion';
-import { DeleteQuestion } from './components/QAndASection/DeleteQuestion';
-import { OtherQuestions } from './components/QAndASection/OtherQuestions';
-import { CreateAnswer } from './components/QAndASection/CreateAnswer';
-import { MyAnswers } from './components/QAndASection/MyAnswers';
-import { UpdateAnswer } from './components/QAndASection/UpdateAnswer';
-import { DeleteAnswer } from './components/QAndASection/DeleteAnswer';
+import { QandA } from "./components/QAndASection/QandA";
+import { CreateQuestion } from "./components/QAndASection/CreateQuestion";
+import { UpdateQuestion } from "./components/QAndASection/UpdateQuestion";
+import { DeleteQuestion } from "./components/QAndASection/DeleteQuestion";
+import { OtherQuestions } from "./components/QAndASection/OtherQuestions";
+import { CreateAnswer } from "./components/QAndASection/CreateAnswer";
+import { MyAnswers } from "./components/QAndASection/MyAnswers";
+import { UpdateAnswer } from "./components/QAndASection/UpdateAnswer";
+import { DeleteAnswer } from "./components/QAndASection/DeleteAnswer";
 
+//Lakshan Receptionist
+import viewMembers from "./Receptionist/viewMembers";
+import editMember from "./Receptionist/editMember";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -40,7 +50,8 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Route exact path="/" render={() => <Redirect to="/member" />} />
+      <Route path="/member" component={Header} />
       <div className="container-fluid">
         <Route
           path="/workouts"
@@ -48,7 +59,6 @@ const App = () => {
           component={() => <Workouts setCurrentId={setCurrentId} />}
         ></Route>
       </div>
-      {/* <Workouts path="/" setCurrentId={setCurrentId} exact /> */}
       <Route
         path="/trainer/workouts/add"
         exact
@@ -56,8 +66,6 @@ const App = () => {
           <Form currentId={currentId} setCurrentId={setCurrentId} />
         )}
       ></Route>
-      {/* <Form path="/add" exact /> */}
-
       <Route
         path="/trainer/workouts/update/:id"
         exact
@@ -65,20 +73,25 @@ const App = () => {
           <Form currentId={currentId} setCurrentId={setCurrentId} />
         )}
       ></Route>
-      {/* <Form
-              path="/update/:id"
-              currentId={currentId}
-              setCurrentId={setCurrentId}
-              exact
-            /> */}
-
+      <Route path="/workouts/:id" component={WorkoutDetails} />
+      <Route path="/member/workouts" component={WorkoutsDisplayMember} />
+      <Route
+        exact
+        path="/trainer/workouts"
+        component={() => <Redirect to="/workouts" />}
+      />
       <main>
-        <Route path="/" component={LandingPage} exact />
-        <Route path="/login" component={LoginScreen} />
-        <Route path="/profile" component={ProfileScreen} />
-        <Route path="/register" component={RegisterScreen} />
-        <Route path="/Home" component={() => <HomePage />} />
+        <Route path="/member" component={LandingPage} exact />
+        <Route path="/member/login" component={LoginScreen} />
+        <Route path="/member/profile" component={ProfileScreen} />
+        <Route path="/member/register" component={RegisterScreen} />
+        <Route path="/member/Home" component={() => <HomePage />} />
 
+        <Route path="/employee/memberDetails" component={viewMembers}></Route>
+        <Route path="/employee/editDetails/:id" component={editMember}></Route>
+        
+        <Route path="/member/workout-programs" component={AllprogramsMemer}></Route>
+        <Route path="/admin-card" component={workoutprogramcard}></Route>
         <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
         <Route
@@ -99,7 +112,6 @@ const App = () => {
         <Route exact path = "/member/myAnswers/:mUsername" component = {MyAnswers}/>
         <Route exact path = "/member/updateA/:id" component = {UpdateAnswer}/>
         <Route exact path = "/member/deleteA/:id" component = {DeleteAnswer}/>
-
       </main>
 
       <Footer />

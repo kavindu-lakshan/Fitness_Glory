@@ -7,7 +7,7 @@ const LandingPage = ({ history }) => {
     const userInfo = localStorage.getItem("userInfo");
 
     if (userInfo) {
-      history.push("/Home");
+      history.push("/member/Home");
     }
   }, [history]);
 
@@ -21,16 +21,16 @@ const LandingPage = ({ history }) => {
               <p className="subtitle">YOUR BODY BELONGS TO US.</p>
             </div>
             <div className="buttonContainer">
-              <a href="/login">
-                <Button size="lg" className="landingbutton">
+              <a href="/member/login">
+                <Button size="md" className="landingbutton">
                   Login
                 </Button>
               </a>
-              <a href="/register">
+              <a href="/member/register">
                 <Button
-                  size="lg"
+                  size="md"
                   className="landingbutton"
-                  variant="outline-primary"
+                  variant="outline-light"
                 >
                   Signup
                 </Button>

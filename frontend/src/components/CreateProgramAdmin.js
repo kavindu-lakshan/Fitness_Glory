@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { storage } from "../firebase"
 
 export default class CreateProgramAdmin extends Component {
 
@@ -12,7 +13,9 @@ export default class CreateProgramAdmin extends Component {
             conducted_by:'',
             fee:'',
             day:'',
-            time:''
+            time:'',
+            photo: '',
+            photoURL:'xx',
         }
     }
 
@@ -25,10 +28,49 @@ export default class CreateProgramAdmin extends Component {
         })
     }
 
-    onSubmit = (e) => {
+    
+    handlePhoto = (e) => {
+        if(e.target.files[0]){
+            this.setState({
+            photo: e.target.files[0]
+          })
+        }
+    }
+
+    handleUpload = () => {
+        let image = this.state.photo;
+
+        const uploadTask = storage.ref('images/'+image.name).put(image);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {},
+            error => {
+                console.log(error)
+            },
+            () => {
+                storage
+                    .ref("images")
+                    .child(image.name)
+                    .getDownloadURL()
+                    .then(url => {
+                        this.setState({photoURL: url})
+                    })
+            }
+        )
+    }
+
+    sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+      }
+
+    onSubmit = async (e) => {
+   
         e.preventDefault();
 
-        const {name,description,conducted_by,fee,day,time} = this.state;
+        this.handleUpload();
+        await this.sleep(9000)
+
+        const {name,description,conducted_by,fee,day,time,photoURL} = this.state;
 
         const data ={
             name:name,
@@ -36,18 +78,25 @@ export default class CreateProgramAdmin extends Component {
             conducted_by:conducted_by,
             day:day,
             fee:fee,
-            time:time
+            time:time,
+            photoURL:photoURL
         }
+        console.log(data.photoURL)
         axios.post("http://localhost:5000/program/save",data).then((res) =>{
             if(res.data.success){
-                //resetting states to use for another time
+                alert(data.name+' created successfully');
+                window.location = '/admin-programs';
+               // console.log('ddd'+data.photoURL)
+
                 this.setState({
                     name:'',
                     description:'',
                     conducted_by:'',
                     fee:'',
                     day:'',
-                    time:''
+                    time:'',
+                    photo:'',
+                    photoURL:''
                 })
             }
         })
@@ -57,7 +106,14 @@ export default class CreateProgramAdmin extends Component {
         return (
             <div className='col-md-8 mt-4 mx-auto'>
                 <h1 className='h3 mb-3 font-weight-normal'>Create new program</h1>
-                    <form className='needs-validation' noValidate>
+                    <form className='needs-validation' noValidate encType='multipart/form-data'>
+                        <input 
+                            type="file" 
+                            accept=".png, .jpg, .jpeg"
+                            name="photo"
+                            onChange={this.handlePhoto}
+                        />
+                        <button onClick={this.handleUpload}>Upload Image</button>
                         <div className='form-group' style={{marginBottom:'15px'}}>
                             <label style={{marginBottom:'5px'}}>Name</label>
                             <input type="text"

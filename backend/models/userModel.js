@@ -22,6 +22,19 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+
+    packageType: {
+      type: String,
+      required: true,
+      default: "Null",
+    },
+    //new
+    // isPaid: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false,
+    // },
+
     pic: {
       type: String,
       required: true,

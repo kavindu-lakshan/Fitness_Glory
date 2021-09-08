@@ -6,6 +6,7 @@ import { register } from "../../actions/userActions";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
 import MainScreen from "../../components/MainScreen";
+import validator from "validator";
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState("");
@@ -27,16 +28,31 @@ const RegisterScreen = () => {
 
   useEffect(() => {
     if (userInfo) {
-      history.push("/Home");
+      history.push("/member/Home");
     }
   }, [history, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setMessage("Password do not match");
-    } else {
+    if (
+      !validator.isStrongPassword(password, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      setMessage("Password is not strong enough");
+    } else if (password !== confirmPassword) {
+      setMessage(
+        "Password length must be 8 and It should contain minimum one Lowercase, Uppercase, Number and Symbol"
+      );
+    } //else if (!validator.isEmail(email)) {
+    //   setMessage("Enter Valid Email");
+    // }
+    else {
       dispatch(register(name, email, password, pic));
     }
   };
@@ -129,7 +145,7 @@ const RegisterScreen = () => {
         </Form>
         <Row className="py-3">
           <Col>
-            Have an Account ? <Link to="/login">Login</Link>
+            Have an Account ? <Link to="/member/login">Login</Link>
           </Col>
         </Row>
       </div>
