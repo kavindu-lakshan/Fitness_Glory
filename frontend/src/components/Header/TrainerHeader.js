@@ -72,7 +72,7 @@ const TrainerHeader = () => {
             <Nav>
               {""}
               <Nav.Link>
-                <Link to="/trainer-login">Login</Link>
+                <Link to="/employee/trainer-login">Login</Link>
               </Nav.Link>
             </Nav>
           )}
