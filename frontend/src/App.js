@@ -70,6 +70,7 @@ import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
 import TrainerRegisterScreen from "./Screens/RegisterScreen/TrainerRegisterScreen";
 import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
 import TrainerHeader from "./components/Header/TrainerHeader";
+import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -180,9 +181,10 @@ const App = () => {
         {/*Amantha Routes*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
-        <Route path="/employee/trainer-profile" component={TrainerProfileScreen}/>
-        <Route path="/employee/trainer-register" component={TrainerRegisterScreen}/>
-        <Route path="/employee/trainerHome" component={() => <TrainerHomePage />}/>
+        <Route path="/employee/trainer-profile" component={TrainerProfileScreen} />
+        <Route path="/employee/trainer-register" component={TrainerRegisterScreen} />
+        <Route path="/employee/trainerHome" component={() => <TrainerHomePage />} />
+        <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
