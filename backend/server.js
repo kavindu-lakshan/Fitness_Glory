@@ -80,7 +80,8 @@ app.use("/an", aRouter);
 //Amantha
 const trainerRoutes = require("./routes/trainerRoutes");
 app.use("/FitnessGlory/trainers", trainerRoutes);
-
+const trainerDetailsRoute = require("./routes/trainerDetails");
+app.use(trainerDetailsRoute);
 //Janudi
 
 //Manushi

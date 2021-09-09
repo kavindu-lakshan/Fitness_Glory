@@ -58,7 +58,9 @@ const TrainerHeader = () => {
                 <Link to="/employee/trainerHome">View Blogs</Link>
               </Nav.Link>
 
-              
+              <Nav.Link href="/employee/trainerHome">
+                <Link to="/employee/trainerDetails">All Trainers</Link>
+              </Nav.Link>
 
               <NavDropdown title={trainerInfo?.username} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/employee/trainer-profile">My Profile</NavDropdown.Item>
