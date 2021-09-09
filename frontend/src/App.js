@@ -98,7 +98,7 @@ const App = () => {
         path="/workouts"
         component={() => <Redirect to="/employee/workouts" />}
       />
-      {/* manu*/}
+      {/* manushiks Routes*/}
       <div className="container">
         <Route
           path="/member/memberPTRequest/home"
