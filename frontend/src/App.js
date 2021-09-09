@@ -64,31 +64,32 @@ const App = () => {
       <Route path="/employee" component={TrainerHeader} />
       <div className="container-fluid">
         <Route
-          path="/workouts"
+          path="/employee/workouts"
           exact
           component={() => <Workouts setCurrentId={setCurrentId} />}
         ></Route>
       </div>
       <Route
-        path="/trainer/workouts/add"
+        path="/employee/workouts/add"
         exact
         component={() => (
           <Form currentId={currentId} setCurrentId={setCurrentId} />
         )}
       ></Route>
       <Route
-        path="/trainer/workouts/update/:id"
+        path="/employee/workouts/update/:id"
         exact
         component={() => (
           <Form currentId={currentId} setCurrentId={setCurrentId} />
         )}
       ></Route>
-      <Route path="/workouts/:id" component={WorkoutDetails} />
-      <Route path="/member/workouts" component={WorkoutsDisplayMember} />
+      <Route path="/employee/workouts/:id" exact component={WorkoutDetails} />
+      <Route path="/member/workouts" exact component={WorkoutsDisplayMember} />
+      <Route path="/member/workouts/:id" exact component={WorkoutDetails} />
       <Route
         exact
-        path="/trainer/workouts"
-        component={() => <Redirect to="/workouts" />}
+        path="/workouts"
+        component={() => <Redirect to="/employee/workouts" />}
       />
       <main>
         <Route path="/member" component={LandingPage} exact />

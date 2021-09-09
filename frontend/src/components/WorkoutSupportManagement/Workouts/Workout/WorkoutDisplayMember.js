@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 
 const WorkoutDisplayMember = ({ workout, setCurrentId }) => {
   const history = useHistory();
-  const openWorkout = () => history.push(`/workouts/${workout._id}`);
+  const openWorkout = () => history.push(`/member/workouts/${workout._id}`);
 
   return (
     <Grid item xs={6} sm={3}>

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import Workout from "./Workout/Workout";
 import useStyles from "./styles";
 import Pagination from "../Pagination";
@@ -14,8 +14,15 @@ const Workouts = ({ setCurrentId }) => {
   const { workouts } = useSelector((state) => state.workouts);
   const classes = useStyles();
   const query = useQuery();
+  const history = useHistory();
   const page = query.get("page") || 1;
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (!localStorage.getItem("trainerInfo")) {
+      history.push("/employee");
+    }
+  }, []);
 
   console.log(workouts);
 
