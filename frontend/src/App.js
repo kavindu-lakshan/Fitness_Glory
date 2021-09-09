@@ -75,10 +75,7 @@ const App = () => {
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
       <Route path="/admin" component={AdminHeader} />
-<<<<<<< HEAD
-=======
       <Route path="/employee" component={TrainerHeader} />
->>>>>>> 57f54a4a153a48f74692ebbdded0407471a71478
       <div className="container-fluid">
         <Route
           path="/employee/workouts"
