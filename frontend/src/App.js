@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Redirect } from "react-router";
 
+
 import { getWorkouts } from "./actions/workouts";
 import Workouts from "./components/Workouts/Workouts";
 import WorkoutsDisplayMember from "./components/Workouts/WorkoutsDisplayMember";
@@ -24,6 +25,15 @@ import HomePage from "./Screens/HomePage/HomePage";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
+
+//Sandani's imports
+import CreatePost from './components/RequestSchedule/CreatePost';
+import Home from './components/RequestSchedule/Home';
+import EditPost from './components/RequestSchedule/EditPost';
+import PostDetails from './components/RequestSchedule/PostDetails';
+import NavBar from './components/RequestSchedule/NavBar';
+import MemHome from './components/RequestSchedule/MemHome';
+import SchReport from './components/RequestSchedule/SchReport';
 
 //Dulshan QandA section
 import { QandA } from "./components/QAndASection/QandA";
@@ -80,6 +90,19 @@ const App = () => {
         path="/trainer/workouts"
         component={() => <Redirect to="/workouts" />}
       />
+
+      {/**Sandani */}
+      <div className="container">
+              
+              <Route path="/member/scheduleR/Home" exact component={Home}></Route>
+              <Route path="/trainer/scheduleR/MemHome" exact component={MemHome}></Route>
+              <Route path="/admin/scheduleR/SchReport" exact component={SchReport}></Route>
+              <Route path="/member/scheduleR/add" component={CreatePost}></Route>
+              <Route path="/member/scheduleR/edit/:id" component={EditPost}></Route>
+              <Route path="/member/scheduleR/post/:id" component={PostDetails}></Route>
+        </div>
+
+
       <main>
         <Route path="/member" component={LandingPage} exact />
         <Route path="/member/login" component={LoginScreen} />
@@ -102,6 +125,8 @@ const App = () => {
           path="/admin-expand-program/:id"
           component={ProgramDetailsAdmin}
         ></Route>
+
+        
 
         <Route exact path="/QandA/:mUsername" component={QandA} />
         <Route exact path="/q/createQ/:mUsername" component={CreateQuestion} />
