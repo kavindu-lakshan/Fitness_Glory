@@ -82,6 +82,8 @@ app.use("/an", aRouter);
 //Janudi
 
 //Manushi
+const zpostRoutes = require("./routes/zposts");
+app.use(zpostRoutes);
 
 //Sandani
 
