@@ -57,6 +57,7 @@ export const QandA = () =>{
                     }
                 </tbody>
                 </table>
+                <br/><br/>
                 </div>
                 </div>
             </div>
