@@ -82,6 +82,8 @@ const trainerRoutes = require("./routes/trainerRoutes");
 app.use("/FitnessGlory/trainers", trainerRoutes);
 
 //Janudi
+const CleanersRouter = require('./routes/Cleaners');
+app.use('/Cleaners', CleanersRouter);
 
 //Manushi
 const zpostRoutes = require("./routes/zposts");
