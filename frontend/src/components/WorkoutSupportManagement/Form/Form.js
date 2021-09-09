@@ -36,6 +36,12 @@ const Form = ({ currentId, setCurrentId }) => {
     if (workout) setWorkoutData(workout);
   }, [workout]);
 
+  useEffect(() => {
+    if (!localStorage.getItem("trainerInfo")) {
+      history.push("/employee");
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -45,11 +51,11 @@ const Form = ({ currentId, setCurrentId }) => {
       if (currentId) {
         dispatch(updateWorkout(currentId, workoutData));
         alert("Workout Updated Successfully");
-        history.push("/workouts");
+        history.push("/employee/workouts");
       } else {
         dispatch(createWorkout(workoutData));
         alert("Workout Created Successfully");
-        history.push("/workouts");
+        history.push("/employee/workouts");
       }
       clear();
     }
