@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-export default class CreatePost extends Component {
+export default class CreateRequest extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -98,7 +98,7 @@ export default class CreatePost extends Component {
     
         console.log(data);
 
-        axios.post("http://localhost:5000/post/save", data).then((res) => {
+        axios.post("http://localhost:5000/Xpost/save", data).then((res) => {
             if (res.data.success) {
               this.setState({
                 mname: "",
@@ -118,7 +118,7 @@ export default class CreatePost extends Component {
             <form className="needs-validation" noValidate>
 
               <div className="form-group" style={{ marginBottom: '15px' }}>
-                <label style={{ marginBottom: '5px' }}>Name</label>
+                <label style={{ marginBottom: '5px' }} >Name</label>
                 <input
                   type="text"
                   className="form-control"

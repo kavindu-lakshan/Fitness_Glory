@@ -4,7 +4,7 @@ const Posts = require('../models/Xposts');
 const router = express.Router();
 
 
-router.post('/post/save', (req,res) => {
+router.post('/Xpost/save', (req,res) => {
    
     let newPost = new Posts(req.body);
 
@@ -21,7 +21,7 @@ router.post('/post/save', (req,res) => {
 });
 
 
-router.get('/posts', (req,res) => {
+router.get('/Xposts', (req,res) => {
     Posts.find().exec((err,posts) => {
         if(err){
             return res.status(400).json({
@@ -36,7 +36,7 @@ router.get('/posts', (req,res) => {
 });
 
 
-router.get("/post/:id", (req,res) => {
+router.get("/Xpost/:id", (req,res) => {
     let postId = req.params.id;
 
     Posts.findById(postId,(err,post) => {
@@ -53,7 +53,7 @@ router.get("/post/:id", (req,res) => {
 
 
 
-router.put('/post/update/:id', (req,res) => {
+router.put('/Xpost/update/:id', (req,res) => {
     Posts.findByIdAndUpdate(
         req.params.id,
         {
@@ -74,7 +74,7 @@ router.put('/post/update/:id', (req,res) => {
 });
 
 
-router.delete('/post/delete/:id', (req,res) => {
+router.delete('/Xpost/delete/:id', (req,res) => {
     Posts.findByIdAndRemove(req.params.id).exec((err, deletedPost) => {
         if(err) return res.status(400).json({
             message:"Delete unsuccessfull", err

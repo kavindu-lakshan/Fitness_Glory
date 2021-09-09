@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class Home extends Component{
+export default class HomeRequest extends Component{
   constructor(props){
     super(props);
 
@@ -18,7 +18,7 @@ componentDidMount(){
 
 
   retrievePosts(){
-    axios.get("http://localhost:5000/posts").then(res => {
+    axios.get("http://localhost:5000/Xposts").then(res => {
       if(res.data.success){
         this.setState({
           posts:res.data.existingPosts
@@ -30,7 +30,7 @@ componentDidMount(){
   } 
 
   onDelete = (id) => {
-    axios.delete(`http://localhost:5000/post/delete/${id}`).then((res) => {
+    axios.delete(`http://localhost:5000/Xpost/delete/${id}`).then((res) => {
       alert("Deleted Succeefully");
       this.retrievePosts();
     });
@@ -51,7 +51,7 @@ componentDidMount(){
 
   handleSearchArea = (e) => {
     const searchKey = e.currentTarget.value;
-    axios.get("http://localhost:5000/posts").then((res) => {
+    axios.get("http://localhost:5000/Xposts").then((res) => {
       if (res.data.success) {
         this.filterData(res.data.existingPosts, searchKey)
       }
@@ -100,7 +100,7 @@ componentDidMount(){
                   <tr key={index}>
                       <th scope ="row"> {index+1}  </th>
                       <td>
-                          <a href={`/member/scheduleR/post/${posts._id}`} style= {{textDecoration:'none'}}>
+                          <a href={`/member/scheduleR/Xpost/${posts._id}`} style= {{textDecoration:'none'}}>
                              {posts.mname}
                              </a> 
                         </td>

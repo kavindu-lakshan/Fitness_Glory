@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class PostDetails extends Component {
+export default class RequestDetails extends Component {
     constructor(props){
         super(props);
 
@@ -13,7 +13,7 @@ export default class PostDetails extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
 
-        axios.get(`http://localhost:5000/post/${id}`).then((res)=> {
+        axios.get(`http://localhost:5000/Xpost/${id}`).then((res)=> {
             if(res.data.success){
                 this.setState({
                     post:res.data.post

@@ -27,13 +27,13 @@ import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
 //Sandani's imports
-import CreatePost from './components/RequestSchedule/CreatePost';
-import Home from './components/RequestSchedule/Home';
-import EditPost from './components/RequestSchedule/EditPost';
-import PostDetails from './components/RequestSchedule/PostDetails';
-import NavBar from './components/RequestSchedule/NavBar';
-import MemHome from './components/RequestSchedule/MemHome';
-import SchReport from './components/RequestSchedule/SchReport';
+ import CreateRequest from './components/RequestSchedule/CreateRequest';
+ import HomeRequest from './components/RequestSchedule/HomeRequest';
+ import EditRequest from './components/RequestSchedule/EditRequest';
+ import RequestDetails from './components/RequestSchedule/RequestDetails';
+ import NavBar from './components/RequestSchedule/NavBar';
+ import MemHome from './components/RequestSchedule/MemHome';
+ import SchReport from './components/RequestSchedule/SchReport';
 
 //Dulshan QandA section
 import { QandA } from "./components/QAndASection/QandA";
@@ -51,7 +51,7 @@ import CreatePost from "./components/ClientRequest/CreatePost";
 import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
-import ptEdit from "./components/ClientRequest/ptEdit";
+import ptEdit from "./components/ClientRequest/ptEdit"; 
 
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
@@ -109,20 +109,11 @@ const App = () => {
         component={() => <Redirect to="/employee/workouts" />}
       />
 
-      {/**Sandani */}
-      <div className="container">
-              
-              <Route path="/member/scheduleR/Home" exact component={Home}></Route>
-              <Route path="/trainer/scheduleR/MemHome" exact component={MemHome}></Route>
-              <Route path="/admin/scheduleR/SchReport" exact component={SchReport}></Route>
-              <Route path="/member/scheduleR/add" component={CreatePost}></Route>
-              <Route path="/member/scheduleR/edit/:id" component={EditPost}></Route>
-              <Route path="/member/scheduleR/post/:id" component={PostDetails}></Route>
-        </div>
+     
 
 
       {/* manushika Routes*/}
-      <div className="container">
+       <div className="container">
         <Route
           path="/member/memberPTRequest/home"
           exact
@@ -146,7 +137,19 @@ const App = () => {
           path="/member/memberPTRequest/post/:id"
           component={PostDetails}
         ></Route>
-      </div>
+      </div> 
+
+           {/**Sandani */}
+       <div className="container">
+              
+              <Route path="/employee/scheduleR/HomeRequest" exact component={HomeRequest}></Route>
+              <Route path="/member/scheduleR/MemHome" exact component={MemHome}></Route>
+              <Route path="/admin/scheduleR/SchReport" exact component={SchReport}></Route>
+              <Route path="/member/scheduleR/add" component={CreateRequest}></Route>
+              <Route path="/member/scheduleR/edit/:id" component={EditRequest}></Route>
+              <Route path="/member/scheduleR/Xpost/:id" component={RequestDetails}></Route>
+        </div> 
+
       <main>
         <Route path="/member" component={LandingPage} exact />
         <Route path="/member/login" component={LoginScreen} />
@@ -173,6 +176,7 @@ const App = () => {
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
 
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
+
 
         {/*Shehan routes */}
         <Route

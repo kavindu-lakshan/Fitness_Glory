@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class EditPost extends Component {
+export default class EditRequest extends Component {
 
     constructor(props){
         super(props);
@@ -62,7 +62,7 @@ export default class EditPost extends Component {
     
         console.log(data);
 
-        axios.put(`http://localhost:5000/post/update/${id}`, data).then((res) => {
+        axios.put(`http://localhost:5000/Xpost/update/${id}`, data).then((res) => {
             if (res.data.success) {
                 alert("Post updated succesfully");
               this.setState({
@@ -82,7 +82,7 @@ export default class EditPost extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
 
-        axios.get(`http://localhost:5000/post/${id}`).then((res)=> {
+        axios.get(`http://localhost:5000/Xpost/${id}`).then((res)=> {
             if(res.data.success){
                 this.setState({
                     mname:res.data.post.mname,
