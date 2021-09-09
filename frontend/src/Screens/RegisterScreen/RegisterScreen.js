@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import { register } from "../../actions/userActions";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
-import MainScreen from "../../components/MainScreen";
+import MainScreen from "../../components/MainScreens/memberRegister";
 import validator from "validator";
 
 const RegisterScreen = () => {
@@ -86,14 +86,15 @@ const RegisterScreen = () => {
 
   return (
     <MainScreen title="REGISTER">
-      <div className="loginContainer">
+      <div className="frameRegister">
         {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
         {loading && <Loading />}
-        <Form onSubmit={submitHandler}>
+        <Form onSubmit={submitHandler} className="form-register">
           <Form.Group controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
+              className="form-styling"
               type="name"
               value={name}
               placeholder="Enter name"
@@ -103,6 +104,7 @@ const RegisterScreen = () => {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email Address</Form.Label>
             <Form.Control
+              className="form-styling"
               type="email"
               value={email}
               placeholder="Enter email"
@@ -112,6 +114,7 @@ const RegisterScreen = () => {
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              className="form-styling"
               type="password"
               value={password}
               placeholder="Password"
@@ -121,6 +124,7 @@ const RegisterScreen = () => {
           <Form.Group controlId="confirmPassword">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
+              className="form-styling"
               type="password"
               value={confirmPassword}
               placeholder="Confirm Password"
@@ -139,12 +143,14 @@ const RegisterScreen = () => {
               custom
             ></Form.File>
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Register
-          </Button>
+          <div className="btn-animate">
+            <Button variant="primary" type="submit" className="btn-signin ">
+              Register
+            </Button>
+          </div>
         </Form>
         <Row className="py-3">
-          <Col>
+          <Col className="forgot">
             Have an Account ? <Link to="/member/login">Login</Link>
           </Col>
         </Row>
