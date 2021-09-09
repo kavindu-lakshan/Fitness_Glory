@@ -13,6 +13,9 @@ const Answer = mongoose.Schema({
         type:String
     },
 
+    question:{
+        type:String
+    },
     answer:{
         type:String
     },
