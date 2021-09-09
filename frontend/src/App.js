@@ -36,13 +36,6 @@ import { MyAnswers } from "./components/QAndASection/MyAnswers";
 import { UpdateAnswer } from "./components/QAndASection/UpdateAnswer";
 import { DeleteAnswer } from "./components/QAndASection/DeleteAnswer";
 
-//  Manushika ClientRequest
-import CreatePost from "./components/ClientRequest/CreatePost";
-import Home from "./components/ClientRequest/Home";
-import EditPost from "./components/ClientRequest/EditPost";
-import PostDetails from "./components/ClientRequest/PostDetails";
-import ptEdit from "./components/ClientRequest/ptEdit";
-
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
@@ -98,32 +91,6 @@ const App = () => {
         path="/workouts"
         component={() => <Redirect to="/employee/workouts" />}
       />
-      {/* manu*/}
-      <div className="container">
-        <Route
-          path="/member/memberPTRequest/home"
-          exact
-          component={Home}
-        ></Route>
-        <Route
-          path="/employee/memberPTRequest/ptEdit"
-          exact
-          component={ptEdit}
-        ></Route>
-
-        <Route
-          path="/member/memberPTRequest/add"
-          component={CreatePost}
-        ></Route>
-        <Route
-          path="/employee/memberPTRequest/edit/:id"
-          component={EditPost}
-        ></Route>
-        <Route
-          path="/member/memberPTRequest/post/:id"
-          component={PostDetails}
-        ></Route>
-      </div>
       <main>
         <Route path="/member" component={LandingPage} exact />
         <Route path="/member/login" component={LoginScreen} />
@@ -148,7 +115,6 @@ const App = () => {
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
-
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
 
         {/*Shehan routes */}
@@ -156,7 +122,6 @@ const App = () => {
           path="/member/workout-programs"
           component={AllprogramsMemer}
         ></Route>
-        <Route path="/admin-card" component={workoutprogramcard}></Route>
         <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
         <Route
