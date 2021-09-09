@@ -159,9 +159,13 @@ const App = () => {
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
 
         {/*Janudi Routes --> Beign*/}
-        <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
-        <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
-        <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
+        <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
+        <Route exact path="/admin/RegisterMenu" component={RegisterMenu} />
+        <Route
+          exact
+          path="/admin/CleanerRegistrationForm"
+          component={CleanerRegistrationForm}
+        />
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}
@@ -206,4 +210,3 @@ const App = () => {
 };
 
 export default App;
- 
