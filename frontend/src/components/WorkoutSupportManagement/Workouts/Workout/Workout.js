@@ -11,7 +11,7 @@ import { useHistory } from "react-router";
 const Workout = ({ workout, setCurrentId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const openWorkout = () => history.push(`/workouts/${workout._id}`);
+  const openWorkout = () => history.push(`/employee/workouts/${workout._id}`);
 
   return (
     <Grid item xs={6} sm={3}>
@@ -52,7 +52,7 @@ const Workout = ({ workout, setCurrentId }) => {
         </ButtonBase>
         <div className="card-header">
           <Link
-            to={"/trainer/workouts/update/" + workout._id}
+            to={"/employee/workouts/update/" + workout._id}
             style={{ textDecoration: "none" }}
           >
             <Button
@@ -70,7 +70,7 @@ const Workout = ({ workout, setCurrentId }) => {
             onClick={() => {
               if (window.confirm("Are you sure you want to delete this")) {
                 dispatch(deleteWorkout(workout._id));
-                history.push("/trainer/workouts");
+                history.push("/workouts");
               }
             }}
           >

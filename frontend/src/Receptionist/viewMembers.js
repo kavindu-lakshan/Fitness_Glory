@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { Table } from "react-bootstrap";
 
 export default class viewMembers extends Component {
   constructor(props) {
@@ -105,7 +106,7 @@ export default class viewMembers extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div style={{ marginTop: "20px" }} className="container">
         &nbsp;
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
@@ -130,7 +131,7 @@ export default class viewMembers extends Component {
             Summary
           </a>
         </button>
-        <table class="table">
+        <Table responsive="sm" className="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -154,6 +155,7 @@ export default class viewMembers extends Component {
                 <td>
                   <a
                     className="btn btn-warning"
+                    style={{ width: "80%", marginBottom: "2px" }}
                     href={`/employee/editDetails/${details._id}`}
                   >
                     <i className="fas fa-edit"></i>&nbsp;Edit
@@ -161,6 +163,7 @@ export default class viewMembers extends Component {
                   &nbsp;
                   <a
                     className="btn btn-danger"
+                    style={{ width: "80%", marginBottom: "2px" }}
                     href="#"
                     onClick={() => this.onDelete(details._id)}
                   >
@@ -170,7 +173,7 @@ export default class viewMembers extends Component {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }

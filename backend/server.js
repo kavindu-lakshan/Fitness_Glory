@@ -83,10 +83,18 @@ app.use("/FitnessGlory/trainers", trainerRoutes);
 const trainerDetailsRoute = require("./routes/trainerDetails");
 app.use(trainerDetailsRoute);
 //Janudi
+const CleanersRouter = require('./routes/Cleaners');
+app.use('/Cleaners', CleanersRouter);
 
 //Manushi
+const zpostRoutes = require("./routes/zposts");
+app.use(zpostRoutes);
 
 //Sandani
+const XpostRoutes = require('./routes/Xposts');
+app.use(XpostRoutes); 
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT: ${PORT}`);

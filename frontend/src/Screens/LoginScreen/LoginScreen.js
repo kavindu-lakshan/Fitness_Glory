@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, FormGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import MainScreen from "../../components/MainScreen";
+import MainScreen from "../../components/MainScreens/memberLogin";
 import "./LoginScreen.css";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -31,13 +31,14 @@ const LoginScreen = ({ history }) => {
 
   return (
     <MainScreen title="LOGIN">
-      <div className="loginContainer">
+      <div className="frame">
         {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {loading && <Loading />}
-        <Form onSubmit={submitHandler}>
+        <Form onSubmit={submitHandler} className="form-login">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email Address</Form.Label>
             <Form.Control
+              className="form-styling"
               type="email"
               value={email}
               placeholder="Enter Email"
@@ -47,18 +48,21 @@ const LoginScreen = ({ history }) => {
           <FormGroup controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              className="form-styling"
               type="Password"
               value={password}
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </FormGroup>
-          <Button variant="primary" type="submit">
-            Login
-          </Button>
+          <div className="btn-animate">
+            <Button variant="primary" type="submit" className="btn-signin ">
+              Login
+            </Button>
+          </div>
         </Form>
         <Row className="py-3">
-          <Col>
+          <Col className="forgot">
             New Member ? <Link to="/member/register">Register Here</Link>
           </Col>
         </Row>

@@ -21,7 +21,6 @@ const TrainerHeader = () => {
   useEffect(() => {}, [trainerInfo]);
 
   return (
-
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand>
@@ -37,26 +36,23 @@ const TrainerHeader = () => {
               <Nav.Link href="/employee/trainerHome">
                 <Link to="/employee/trainerHome">Home</Link>
               </Nav.Link>
-              
+
               <NavDropdown title="Events" id="basic-nav-dropdown">
                 <NavDropdown.Item href="">Create Events</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="">
-                Manage Events
-                </NavDropdown.Item>
+                <NavDropdown.Item href="">Manage Events</NavDropdown.Item>
               </NavDropdown>
 
               <NavDropdown title="Requests" id="basic-nav-dropdown">
                 <NavDropdown.Item href="">Trainer Requests</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="">
-                Schedule Requests
-                </NavDropdown.Item>
+                <NavDropdown.Item href="">Schedule Requests</NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="/employee/trainerHome">
                 <Link to="/employee/trainerHome">View Blogs</Link>
               </Nav.Link>
+
 
               <Nav.Link href="/employee/trainerHome">
                 <Link to="/employee/trainerDetails">All Trainers</Link>
@@ -64,6 +60,15 @@ const TrainerHeader = () => {
 
               <NavDropdown title={trainerInfo?.username} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/employee/trainer-profile">My Profile</NavDropdown.Item>
+
+              <NavDropdown
+                title={trainerInfo?.username}
+                id="basic-nav-dropdown"
+              />
+                <NavDropdown.Item href="/employee/trainer-profile">
+                  My Profile
+                </NavDropdown.Item>
+
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logoutHandler}>
                   Logout
@@ -81,7 +86,6 @@ const TrainerHeader = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
   );
 };
 

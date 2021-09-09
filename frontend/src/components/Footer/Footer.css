@@ -1,0 +1,82 @@
+
+body {
+  font-family: "Signika", sans-serif;
+}
+.bg-grey {
+  background: #5e5e5e;
+}
+.logo-footer {
+  margin-bottom: 40px;
+}
+footer {
+  color: rgb(71, 71, 71);
+  position: relative;
+  bottom: 0px;
+}
+footer p,
+a {
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+}
+footer h6 {
+  font-family: "Playfair Display", Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  margin-bottom: 40px;
+  position: relative;
+  color: white;
+}
+footer h6:after {
+  position: absolute;
+  content: "";
+  background: rgb(255, 255, 255);
+  width: 50%;
+  height: 1px;
+  left: 0;
+  bottom: -20px;
+}
+
+.btn-footer:hover {
+  text-decoration: none;
+}
+.form-footer input[type="text"] {
+  border: none;
+  border-radius: 16px 0 0 16px;
+  outline: none;
+  padding-left: 10px;
+}
+
+.form-footer input[type="button"] {
+  border: none;
+  background: #a5a5a5;
+  margin-left: -5px;
+  color: #fff;
+  outline: none;
+  border-radius: 0 16px 16px 0;
+  padding: 2px 12px;
+}
+.social .fa {
+  color: rgb(185, 183, 183);
+  font-size: 22px;
+  padding: 10px 15px;
+  background: #3c3c3c;
+}
+footer ul li {
+  list-style: none;
+  display: block;
+}
+footer ul {
+  padding-left: 0;
+}
+footer ul li a {
+  text-decoration: none;
+  color: grey;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #f5f5f5 !important;
+}
+.logo-part {
+  border-right: 1px solid grey;
+  height: 100%;
+}

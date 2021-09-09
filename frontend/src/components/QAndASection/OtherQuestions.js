@@ -7,6 +7,7 @@ import otherQuestionBg from './ImagesD/otherQuestionBg.png'
 
 export const OtherQuestions = () => {
     const [questions, setQuestions] = useState([]);
+    const [search, setSearch] = useState("");
 
     useEffect(()=>{
         const displayQuestion = async()=>{
@@ -23,6 +24,14 @@ export const OtherQuestions = () => {
             <div className="mt-3"><br/>
                 <NavBar/>
             </div>
+            <br/>
+            <div>
+                <input style={se} type="text"  class="form-control rounded" placeholder="Search" aria-label="Search"
+                    onChange={(e)=>{
+                        setSearch(e.target.value);
+                    }}/>
+            </div>
+
             </div>
             <div className="container">
             <div className="mt-3">
@@ -39,7 +48,13 @@ export const OtherQuestions = () => {
                 </thead>
                 <tbody>
                 {
-                    questions.map((row)=>(
+                    questions.filter((row)=>{
+                        if(search == ""){
+                            return row
+                        }else if(row.qTopic.toLowerCase().includes(search.toLowerCase())){
+                            return row
+                        }
+                    }).map((row)=>(
                     <tr>   
                     <td>
                         {row.qTopic}
@@ -99,4 +114,9 @@ const scrollable ={
 const hideScroll ={
     height: '600px',
     overflow:'hidden'
+}
+
+const se ={
+    margin:'0 auto',
+    width:'500px'
 }
