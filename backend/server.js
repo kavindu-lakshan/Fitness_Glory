@@ -80,6 +80,8 @@ app.use("/an", aRouter);
 //Amantha
 
 //Janudi
+const CleanersRouter = require('./routes/Cleaners');
+app.use('/Cleaners', CleanersRouter);
 
 //Manushi
 

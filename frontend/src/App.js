@@ -9,6 +9,12 @@ import WorkoutsDisplayMember from "./components/WorkoutSupportManagement/Workout
 import WorkoutDetails from "./components/WorkoutSupportManagement/WorkoutDetails/WorkoutDetails";
 import Form from "./components/WorkoutSupportManagement/Form/Form";
 
+//Janudi --> Employee Registration
+import AdminHeader from "./components/Header/AdminHeader";
+import EmployeeHome from "./components/EmployeeManagement/EmployeeHome";
+import RegisterMenu from "./components/EmployeeManagement/RegisterMenu";
+import CleanerRegistrationForm from "./components/EmployeeManagement/CleanerRegistrationForm";
+
 //shehan imports
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
 import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
@@ -53,6 +59,7 @@ const App = () => {
     <BrowserRouter>
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
+      <Route path="/admin" component={AdminHeader} />
       <div className="container-fluid">
         <Route
           path="/workouts"
@@ -91,6 +98,12 @@ const App = () => {
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
+
+        {/*Janudi Routes --> Beign*/}
+        <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
+        <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
+        <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
+        {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}
         <Route
