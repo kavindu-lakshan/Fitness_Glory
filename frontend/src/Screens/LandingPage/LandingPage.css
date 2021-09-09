@@ -2,18 +2,18 @@
   min-height: 93vh;
   display: flex;
   align-items: center;
-  background-image: url("../../components/ImagesD/background4.jpg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)) ,url("../../components/QAndASection/ImagesD/homeBg.png");
   background-position: center;
   background-size: cover;
 }
 
 .title {
   font-size: 95px;
-  color: #e2f516;
+  color: #ffffff;
 }
 .subtitle {
   font-size: 25px;
-  color: #9dc209;
+  color: #ffffff;
   padding-top: 10px;
 }
 

@@ -177,20 +177,12 @@ const App = () => {
         <Route path="/member/register" component={RegisterScreen} />
         <Route path="/member/Home" component={() => <HomePage />} />
 
+        {/*Amantha Routes*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
-        <Route
-          path="/employee/trainer-profile"
-          component={TrainerProfileScreen}
-        />
-        <Route
-          path="/employee/trainer-register"
-          component={TrainerRegisterScreen}
-        />
-        <Route
-          path="/employee/trainerHome"
-          component={() => <TrainerHomePage />}
-        />
+        <Route path="/employee/trainer-profile" component={TrainerProfileScreen}/>
+        <Route path="/employee/trainer-register" component={TrainerRegisterScreen}/>
+        <Route path="/employee/trainerHome" component={() => <TrainerHomePage />}/>
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
@@ -224,30 +216,14 @@ const App = () => {
           component={ProgramDetailsAdmin}
         ></Route>
 
-        <Route exact path="/QandA/:mUsername" component={QandA} />
-        <Route exact path="/q/createQ/:mUsername" component={CreateQuestion} />
-        <Route exact path="/updateQ/:id" component={UpdateQuestion} />
-        <Route exact path="/deleteQ/:id" component={DeleteQuestion} />
-        <Route exact path="/otherQ/" component={OtherQuestions} />
-        <Route exact path="/a/createA/:id" component={CreateAnswer} />
-        <Route exact path="/myAnswers/:mUsername" component={MyAnswers} />
-        <Route exact path="/updateA/:id" component={UpdateAnswer} />
-        <Route exact path="/deleteA/:id" component={DeleteAnswer} />
+        {/*Dulshan Routes*/}
         <Route exact path="/member/QandA/:mUsername" component={QandA} />
-        <Route
-          exact
-          path="/member/q/createQ/:mUsername"
-          component={CreateQuestion}
-        />
+        <Route exact path="/member/q/createQ/:mUsername" component={CreateQuestion}/>
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
         <Route exact path="/member/deleteQ/:id" component={DeleteQuestion} />
         <Route exact path="/member/otherQ/" component={OtherQuestions} />
         <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
-        <Route
-          exact
-          path="/member/myAnswers/:mUsername"
-          component={MyAnswers}
-        />
+        <Route exact path="/member/myAnswers/:mUsername" component={MyAnswers}/>
         <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
         <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
       </main>
