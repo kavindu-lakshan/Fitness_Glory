@@ -23,14 +23,17 @@ export const UpdateAnswerForm = ({answers, onSubmit}) =>{
             <h4 style={{color:'white'}} >Question Details</h4>
             </div>
             <br/>
-            <div class="row">
-                <br/>
+            <div class="row"><br/>
                 <div class="col-6 col-sm-6">
                     <label style={labelStyle} for="qTopic" className="form-label">Question Topic</label>
                     <input style={inputFieldStyle} type="text" className="form-control" {...register("qTopic", { required: true })} id="qTopic" name="qTopic" disabled="true"/>
                 </div>
-                <div class="w-100"></div>
-                <br/>
+                <div class="col-6 col-sm-6">
+                    <label style={labelStyle} for="question" className="form-label">Question Description</label>
+                    <input style={inputFieldStyle} type="text" className="form-control" {...register("question", { required: true })} id="question" name="question" disabled="true"/>
+                </div>
+                
+            <div class="w-100"></div><br/>
             </div>
             <br/>
             <hr/>
@@ -43,28 +46,24 @@ export const UpdateAnswerForm = ({answers, onSubmit}) =>{
                     <label style={labelStyle} for="mUsername" className="form-label">Member Username</label>
                     <input style={inputFieldStyle} type="text" className="form-control"{...register("mUsername", { required: true })} id="mUsername" name="mUsername" disabled="true"/>
                 </div>
-                <div class="w-100"></div>
-                <br/>
-                <div class="w-100"></div>
+            <div class="w-100"></div><br/>
+            <div class="w-100"></div>
                 <div class="col-6 col-sm-6">
                     <label style={labelStyle} for="answer" className="form-label">Answer</label>
                     <input style={inputFieldStyle} type="text" className="form-control" {...register("answer", { required: true })} id="answer" name="answer"/>
                 </div>
-            </div>
-            <br/>
+            </div><br/>
             <center><Button style={btn} size="large" type="submit" className="btn btn-primary">Update Details</Button></center><br/><br/>
         </form>
     )
 }
 
 const inputFieldStyle={
-
     border:'3px solid white',
     background:'transparent',
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-
 }
 
 const labelStyle={

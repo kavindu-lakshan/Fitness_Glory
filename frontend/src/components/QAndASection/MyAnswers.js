@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect, useRouteMatch } from 'react-router-dom'
-import { Button, AppBar, Tabs, Tab, } from '@material-ui/core';
-import { getAnswer } from '../../api/apiFBQA';
+import { Link, useRouteMatch } from 'react-router-dom'
+import { Button } from '@material-ui/core';
 import { NavBar } from './NavBar';
-import myAnswerPg from '../ImagesD/myAnswerBg.png'
+import { getAnswer } from '../../api/apiFBQA';
+import myAnswerBg from './ImagesD/myAnswerBg.png'
 
 export const MyAnswers = () => {
     const match = useRouteMatch()
@@ -17,24 +17,23 @@ export const MyAnswers = () => {
         displayAnswer();
     },[])
 
-
     return(
         <div>
-            <div style={bgImg}>
-            <br/>
+            <div style={bgImg}><br/>
             <div className="container">
             <div className="mt-3">
-            <NavBar/>
+                <NavBar/>
             </div>
             </div>
             <div className="container">
             <div className="mt-3">
-
+                <br/>
                 <h3 style={labelStyle} className = "text-center" >My Answers</h3>
+                <div style={hideScroll}>
+                <div style={scrollable}>
                 <table style={textStyle} class="table">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
                         <th scope="col">Topic of Question</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -43,20 +42,21 @@ export const MyAnswers = () => {
                     {
                         answer.map((row)=>(
                         <tr>
-                            <th scope="row">1</th>
                             <td>{row.qTopic}</td>
                             <td>
-                            <Link to={`/updateA/${row._id}`} style={{ textDecoration: 'none' }}><Button style={btn} color="Secondary" variant="contained">Update Answer</Button></Link>
-                            <Link to={`/deleteA/${row._id}`} style={{ textDecoration: 'none', marginLeft:'10pt'}}><Button style={btn} color="Secondary" variant="contained">Delete Answer</Button></Link>
+                                <Link to={`/member/updateA/${row._id}`} style={{ textDecoration: 'none' }}><Button style={btn} color="Secondary" variant="contained">Update Answer</Button></Link>
+                                <Link to={`/member/deleteA/${row._id}`} style={{ textDecoration: 'none', marginLeft:'10pt'}}><Button style={btn} color="Secondary" variant="contained">Delete Answer</Button></Link>
                             </td>
                         </tr>                      
                         ))
                     }
                 </tbody>
                 </table>
+                </div>
+                </div>
             </div>
             </div>
-        </div>
+            </div>
         </div>
     )
 }
@@ -68,12 +68,10 @@ const btn ={
 }
 
 const bgImg ={
-    background: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.58)) ,url(${myAnswerPg})`,
+    background: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.58)) ,url(${myAnswerBg})`,
     backgroundSize: 'cover',
     position: 'center',
     marginTop:'-20px',
-    right:'0%',
-    left:'0%',
     width: '100%',
     height: '100%',
     opacity:'1'
@@ -83,7 +81,6 @@ const labelStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-
 }
 
 const textStyle={
@@ -91,5 +88,15 @@ const textStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
+}
 
+const scrollable ={
+    height: '600px',
+    overflowY: 'scroll',
+    paddingRight:'20px'
+}
+
+const hideScroll ={
+    height: '600px',
+    overflow:'hidden'
 }

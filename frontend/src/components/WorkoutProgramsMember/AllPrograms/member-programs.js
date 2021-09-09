@@ -15,6 +15,28 @@ export default class AllprogramsMemer extends Component {
         this.retrievePrograms();
     }
 
+    filterData(programs, searchKey){
+        const result = programs.filter((program) =>
+          program.name.toLowerCase().includes(searchKey) ||
+          program.description.toLowerCase().includes(searchKey) ||
+          program.conducted_by.toLowerCase().includes(searchKey) ||
+          program.name.toLowerCase().includes(searchKey) ||
+          program.day.toLowerCase().includes(searchKey)
+        )
+  
+        this.setState({programs: result})
+      }
+  
+      handleSearchArea = (e) => {
+        const searchKey = e.currentTarget.value.toLowerCase();
+  
+          axios.get("http://localhost:5000/programs").then(res => {
+              if(res.data.success){
+                this.filterData(res.data.existingPrograms,searchKey)
+              }
+          })
+      }
+
     retrievePrograms(){
         axios.get("http://localhost:5000/programs").then(res => {
             console.log(res.data.success)
@@ -30,9 +52,22 @@ export default class AllprogramsMemer extends Component {
 
     render() {
         return (
-          <div className="container">
-            <p>All Programs</p>
+          <div className="container" style={{marginTop:'20px'}}>
             <div className="row">
+                <div className="col-lg-9 mt-2 mb-2">
+                    <h1>Workout Programs</h1>
+                </div>
+                <div className="col-lg-3 mt-2 mb-2">
+                    <input className="form-control"
+                    type="search"
+                    placeholder="Search"
+                    name="searchQuery"
+                    onChange={this.handleSearchArea}
+                    />
+                </div>
+                <hr/>
+            </div>
+            <div className="row" style={{marginTop:'30px'}}>
                 {this.state.programs.map((program, index) => (
                     <div className="col-md-4 col-sm-6" key={index}>
                         {console.log(program)}

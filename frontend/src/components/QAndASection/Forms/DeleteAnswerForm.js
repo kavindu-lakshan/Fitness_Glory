@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {useForm} from 'react-hook-form'
 import Button from '@material-ui/core/Button';
-
 
 export const DeleteAnswerForm = ({answers, onSubmit}) =>{
     
@@ -26,10 +25,13 @@ export const DeleteAnswerForm = ({answers, onSubmit}) =>{
                     <label style={labelStyle} for="qTopic" className="form-label">Question Topic</label>
                     <input style={inputFieldStyle} type="text" className="form-control" {...register("qTopic", { required: true })} id="qTopic" name="qTopic" disabled="true"/>
                 </div>
+                <div class="col-6 col-sm-6">
+                    <label style={labelStyle} for="question" className="form-label">Question Description</label>
+                    <input style={inputFieldStyle} type="text" className="form-control" {...register("question", { required: true })} id="question" name="question" disabled="true"/>
+                </div>
                 <div class="w-100"></div>
                 <br/>
             </div>
-
             <hr style={hr}/>
             <h4 style={head}>Provide Answer</h4><br/>
             <div className="row">
@@ -53,13 +55,11 @@ export const DeleteAnswerForm = ({answers, onSubmit}) =>{
 
 
 const inputFieldStyle={
-
     border:'3px solid white',
     background:'transparent',
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-
 }
 
 const labelStyle={
@@ -74,6 +74,7 @@ const head ={
     textAlignVertical: "center",
     textAlign: "center",
     background: '#04938b',
+    color:'white'
 }
 
 const btn ={
