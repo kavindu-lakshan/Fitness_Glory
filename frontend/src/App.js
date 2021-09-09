@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Redirect } from "react-router";
 
+
 import { getWorkouts } from "./actions/workouts";
 import Workouts from "./components/WorkoutSupportManagement/Workouts/Workouts";
 import WorkoutsDisplayMember from "./components/WorkoutSupportManagement/Workouts/WorkoutsDisplayMember";
@@ -31,6 +32,15 @@ import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
+//Sandani's imports
+ import CreateRequest from './components/RequestSchedule/CreateRequest';
+ import HomeRequest from './components/RequestSchedule/HomeRequest';
+ import EditRequest from './components/RequestSchedule/EditRequest';
+ import RequestDetails from './components/RequestSchedule/RequestDetails';
+ import NavBar from './components/RequestSchedule/NavBar';
+ import MemHome from './components/RequestSchedule/MemHome';
+ import SchReport from './components/RequestSchedule/SchReport';
+
 //Dulshan QandA section
 import { QandA } from "./components/QAndASection/QandA";
 import { CreateQuestion } from "./components/QAndASection/CreateQuestion";
@@ -47,7 +57,7 @@ import CreatePost from "./components/ClientRequest/CreatePost";
 import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
-import ptEdit from "./components/ClientRequest/ptEdit";
+import ptEdit from "./components/ClientRequest/ptEdit"; 
 
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
@@ -105,8 +115,12 @@ const App = () => {
         path="/workouts"
         component={() => <Redirect to="/employee/workouts" />}
       />
+
+     
+
+
       {/* manushika Routes*/}
-      <div className="container">
+       <div className="container">
         <Route
           path="/member/memberPTRequest/home"
           exact
@@ -130,7 +144,19 @@ const App = () => {
           path="/member/memberPTRequest/post/:id"
           component={PostDetails}
         ></Route>
-      </div>
+      </div> 
+
+           {/**Sandani */}
+       <div className="container">
+              
+              <Route path="/employee/scheduleR/HomeRequest" exact component={HomeRequest}></Route>
+              <Route path="/member/scheduleR/MemHome" exact component={MemHome}></Route>
+              <Route path="/admin/scheduleR/SchReport" exact component={SchReport}></Route>
+              <Route path="/member/scheduleR/add" component={CreateRequest}></Route>
+              <Route path="/member/scheduleR/edit/:id" component={EditRequest}></Route>
+              <Route path="/member/scheduleR/Xpost/:id" component={RequestDetails}></Route>
+        </div> 
+
       <main>
         <Route path="/member" component={LandingPage} exact />
         <Route path="/member/login" component={LoginScreen} />
@@ -185,6 +211,17 @@ const App = () => {
           component={ProgramDetailsAdmin}
         ></Route>
 
+        
+
+        <Route exact path="/QandA/:mUsername" component={QandA} />
+        <Route exact path="/q/createQ/:mUsername" component={CreateQuestion} />
+        <Route exact path="/updateQ/:id" component={UpdateQuestion} />
+        <Route exact path="/deleteQ/:id" component={DeleteQuestion} />
+        <Route exact path="/otherQ/" component={OtherQuestions} />
+        <Route exact path="/a/createA/:id" component={CreateAnswer} />
+        <Route exact path="/myAnswers/:mUsername" component={MyAnswers} />
+        <Route exact path="/updateA/:id" component={UpdateAnswer} />
+        <Route exact path="/deleteA/:id" component={DeleteAnswer} />
         <Route exact path="/member/QandA/:mUsername" component={QandA} />
         <Route
           exact
