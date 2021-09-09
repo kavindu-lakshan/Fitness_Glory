@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../actions/userActions";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
-import MainScreen from "../../components/MainScreen";
+import MainScreen from "../../components/MainScreens/memberProfile";
 import "./ProfileScreen.css";
 
 const ProfileScreen = ({ location, history }) => {
