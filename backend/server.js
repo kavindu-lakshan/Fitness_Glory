@@ -84,6 +84,8 @@ app.use("/FitnessGlory/trainers", trainerRoutes);
 //Janudi
 
 //Manushi
+const zpostRoutes = require("./routes/zposts");
+app.use(zpostRoutes);
 
 //Sandani
 
