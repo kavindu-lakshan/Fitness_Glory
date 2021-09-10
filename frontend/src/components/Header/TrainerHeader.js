@@ -43,6 +43,16 @@ const TrainerHeader = () => {
                 <NavDropdown.Item href="">Manage Events</NavDropdown.Item>
               </NavDropdown>
 
+              <NavDropdown title="Workouts" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/employee/workouts/add">
+                  Add Workouts
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/employee/workouts">
+                  Workout Library
+                </NavDropdown.Item>
+              </NavDropdown>
+
               <NavDropdown title="Requests" id="basic-nav-dropdown">
                 <NavDropdown.Item href="">Trainer Requests</NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -53,6 +63,10 @@ const TrainerHeader = () => {
                 <Link to="/employee/trainerHome">View Blogs</Link>
               </Nav.Link>
 
+              <Nav.Link href="/employee/trainerHome">
+                <Link to="/employee/trainerDetails">All Trainers</Link>
+              </Nav.Link>
+
               <NavDropdown
                 title={trainerInfo?.username}
                 id="basic-nav-dropdown"
@@ -60,6 +74,15 @@ const TrainerHeader = () => {
                 <NavDropdown.Item href="/employee/trainer-profile">
                   My Profile
                 </NavDropdown.Item>
+
+                <NavDropdown
+                  title={trainerInfo?.username}
+                  id="basic-nav-dropdown"
+                />
+                <NavDropdown.Item href="/employee/trainer-profile">
+                  My Profile
+                </NavDropdown.Item>
+
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logoutHandler}>
                   Logout

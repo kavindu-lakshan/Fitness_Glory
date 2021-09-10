@@ -36,6 +36,14 @@ const Header = () => {
               <Nav.Link href="/member/Home">
                 <Link to="/member/Home">Home</Link>
               </Nav.Link>
+              <Nav.Link href="/member/workouts">
+                <Link to="/member/workouts">Workout Library</Link>
+              </Nav.Link>
+              <NavDropdown title="Personal Trainer" id="basic-nav-dropdown">
+                <NavDropdown.Item href="">Request</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="">Blogs</NavDropdown.Item>
+              </NavDropdown>
               <NavDropdown title={userInfo?.name} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/member/profile">
                   My Profile

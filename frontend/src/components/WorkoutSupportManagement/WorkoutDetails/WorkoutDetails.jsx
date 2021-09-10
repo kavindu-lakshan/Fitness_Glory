@@ -13,14 +13,17 @@ const WorkoutDetails = () => {
 
   useEffect(() => {
     dispatch(getWorkout(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   if (!workout) return null;
 
   return (
     <div className="container">
       &nbsp;
-      <Paper style={{ padding: "20px", borderRadius: "15px" }} elevation={4}>
+      <Paper
+        style={{ padding: "20px", borderRadius: "15px", marginBottom: "30px" }}
+        elevation={4}
+      >
         <div className={classes.card}>
           <div className={classes.section}>
             <Typography variant="h6" component="h6">
@@ -51,13 +54,21 @@ const WorkoutDetails = () => {
               <strong>Tips - {workout.tips}</strong>
             </Typography>
             <Divider style={{ margin: "20px 0" }} />
+            <Typography variant="body1">
+              <strong>Views - {workout.viewCount}</strong>
+            </Typography>
           </div>
           <div className={classes.imageSection}>
             <img
               className={classes.media}
               src={workout.starting_position_img}
+              alt="Starting Position"
             />
-            <img className={classes.media} src={workout.mid_position_img} />
+            <img
+              className={classes.media}
+              src={workout.mid_position_img}
+              alt="Mid Position"
+            />
           </div>
         </div>
       </Paper>

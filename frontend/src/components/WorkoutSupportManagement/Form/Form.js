@@ -40,7 +40,7 @@ const Form = ({ currentId, setCurrentId }) => {
     if (!localStorage.getItem("trainerInfo")) {
       history.push("/employee");
     }
-  }, []);
+  }, [history]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

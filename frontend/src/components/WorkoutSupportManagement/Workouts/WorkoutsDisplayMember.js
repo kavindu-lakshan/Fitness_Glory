@@ -24,7 +24,7 @@ const WorkoutsDisplayMember = ({ setCurrentId }) => {
     if (!localStorage.getItem("userInfo")) {
       history.push("/member");
     }
-  }, []);
+  }, [history]);
 
   return !workouts?.length ? (
     <CircularProgress />
@@ -60,6 +60,8 @@ const WorkoutsDisplayMember = ({ setCurrentId }) => {
               val.workout_name.toLowerCase().includes(search.toLowerCase())
             ) {
               return val;
+            } else {
+              return null;
             }
           })
           .map((workout) => (

@@ -11,3 +11,5 @@ export const updateWorkout = (id, updatedWorkout) =>
   API.patch(`${"/workouts/update"}/${id}`, updatedWorkout);
 
 export const deleteWorkout = (id) => API.delete(`${"/workouts"}/${id}`);
+export const viewWorkout = (id) =>
+  API.patch(`${"/workouts"}/${id}/viewWorkout`);
