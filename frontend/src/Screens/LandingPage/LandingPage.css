@@ -1,4 +1,4 @@
-.main {
+/* .main {
   min-height: 93vh;
   display: flex;
   align-items: center;
@@ -50,4 +50,242 @@
     width: 150px;
     height: 50px;
   }
+} */
+
+header {
+  position: relative;
+  background-color: black;
+  height: 85vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.videoWrp {
+  background: none;
+  position: relative;
+  padding: 0;
+  height: 600px;
+}
+.hero-wrapper {
+  height: 800px;
+  min-width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+}
+.video {
+  position: relative;
+}
+.hero-wrapper:before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  top: 0;
+  background-position: center center;
+  background-size: cover;
+}
+.hero-image #bgvid {
+  display: block;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: inherit;
+}
+.videohover {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.videoText {
+  margin-top: 220px;
+}
+.slidertext01 {
+  color: #fff;
+  font-size: 80px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.41);
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Roboto Condensed", sans-serif;
+  line-height: 100px;
+}
+
+.slidertext02 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  text-transform: uppercase;
+  font-family: "Roboto Condensed", sans-serif;
+  text-align: center;
+}
+
+.slidertext03 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: none !important;
+  line-height: 30px;
+  text-align: center;
+}
+.slidertext04 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: none !important;
+  text-align: center;
+  font-family: "OpenSans", sans-serif;
+  line-height: 24px;
+  margin-top: 20px;
+}
+
+.slidertext04 a {
+  background: #f36f21;
+  color: #fff !important;
+  font-size: 20px;
+  border-radius: 30px;
+  padding: 16px 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.aboutImg {
+  margin-top: 20px;
+}
+.aboutImg {
+  margin-top: 20px;
+}
+.about-wrap {
+  padding: 60px 0 0 0;
+}
+.about-wrap .readmore {
+  margin-top: 30px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Condensed", sans-serif;
+}
+p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #333;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+}
+
+.title h1 {
+  font-size: 48px;
+  color: #000;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 50px;
+}
+.title h1 span {
+  font-size: 30px;
+  color: #f36f21;
+  display: block;
+  font-weight: normal;
+}
+.title h1:before {
+  content: "";
+  background: url() no-repeat;
+  width: 70px;
+  height: 12px;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
+.readmore a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  background: #f36f21;
+  padding: 16px 35px;
+  border-radius: 30px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.readmore i {
+  padding-left: 5px;
+}
+.readmore a:hover {
+  background: #000;
+  color: #fff;
+}
+.margin-top {
+  margin-top: 30px;
 }
