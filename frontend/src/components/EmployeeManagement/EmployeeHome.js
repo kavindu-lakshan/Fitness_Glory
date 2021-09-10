@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button } from '@material-ui/core'
+import { Paper } from '@material-ui/core'
 import GradientButton from 'react-linear-gradient-button';
 
 export default function EmployeeHome(props){
@@ -15,19 +15,19 @@ export default function EmployeeHome(props){
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102075/Slide2_kstbbs.jpg",
             name: "VIEW CURRENT EMPLOYEES",
             description: "You can view the current information of the employees at Fitness Glory. The employees are categorized into cleaners and trainers. Please note that the information can only be viewed here and changes or any updates to the information cannot be done here. If required, navigate to update information page.",
-            btnlink: "/DesignFade"
+            btnlink: "/admin/ViewEmployeeInterface"
         },
         {
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102458/woman-gym-body-building_ddfg1z.jpg",
             name: "UPDATE EMPLOYEE DETAILS",
             description: "The updating of employees is limited to cleaner information as the trainers have their own priviledges to access their account and edit their information at anytime. As the cleaners do not have access to the system, the system admin is entitled to maintain their profiles, on behalf of them.",
-            btnlink: "/EditCleanerInterface"
+            btnlink: "/admin/EditCleanerInterface"
         },
         {
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102139/Slide4_vvdajv.jpg",
             name: "REMOVE CURRENT EMPLOYEES",
             description: "Employees can be removed from the system with the permission of the gym owner only. Therefore, the reason for the dismissal has to be entered and permission will only be granted if the owner has approved the dismissal of the particular employee. Only the system admin and gym owner have access.",
-            btnlink: "/DeleteCleanerInterface"
+            btnlink: "/admin/DeleteCleanerInterface"
         },
         {
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102058/Card9_claleu.jpg",
@@ -36,7 +36,7 @@ export default function EmployeeHome(props){
             btnlink: `/leave/Pending`
         },
         {
-            img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631103208/sule-makaroglu-8opGXsff3uc-unsplash_ihi4tt.jpg",
+            img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102031/Card8_zem1f4.jpg",
             name: "MANAGE EMPLOYEE LEAVES",
             description: "Trainers can apply for leaves for a particular number of times each month and these requests will either be approved or declined according to the trainer's schedule and the number of leaves the trainer had already taken out in that month. This does not apply for the cleaners at the gym.",
             btnlink: "/Leaves"
