@@ -9,9 +9,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 const Wrapper = styled.div``;
 
-export default class EditCleaner extends Component{
-
-        
+export default class EditCleaner extends Component{   
     constructor(props) {
         super(props);
 
@@ -40,7 +38,6 @@ export default class EditCleaner extends Component{
     }
 
     handleClick(e){
-
         this.setState({disable:!this.state.disable})
     }
 

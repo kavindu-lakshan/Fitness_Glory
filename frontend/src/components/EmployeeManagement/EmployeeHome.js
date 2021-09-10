@@ -27,7 +27,7 @@ export default function EmployeeHome(props){
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102139/Slide4_vvdajv.jpg",
             name: "REMOVE CURRENT EMPLOYEES",
             description: "Employees can be removed from the system with the permission of the gym owner only. Therefore, the reason for the dismissal has to be entered and permission will only be granted if the owner has approved the dismissal of the particular employee. Only the system admin and gym owner have access.",
-            btnlink: "/DeleteCleanerInterface"
+            btnlink: "/admin/DeleteCleanerInterface"
         },
         {
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102058/Card9_claleu.jpg",

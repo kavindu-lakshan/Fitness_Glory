@@ -15,10 +15,12 @@ import EmployeeHome from "./components/EmployeeManagement/EmployeeHome";
 import RegisterMenu from "./components/EmployeeManagement/RegisterMenu";
 import CleanerRegistrationForm from "./components/EmployeeManagement/CleanerRegistrationForm";
 import ViewEmployeeInterface from "./components/EmployeeManagement/ViewEmployeeInterface";
-import {AllCleaners} from "./components/EmployeeManagement/EditCleanerInterface";
+import { AllCleaners } from "./components/EmployeeManagement/EditCleanerInterface";
 import EditCleaner from "./components/EmployeeManagement/EditCleaner";
-
+import { DeleteCleaners } from "./components/EmployeeManagement/DeleteCleanerInterface";
+import { DeleteConf } from './components/EmployeeManagement/DeleteConf';
 //shehan imports
+
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
 import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
 import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/AllProgramsAdmin";
@@ -168,7 +170,8 @@ const App = () => {
         <Route exact path = "/admin/ViewEmployeeInterface" component = {ViewEmployeeInterface}/>
         <Route exact path = "/admin/EditCleanerInterface" component = {AllCleaners}/>
         <Route exact path = "/admin/update/:id" component = {EditCleaner}/>
-
+        <Route exact path = "/admin/DeleteCleanerInterface" component = {DeleteCleaners}/>
+        <Route exact path = "/admin/delete/:id" component = {DeleteConf}/>
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}

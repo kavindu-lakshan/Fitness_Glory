@@ -85,6 +85,12 @@ app.use("/FitnessGlory/trainers", trainerRoutes);
 const CleanersRouter = require('./routes/Cleaners');
 app.use('/Cleaners', CleanersRouter);
 
+const DeleteRoute = require('./routes/Employee_Delete');
+app.use('/Employee_Delete', DeleteRoute);
+
+const LeaveRouter = require('./routes/Leaves');
+app.use('/Leaves', LeaveRouter);
+
 //Manushi
 const zpostRoutes = require("./routes/zposts");
 app.use(zpostRoutes);
