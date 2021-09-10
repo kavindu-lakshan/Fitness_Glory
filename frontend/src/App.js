@@ -14,6 +14,9 @@ import AdminHeader from "./components/Header/AdminHeader";
 import EmployeeHome from "./components/EmployeeManagement/EmployeeHome";
 import RegisterMenu from "./components/EmployeeManagement/RegisterMenu";
 import CleanerRegistrationForm from "./components/EmployeeManagement/CleanerRegistrationForm";
+import ViewEmployeeInterface from "./components/EmployeeManagement/ViewEmployeeInterface";
+import {AllCleaners} from "./components/EmployeeManagement/EditCleanerInterface";
+import EditCleaner from "./components/EmployeeManagement/EditCleaner";
 
 //shehan imports
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
@@ -75,10 +78,7 @@ const App = () => {
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
       <Route path="/admin" component={AdminHeader} />
-<<<<<<< HEAD
-=======
       <Route path="/employee" component={TrainerHeader} />
->>>>>>> 57f54a4a153a48f74692ebbdded0407471a71478
       <div className="container-fluid">
         <Route
           path="/employee/workouts"
@@ -165,6 +165,10 @@ const App = () => {
         <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
         <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
         <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
+        <Route exact path = "/admin/ViewEmployeeInterface" component = {ViewEmployeeInterface}/>
+        <Route exact path = "/admin/EditCleanerInterface" component = {AllCleaners}/>
+        <Route exact path = "/admin/update/:id" component = {EditCleaner}/>
+
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}

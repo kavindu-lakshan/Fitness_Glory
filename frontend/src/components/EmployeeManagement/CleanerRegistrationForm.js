@@ -85,19 +85,6 @@ export default function CleanerRegistrationForm() {
     return step === 1;
   };
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      throw new Error("Can't skip");
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
-
   const skippedSteps = () => {
     return skipped.size;
   };
@@ -124,22 +111,8 @@ export default function CleanerRegistrationForm() {
     setActiveStep(newActiveStep);
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
   const handleStep = (step) => () => {
     setActiveStep(step);
-  };
-
-  const handleComplete = () => {
-    const newCompleted = new Set(completed);
-    newCompleted.add(activeStep);
-    setCompleted(newCompleted);
-
-    if (completed.size !== totalSteps() - skippedSteps()) {
-      handleNext();
-    }
   };
 
   const handleReset = () => {
@@ -214,15 +187,8 @@ export default function CleanerRegistrationForm() {
   );
 }
 
-const stepStyles = {
-  backgroundColor: 'black'
-}
-
 const btnStyles = {
   marginLeft: '100px',
   textColor: 'red'
 }
 
-const btn1Styles = {
-  textColor: 'red'
-}

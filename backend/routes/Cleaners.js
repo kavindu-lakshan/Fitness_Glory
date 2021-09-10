@@ -7,7 +7,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route('/cleaner/add').post((req, res) => {
     const FirstName = req.body.FirstName;
     const LastName = req.body.LastName;
     const NICNumber = req.body.NICNumber;
@@ -48,7 +48,7 @@ router.route("/delete/:id").delete(async (req,res)=>{
     })
 })
 
-router.route('/update/:id').post((req, res) => {
+router.route('/admin/update/:id').post((req, res) => {
     Cleaner.findById(req.params.id)
     .then(Cleaner => {
         Cleaner.FirstName = req.body.FirstName;
