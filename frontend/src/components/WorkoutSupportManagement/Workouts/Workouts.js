@@ -45,7 +45,6 @@ const Workouts = ({ setCurrentId }) => {
             aria-describedby="search-addon"
           />
         </div>
-        <div></div>
       </div>
       <Grid
         className={classes.container}
