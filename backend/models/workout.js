@@ -37,6 +37,10 @@ const workoutSchema = mongoose.Schema({
     type: Date,
     default: new Date(),
   },
+  viewCount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const workout = mongoose.model("workout", workoutSchema);

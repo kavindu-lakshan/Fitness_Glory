@@ -22,7 +22,7 @@ const Workouts = ({ setCurrentId }) => {
     if (!localStorage.getItem("trainerInfo")) {
       history.push("/employee");
     }
-  }, []);
+  }, [history]);
 
   console.log(workouts);
 
@@ -61,6 +61,8 @@ const Workouts = ({ setCurrentId }) => {
               val.workout_name.toLowerCase().includes(search.toLowerCase())
             ) {
               return val;
+            } else {
+              return null;
             }
           })
           .map((workout) => (

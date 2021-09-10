@@ -41,7 +41,7 @@ body {
 }
 
 .wrapper .form .input_field label {
-  width: 280px;
+  width: 390px;
   color: black;
   margin-right: 5px;
   font-size: 15px;
@@ -66,7 +66,7 @@ body {
 
 .wrapper .form .input_field .custom_select {
   position: relative;
-  width: 100%;
+  width: 651px;
   height: 40px;
 }
 
