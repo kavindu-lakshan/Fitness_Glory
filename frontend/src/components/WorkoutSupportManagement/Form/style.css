@@ -96,6 +96,12 @@ body {
   text-align: left;
   font-size: 12px;
   margin-top: -10px;
-  margin-left: 197px;
+  margin-left: 245px;
   margin-bottom: 5px;
+}
+
+.mainback {
+  min-height: 93vh;
+  display: flex;
+  padding: 10px 0;
 }
