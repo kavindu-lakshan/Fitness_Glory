@@ -155,7 +155,7 @@ export default class viewMembers extends Component {
                 <td>
                   <a
                     className="btn btn-warning"
-                    style={{ width: "80%", marginBottom: "2px" }}
+                    style={{ width: "70%", marginBottom: "1px" }}
                     href={`/employee/editDetails/${details._id}`}
                   >
                     <i className="fas fa-edit"></i>&nbsp;Edit
@@ -163,7 +163,7 @@ export default class viewMembers extends Component {
                   &nbsp;
                   <a
                     className="btn btn-danger"
-                    style={{ width: "80%", marginBottom: "2px" }}
+                    style={{ width: "70%", marginBottom: "1px" }}
                     href="#"
                     onClick={() => this.onDelete(details._id)}
                   >
