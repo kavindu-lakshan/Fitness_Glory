@@ -142,154 +142,167 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="title">{currentId ? "Edit" : "Create New"} Workout</div>
-      <div className="form">
-        <div className="input_field">
-          <label>Workout Name *</label>
-          <input
-            type="text"
-            className="input"
-            value={workoutData.workout_name}
-            onChange={(e) =>
-              setWorkoutData({ ...workoutData, workout_name: e.target.value })
-            }
-          />
-        </div>
-        {Object.keys(nameError).map((key) => {
-          return <div className="error">{nameError[key]}</div>;
-        })}
-
-        <div className="input_field">
-          <label>Workout Category *</label>
-          <div className="custom_select">
-            <select
-              value={workoutData.workout_category}
+    <div
+      className="mainback"
+      style={{
+        backgroundImage:
+          "url(" +
+          "https://res.cloudinary.com/dqsssnerw/image/upload/v1631218257/katerina-jerabkova-nV7WA07ikI4-unsplash_vf5hmb.jpg" +
+          ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="wrapper">
+        <div className="title">{currentId ? "Edit" : "Create New"} Workout</div>
+        <div className="form">
+          <div className="input_field">
+            <label>Workout Name *</label>
+            <input
+              type="text"
+              className="input"
+              value={workoutData.workout_name}
               onChange={(e) =>
+                setWorkoutData({ ...workoutData, workout_name: e.target.value })
+              }
+            />
+          </div>
+          {Object.keys(nameError).map((key) => {
+            return <div className="error">{nameError[key]}</div>;
+          })}
+
+          <div className="input_field">
+            <label>Workout Category *</label>
+            <div className="custom_select">
+              <select
+                value={workoutData.workout_category}
+                onChange={(e) =>
+                  setWorkoutData({
+                    ...workoutData,
+                    workout_category: e.target.value,
+                  })
+                }
+              >
+                <option value="">Select</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Weights">Weights</option>
+              </select>
+            </div>
+          </div>
+          {Object.keys(categoryError).map((key) => {
+            return <div className="error">{categoryError[key]}</div>;
+          })}
+
+          <div className="input_field">
+            <label>Muscle Group *</label>
+            <input
+              type="text"
+              className="input"
+              value={workoutData.muscle_group}
+              onChange={(e) =>
+                setWorkoutData({ ...workoutData, muscle_group: e.target.value })
+              }
+            />
+          </div>
+          {Object.keys(muscleError).map((key) => {
+            return <div className="error">{muscleError[key]}</div>;
+          })}
+
+          <div className="input_field">
+            <label>Instructions *</label>
+            <textarea
+              className="textarea"
+              value={workoutData.instructions}
+              onChange={(e) =>
+                setWorkoutData({ ...workoutData, instructions: e.target.value })
+              }
+            />
+          </div>
+          {Object.keys(instructionError).map((key) => {
+            return <div className="error">{instructionError[key]}</div>;
+          })}
+
+          <div className="input_field">
+            <label>Action *</label>
+            <textarea
+              className="textarea"
+              value={workoutData.action}
+              onChange={(e) =>
+                setWorkoutData({ ...workoutData, action: e.target.value })
+              }
+            />
+          </div>
+          {Object.keys(actionError).map((key) => {
+            return <div className="error">{actionError[key]}</div>;
+          })}
+
+          <div className="input_field">
+            <label>Tips</label>
+            <textarea
+              className="textarea"
+              value={workoutData.tips}
+              onChange={(e) =>
+                setWorkoutData({ ...workoutData, tips: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="input_field">
+            <label>Starting Position Image *</label>
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) =>
                 setWorkoutData({
                   ...workoutData,
-                  workout_category: e.target.value,
+                  starting_position_img: base64,
                 })
               }
-            >
-              <option value="">Select</option>
-              <option value="Cardio">Cardio</option>
-              <option value="Weights">Weights</option>
-            </select>
+            />
           </div>
-        </div>
-        {Object.keys(categoryError).map((key) => {
-          return <div className="error">{categoryError[key]}</div>;
-        })}
 
-        <div className="input_field">
-          <label>Muscle Group *</label>
-          <input
-            type="text"
-            className="input"
-            value={workoutData.muscle_group}
-            onChange={(e) =>
-              setWorkoutData({ ...workoutData, muscle_group: e.target.value })
-            }
-          />
+          <div className="input_field">
+            <label>Mid Position Image *</label>
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) =>
+                setWorkoutData({ ...workoutData, mid_position_img: base64 })
+              }
+            />
+          </div>
+          <Button
+            className={classes.buttonSubmit}
+            variant="contained"
+            color="primary"
+            size="large"
+            type="submit"
+            onClick={handleSubmit}
+            fullWidth
+          >
+            Submit
+          </Button>
+          <Button
+            className={classes.buttonSubmit}
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={clear}
+            fullWidth
+          >
+            Clear
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={add}
+            fullWidth
+          >
+            DEMO
+          </Button>
         </div>
-        {Object.keys(muscleError).map((key) => {
-          return <div className="error">{muscleError[key]}</div>;
-        })}
-
-        <div className="input_field">
-          <label>Instructions *</label>
-          <textarea
-            className="textarea"
-            value={workoutData.instructions}
-            onChange={(e) =>
-              setWorkoutData({ ...workoutData, instructions: e.target.value })
-            }
-          />
-        </div>
-        {Object.keys(instructionError).map((key) => {
-          return <div className="error">{instructionError[key]}</div>;
-        })}
-
-        <div className="input_field">
-          <label>Action *</label>
-          <textarea
-            className="textarea"
-            value={workoutData.action}
-            onChange={(e) =>
-              setWorkoutData({ ...workoutData, action: e.target.value })
-            }
-          />
-        </div>
-        {Object.keys(actionError).map((key) => {
-          return <div className="error">{actionError[key]}</div>;
-        })}
-
-        <div className="input_field">
-          <label>Tips</label>
-          <textarea
-            className="textarea"
-            value={workoutData.tips}
-            onChange={(e) =>
-              setWorkoutData({ ...workoutData, tips: e.target.value })
-            }
-          />
-        </div>
-
-        <div className="input_field">
-          <label>Starting Position Image *</label>
-          <FileBase
-            type="file"
-            multiple={false}
-            onDone={({ base64 }) =>
-              setWorkoutData({
-                ...workoutData,
-                starting_position_img: base64,
-              })
-            }
-          />
-        </div>
-
-        <div className="input_field">
-          <label>Mid Position Image *</label>
-          <FileBase
-            type="file"
-            multiple={false}
-            onDone={({ base64 }) =>
-              setWorkoutData({ ...workoutData, mid_position_img: base64 })
-            }
-          />
-        </div>
-        <Button
-          className={classes.buttonSubmit}
-          variant="contained"
-          color="primary"
-          size="large"
-          type="submit"
-          onClick={handleSubmit}
-          fullWidth
-        >
-          Submit
-        </Button>
-        <Button
-          className={classes.buttonSubmit}
-          variant="contained"
-          color="secondary"
-          size="large"
-          onClick={clear}
-          fullWidth
-        >
-          Clear
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          onClick={add}
-          fullWidth
-        >
-          DEMO
-        </Button>
       </div>
     </div>
   );
