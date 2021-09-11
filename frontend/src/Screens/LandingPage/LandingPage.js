@@ -41,7 +41,15 @@ const LandingPage = ({ history }) => {
     //   </Container>
     // </div>
     <div>
-      <header>
+      <header
+        style={{
+          position: "relative",
+          backgroundColor: "black",
+          height: "85vh",
+          width: "100%",
+          overflow: "hidden",
+        }}
+      >
         <div className="overlay"></div>
 
         <video
@@ -55,7 +63,7 @@ const LandingPage = ({ history }) => {
             type="video/mp4"
           />
         </video>
-        <div class="hero-wrapper videohover">
+        <div className="hero-wrapper videohover">
           <div className="videoText">
             <div className="container">
               <div className="slidertext01">Welcome to Fitness Glory</div>
@@ -73,11 +81,11 @@ const LandingPage = ({ history }) => {
           </div>
         </div>
       </header>
-      <div class="about-wrap">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-7">
-              <div class="title">
+      <div className="about-wrap">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-7">
+              <div className="title">
                 <h1>
                   <span>Welcome To</span> FITNESS PROGRAMME
                 </h1>
@@ -91,15 +99,18 @@ const LandingPage = ({ history }) => {
                   trainings, to maintain fitness and good health.
                 </strong>
               </p>
-              <div class="readmore">
+              <div className="readmore">
                 <a href="#">
                   Read More{" "}
-                  <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-arrow-circle-o-right"
+                    aria-hidden="true"
+                  ></i>
                 </a>
               </div>
             </div>
-            <div class="col-lg-5">
-              <div class="aboutImg">
+            <div className="col-lg-5">
+              <div className="aboutImg">
                 <img src="https://res.cloudinary.com/dqsssnerw/image/upload/v1631294082/aboutImg_yjz9fn.jpg" />
               </div>
             </div>
