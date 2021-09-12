@@ -119,7 +119,7 @@ const App = () => {
      
 
 
-      {/* manushika Routes*/}
+      {/* manushi Routes*/}
        <div className="container">
         <Route
           path="/member/memberPTRequest/home"
