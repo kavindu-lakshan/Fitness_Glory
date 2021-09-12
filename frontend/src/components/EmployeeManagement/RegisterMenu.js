@@ -62,7 +62,7 @@ export default function RegisterMenu() {
       <div style = {cardDesign}>
         <Stack image="https://res.cloudinary.com/djg9iitcl/image/upload/v1631133107/EmployeeMenu1_eprtgo.jpg" background="black" />
         <h1 style = {textDesign}>TRAINER REGISTRATION INTERFACE</h1>
-        <StyledButton style = {btnStyles}>REGISTER TRAINER</StyledButton>
+        <StyledButton style = {btnStyles}><a href = "/employee/trainer-register" style = {linkStyles}>REGISTER TRAINER</a></StyledButton>
       </div>
       <ColoredLine color="black" marginLeft ="20px"/>
       <div style = {cardDesign}>

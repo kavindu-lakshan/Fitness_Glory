@@ -47,8 +47,10 @@ export const DeleteCleaners =() =>{
                         <h1 style = {headingStyles2}>REMOVE EMPLOYEES</h1>
                     </Fade>
                     </div>
-                    <br></br><br></br><br></br>
+                    
                 </div>
+                <div style = {backStyles}>
+                <br></br><br></br><br></br>
             <div>
                 <i style = {fafaStyles} class = "fa fa-search"></i>
                 <div className = "Row">
@@ -110,11 +112,13 @@ export const DeleteCleaners =() =>{
                 }
             </div>
         </div> 
+        <br></br>
+        </div>
     )
 }
 
 const textDesign = {
-    fontSize: '16px',
+    fontSize: '14px',
     color: 'white',
     lineHeight: '26px'
 }
@@ -126,16 +130,24 @@ const imageStyles = {
     marginLeft: '30px'
 }
 
+const backStyles = {
+    backgroundColor: 'black',
+    width: '1302px',
+    marginLeft: '15px'
+}
+
 const cardStyles = {
     background: 'black',
     opacity: 0.9,
-    height: '330px',
+    height: '310px',
     width: '1000px',
-    marginLeft: '170px'
+    marginLeft: '170px',
+    borderColor: 'grey',
+    borderWidth: '3px'
 }
 
 const headingStyles = {
-    color: 'white',
+    color: '#f29a7b',
     fontSize: '24px'
 }
 
@@ -150,7 +162,7 @@ const fafaStyles = {
 }
 
 const btnStyles = {
-    marginTop: '0px',
+    marginTop: '-20px',
     marginLeft: '360px',
     textDecoration: 'none',
     width: '270px',

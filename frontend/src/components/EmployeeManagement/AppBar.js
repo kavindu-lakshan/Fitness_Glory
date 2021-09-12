@@ -9,24 +9,24 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { AllCleaners } from './ViewCleaners';
 import ScrollToTop from "react-scroll-to-top";
-
+import AllTrainers from '../../Screens/ProfileScreen/AllTrainers';
+import '../../Screens/ProfileScreen/AllTrainers.css';
+import './Background.css';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {...other}>
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
     </div>
   );
 }
@@ -87,26 +87,65 @@ export default function CenteredTabs() {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} >
-          <div>
-          <AllCleaners/>
-          </div>
-        </TabPanel>
-        <TabPanel value={value} index={1} >
-          Item Two
-        </TabPanel>
+        <div className="back">
+          <TabPanel value={value} index={0} >
+            <div>
+              <div>
+                <AllCleaners/>
+              </div>
+            </div>
+          </TabPanel>
+        </div>
+        <div className="">
+          <TabPanel value={value} index={1} >
+            <div>
+              <AllTrainers/>
+            </div>
+          </TabPanel>
+        </div>
       </SwipeableViews>
     </div>
   );
 }
 
 const ListStyles = {
-  width: '1200px',
-  marginTop: '40px',
-  marginLeft: '-330px'
+  width: '1340px',
+  marginTop: '20px',
+  marginLeft: '-420px'
 }
 
 const scrollStyles = {
   color: 'black',
   backgroundColor: 'grey'
 }
+
+const bgStyles = {
+  width: '98%',
+  marginTop: '30px',
+  height: '500px',
+  backgroundColor: 'black',
+  marginLeft: '15px'
+}
+
+const bgStyles2 = {
+  width: '98%',
+  marginTop: '30px',
+  height: '500px',
+  backgroundColor: 'black',
+  marginLeft: '15px'
+}
+
+const imageStyles = {
+  marginLeft: '560px',
+  height: '480px',
+  width: '725px',
+  marginTop: '10px'
+}
+
+const headingStyles = {
+  color: 'white',
+  fontSize: '28px',
+  marginLeft: '60px',
+  marginTop: '-300px'
+}
+

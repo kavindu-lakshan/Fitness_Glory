@@ -7,7 +7,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route('/admin/leaves/add').post((req, res) => {
     const NICNumber = req.body.NICNumber;
     const Request = req.body.Request;
     const LeaveDate = Date.parse(req.body.LeaveDate);
@@ -37,7 +37,6 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-//get status
 router.route("/leave/:Status").get((req, res)=>{
     let id = req.params.Status;
     const statuss = Leave.find({Status:id}).exec().then(statuss =>{
@@ -48,8 +47,7 @@ router.route("/leave/:Status").get((req, res)=>{
     });
 });
 
-
-router.route('/updateL/:id').post((req, res) => {
+router.route('/admin/updateL/:id').post((req, res) => {
     Leave.findById(req.params.id)
     .then(Leave => {
         Leave.Status = req.body.Status;
@@ -59,6 +57,5 @@ router.route('/updateL/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
     });
 })
-
 
 module.exports = router;

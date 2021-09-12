@@ -94,7 +94,7 @@ const imageStyles = {
 const cardStyles = {
     background: 'black',
     opacity: 0.9,
-    marginLeft: '60px',
+    marginLeft: '150px',
     height: '250px',
     width: '1000px'
 }
@@ -106,10 +106,10 @@ const headingStyles = {
 
 const searchStyles = {
     marginTop: '-45px',
-    marginLeft: '410px'
+    marginLeft: '475px'
 }
 
 const fafaStyles = {
     marginTop: '-100px',
-    marginLeft: '665px'
+    marginLeft: '770px'
 }
