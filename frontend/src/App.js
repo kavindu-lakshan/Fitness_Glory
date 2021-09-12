@@ -3,20 +3,31 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Redirect } from "react-router";
 
-
 import { getWorkouts } from "./actions/workouts";
 import Workouts from "./components/WorkoutSupportManagement/Workouts/Workouts";
 import WorkoutsDisplayMember from "./components/WorkoutSupportManagement/Workouts/WorkoutsDisplayMember";
 import WorkoutDetails from "./components/WorkoutSupportManagement/WorkoutDetails/WorkoutDetails";
 import Form from "./components/WorkoutSupportManagement/Form/Form";
 
-//Janudi --> Employee Registration
+/*Janudi --> Employee Registration ---> Begin*/
 import AdminHeader from "./components/Header/AdminHeader";
 import EmployeeHome from "./components/EmployeeManagement/EmployeeHome";
 import RegisterMenu from "./components/EmployeeManagement/RegisterMenu";
 import CleanerRegistrationForm from "./components/EmployeeManagement/CleanerRegistrationForm";
+import ViewEmployeeInterface from "./components/EmployeeManagement/ViewEmployeeInterface";
+import { AllCleaners } from "./components/EmployeeManagement/EditCleanerInterface";
+import EditCleaner from "./components/EmployeeManagement/EditCleaner";
+import { DeleteCleaners } from "./components/EmployeeManagement/DeleteCleanerInterface";
+import { DeleteConf } from './components/EmployeeManagement/DeleteConf';
+import LeaveRegistration from "./components/EmployeeManagement/CreateLeave";
+import {AllTrainerLeaves} from './components/EmployeeManagement/AllTrainerLeaves';
+import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
+import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
+import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
+/*Janudi --> Employee Registration ---> End*/
 
 //shehan imports
+
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
 import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
 import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/AllProgramsAdmin";
@@ -33,13 +44,13 @@ import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
 //Sandani's imports
- import CreateRequest from './components/RequestSchedule/CreateRequest';
- import HomeRequest from './components/RequestSchedule/HomeRequest';
- import EditRequest from './components/RequestSchedule/EditRequest';
- import RequestDetails from './components/RequestSchedule/RequestDetails';
- import NavBar from './components/RequestSchedule/NavBar';
- import MemHome from './components/RequestSchedule/MemHome';
- import SchReport from './components/RequestSchedule/SchReport';
+import CreateRequest from "./components/RequestSchedule/CreateRequest";
+import HomeRequest from "./components/RequestSchedule/HomeRequest";
+import EditRequest from "./components/RequestSchedule/EditRequest";
+import RequestDetails from "./components/RequestSchedule/RequestDetails";
+import NavBar from "./components/RequestSchedule/NavBar";
+import MemHome from "./components/RequestSchedule/MemHome";
+import SchReport from "./components/RequestSchedule/SchReport";
 
 //Dulshan QandA section
 import { QandA } from "./components/QAndASection/QandA";
@@ -57,7 +68,7 @@ import CreatePost from "./components/ClientRequest/CreatePost";
 import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
-import ptEdit from "./components/ClientRequest/ptEdit"; 
+import ptEdit from "./components/ClientRequest/ptEdit";
 
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
@@ -71,6 +82,8 @@ import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
 import TrainerRegisterScreen from "./Screens/RegisterScreen/TrainerRegisterScreen";
 import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
 import TrainerHeader from "./components/Header/TrainerHeader";
+import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
+import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -115,12 +128,16 @@ const App = () => {
         path="/workouts"
         component={() => <Redirect to="/employee/workouts" />}
       />
+      <Route
+        exact
+        path="/employee/workoutReport"
+        exact
+        component={ReportWorkout}
+      />
 
-     
-
-
-      {/* manushi Routes*/}
-       <div className="container">
+      
+      {/* manushika Routes*/}
+      <div className="container">
         <Route
           path="/member/memberPTRequest/home"
           exact
@@ -144,18 +161,35 @@ const App = () => {
           path="/member/memberPTRequest/post/:id"
           component={PostDetails}
         ></Route>
-      </div> 
+      </div>
 
-           {/**Sandani */}
-       <div className="container">
-              
-              <Route path="/employee/scheduleR/HomeRequest" exact component={HomeRequest}></Route>
-              <Route path="/member/scheduleR/MemHome" exact component={MemHome}></Route>
-              <Route path="/admin/scheduleR/SchReport" exact component={SchReport}></Route>
-              <Route path="/member/scheduleR/add" component={CreateRequest}></Route>
-              <Route path="/member/scheduleR/edit/:id" component={EditRequest}></Route>
-              <Route path="/member/scheduleR/Xpost/:id" component={RequestDetails}></Route>
-        </div> 
+      {/**Sandani */}
+      <div className="container">
+        <Route
+          path="/employee/scheduleR/HomeRequest"
+          exact
+          component={HomeRequest}
+        ></Route>
+        <Route
+          path="/member/scheduleR/MemHome"
+          exact
+          component={MemHome}
+        ></Route>
+        <Route
+          path="/admin/scheduleR/SchReport"
+          exact
+          component={SchReport}
+        ></Route>
+        <Route path="/member/scheduleR/add" component={CreateRequest}></Route>
+        <Route
+          path="/member/scheduleR/edit/:id"
+          component={EditRequest}
+        ></Route>
+        <Route
+          path="/member/scheduleR/Xpost/:id"
+          component={RequestDetails}
+        ></Route>
+      </div>
 
       <main>
         <Route path="/member" component={LandingPage} exact />
@@ -164,6 +198,7 @@ const App = () => {
         <Route path="/member/register" component={RegisterScreen} />
         <Route path="/member/Home" component={() => <HomePage />} />
 
+        {/*Amantha Routes*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
         <Route
@@ -178,16 +213,29 @@ const App = () => {
           path="/employee/trainerHome"
           component={() => <TrainerHomePage />}
         />
+        <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
 
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
 
-        {/*Janudi Routes --> Beign*/}
+        {/*Janudi Routes --> Begin*/}
         <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
         <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
         <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
+        <Route exact path = "/admin/ViewEmployeeInterface" component = {ViewEmployeeInterface}/>
+        <Route exact path = "/admin/EditCleanerInterface" component = {AllCleaners}/>
+        <Route exact path = "/admin/update/:id" component = {EditCleaner}/>
+        <Route exact path = "/admin/DeleteCleanerInterface" component = {DeleteCleaners}/>
+        <Route exact path = "/admin/delete/:id" component = {DeleteConf}/>
+        <Route exact path = "/admin/leaves/add" component = {LeaveRegistration}/>
+        <Route exact path = "/employee/CreateLeave" component = {LeaveRegistration}/>
+        <Route exact path = "/admin/leaves" component = {AllTrainerLeaves}/>
+        <Route exact path = "/admin/leave/:Status" component = {LeavesList}/>
+        <Route exact path = "/admin/updateL/:id" component = {TrainerLeavesEdit}/>
+        <Route exact path = "/admin/salary/add" component = {CreateEmployeeSalary}/>
+        <Route exact path = "/admin/CreateSalary" component = {CreateEmployeeSalary}/>
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}
@@ -207,17 +255,7 @@ const App = () => {
           component={ProgramDetailsAdmin}
         ></Route>
 
-        
-
-        <Route exact path="/QandA/:mUsername" component={QandA} />
-        <Route exact path="/q/createQ/:mUsername" component={CreateQuestion} />
-        <Route exact path="/updateQ/:id" component={UpdateQuestion} />
-        <Route exact path="/deleteQ/:id" component={DeleteQuestion} />
-        <Route exact path="/otherQ/" component={OtherQuestions} />
-        <Route exact path="/a/createA/:id" component={CreateAnswer} />
-        <Route exact path="/myAnswers/:mUsername" component={MyAnswers} />
-        <Route exact path="/updateA/:id" component={UpdateAnswer} />
-        <Route exact path="/deleteA/:id" component={DeleteAnswer} />
+        {/*Dulshan Routes*/}
         <Route exact path="/member/QandA/:mUsername" component={QandA} />
         <Route
           exact
@@ -243,4 +281,3 @@ const App = () => {
 };
 
 export default App;
- 

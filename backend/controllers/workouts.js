@@ -26,6 +26,7 @@ const getWorkouts = async (req, res) => {
       .skip(startIndex);
 
     res.status(200).json({
+      success: true,
       data: workouts,
       currentPage: Number(page),
       numberOfPages: Math.ceil(total / LIMIT),
@@ -74,10 +75,27 @@ const deleteWorkout = async (req, res) => {
   res.json({ message: "Post deleted successfully" });
 };
 
+const viewWorkout = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No post with that id");
+
+  const work = await workout.findById(id);
+  const updatedWorkout = await workout.findByIdAndUpdate(
+    id,
+    { viewCount: work.viewCount + 1 },
+    { new: true }
+  );
+
+  res.json(updatedWorkout);
+};
+
 module.exports = {
   updateWorkout,
   createWorkout,
   getWorkouts,
   deleteWorkout,
   getWorkout,
+  viewWorkout,
 };

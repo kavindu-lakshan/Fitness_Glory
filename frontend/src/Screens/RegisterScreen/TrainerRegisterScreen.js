@@ -34,7 +34,7 @@ const TrainerRegisterScreen = () => {
 
   useEffect(() => {
     if (trainerInfo) {
-      history.push("/employee/trainerHome");
+      history.push("/employee/trainerDetails");
     }
   }, [history, trainerInfo]);
 

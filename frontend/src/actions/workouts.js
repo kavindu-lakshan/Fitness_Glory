@@ -50,3 +50,12 @@ export const deleteWorkout = (id) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const viewWorkout = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.viewWorkout(id);
+    dispatch({ type: "LIKE", payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};

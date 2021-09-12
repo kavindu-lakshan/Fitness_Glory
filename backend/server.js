@@ -80,10 +80,22 @@ app.use("/an", aRouter);
 //Amantha
 const trainerRoutes = require("./routes/trainerRoutes");
 app.use("/FitnessGlory/trainers", trainerRoutes);
+const trainerDetailsRoute = require("./routes/trainerDetails");
+app.use(trainerDetailsRoute);
 
-//Janudi
+/*Janudi ---> Start*/
 const CleanersRouter = require('./routes/Cleaners');
 app.use('/Cleaners', CleanersRouter);
+
+const DeleteRoute = require('./routes/Employee_Delete');
+app.use('/Employee_Delete', DeleteRoute);
+
+const LeaveRouter = require('./routes/Leaves');
+app.use('/Leaves', LeaveRouter);
+
+const SalaryRouter = require('./routes/Employee_Salary');
+app.use('/Employee_Salary', SalaryRouter);
+/*Janudi ---> End*/
 
 //Manushi
 const zpostRoutes = require("./routes/zposts");

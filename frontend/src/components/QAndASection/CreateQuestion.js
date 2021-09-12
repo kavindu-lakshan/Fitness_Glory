@@ -110,7 +110,7 @@ export const CreateQuestion = () =>{
 
 const bgImg ={
     background: `linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)) ,url(${createQuestionBg})`,
-    position: 'absolutely',
+    position: 'center',
     marginTop:'-20px',
     width: '100%',
     height:'100%',

@@ -12,6 +12,7 @@ export const work = (state = [], action) => {
     case "CREATE":
       return [...state, action.payload];
     case "UPDATE":
+    case "VIEW":
       return state.map((workout) =>
         workout._id === action.payload._id ? action.payload : workout
       );
