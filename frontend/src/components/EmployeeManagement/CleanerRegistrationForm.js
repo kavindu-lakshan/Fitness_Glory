@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['FILL THE REGISTRATION FORM', 'RECEIVE REGISTRATION CONFIRMATION', 'VIEW CLEANER INFORMATION'];
+  return ['FILL THE REGISTRATION FORM', 'RECEIVE REGISTRATION CONFIRMATION'];
 }
 
 function getStepContent(step) {
@@ -63,10 +63,6 @@ function getStepContent(step) {
         <div>
         </div>
     );
-    case 2:
-      return 'Step 3:';
-    default:
-      return 'Unknown step';
   }
 }
 

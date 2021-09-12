@@ -1,9 +1,3 @@
-body{
-    color: #8a909d;
-    background:#eee;
-    margin-top:20px;
-}
-
 @media (min-width: 300px){
     .card-default {
         margin-bottom: 2rem;
@@ -20,6 +14,8 @@ body{
     border: 1px solid #e5e9f2;
     border-radius: 0.25rem;
 }
+
+
 
 .card-default .card-header {
     padding-top: 1.875rem;
@@ -43,14 +39,6 @@ a{
 .contact-list img {
     width:100px;
     height:100px;
-}
-
-.bg{
-    background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("https://res.cloudinary.com/fitness-glory/image/upload/v1631206074/portrait-young-healthy-woman-running-treadmill-she-smile-during-workout-gym-healthy-lifestyle-concept-copy-space-vertical-image_qifprh.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 .btnAdd a{

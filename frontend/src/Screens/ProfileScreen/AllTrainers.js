@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./AllTrainers.css";
+import a from "../../components/QAndASection/ImagesD/createAnswerBg.png"
+
 export default class AllTrainers extends Component {
   constructor(props) {
     super(props);
@@ -29,8 +31,10 @@ export default class AllTrainers extends Component {
   render() {
     return (
       // <div className="bg"style={{background: `linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)) ,url(${"https://res.cloudinary.com/fitness-glory/image/upload/v1631205142/Screenshot_2021-09-09_220204_ziwlrv.png"})`, backgroundPosition:'relative',backgroundRepeat:'no-repeat',backgroundSize:'cover', height:'100%',width:'auto'}}>
-     <div className="bg">
-      <div className="container"><br/><br/>
+     <div >
+     <div style = {bstyles}>
+      <div className="bg"><br/><br/>
+      <div className = "container">
       <div className="content contact-list">
         <div className="card card-default"  style={{background:'transparent', border:'1px solid grey',boxShadow:'7px 7px 60px white'}}>
             <div className="card-header align-items-center px-3 px-md-5">
@@ -83,8 +87,19 @@ export default class AllTrainers extends Component {
                           </div>
                         </div>
                       </div>
+                      </div>
                     </div><br/><br/>
+                    </div>
                   </div>
     );
   }
+}
+
+const bstyles = {
+  background: 'linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("https://res.cloudinary.com/fitness-glory/image/upload/v1631340068/portrait-young-healthy-woman-running-treadmill-she-smile-during-workout-gym-healthy-lifestyle-concept-copy-space-vertical-image_1_armoex.jpg")' ,
+  backgroundSize: 'cover',
+  backgroundPosition: 'relative',
+  height: '100%',
+  width: '100%',
+  marginTop: '-30px'
 }
