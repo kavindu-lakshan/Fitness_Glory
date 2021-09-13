@@ -22,9 +22,9 @@ const Workouts = ({ setCurrentId }) => {
     if (!localStorage.getItem("trainerInfo")) {
       history.push("/employee");
     }
-  }, []);
+  }, [history]);
 
-  console.log(workouts);
+  // console.log(workouts);
 
   return !workouts?.length ? (
     <CircularProgress />
@@ -45,7 +45,6 @@ const Workouts = ({ setCurrentId }) => {
             aria-describedby="search-addon"
           />
         </div>
-        <div></div>
       </div>
       <Grid
         className={classes.container}
@@ -61,6 +60,8 @@ const Workouts = ({ setCurrentId }) => {
               val.workout_name.toLowerCase().includes(search.toLowerCase())
             ) {
               return val;
+            } else {
+              return null;
             }
           })
           .map((workout) => (

@@ -4,8 +4,6 @@ import * as api from "../api";
 export const getWorkout = (id) => async (dispatch) => {
   try {
     const { data } = await api.fetchWorkout(id);
-
-    console.log(data);
     dispatch({ type: "FETCH_WORKOUT", payload: data });
   } catch (error) {
     console.log(error.message);
@@ -15,8 +13,6 @@ export const getWorkout = (id) => async (dispatch) => {
 export const getWorkouts = (page) => async (dispatch) => {
   try {
     const { data } = await api.fetchWorkouts(page);
-
-    console.log(data);
     dispatch({ type: "FETCH_ALL", payload: data });
   } catch (error) {
     console.log(error.message);
@@ -26,7 +22,6 @@ export const getWorkouts = (page) => async (dispatch) => {
 export const createWorkout = (work) => async (dispatch) => {
   try {
     const { data } = await api.createWorkout(work);
-
     dispatch({ type: "CREATE", payload: data });
   } catch (error) {
     console.log(error);
@@ -46,6 +41,15 @@ export const deleteWorkout = (id) => async (dispatch) => {
   try {
     await api.deleteWorkout(id);
     dispatch({ type: "DELETE", payload: id });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const viewWorkout = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.viewWorkout(id);
+    dispatch({ type: "LIKE", payload: data });
   } catch (error) {
     console.log(error);
   }

@@ -18,13 +18,13 @@ const WorkoutsDisplayMember = ({ setCurrentId }) => {
   const page = query.get("page") || 1;
   const [search, setSearch] = useState("");
 
-  console.log(workouts);
+  // console.log(workouts);
 
   useEffect(() => {
     if (!localStorage.getItem("userInfo")) {
       history.push("/member");
     }
-  }, []);
+  }, [history]);
 
   return !workouts?.length ? (
     <CircularProgress />
@@ -60,6 +60,8 @@ const WorkoutsDisplayMember = ({ setCurrentId }) => {
               val.workout_name.toLowerCase().includes(search.toLowerCase())
             ) {
               return val;
+            } else {
+              return null;
             }
           })
           .map((workout) => (

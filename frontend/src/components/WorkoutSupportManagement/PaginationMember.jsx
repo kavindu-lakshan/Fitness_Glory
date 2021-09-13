@@ -12,7 +12,7 @@ const Paginate = ({ page }) => {
 
   useEffect(() => {
     if (page) dispatch(getWorkouts(page));
-  }, [page]);
+  }, [page, dispatch]);
 
   return (
     <nav aria-label="Page navigation example">

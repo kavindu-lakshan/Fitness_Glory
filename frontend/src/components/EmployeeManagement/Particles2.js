@@ -3,15 +3,14 @@ import { Component } from 'react';
 import Particles from 'react-particles-js';
 
 var style = {
-    width: "185.4vh",
-    height: "150vh",
+    width: "180vh",
+    height: "100vh",
     backgroundColor: "black",
-    marginLeft: "70px"
 };
 
 class Particle extends Component {
-    render() {
-        return (
+  render() {
+      return (
             <div style={style}>
                 <Particles
                     params={{
@@ -23,16 +22,16 @@ class Particle extends Component {
                         "value": 2.5
                         }
                     },
-                    "interactivity": {
-                    "events": {
-                    "onhover": {
-                    "enable": true,
-                    "mode": "repulse"
+                        "interactivity": {
+                        "events": {
+                        "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
                         }
                         }
                         }
                     }}/>
-          </div>
+            </div>
         )
     }
 }

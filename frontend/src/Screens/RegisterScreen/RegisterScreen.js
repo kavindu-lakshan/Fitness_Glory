@@ -92,7 +92,9 @@ const RegisterScreen = () => {
         {loading && <Loading />}
         <Form onSubmit={submitHandler} className="form-register">
           <Form.Group controlId="name">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>
+              Name <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="name"
@@ -102,7 +104,9 @@ const RegisterScreen = () => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>
+              Email <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="email"
@@ -112,7 +116,9 @@ const RegisterScreen = () => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>
+              Password <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="password"
@@ -122,7 +128,9 @@ const RegisterScreen = () => {
             />
           </Form.Group>
           <Form.Group controlId="confirmPassword">
-            <Form.Label>Confirm Password</Form.Label>
+            <Form.Label>
+              Confirm Password <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="password"

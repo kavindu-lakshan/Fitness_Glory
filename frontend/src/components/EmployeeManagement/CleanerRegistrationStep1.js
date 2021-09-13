@@ -17,7 +17,8 @@ const StyledButton = withStyles({
       padding: '0 30px',
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       marginLeft: '380px',
-      marginBottom: '20px'
+      marginBottom: '20px',
+      marginTop: '-60px'
     },
     label: {
       textTransform: 'capitalize',
@@ -101,7 +102,7 @@ export default class CleanerRegistration extends Component{
     }
 
     formValidation = () => {
-        const {FirstName, LastName, NICNumber, DOB, Shift, Gender, Mobile, Address} = this.state; 
+        const {NICNumber, DOB, Shift, Gender, Mobile} = this.state; 
         let isValid = true;
         const errors = {};
 
@@ -111,7 +112,7 @@ export default class CleanerRegistration extends Component{
         }
 
         if((Mobile.trim().length < 10)||(NICNumber.trim().length > 10)){
-            errors.MobileLength = "The mobile number can only have 10 digits";
+            errors.MobileLength = "The mobile number must contain 10 digits";
             isValid = false;
         }
 
@@ -150,14 +151,15 @@ export default class CleanerRegistration extends Component{
             Address: this.state.Address
         }
 
-        axios.post('http://localhost:5000/Cleaners/add', Cleaner).then(()=>{
+        axios.post('http://localhost:5000/Cleaners/cleaner/add', Cleaner).then(()=>{
+            alert("Cleaner registered succesfully!")
         }).catch((err)=>{
             alert("Error in registering! This maybe because the cleaner NIC Number already exists or due to the error displayed below")
         })
     }
 
     render(){
-        const {FirstName, LastName, NICNumber, DOB, Shift, Gender, Mobile, Address, errors} = this.state; 
+        const {NICNumber, DOB, Shift, Gender, Mobile, errors} = this.state; 
         return (
             <div>
                 <CleanerRegistrationFormCards/>
@@ -318,7 +320,7 @@ const GenderStyles = {
     color: 'white',
     fontSize: '16px',
     marginTop: '-630px',
-    marginLeft: '380px',
+    marginLeft: '365px',
     letterSpacing: '0px'
 }
 

@@ -1,7 +1,10 @@
+import { Card } from "@material-ui/core";
 import axios from "axios";
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import Swal from "sweetalert2";
+import "../Screens/LoginScreen/LoginScreen.css";
+import MainScreen from "../components/MainScreens/receptionistEdit";
 
 export default class editMember extends Component {
   constructor(props) {
@@ -93,51 +96,52 @@ export default class editMember extends Component {
       return <Redirect to={{ pathname: "/employee/memberDetails" }} />;
     }
     return (
-      <div className="col-md-8 mt-4 mx-auto">
-        <h1 className="h3 mb-3 font-weight-normal">Edit Member Details</h1>
-        <form className="needs-validation" noValidate>
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}>Name</label>
-            <input
-              type="text"
-              className="form-control"
-              name="name"
-              placeholder="Enter Name"
-              value={this.state.name}
-              onChange={this.handleInputChange}
-            />
-          </div>
+      <MainScreen title="Edit Member Details">
+        <div className="col-md-8 mt-4 mx-auto">
+          <Card className="frame">
+            <form className="form-login" noValidate>
+              <div className="form-group" style={{ marginBottom: "15px" }}>
+                <label style={{ marginBottom: "5px" }}>Name</label>
+                <input
+                  type="text"
+                  className="form-styling"
+                  name="name"
+                  placeholder="Enter Name"
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                />
+              </div>
 
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}>Email</label>
-            <input
-              type="text"
-              className="form-control"
-              name="email"
-              placeholder="Enter Email"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-            />
-          </div>
+              <div className="form-group" style={{ marginBottom: "15px" }}>
+                <label style={{ marginBottom: "5px" }}>Email</label>
+                <input
+                  type="text"
+                  className="form-styling"
+                  name="email"
+                  placeholder="Enter Email"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                />
+              </div>
 
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}>Package</label>
-            <select
-              type="text"
-              className="form-select form-select-sm"
-              name="packageType"
-              value={this.state.packageType}
-              onChange={this.handleInputChange}
-            >
-              <option selected>Null</option>
-              <option value="Individual Male">Individual Male</option>
-              <option value="Individual Female">Individual Female</option>
-              <option value="Student">Student</option>
-              <option value="Family">Family</option>
-            </select>
-          </div>
+              <div className="form-group" style={{ marginBottom: "15px" }}>
+                <label style={{ marginBottom: "5px" }}>Package</label>
+                <select
+                  type="text"
+                  className="form-styling"
+                  name="packageType"
+                  value={this.state.packageType}
+                  onChange={this.handleInputChange}
+                >
+                  <option selected>Null</option>
+                  <option value="Individual Male">Individual Male</option>
+                  <option value="Individual Female">Individual Female</option>
+                  <option value="Student">Student</option>
+                  <option value="Family">Family</option>
+                </select>
+              </div>
 
-          {/* <div className="form-group" style={{ marginBottom: "15px" }}>
+              {/* <div className="form-group" style={{ marginBottom: "15px" }}>
             <label style={{ marginBottom: "5px" }}>Paid</label>
             <input
               type="text"
@@ -149,17 +153,21 @@ export default class editMember extends Component {
             />
           </div> */}
 
-          <button
-            className="btn btn-success"
-            type="submit"
-            style={{ marginTop: "15px" }}
-            onClick={this.onSubmit}
-          >
-            <i className="far fa-check-square"></i>
-            &nbsp; Update
-          </button>
-        </form>
-      </div>
+              <button
+                className="btn-animate"
+                type="submit"
+                style={{ marginTop: "15px" }}
+                onClick={this.onSubmit}
+              >
+                <i className="far fa-check-square"></i>
+                &nbsp; Update
+              </button>
+            </form>
+          </Card>
+          <br />
+          <br />
+        </div>
+      </MainScreen>
     );
   }
 }

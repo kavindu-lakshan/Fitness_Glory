@@ -1,5 +1,6 @@
 import React from 'react'
 
+const id = "m01"
 export default function workoutprogramcard(props) {
     return (
         <div className="card mb-4 shadow-sm">
@@ -10,7 +11,7 @@ export default function workoutprogramcard(props) {
             <p className="card-text">ON  : {props.program.day}</p>
             <p className="card-text">AT  : {props.program.time}</p>
             <p className="card-text">Monthly : Rs {props.program.fee}</p>
-            <a href="#" className="btn btn-primary">Enroll</a>
+            <button type="button" onClick={() => props.EnrollController(id,props.program._id)} className="btn btn-primary">Enroll</button>
         </div>
         </div>
     )

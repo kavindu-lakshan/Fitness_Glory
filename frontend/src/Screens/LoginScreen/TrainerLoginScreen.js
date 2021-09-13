@@ -33,11 +33,12 @@ const TrainerLoginScreen = ({ history }) => {
       <div style={container}>
         {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {loading && <Loading />}
-        <h1 style={{color:'#929b94'}}>Trainer</h1>
+        <h1 style={{ color: "#929b94" }}>Trainer</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group>
-            <Form.Label style={{color:'929b94'}}>Username</Form.Label>
-            <Form.Control  style={control}
+            <Form.Label style={{ color: "929b94" }}>Username</Form.Label>
+            <Form.Control
+              style={control}
               type="text"
               value={username}
               placeholder="Enter Username"
@@ -48,8 +49,9 @@ const TrainerLoginScreen = ({ history }) => {
             />
           </Form.Group>
           <FormGroup controlId="formBasicPassword">
-            <Form.Label style={{color:'#929b94'}}>Password</Form.Label>
-            <Form.Control  style={control}
+            <Form.Label style={{ color: "#929b94" }}>Password</Form.Label>
+            <Form.Control
+              style={control}
               type="Password"
               value={password}
               placeholder="Enter Password"
@@ -63,56 +65,55 @@ const TrainerLoginScreen = ({ history }) => {
           </Button>
         </Form>
         <Row className="py-3">
-          <Col style={{color:'#fff', fontSize:'12px'}}>
-          New Trainer? Please Contact us for more Information 0772211334
+          <Col style={{ color: "#fff", fontSize: "12px" }}>
+            New Trainer? Please Contact us for more Information 0772211334
           </Col>
         </Row>
       </div>
-     </TrainerMainScreen>
+    </TrainerMainScreen>
   );
 };
 
 export default TrainerLoginScreen;
 
-const container={
-  position: 'absolute',
-  marginTop:'250px',
-  left: '50%',
-  transform: 'translate(-50%,-50%)',
-  width: '380px',
-  padding: '50px 30px',
-  borderRadius: '10px',
-  boxShadow:'7px 7px 60px red',
-  border:'1px solid red'
-}
+const container = {
+  position: "absolute",
+  marginTop: "250px",
+  left: "50%",
+  transform: "translate(-50%,-50%)",
+  width: "380px",
+  padding: "50px 30px",
+  borderRadius: "10px",
+  boxShadow: "7px 7px 60px red",
+  border: "1px solid red",
+};
 
-const control={
-  padding: '10px',
-  fontSize: '16px',
-  display: 'block',
-  width: '100%',
-  color:'#000',
-  background: 'transparent',
-  boxShadow:'7px 7px 20px red',
-  border:'1px solid #929b94',
-  outline: 'none',
-  border: 'none',
-  margin:'1em 0',
+const control = {
+  padding: "10px",
+  fontSize: "16px",
+  display: "block",
+  width: "100%",
+  color: "#000",
+  background: "transparent",
+  boxShadow: "7px 7px 20px red",
+  border: "1px solid #929b94",
+  outline: "none",
+  border: "none",
+  margin: "1em 0",
+};
 
-}         
+const btn = {
+  color: "#fff",
+  textTransform: "uppercase",
+  background: "crimson",
+  opacity: "0.7",
+  transition: "opacity .3s ease",
+};
 
-const btn ={
-    color: '#fff',
-    textTransform: 'uppercase',
-    background: 'crimson',
-    opacity: '0.7',
-    transition:'opacity .3s ease',
-}
-
-const h1={
-  color: '#ffffff',
-  fontSize: '2em',
-  textTransform: 'uppercase',
-  textAlign: 'center',
-  marginBottom: '2rem',
-}
+const h1 = {
+  color: "#ffffff",
+  fontSize: "2em",
+  textTransform: "uppercase",
+  textAlign: "center",
+  marginBottom: "2rem",
+};

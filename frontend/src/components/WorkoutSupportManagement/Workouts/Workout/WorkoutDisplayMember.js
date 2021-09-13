@@ -2,10 +2,13 @@ import React from "react";
 import { Grid, ButtonBase } from "@material-ui/core";
 import moment from "moment";
 import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { viewWorkout } from "../../../../actions/workouts";
 
 const WorkoutDisplayMember = ({ workout, setCurrentId }) => {
   const history = useHistory();
   const openWorkout = () => history.push(`/member/workouts/${workout._id}`);
+  const dispatch = useDispatch();
 
   return (
     <Grid item xs={6} sm={3}>
@@ -19,7 +22,12 @@ const WorkoutDisplayMember = ({ workout, setCurrentId }) => {
           </div>
         </div>
 
-        <ButtonBase onClick={openWorkout}>
+        <ButtonBase
+          onClick={() => {
+            dispatch(viewWorkout(workout._id));
+            history.push(`/member/workouts/${workout._id}`);
+          }}
+        >
           <div className="card-body" style={{ fontSize: "14px" }}>
             <h6 className="card-title">
               Workout Category: {workout.workout_category}

@@ -1,0 +1,7 @@
+.back{
+  background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("https://res.cloudinary.com/fitness-glory/image/upload/v1631206074/portrait-young-healthy-woman-running-treadmill-she-smile-during-workout-gym-healthy-lifestyle-concept-copy-space-vertical-image_qifprh.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

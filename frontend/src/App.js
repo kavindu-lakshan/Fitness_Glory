@@ -9,15 +9,27 @@ import WorkoutsDisplayMember from "./components/WorkoutSupportManagement/Workout
 import WorkoutDetails from "./components/WorkoutSupportManagement/WorkoutDetails/WorkoutDetails";
 import Form from "./components/WorkoutSupportManagement/Form/Form";
 
-//Janudi --> Employee Registration
+/*Janudi --> Employee Registration ---> Begin*/
 import AdminHeader from "./components/Header/AdminHeader";
 import EmployeeHome from "./components/EmployeeManagement/EmployeeHome";
 import RegisterMenu from "./components/EmployeeManagement/RegisterMenu";
 import CleanerRegistrationForm from "./components/EmployeeManagement/CleanerRegistrationForm";
+import ViewEmployeeInterface from "./components/EmployeeManagement/ViewEmployeeInterface";
+import { AllCleaners } from "./components/EmployeeManagement/EditCleanerInterface";
+import EditCleaner from "./components/EmployeeManagement/EditCleaner";
+import { DeleteCleaners } from "./components/EmployeeManagement/DeleteCleanerInterface";
+import { DeleteConf } from "./components/EmployeeManagement/DeleteConf";
+import LeaveRegistration from "./components/EmployeeManagement/CreateLeave";
+import { AllTrainerLeaves } from "./components/EmployeeManagement/AllTrainerLeaves";
+import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
+import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
+import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
+/*Janudi --> Employee Registration ---> End*/
 
 //shehan imports
+
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
-import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
+import ReportPage from "./components/WorkoutProgramAdmin/ProgramsReport/ReportPage";
 import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/AllProgramsAdmin";
 import CreateProgramAdmin from "./components/WorkoutProgramAdmin/CreateProgramAdmin/CreateProgramAdmin";
 import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/EditProgramAdmin";
@@ -87,6 +99,12 @@ import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
 import TrainerRegisterScreen from "./Screens/RegisterScreen/TrainerRegisterScreen";
 import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
 import TrainerHeader from "./components/Header/TrainerHeader";
+import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
+import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
+//Admin Login
+import AdminLogin from "./Screens/LoginScreen/AdminLogin";
+import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
+import AdminHomePage from "./Screens/HomePage/AdminHomePage";
 
 
 
@@ -133,6 +151,12 @@ const App = () => {
         exact
         path="/workouts"
         component={() => <Redirect to="/employee/workouts" />}
+      />
+      <Route
+        exact
+        path="/employee/workoutReport"
+        exact
+        component={ReportWorkout}
       />
 
       {/* manushika Routes*/}
@@ -200,22 +224,73 @@ const App = () => {
         {/*Amantha Routes*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
-        <Route path="/employee/trainer-profile" component={TrainerProfileScreen}/>
-        <Route path="/employee/trainer-register" component={TrainerRegisterScreen}/>
-        <Route path="/employee/trainerHome" component={() => <TrainerHomePage />}/>
+        <Route
+          path="/employee/trainer-profile"
+          component={TrainerProfileScreen}
+        />
+        <Route
+          path="/employee/trainer-register"
+          component={TrainerRegisterScreen}
+        />
+        <Route
+          path="/employee/trainerHome"
+          component={() => <TrainerHomePage />}
+        />
+        <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
 
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
 
-        {/*Janudi Routes --> Beign*/}
+        {/* Admin */}
+        <Route path="/admin/admin-login" component={AdminLogin} />
+        <Route path="/admin/admin-profile" component={AdminProfileScreen} />
+        <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
+
+        {/*Janudi Routes --> Begin*/}
         <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
         <Route exact path="/admin/RegisterMenu" component={RegisterMenu} />
         <Route
           exact
           path="/admin/CleanerRegistrationForm"
           component={CleanerRegistrationForm}
+        />
+        <Route
+          exact
+          path="/admin/ViewEmployeeInterface"
+          component={ViewEmployeeInterface}
+        />
+        <Route
+          exact
+          path="/admin/EditCleanerInterface"
+          component={AllCleaners}
+        />
+        <Route exact path="/admin/update/:id" component={EditCleaner} />
+        <Route
+          exact
+          path="/admin/DeleteCleanerInterface"
+          component={DeleteCleaners}
+        />
+        <Route exact path="/admin/delete/:id" component={DeleteConf} />
+        <Route exact path="/admin/leaves/add" component={LeaveRegistration} />
+        <Route
+          exact
+          path="/employee/CreateLeave"
+          component={LeaveRegistration}
+        />
+        <Route exact path="/admin/leaves" component={AllTrainerLeaves} />
+        <Route exact path="/admin/leave/:Status" component={LeavesList} />
+        <Route exact path="/admin/updateL/:id" component={TrainerLeavesEdit} />
+        <Route
+          exact
+          path="/admin/salary/add"
+          component={CreateEmployeeSalary}
+        />
+        <Route
+          exact
+          path="/admin/CreateSalary"
+          component={CreateEmployeeSalary}
         />
         {/*Janudi Routes --> End*/}
 
@@ -224,15 +299,15 @@ const App = () => {
           path="/member/workout-programs"
           component={AllprogramsMemer}
         ></Route>
-        <Route path="/admin-card" component={workoutprogramcard}></Route>
-        <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
-        <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
+        <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
+        <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
+        <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
         <Route
-          path="/admin-edit-program/:id"
+          path="/admin/edit-program/:id"
           component={EditProgramAdmin}
         ></Route>
         <Route
-          path="/admin-expand-program/:id"
+          path="/admin/expand-program/:id"
           component={ProgramDetailsAdmin}
         ></Route>
 
