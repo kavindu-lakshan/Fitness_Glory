@@ -86,7 +86,7 @@ export default class EditProgramAdmin extends Component {
 
         if(res.data.success){
             alert(data.name+' updated successfully');
-            window.location = '/admin-programs';
+            window.location = '/admin/programs';
 
                 this.setState({
                     name:'',

@@ -16,7 +16,7 @@ export default function AllProgramsView(props) {
                 />
             </div>
           </div>
-        <table className ="table">
+        <table className ="table table-striped table-dark">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -32,7 +32,7 @@ export default function AllProgramsView(props) {
               <tr key={index}>
                 <th scope="row">{index+1}</th>
                 <td>
-                  <a href={'/admin-expand-program/' + program._id} style ={{textDecoration: 'none'}}>
+                  <a href={'/admin/expand-program/' + program._id} style ={{textDecoration: 'none'}}>
                   {program.name}
                   </a>
                   </td>
@@ -40,7 +40,7 @@ export default function AllProgramsView(props) {
                 <td>{program.time}</td>
                 <td>{program.conducted_by}</td>
                 <td>
-                  <a className="btn btn-warning" style ={{width: '100%', marginBottom: '2px'}} href={'/admin-edit-program/' + program._id}>
+                  <a className="btn btn-warning" style ={{width: '100%', marginBottom: '2px'}} href={'/admin/edit-program/' + program._id}>
                     <i className="fas fa-edit"></i>&nbsp;Edit
                   </a>
                   <a className="btn btn-danger"  style ={{width: '100%', marginBottom: '2px'}} href='' onClick={() =>props.onDelete(program._id, program.name) }>
@@ -52,7 +52,7 @@ export default function AllProgramsView(props) {
           </tbody>
         </table>
 
-        <button className="btn btn-success"> <a href="/admin-add-program" style ={{textDecoration: 'none', color: 'white'}}>Create New Post</a></button>
+        <button className="btn btn-success"> <a href="/admin/add-program" style ={{textDecoration: 'none', color: 'white'}}>Create New Post</a></button>
       </div>
     )
 }
