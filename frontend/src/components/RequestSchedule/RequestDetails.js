@@ -29,6 +29,18 @@ export default class RequestDetails extends Component {
     render(){
         const {mname, age, gender, email, requirement, rstatus} = this.state.post;
         return(
+            //background image
+      <div
+      className="mainback"
+     style={{
+       backgroundImage:
+         "url(" +
+         "https://res.cloudinary.com/dxnsjtp5n/image/upload/v1631512939/jonathan-borba-lrQPTQs7nQQ-unsplash_w3rfhw.jpg" +
+         ")",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+       backgroundRepeat: "no-repeat",
+     }} >
                 <div  style={{marginTop: '20px'}}>
                     <h4>{mname}</h4>
                     <hr/>
@@ -49,6 +61,7 @@ export default class RequestDetails extends Component {
                          <dt className="col-sm-3">Status</dt>
                          <dd className="col-sm-9">{rstatus}</dd>
                      </dl>
+                </div>
                 </div>
         )
         

@@ -64,10 +64,22 @@ componentDidMount(){
 
   render(){
     return (
+      //background image
+      <div
+       className="mainback"
+      style={{
+        backgroundImage:
+          "url(" +
+          "https://res.cloudinary.com/dxnsjtp5n/image/upload/v1631515492/anastase-maragos-IZw5zLHMfd4-unsplash_jdv7xf.jpg" +
+          ")",
+      //  backgroundPosition: "center",
+       backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }} >
       <div className="container">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
-            <h4>All Requests</h4>
+            <h4 style={{color:'white'}}>All Requests</h4>
           </div>
           <div className="col-lg-3 mt-2 mb-2">
             <input
@@ -80,7 +92,7 @@ componentDidMount(){
           </div>
         </div>
 
-        <table className="table table-hover" style={{ marginTop: '40px' }}>
+        <table className="table table-hover" style={{ marginTop: '40px' }, {color:'white'}}>
         <thead>
           <tr>
             <th scope = "col">#</th>
@@ -100,7 +112,7 @@ componentDidMount(){
                   <tr key={index}>
                       <th scope ="row"> {index+1}  </th>
                       <td>
-                          <a href={`/member/scheduleR/Xpost/${posts._id}`} style= {{textDecoration:'none'}}>
+                          <a href={`/member/scheduleR/Xpost/${posts._id}`} style= {{textDecoration:'none'}, {color:'white'}}>
                              {posts.mname}
                              </a> 
                         </td>
@@ -132,7 +144,7 @@ componentDidMount(){
         {/*<button className="btn btn-success"> <a href="/member/scheduleR/add" style={{textDecoration:'none', color: 'white'}}>Create New Request</a></button> */}
         
       </div>
-
+      </div> //bg div
     )
   }
 }
