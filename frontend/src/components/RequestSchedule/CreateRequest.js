@@ -113,8 +113,20 @@ export default class CreateRequest extends Component {
     };
     render(){
         return(
+          //background image
+      <div
+      className="mainback"
+     style={{
+       backgroundImage:
+         "url(" +
+         "https://res.cloudinary.com/dxnsjtp5n/image/upload/v1631514912/anastase-maragos-9dzWZQWZMdE-unsplash_rwashl.jpg" +
+         ")",
+     //  backgroundPosition: "center",
+      backgroundSize: "cover",
+       backgroundRepeat: "no-repeat",
+     }} >
             <div className="col-md-8 mt-4 mx-auto">
-            <h1 className="h3 mb-3 font-weight-normal">Create New Request</h1>
+            <h1 className="h3 mb-3 font-weight-normal" style={{color:'white'}}>Create New Request</h1>
             <form className="needs-validation" noValidate>
 
               <div className="form-group" style={{ marginBottom: '15px' }}>
@@ -301,6 +313,7 @@ export default class CreateRequest extends Component {
                 &nbsp;Save
               </button>
             </form>
+          </div>
           </div>
         );
         
