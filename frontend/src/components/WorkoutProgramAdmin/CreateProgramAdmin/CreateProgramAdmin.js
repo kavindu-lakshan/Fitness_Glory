@@ -17,7 +17,8 @@ export default class CreateProgramAdmin extends Component {
             photo: '',
             photoURL:'',
             isLoading: false,
-            previewURL: ''
+            previewURL: '',
+            timePeriod: ''
         }
     }
 
@@ -99,7 +100,7 @@ export default class CreateProgramAdmin extends Component {
                 if(res.data.success){
                     this.setState({isLoading: false});
                     alert(data.name+' created successfully');
-                    window.location = '/admin-programs';
+                    window.location = '/admin/programs';
                 }
             })
     }

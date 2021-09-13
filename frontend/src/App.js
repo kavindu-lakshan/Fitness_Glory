@@ -29,7 +29,7 @@ import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployee
 //shehan imports
 
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
-import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
+import ReportPage from "./components/WorkoutProgramAdmin/ProgramsReport/ReportPage";
 import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/AllProgramsAdmin";
 import CreateProgramAdmin from "./components/WorkoutProgramAdmin/CreateProgramAdmin/CreateProgramAdmin";
 import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/EditProgramAdmin";
@@ -242,15 +242,15 @@ const App = () => {
           path="/member/workout-programs"
           component={AllprogramsMemer}
         ></Route>
-        <Route path="/admin-card" component={workoutprogramcard}></Route>
-        <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
-        <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
+        <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
+        <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
+        <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
         <Route
-          path="/admin-edit-program/:id"
+          path="/admin/edit-program/:id"
           component={EditProgramAdmin}
         ></Route>
         <Route
-          path="/admin-expand-program/:id"
+          path="/admin/expand-program/:id"
           component={ProgramDetailsAdmin}
         ></Route>
 
