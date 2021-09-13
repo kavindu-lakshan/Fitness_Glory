@@ -58,7 +58,9 @@ const TrainerHeader = () => {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="">Schedule Requests</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/employee/CreateLeave">Leave Requests</NavDropdown.Item>
+                <NavDropdown.Item href="/employee/CreateLeave">
+                  Leave Requests
+                </NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="/employee/trainerHome">
