@@ -5,27 +5,27 @@ import "./LoginScreen.css";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../actions/trainerActions";
+import { loginAdmin } from "../../actions/trainerActions";
 
-const TrainerLoginScreen = ({ history }) => {
+const AdminLogin = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
-  const trainerLogin = useSelector((state) => state.trainerLogin);
-  const { loading, error, trainerInfo } = trainerLogin;
+  const adminLogin = useSelector((state) => state.adminLogin);
+  const { loading, error, adminInfo } = adminLogin;
 
   useEffect(() => {
-    if (trainerInfo) {
-      history.push("/employee/trainerHome");
+    if (adminInfo) {
+      history.push("/admin/adminHome");
     }
-  }, [history, trainerInfo]);
+  }, [history, adminInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    dispatch(login(username, password));
+    dispatch(loginAdmin(username, password));
   };
 
   return (
@@ -33,7 +33,7 @@ const TrainerLoginScreen = ({ history }) => {
       <div style={container}>
         {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {loading && <Loading />}
-        <h1 style={{ color: "#929b94" }}>Trainer</h1>
+        <h1 style={{ color: "#929b94" }}>Admin</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group>
             <Form.Label style={{ color: "929b94" }}>Username</Form.Label>
@@ -74,7 +74,7 @@ const TrainerLoginScreen = ({ history }) => {
   );
 };
 
-export default TrainerLoginScreen;
+export default AdminLogin;
 
 const container = {
   position: "absolute",
