@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
-import "./LandingPage.css";
+import "./TrainerLandingPage.css";
 
 const TrainerLandingPage = ({ history }) => {
   useEffect(() => {
@@ -16,8 +16,7 @@ const TrainerLandingPage = ({ history }) => {
       <Container>
         <Row>
           <div className="intro-text">
-            <div>
-            </div>
+            <div></div>
             <div className="buttonContainer">
               <a href="/employee/trainer-login">
                 <Button size="lg" className="landingbutton">
