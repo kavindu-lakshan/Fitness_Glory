@@ -2,7 +2,7 @@
   min-height: 93vh;
   display: flex;
   align-items: center;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)) ,url("../../components/QAndASection/ImagesD/homeBg.png");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)) ,url("https://res.cloudinary.com/dulshan/image/upload/v1631385892/homeBg_unyg8v.png");
   background-position: center;
   background-size: cover;
 }

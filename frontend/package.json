@@ -28,6 +28,7 @@
     "react-file-base64": "^1.0.3",
     "react-hook-form": "^7.13.0",
     "react-icons": "^4.2.0",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-linear-gradient-button": "^1.1.1",
     "react-markdown": "^7.0.0",
     "react-material-ui-carousel": "^2.3.1",

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import { updateQuestion, selectQuestion } from '../../api/apiFBQA'
 import { QuestionFormUpdate } from './Forms/QuestionFormUpdate'
-import updateQuestionBg from './ImagesD/updateQuestionBg.png';
+// import updateQuestionBg from './ImagesD/updateQuestionBg.png';
 
 export const UpdateQuestion = () =>{
     const match = useRouteMatch();
@@ -19,7 +19,7 @@ export const UpdateQuestion = () =>{
 
     const onSubmit = async(data) =>{
         await updateQuestion(data, match.params.id)
-        history.push("/member/QandA/:mUsername");
+        history.push("/member/QandA/:email");
     }
     
     return question ?(
@@ -36,7 +36,7 @@ export const UpdateQuestion = () =>{
     ) : (<div>Loading Data .......</div>
     )
 }
-
+const updateQuestionBg = 'https://res.cloudinary.com/dulshan/image/upload/v1631385895/updateQuestionBg_ohgsdv.png'
 const bgImg ={
     background: `linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.58)) ,url(${updateQuestionBg})`,
     backgroundSize: 'cover',

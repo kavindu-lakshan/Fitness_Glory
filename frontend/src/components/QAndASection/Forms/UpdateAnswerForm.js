@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 
 export const UpdateAnswerForm = ({answers, onSubmit}) =>{
     
-    const {register, handleSubmit} = useForm({defaultValues: {
-        mUsername: answers ? answers.mUsername: "",
+    const {register, handleSubmit, formState:{errors}} = useForm({defaultValues: {
+        email: answers ? answers.email: "",
         qTopic: answers ? answers.qTopic:"",
         question: answers ? answers.question:"",
         QID:answers? answers.QID:"",
@@ -26,11 +26,11 @@ export const UpdateAnswerForm = ({answers, onSubmit}) =>{
             <div class="row"><br/>
                 <div class="col-6 col-sm-6">
                     <label style={labelStyle} for="qTopic" className="form-label">Question Topic</label>
-                    <input style={inputFieldStyle} type="text" className="form-control" {...register("qTopic", { required: true })} id="qTopic" name="qTopic" disabled="true"/>
+                    <input style={disInputFieldStyle} type="text" className="form-control" {...register("qTopic", { required: true })} id="qTopic" name="qTopic" disabled="true"/>
                 </div>
                 <div class="col-6 col-sm-6">
                     <label style={labelStyle} for="question" className="form-label">Question Description</label>
-                    <input style={inputFieldStyle} type="text" className="form-control" {...register("question", { required: true })} id="question" name="question" disabled="true"/>
+                    <input style={disInputFieldStyle} type="text" className="form-control" {...register("question", { required: true })} id="question" name="question" disabled="true"/>
                 </div>
                 
             <div class="w-100"></div><br/>
@@ -43,14 +43,15 @@ export const UpdateAnswerForm = ({answers, onSubmit}) =>{
             <br/>
             <div className="row">
                 <div class="col-6 col-sm-6">
-                    <label style={labelStyle} for="mUsername" className="form-label">Member Username</label>
-                    <input style={inputFieldStyle} type="text" className="form-control"{...register("mUsername", { required: true })} id="mUsername" name="mUsername" disabled="true"/>
+                    <label style={labelStyle} for="email" className="form-label">Member Email</label>
+                    <input style={disInputFieldStyle} type="text" className="form-control"{...register("email", { required: true })} id="email" name="email" disabled="true"/>
                 </div>
             <div class="w-100"></div><br/>
             <div class="w-100"></div>
-                <div class="col-6 col-sm-6">
+                <div class="col-6 col-sm-9">
                     <label style={labelStyle} for="answer" className="form-label">Answer</label>
                     <input style={inputFieldStyle} type="text" className="form-control" {...register("answer", { required: true })} id="answer" name="answer"/>
+                    {errors.answer && (<small style={{color:'red'}}>Please fill the Answer field! You Cannot leave this field empty</small>)}
                 </div>
             </div><br/>
             <center><Button style={btn} size="large" type="submit" className="btn btn-primary">Update Details</Button></center><br/><br/>
@@ -66,11 +67,20 @@ const inputFieldStyle={
     fontWeight:'bold',
 }
 
+const disInputFieldStyle={
+    border:'3px solid white',
+    background:'transparent',
+    color:'silver',
+    fontFamily: 'Helvetica',
+    fontWeight:'bold',
+}
+
 const labelStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-    fontSize:'15pt'
+    fontSize:'15pt',
+    textTransform:'none' 
 }
 
 const head ={
