@@ -2,8 +2,9 @@ import React from 'react'
 
 function CreateProgramForm(props) {
     return (
-            <div className='col-md-8 mt-4 mx-auto'>
-                <h1>Create new program</h1>
+        <div className="container mt-1 bg-black mb-1">
+            <div className='col-md-6 mx-auto'>
+                <h1 className="text-white">Create new program</h1>
                 <hr/>
                     <form className='needs-validation' noValidate encType='multipart/form-data'>
                         <div className='form-group' style={{marginBottom:'15px'}}>
@@ -86,6 +87,7 @@ function CreateProgramForm(props) {
                             &nbsp; {props.values.isLoading ? "Uploading..." : "Save"}
                         </button>
                     </form>
+            </div>
             </div>
     )
 }

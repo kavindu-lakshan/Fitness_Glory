@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { useState } from 'react';
 import Modal from 'react-modal';
 
 const customStyles = {

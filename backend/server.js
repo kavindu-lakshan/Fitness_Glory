@@ -8,6 +8,7 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 
+const enroll_programs = require("./routes/enroll_programs");
 const workout_programs_routes = require("./routes/workout_programs");
 
 // import express from 'express';
@@ -67,7 +68,7 @@ app.use(memDetailsRoute);
 app.use("/workouts", workoutRoutes);
 
 //B Shehan
-
+app.use(enroll_programs);
 app.use(workout_programs_routes);
 
 //Dulshan
@@ -82,7 +83,8 @@ const trainerRoutes = require("./routes/trainerRoutes");
 app.use("/FitnessGlory/trainers", trainerRoutes);
 const trainerDetailsRoute = require("./routes/trainerDetails");
 app.use(trainerDetailsRoute);
-//Janudi
+
+/*Janudi ---> Start*/
 const CleanersRouter = require('./routes/Cleaners');
 app.use('/Cleaners', CleanersRouter);
 
@@ -91,6 +93,10 @@ app.use('/Employee_Delete', DeleteRoute);
 
 const LeaveRouter = require('./routes/Leaves');
 app.use('/Leaves', LeaveRouter);
+
+const SalaryRouter = require('./routes/Employee_Salary');
+app.use('/Employee_Salary', SalaryRouter);
+/*Janudi ---> End*/
 
 //Manushi
 const zpostRoutes = require("./routes/zposts");

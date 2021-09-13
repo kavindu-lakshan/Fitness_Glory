@@ -30,23 +30,6 @@ export default class ReportWorkout extends Component {
     });
   }
 
-  //   count() {
-  //     const packageTypes = this.state.details.packageType
-  //       .map((dataItem) => dataItem.packageType)
-  //       .filter(
-  //         (packageType, index, array) => array.indexOf(packageType) === index
-  //       ); // filter out duplicates
-
-  //     const counts = packageTypes.map((packageType) => ({
-  //       type: packageType,
-  //       count: this.state.details.packageType.filter(
-  //         (item) => item.packageType === packageType
-  //       ).length,
-  //     }));
-
-  //     console.log(counts);
-  //   }
-
   generatePDFWorkout(workouts) {
     const doc = new jspdf();
     const tableColumn = ["Workout Name", "Workout Category", "Number of Views"];

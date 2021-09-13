@@ -3,6 +3,8 @@ import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import GradientButton from 'react-linear-gradient-button';
 
+//AMANTHA => Add to trainer account => admin/CreateLeave
+
 export default function EmployeeHome(props){
     var items = [
         {
@@ -33,13 +35,13 @@ export default function EmployeeHome(props){
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102058/Card9_claleu.jpg",
             name: "MANAGE EMPLOYEE SALARY",
             description: "The employee salary can be managed here. The system admin is priviledged to access this interface and do any modifications in regard to employee salaries which includes the cleaners' and trainers' salaries. A report based on the monthly salary distribution, for reviewing will be generated for the gym owner.",
-            btnlink: `/leave/Pending`
+            btnlink: "/admin/CreateSalary"
         },
         {
             img: "https://res.cloudinary.com/djg9iitcl/image/upload/v1631102031/Card8_zem1f4.jpg",
             name: "MANAGE EMPLOYEE LEAVES",
             description: "Trainers can apply for leaves for a particular number of times each month and these requests will either be approved or declined according to the trainer's schedule and the number of leaves the trainer had already taken out in that month. This does not apply for the cleaners at the gym.",
-            btnlink: "/Leaves"
+            btnlink: `/admin/leave/Pending`
         }
     ]
 
@@ -55,7 +57,6 @@ export default function EmployeeHome(props){
 function Item(props)
 {
     return (
-       
         <Paper style = {carouselStyles}> <hr/>
             <img src = {props.item.img} style = {imageStyles}></img>
             <h2 style = {headingStyles}>{props.item.name}</h2>
@@ -101,7 +102,7 @@ const btnStyles = {
     marginLeft: '190px',
     marginTop: '30px',
     fontWeight: 'bold',
-    fontSize: '16px',
+    textSize: '28px',
     padding: '5px',
     textDecoration: 'none',
     width: '200px',
@@ -112,5 +113,6 @@ const btnStyles = {
 const linkStyles = {
     textDecoration: 'none',
     color: 'black',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: '15px'
 }
