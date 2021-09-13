@@ -18,7 +18,7 @@ const WorkoutsDisplayMember = ({ setCurrentId }) => {
   const page = query.get("page") || 1;
   const [search, setSearch] = useState("");
 
-  console.log(workouts);
+  // console.log(workouts);
 
   useEffect(() => {
     if (!localStorage.getItem("userInfo")) {
