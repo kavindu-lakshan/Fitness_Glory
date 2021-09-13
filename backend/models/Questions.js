@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const Question = mongoose.Schema({
-    mUsername:{
+    email:{
         type:String
     },
     qTopic:{

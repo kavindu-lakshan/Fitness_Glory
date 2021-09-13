@@ -1,17 +1,17 @@
 const router = require("express").Router();
 let Question = require("../models/Questions")
-let Member = require("../models/Members")
+let User = require("../models/userModel")
 const Questions = require("../models/Questions");
 
 //Create Question
 router.route("/member/q/createQ").post((req, res)=>{
-    const mUsername = req.body.mUsername;
+    const email = req.body.email;
     const qTopic = req.body.qTopic;
     const question = req.body.question;
     const date = req.body.date;
 
     const nQuestion = new Question({
-        mUsername,
+        email,
         qTopic,
         question,
         date
@@ -25,9 +25,9 @@ router.route("/member/q/createQ").post((req, res)=>{
 });
 
 //Display Questions Posted by User
-router.route("/member/QandA/:mUsername").get((req, res) =>{
-    let uName = req.params.mUsername;
-    const question = Question.find({mUsername:uName}).exec().then(question =>{
+router.route("/member/QandA/:email").get((req, res) =>{
+    let uName = req.params.email;
+    const question = Question.find({email:uName}).exec().then(question =>{
         res.json(question)
     })
     .catch(err =>{
@@ -37,9 +37,9 @@ router.route("/member/QandA/:mUsername").get((req, res) =>{
 });
 
 //Display Member Username on forms
-router.route("/member/q/:mUsername").get((req, res) =>{
-    let uName = req.params.mUsername;
-    const question = Member.find({mUsername:uName}).exec().then(question =>{
+router.route("/member/createQ/:email").get((req, res) =>{
+    let uName = req.params.email;
+    const question = User.findOne({email:uName}).exec().then(question =>{
         res.json(question)
     })
     .catch(err =>{
@@ -93,8 +93,19 @@ router.route("/member/deleteQ/:id").delete((req, res) =>{
     });
 });
 
-//Display all Quesions
+//Display all Questions Member
 router.route('/member/').get((req, res) =>{
+    Question.find((err, question) =>{ 
+        if(err){
+            console.log(err);
+        }else{
+            res.json(question);
+        }
+    });
+});
+
+//Display all Questions Trainer
+router.route('/employee/').get((req, res) =>{
     Question.find((err, question) =>{ 
         if(err){
             console.log(err);

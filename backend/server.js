@@ -78,6 +78,12 @@ app.use("/qu", qRouter);
 const aRouter = require("./routes/Answer.js");
 app.use("/an", aRouter);
 
+const feedbackRouter = require("./routes/Feedback.js");
+app.use("/fb", feedbackRouter);
+
+const trainerRouter = require("./routes/Trainer.js");
+app.use("/tr", trainerRouter);
+
 //Amantha
 const trainerRoutes = require("./routes/trainerRoutes");
 app.use("/FitnessGlory/trainers", trainerRoutes);
