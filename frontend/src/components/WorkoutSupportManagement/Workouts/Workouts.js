@@ -24,7 +24,7 @@ const Workouts = ({ setCurrentId }) => {
     }
   }, [history]);
 
-  console.log(workouts);
+  // console.log(workouts);
 
   return !workouts?.length ? (
     <CircularProgress />
