@@ -64,9 +64,9 @@ const registerTrainer = asyncHandler(async (req, res) => {
 });
 
 const authTrainer = asyncHandler(async (req, res) => {
-  const { username, password, isAdmin } = req.body;
+  const { username, password } = req.body;
 
-  const trainer = await Trainer.findOne({ username, isAdmin: false });
+  const trainer = await Trainer.findOne({ username });
   if (trainer && (await trainer.matchPassword(password))) {
     res.json({
       _id: trainer._id,
@@ -83,33 +83,6 @@ const authTrainer = asyncHandler(async (req, res) => {
       yrsexp: trainer.yrsexp,
       pic: trainer.pic,
       token: generateToken(trainer._id),
-    });
-  } else {
-    res.status(400);
-    throw new Error("Invalid Username or Password!");
-  }
-});
-
-const authAdmin = asyncHandler(async (req, res) => {
-  const { username, password, isAdmin } = req.body;
-
-  const admin = await Trainer.findOne({ username, isAdmin: true });
-  if (admin && (await admin.matchPassword(password))) {
-    res.json({
-      _id: admin._id,
-      fname: admin.fname,
-      lname: admin.lname,
-      isAdmin: admin.isAdmin,
-      username: admin.username,
-      nic: admin.nic,
-      dob: admin.dob,
-      gender: admin.gender,
-      mobile: admin.mobile,
-      address: admin.address,
-      qualifications: admin.qualifications,
-      yrsexp: admin.yrsexp,
-      pic: admin.pic,
-      token: generateToken(admin._id),
     });
   } else {
     res.status(400);
@@ -160,53 +133,8 @@ const updateTrainerProfile = asyncHandler(async (req, res) => {
   }
 });
 
-const updateAdminProfile = asyncHandler(async (req, res) => {
-  const admin = await Trainer.findById(req.trainer._id);
-
-  if (admin) {
-    admin.fname = req.body.fname || admin.fname;
-    admin.lname = req.body.lname || admin.lname;
-    admin.username = req.body.username || admin.username;
-    admin.nic = req.body.nic || admin.nic;
-    admin.dob = req.body.dob || admin.dob;
-    admin.gender = req.body.gender || admin.gender;
-    admin.mobile = req.body.mobile || admin.mobile;
-    admin.address = req.body.address || admin.address;
-    admin.qualifications = req.body.qualifications || admin.qualifications;
-    admin.yrsexp = req.body.yrsexp || admin.yrsexp;
-    admin.pic = req.body.pic || admin.pic;
-    if (req.body.password) {
-      admin.password = req.body.password;
-    }
-
-    const updatedAdmin = await admin.save();
-
-    res.json({
-      _id: updatedAdmin._id,
-      fname: updatedAdmin.fname,
-      lname: updatedAdmin.lname,
-      isAdmin: updatedAdmin.isAdmin,
-      username: updatedAdmin.username,
-      nic: updatedAdmin.nic,
-      dob: updatedAdmin.dob,
-      gender: updatedAdmin.gender,
-      mobile: updatedAdmin.mobile,
-      address: updatedAdmin.address,
-      qualifications: updatedAdmin.qualifications,
-      yrsexp: updatedAdmin.yrsexp,
-      pic: updatedAdmin.pic,
-      token: generateToken(updatedAdmin._id),
-    });
-  } else {
-    res.status(404);
-    throw new Error("User Not Found");
-  }
-});
-
 module.exports = {
   registerTrainer,
   authTrainer,
   updateTrainerProfile,
-  authAdmin,
-  updateAdminProfile,
 };
