@@ -56,7 +56,7 @@ export default class ptEdit extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style={backImg}>
         <br />
         <br />
         {/*<button className="btn btn-success">
@@ -70,10 +70,15 @@ export default class ptEdit extends Component {
         <br />
         <br />
         &nbsp;
+        <div style={font}>
+          <h1 style={editpostti}> member request status</h1>
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
         <div className="row">
-          <div className="col-lg-9 mt-2 mb-2">
-            <h4>All Requests</h4>
-          </div>
+          <div className="col-lg-9 mt-2 mb-2"></div>
           <div className="col-lg-3 mt-2 mb-2">
             <input
               className="form-control"
@@ -84,7 +89,7 @@ export default class ptEdit extends Component {
             />
           </div>
         </div>
-        <table className="table">
+        <table style={fdata} className="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -122,19 +127,47 @@ export default class ptEdit extends Component {
                     <i className="fas fa-dark"></i>&nbsp;Edit
                   </a>
                   &nbsp; &nbsp;
-                  <a
+                  {/*} <a
                     className="btn btn-dark"
                     href="#"
                     onClick={() => this.onDelete(posts._id)}
                   >
                     <i className="far fa-trash-alt"></i>&nbsp;Delete
-                  </a>
+            </a>*/}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <div style={editpostti}></div>
       </div>
     );
   }
 }
+const backiImg =
+  "https://res.cloudinary.com/maldeniya99/image/upload/v1631461843/matthew-payne-4tHbsNGFp18-unsplash_teure1.jpg";
+const backImg = {
+  background: `linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)) ,url(${backiImg})`,
+  backgroundSize: "cover",
+  position: "center",
+  color: "white",
+  width: "100%",
+  height: "100%",
+  opacity: "10",
+};
+const font = {
+  color: "white",
+  fontspacing: "3",
+  height: "1000",
+};
+const editpostti = {
+  fontSize: 50,
+  color: "white",
+  letterSpacing: 20,
+  textAlign: "center",
+
+  paddingTop: "150px",
+};
+const fdata = {
+  color: "white",
+};

@@ -69,6 +69,18 @@ export default class CreatePost extends Component {
     }
     return true;
   }
+  //
+  onDemo = () => {
+    const data = {
+      name: "Anne merry",
+      tname: "personal trainer",
+      time: "8.30-103.0",
+      date: "2020-10-20",
+      pack: "starter",
+      status: "pending",
+    };
+  };
+
   onSubmit = (e) => {
     if (this.validate()) {
       console.warn(this.state);
@@ -104,9 +116,23 @@ export default class CreatePost extends Component {
   render() {
     return (
       <div style={backImg}>
+        <div style={font}>
+          <h1 style={editpostti}>
+            {" "}
+            JOIN WITH US <br />
+            <br />
+            CREATE YOUR REQURSTS HERE!
+          </h1>
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
         <div className="col-md-8 mt-4 mx-auto">
-          <h1 className="h3 mb-3 font-weight-normal">Create new post</h1>
-          <form className="needs-validation" noValidate>
+          <h1 style={title} className="h3 mb-3 font-weight-normal">
+            Create new post
+          </h1>
+          <form style={fmem} className="needs-validation" noValidate>
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <label style={{ marginBottom: "5px" }}> Your Name</label>
               <input
@@ -191,7 +217,7 @@ export default class CreatePost extends Component {
                 required
               />
             </div>
-
+            <br />
             {
               /*<div className="form-group" style={{ marginBottom: "15px" }}>
             <label style={{ marginBottom: "5px" }}>Your Training Package</label>
@@ -248,11 +274,20 @@ export default class CreatePost extends Component {
             <button
               className="btn btn-success"
               type="submit"
-              style={{ marginTop: "15px" }}
+              style={{ marginTop: "15px", marginBottom: "40px" }}
               onClick={this.onSubmit}
             >
               <i className="far fa-check-square"></i>
               submit
+            </button>
+            <button
+              className="btn btn-success"
+              type="submit"
+              style={{ marginTop: "15px", marginBottom: "40px" }}
+              onClick={this.onDemo}
+            >
+              <i className="far fa-check-square"></i>
+              demo
             </button>
           </form>
         </div>
@@ -260,13 +295,30 @@ export default class CreatePost extends Component {
     );
   }
 }
+const backiImg =
+  "https://res.cloudinary.com/maldeniya99/image/upload/v1631621169/anastase-maragos-4dlhin0ghOk-unsplash_mwpe9l.jpg";
 const backImg = {
-  background: `linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)) ,url("https://res.cloudinary.com/maldeniya99/image/upload/v1631555385/risen-wang-20jX9b35r_M-unsplash_4_vmfao9.jpg")`,
+  background: `linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url(${backiImg})`,
   backgroundSize: "cover",
   position: "center",
-  marginTop: "-20px",
-  right: "0%",
-  left: "0%",
   width: "100%",
   height: "100%",
+  opacity: "10",
+};
+const title = {
+  color: "black",
+};
+const fmem = {};
+const font = {
+  color: "white",
+  fontspacing: "3",
+  height: "1000",
+};
+const editpostti = {
+  fontSize: 50,
+  color: "white",
+  letterSpacing: 20,
+  textAlign: "center",
+
+  paddingTop: "150px",
 };

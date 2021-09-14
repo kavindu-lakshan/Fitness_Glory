@@ -11,6 +11,10 @@ import {
   trainerRegisterReducer,
   trainerUpdateReducer,
 } from "./reducers/trainerReducers";
+import {
+  adminLoginReducer,
+  adminUpdateReducer,
+} from "./reducers/adminReducers";
 import { work } from "./reducers/workouts";
 import { blogposts } from "./reducers/blogposts";
 const reducer = combineReducers({
