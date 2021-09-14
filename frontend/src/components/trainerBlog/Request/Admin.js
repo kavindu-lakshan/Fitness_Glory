@@ -10,7 +10,7 @@ import {
   responsiveFontSizes,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import "./Memback.css";
+import "./memback.css";
 import Posts from "./Posts/Posts";
 import Form from "./Form/Form";
 import { getBlogPosts } from "../../../actions/blogposts";
