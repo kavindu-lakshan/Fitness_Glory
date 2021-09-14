@@ -12,7 +12,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import "./memback.css";
+import "./Memback.css";
 
 import PostsMem from "./Posts/PostsMem";
 import Form from "./Form/Form";
