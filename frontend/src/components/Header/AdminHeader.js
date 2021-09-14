@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { adminlogout } from "../../actions/adminActions";
 import "./Header.css";
 import Logo from "../../logo.png";
 
@@ -13,7 +14,8 @@ const Header = () => {
   const { adminInfo } = adminLogin;
 
   const logoutHandler = () => {
-    history.push("/admin/admin-login");
+    dispatch(adminlogout());
+    history.push("/admin/login");
   };
 
   useEffect(() => {}, [adminInfo]);

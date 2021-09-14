@@ -102,6 +102,11 @@ import TrainerHeader from "./components/Header/TrainerHeader";
 import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
 
+// Admin
+import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
+import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
+import AdminHomePage from "./Screens/HomePage/AdminHomePage";
+
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
@@ -338,6 +343,11 @@ const App = () => {
         />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
+
+        {/* Admin */}
+        <Route path="/admin/login" component={AdminLoginScreen} />
+        <Route path="/admin/admin-profile" component={AdminProfileScreen} />
+        <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
       </main>
 
       <Footer />

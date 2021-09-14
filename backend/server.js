@@ -7,7 +7,7 @@ const app = express();
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
-
+const adminRoutes = require("./routes/admin");
 const enroll_programs = require("./routes/enroll_programs");
 const workout_programs_routes = require("./routes/workout_programs");
 
@@ -91,17 +91,17 @@ const trainerDetailsRoute = require("./routes/trainerDetails");
 app.use(trainerDetailsRoute);
 
 /*Janudi ---> Start*/
-const CleanersRouter = require('./routes/Cleaners');
-app.use('/Cleaners', CleanersRouter);
+const CleanersRouter = require("./routes/Cleaners");
+app.use("/Cleaners", CleanersRouter);
 
-const DeleteRoute = require('./routes/Employee_Delete');
-app.use('/Employee_Delete', DeleteRoute);
+const DeleteRoute = require("./routes/Employee_Delete");
+app.use("/Employee_Delete", DeleteRoute);
 
-const LeaveRouter = require('./routes/Leaves');
-app.use('/Leaves', LeaveRouter);
+const LeaveRouter = require("./routes/Leaves");
+app.use("/Leaves", LeaveRouter);
 
-const SalaryRouter = require('./routes/Employee_Salary');
-app.use('/Employee_Salary', SalaryRouter);
+const SalaryRouter = require("./routes/Employee_Salary");
+app.use("/Employee_Salary", SalaryRouter);
 /*Janudi ---> End*/
 
 //Manushi
@@ -109,10 +109,11 @@ const zpostRoutes = require("./routes/zposts");
 app.use(zpostRoutes);
 
 //Sandani
-const XpostRoutes = require('./routes/Xposts');
-app.use(XpostRoutes); 
+const XpostRoutes = require("./routes/Xposts");
+app.use(XpostRoutes);
 
-
+//Admin
+app.use("/admin", adminRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT: ${PORT}`);
