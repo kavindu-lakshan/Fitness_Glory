@@ -11,6 +11,10 @@ import {
   trainerRegisterReducer,
   trainerUpdateReducer,
 } from "./reducers/trainerReducers";
+import {
+  adminLoginReducer,
+  adminUpdateReducer,
+} from "./reducers/adminReducers";
 import { work } from "./reducers/workouts";
 
 const reducer = combineReducers({
@@ -21,6 +25,8 @@ const reducer = combineReducers({
   trainerRegister: trainerRegisterReducer,
   trainerUpdate: trainerUpdateReducer,
   workouts: work,
+  adminLogin: adminLoginReducer,
+  adminUpdate: adminUpdateReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
@@ -31,9 +37,14 @@ const trainerInfoFromStorage = localStorage.getItem("trainerInfo")
   ? JSON.parse(localStorage.getItem("trainerInfo"))
   : null;
 
+const adminInfoFromStorage = localStorage.getItem("adminInfo")
+  ? JSON.parse(localStorage.getItem("adminInfo"))
+  : null;
+
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
   trainerLogin: { trainerInfo: trainerInfoFromStorage },
+  adminLogin: { adminInfo: adminInfoFromStorage },
 };
 
 const middleware = [thunk];
