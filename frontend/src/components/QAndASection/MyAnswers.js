@@ -3,7 +3,7 @@ import { Link, useRouteMatch } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import { NavBar } from './NavBar';
 import { getAnswer } from '../../api/apiFBQA';
-import myAnswerBg from './ImagesD/myAnswerBg.png'
+// import myAnswerBg from './ImagesD/myAnswerBg.png'
 
 export const MyAnswers = () => {
     const match = useRouteMatch()
@@ -11,7 +11,7 @@ export const MyAnswers = () => {
 
     useEffect(()=>{
         const displayAnswer = async()=>{
-            const answer = await getAnswer(match.params.mUsername)
+            const answer = await getAnswer(match.params.email)
             setAnswer(answer);
         }
         displayAnswer();
@@ -28,7 +28,7 @@ export const MyAnswers = () => {
             <div className="container">
             <div className="mt-3">
                 <br/>
-                <h3 style={labelStyle} className = "text-center" >My Answers</h3>
+                <h3 style={labelStyle} className = "text-center" >MY ANSWERS</h3>
                 <div style={hideScroll}>
                 <div style={scrollable}>
                 <table style={textStyle} class="table">
@@ -61,11 +61,7 @@ export const MyAnswers = () => {
     )
 }
 
-const btn ={
-    backgroundColor: '#04938b', 
-    border: '2px solid #04938b',
-    color:'white'
-}
+const myAnswerBg = 'https://res.cloudinary.com/dulshan/image/upload/v1631385892/myAnswerBg_yil2en.png'
 
 const bgImg ={
     background: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.58)) ,url(${myAnswerBg})`,
@@ -77,10 +73,17 @@ const bgImg ={
     opacity:'1'
 }
 
+const btn ={
+    backgroundColor: '#04938b', 
+    border: '2px solid #04938b',
+    color:'white'
+}
+
 const labelStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
+    textTransform:'none' 
 }
 
 const textStyle={

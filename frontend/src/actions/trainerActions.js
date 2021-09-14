@@ -24,7 +24,7 @@ export const login = (username, password) => async (dispatch) => {
 
     const { data } = await axios.post(
       "/FitnessGlory/trainers/trainer-login",
-      { username, password },
+      { username, password, isAdminP: false },
       config
     );
     dispatch({ type: TRAINER_LOGIN_SUCCESS, payload: data });
@@ -46,37 +46,65 @@ export const logout = () => async (dispatch) => {
   dispatch({ type: TRAINER_LOGOUT });
 };
 
-export const register = (fname,lname,username,nic,dob,gender,mobile,address,qualifications,yrsexp,password,pic) => async (dispatch) => {
-  try {
-    dispatch({ type: TRAINER_REGISTER_REQUEST });
+export const register =
+  (
+    fname,
+    lname,
+    username,
+    nic,
+    dob,
+    gender,
+    mobile,
+    address,
+    qualifications,
+    yrsexp,
+    password,
+    pic
+  ) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: TRAINER_REGISTER_REQUEST });
 
-    const config = {
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
 
-    const { data } = await axios.post(
-      "/FitnessGlory/trainers/trainer-register",
-      { fname,lname,username,nic,dob,gender,mobile,address,qualifications,yrsexp,password,pic },
-      config
-    );
+      const { data } = await axios.post(
+        "/FitnessGlory/trainers/trainer-register",
+        {
+          fname,
+          lname,
+          username,
+          nic,
+          dob,
+          gender,
+          mobile,
+          address,
+          qualifications,
+          yrsexp,
+          password,
+          pic,
+        },
+        config
+      );
 
-    dispatch({ type: TRAINER_REGISTER_SUCCESS, payload: data });
+      dispatch({ type: TRAINER_REGISTER_SUCCESS, payload: data });
 
-    dispatch({ type: TRAINER_LOGIN_SUCCESS, payload: data });
+      dispatch({ type: TRAINER_LOGIN_SUCCESS, payload: data });
 
-    localStorage.setItem("trainerInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: TRAINER_REGISTER_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+      localStorage.setItem("trainerInfo", JSON.stringify(data));
+    } catch (error) {
+      dispatch({
+        type: TRAINER_REGISTER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const updateProfile = (trainer) => async (dispatch, getState) => {
   try {

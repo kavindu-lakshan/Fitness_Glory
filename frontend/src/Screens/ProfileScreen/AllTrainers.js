@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./AllTrainers.css";
-import a from "../../components/QAndASection/ImagesD/createAnswerBg.png"
 
 export default class AllTrainers extends Component {
   constructor(props) {

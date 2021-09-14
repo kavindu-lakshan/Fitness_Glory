@@ -1,44 +1,50 @@
-
 import TrainerMainScreen from "../../components/TrainerMainScreen";
 import { useSelector } from "react-redux";
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./Trainerhome.css";
 const TrainerHomePage = () => {
- 
   const trainerLogin = useSelector((state) => state.trainerLogin);
   const { trainerInfo } = trainerLogin;
+  const history = useHistory();
 
-  useEffect(() => {}, [trainerInfo]);
+  useEffect(() => {
+    if (!localStorage.getItem("trainerInfo")) {
+      history.push("/employee/trainer-login");
+    }
+  }, [trainerInfo]);
 
-  return <TrainerMainScreen title={"Welcome"+" "+trainerInfo?.username}>Home Page</TrainerMainScreen>;
+  return (
+    <TrainerMainScreen title={"Welcome" + " " + trainerInfo?.username}>
+      Home Page
+    </TrainerMainScreen>
+  );
 };
 
 export default TrainerHomePage;
 // export default function TrainerHomePage(){
 //   return (
 //       <div>
-          
-         
-                
+
 //                       <div style={style1}>
 //                           <h1 style={headingStyle}>View Your Account</h1>
-//                           <p style={paraStyle}>If you are already an ACE Gym Trainer, Group Fitness Instructor, Health Coach, 
+//                           <p style={paraStyle}>If you are already an ACE Gym Trainer, Group Fitness Instructor, Health Coach,
 //                           or Medical <br/>Exercise Specialist, you have a My ACE Account. Within this account the trainer can access<br/> all the materials required to prepare, process and record training. Personalized your account<br/> as you want Now!</p>
 //                           <div className="btn"> <a href="/trainer-profile"><span>View Profile</span></a> </div>
 //                       </div>
 
 //                       <div style={style2}>
 //                           <h1 style={headingStyle}>Publish Events</h1>
-//                           <p style={paraStyle}>A large chunk of event attendees end up turning into paying customers. With the potential <br/>to boost sales and engagement, 
-//                           fitness events are a no-brainer. Events can take on a ton of<br/> different formats. Depending on your budget and objective, you can organize an event 
+//                           <p style={paraStyle}>A large chunk of event attendees end up turning into paying customers. With the potential <br/>to boost sales and engagement,
+//                           fitness events are a no-brainer. Events can take on a ton of<br/> different formats. Depending on your budget and objective, you can organize an event
 //                           that<br/> your members will love. Create Events which develop members' Lifestyles Now!</p>
 //                           <div className="btn"> <a href="eventspage"><span>Create Events</span></a> </div>
 //                       </div>
 
 //                       <div style={style3}>
 //                           <h1 style={headingStyle}>Manage Events</h1>
-//                           <p style={paraStyle}>It makes sense that a successful event takes time and planning. When organizing a fitness event,<br></br> multiple factors need 
-//                           to be considered from invitations and budget to logistics and location. Event<br/> planning is a task in itself. Here’s a breakdown of the steps you need 
+//                           <p style={paraStyle}>It makes sense that a successful event takes time and planning. When organizing a fitness event,<br></br> multiple factors need
+//                           to be considered from invitations and budget to logistics and location. Event<br/> planning is a task in itself. Here’s a breakdown of the steps you need
 //                           to take to plan and organize <br/>a fitness event. </p>
 //                           <div className="btn"> <a href="allevents"><span>All Events</span></a> </div>
 //                           <div className="btn1"> <a href="#"><span>Manage Events</span></a> </div>
@@ -46,8 +52,8 @@ export default TrainerHomePage;
 
 //                       <div style={style4}>
 //                           <h1 style={headingStyle}>Requests Management</h1>
-//                           <p style={paraStyle}>Personal trainers assess their customers' bodily strengths and weaknesses and create<br/> customized workout plans. 
-//                               They provide physical and mental guidance and monitor<br/> customers' progress on a regular basis. 
+//                           <p style={paraStyle}>Personal trainers assess their customers' bodily strengths and weaknesses and create<br/> customized workout plans.
+//                               They provide physical and mental guidance and monitor<br/> customers' progress on a regular basis.
 //                               They also make sure that customers don't <br/> get injured while training.</p>
 //                           <div className="btn"> <a href="#"><span>View Requests</span></a> </div>
 //                       </div>
@@ -60,14 +66,13 @@ export default TrainerHomePage;
 
 //                       <div style={style6}>
 //                           <h1 style={headingStyle}>View Blogs</h1>
-//                           <p style={paraStyle}>Whether your client at the beginning of his/her fitness journey or in desperate need of some<br/> motivation and kick to keep going, 
+//                           <p style={paraStyle}>Whether your client at the beginning of his/her fitness journey or in desperate need of some<br/> motivation and kick to keep going,
 //                           they will find it that on these blogs — and in their educational,<br/> inspirational, and empowering content. As a busy clients you they have time to exercise. Our goal is <br/>to help them to find ways to be more active and fit.</p>
 //                           <div className="btn"> <a href="#"><span>View Blogs</span></a> </div>
 //                       </div>
-             
-      
+
 //       </div>
-      
+
 //   )
 // }
 
@@ -109,7 +114,7 @@ export default TrainerHomePage;
 //   backgroundSize: 'cover',
 //   backgroundPosition: 'top',
 //   backgroundRepeat: 'no-repeat',
-  
+
 // }
 
 // const style3={
@@ -122,7 +127,7 @@ export default TrainerHomePage;
 //   backgroundRepeat: 'no-repeat',
 //   backgroundPosition: 'top',
 //   backgroundSize: 'cover',
-  
+
 // }
 
 // const style4={

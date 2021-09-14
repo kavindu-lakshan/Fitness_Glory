@@ -3,7 +3,7 @@ import { Link, useRouteMatch } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import { getQuestions } from '../../api/apiFBQA'
 import { NavBar } from './NavBar';
-import QAndABg from './ImagesD/QandABg.png'
+// import QAndABg from './ImagesD/QandABg.png'
 
 export const QandA = () =>{
     const match = useRouteMatch()
@@ -11,7 +11,7 @@ export const QandA = () =>{
 
     useEffect(()=>{
         const displayQuestions = async() =>{
-            const question = await getQuestions(match.params.mUsername)
+            const question = await getQuestions(match.params.email)
             setQuestions(question)
         }
         displayQuestions()
@@ -23,12 +23,12 @@ export const QandA = () =>{
             <div className="container">
             <div className="mt-3"><br/>
                 <NavBar/>
-            </div>
+            </div> 
             </div>
             <div className="container"> 
             <div className="mt-3">
                 <br/>
-                <h3 style={labelStyle}className = "text-center">My Questions</h3>
+                <h3 style={labelStyle}className = "text-center">MY QUESTIONS</h3>
                 <div style={hideScroll}>
                 <div style={scrollable}>
                 <table style ={textStyle} class="table">
@@ -66,7 +66,7 @@ export const QandA = () =>{
     </div>
     )
 }
-
+const QAndABg = 'https://res.cloudinary.com/dulshan/image/upload/v1631385896/QandABg_bdwzlc.png'
 const bgImg ={
     background: `linear-gradient( rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)) ,url(${QAndABg})`,
     backgroundSize: 'cover',
@@ -82,7 +82,7 @@ const labelStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-
+    textTransform:'none' 
 }
 
 const textStyle={

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import { createAnswer, selectQuestionDetailsA } from '../../api/apiFBQA';
 import { AnswerForm } from './Forms/AnswerForm';
-import createAnswerBg from './ImagesD/createAnswerBg.png'
+// import createAnswerBg from './ImagesD/createAnswerBg.png'
  
 export const CreateAnswer = () =>{
     const history = useHistory();
@@ -19,7 +19,7 @@ export const CreateAnswer = () =>{
 
     const onSubmit = async (data) =>{
         await createAnswer(data)
-        history.push("/member/myAnswers/:mUsername");
+        history.push("/member/myAnswers/:email");
     };
     
     return question ?(
@@ -41,6 +41,7 @@ const heading={
     color:'white'
 }
 
+const createAnswerBg = 'https://res.cloudinary.com/dulshan/image/upload/v1631385890/createAnswerBg_e26csx.png'
 const bgImg ={
     background: `linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)) ,url(${createAnswerBg})`,
     backgroundSize: 'cover',

@@ -69,7 +69,7 @@ componentDidMount(){
           <div className="col-lg-9 mt-2 mb-2">
             <h4>Workout schedule requests report</h4>
           </div>
-          <div className="col-lg-3 mt-2 mb-2">
+          {/* <div className="col-lg-3 mt-2 mb-2">
             <input
               className="form-control"
               type="search"
@@ -77,7 +77,7 @@ componentDidMount(){
               name="searchQuery"
               onChange={this.handleSearchArea}
             ></input>
-          </div>
+          </div> */}
         </div>
 
         <table className="table table-hover" style={{ marginTop: '40px' }}>
