@@ -18,9 +18,9 @@ import ViewEmployeeInterface from "./components/EmployeeManagement/ViewEmployeeI
 import { AllCleaners } from "./components/EmployeeManagement/EditCleanerInterface";
 import EditCleaner from "./components/EmployeeManagement/EditCleaner";
 import { DeleteCleaners } from "./components/EmployeeManagement/DeleteCleanerInterface";
-import { DeleteConf } from './components/EmployeeManagement/DeleteConf';
+import { DeleteConf } from "./components/EmployeeManagement/DeleteConf";
 import LeaveRegistration from "./components/EmployeeManagement/CreateLeave";
-import {AllTrainerLeaves} from './components/EmployeeManagement/AllTrainerLeaves';
+import { AllTrainerLeaves } from "./components/EmployeeManagement/AllTrainerLeaves";
 import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
 import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
 import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
@@ -69,7 +69,12 @@ import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
-
+//newly added
+import Admin from "./components/trainerBlog/Request/Admin";
+import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
+import MemForm from "./components/trainerBlog/Request/MemForm";
+import PostBDetails from "./components//trainerBlog/Request/Display/PostBDetails";
+import { getBlogPosts } from "./actions/blogposts";
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
@@ -92,6 +97,10 @@ const App = () => {
   useEffect(() => {
     dispatch(getWorkouts());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getBlogPosts());
+  }, [currentId, dispatch]);
 
   return (
     <BrowserRouter>
@@ -135,7 +144,6 @@ const App = () => {
         component={ReportWorkout}
       />
 
-      
       {/* manushika Routes*/}
       <div className="container">
         <Route
@@ -162,7 +170,25 @@ const App = () => {
           component={PostDetails}
         ></Route>
       </div>
-
+      {/* newly added*/}
+      <div className="container">
+        <Route
+          path="/member/Admin"
+          exact
+          component={() => <Admin setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/MemForm"
+          exact
+          component={() => <MemForm setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/member/ReportPT/ReportPT"
+          exact
+          component={() => <ReportPT setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route path="/member/blogposts/:id" component={PostBDetails} />
+      </div>
       {/**Sandani */}
       <div className="container">
         <Route
@@ -221,21 +247,49 @@ const App = () => {
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
 
         {/*Janudi Routes --> Begin*/}
-        <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
-        <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
-        <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
-        <Route exact path = "/admin/ViewEmployeeInterface" component = {ViewEmployeeInterface}/>
-        <Route exact path = "/admin/EditCleanerInterface" component = {AllCleaners}/>
-        <Route exact path = "/admin/update/:id" component = {EditCleaner}/>
-        <Route exact path = "/admin/DeleteCleanerInterface" component = {DeleteCleaners}/>
-        <Route exact path = "/admin/delete/:id" component = {DeleteConf}/>
-        <Route exact path = "/admin/leaves/add" component = {LeaveRegistration}/>
-        <Route exact path = "/employee/CreateLeave" component = {LeaveRegistration}/>
-        <Route exact path = "/admin/leaves" component = {AllTrainerLeaves}/>
-        <Route exact path = "/admin/leave/:Status" component = {LeavesList}/>
-        <Route exact path = "/admin/updateL/:id" component = {TrainerLeavesEdit}/>
-        <Route exact path = "/admin/salary/add" component = {CreateEmployeeSalary}/>
-        <Route exact path = "/admin/CreateSalary" component = {CreateEmployeeSalary}/>
+        <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
+        <Route exact path="/admin/RegisterMenu" component={RegisterMenu} />
+        <Route
+          exact
+          path="/admin/CleanerRegistrationForm"
+          component={CleanerRegistrationForm}
+        />
+        <Route
+          exact
+          path="/admin/ViewEmployeeInterface"
+          component={ViewEmployeeInterface}
+        />
+        <Route
+          exact
+          path="/admin/EditCleanerInterface"
+          component={AllCleaners}
+        />
+        <Route exact path="/admin/update/:id" component={EditCleaner} />
+        <Route
+          exact
+          path="/admin/DeleteCleanerInterface"
+          component={DeleteCleaners}
+        />
+        <Route exact path="/admin/delete/:id" component={DeleteConf} />
+        <Route exact path="/admin/leaves/add" component={LeaveRegistration} />
+        <Route
+          exact
+          path="/employee/CreateLeave"
+          component={LeaveRegistration}
+        />
+        <Route exact path="/admin/leaves" component={AllTrainerLeaves} />
+        <Route exact path="/admin/leave/:Status" component={LeavesList} />
+        <Route exact path="/admin/updateL/:id" component={TrainerLeavesEdit} />
+        <Route
+          exact
+          path="/admin/salary/add"
+          component={CreateEmployeeSalary}
+        />
+        <Route
+          exact
+          path="/admin/CreateSalary"
+          component={CreateEmployeeSalary}
+        />
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}

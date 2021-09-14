@@ -103,42 +103,43 @@ export default class CreatePost extends Component {
   };
   render() {
     return (
-      <div className="col-md-8 mt-4 mx-auto">
-        <h1 className="h3 mb-3 font-weight-normal">Create new post</h1>
-        <form className="needs-validation" noValidate>
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}> Your Name</label>
-            <input
-              type="text"
-              className="form-control"
-              name="name"
-              placeholder="Enter your Name"
-              value={this.state.name}
-              onChange={this.handleInputChange}
-            />
-            <span className="text-danger">{this.state.nameError}</span>
-          </div>
+      <div style={backImg}>
+        <div className="col-md-8 mt-4 mx-auto">
+          <h1 className="h3 mb-3 font-weight-normal">Create new post</h1>
+          <form className="needs-validation" noValidate>
+            <div className="form-group" style={{ marginBottom: "15px" }}>
+              <label style={{ marginBottom: "5px" }}> Your Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                placeholder="Enter your Name"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+              />
+              <span className="text-danger">{this.state.nameError}</span>
+            </div>
 
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}>
-              {" "}
-              Your Personal Trainer's Name
-            </label>
+            <div className="form-group" style={{ marginBottom: "15px" }}>
+              <label style={{ marginBottom: "5px" }}>
+                {" "}
+                Your Personal Trainer's Name
+              </label>
 
-            <input
-              type="text"
-              className="form-control"
-              name="tname"
-              placeholder="Enter Personl Trainers Name"
-              value={this.state.tname}
-              onChange={this.handleInputChange}
-              required
-            />
-            <span className="text-danger">{this.state.nameError}</span>
-          </div>
+              <input
+                type="text"
+                className="form-control"
+                name="tname"
+                placeholder="Enter Personl Trainers Name"
+                value={this.state.tname}
+                onChange={this.handleInputChange}
+                required
+              />
+              <span className="text-danger">{this.state.nameError}</span>
+            </div>
 
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            {/*<label style={{ marginBottom: "5px" }}> Your Time slot</label>
+            <div className="form-group" style={{ marginBottom: "15px" }}>
+              {/*<label style={{ marginBottom: "5px" }}> Your Time slot</label>
             <input
               type="Text"
               className="form-control"
@@ -148,49 +149,51 @@ export default class CreatePost extends Component {
               onChange={this.handleInputChange}
               required
     />*/}
-            <label style={{ marginBottom: "5px" }}>Pick your time slot </label>
-            &nbsp;
-            <select
-              className="form-control"
-              value={this.state.time}
-              onChange={this.handleChangeOne}
-            >
-              <option name="time" value="--" selected>
-                --time slots--
-              </option>
-              <option name="time" value="8.30am-10.30am">
-                8.30am-10.30am
-              </option>
-              <option name="time" value="10.30am-12.30am">
-                10.30am-12.30am
-              </option>
-              <option name="time" value="2.30am-4.30am">
-                2.30am-4.30am
-              </option>
-              <option name="time" value="4.30am-6.30am">
-                4.30am-6.30am
-              </option>
-            </select>
-          </div>
-          <br />
+              <label style={{ marginBottom: "5px" }}>
+                Pick your time slot{" "}
+              </label>
+              &nbsp;
+              <select
+                className="form-control"
+                value={this.state.time}
+                onChange={this.handleChangeOne}
+              >
+                <option name="time" value="--" selected>
+                  --time slots--
+                </option>
+                <option name="time" value="8.30am-10.30am">
+                  8.30am-10.30am
+                </option>
+                <option name="time" value="10.30am-12.30am">
+                  10.30am-12.30am
+                </option>
+                <option name="time" value="2.30am-4.30am">
+                  2.30am-4.30am
+                </option>
+                <option name="time" value="4.30am-6.30am">
+                  4.30am-6.30am
+                </option>
+              </select>
+            </div>
+            <br />
 
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}>Your Training Day</label>
+            <div className="form-group" style={{ marginBottom: "15px" }}>
+              <label style={{ marginBottom: "5px" }}>Your Training Day</label>
 
-            <input
-              type="date"
-              data-date-format="mm/dd/yyyy"
-              className="form-control"
-              name="date"
-              placeholder="Enter Day"
-              value={this.state.date}
-              onChange={this.handleInputChange}
-              required
-            />
-          </div>
+              <input
+                type="date"
+                data-date-format="mm/dd/yyyy"
+                className="form-control"
+                name="date"
+                placeholder="Enter Day"
+                value={this.state.date}
+                onChange={this.handleInputChange}
+                required
+              />
+            </div>
 
-          {
-            /*<div className="form-group" style={{ marginBottom: "15px" }}>
+            {
+              /*<div className="form-group" style={{ marginBottom: "15px" }}>
             <label style={{ marginBottom: "5px" }}>Your Training Package</label>
             <input
               type="text"
@@ -202,57 +205,68 @@ export default class CreatePost extends Component {
               required
             />
     </div>*/
-            //radio
-          }
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}>
-              Pick your Package
-              <select
-                className="form-control"
-                value={this.state.pack}
-                onChange={this.handleChange}
-              >
-                <option name="pack" value="--">
-                  --select Package--
-                </option>
-                <option name="pack" value="Starter">
-                  Starter
-                </option>
-                <option name="pack" value="Premium">
-                  Premium
-                </option>
-                <option name="pack" value=" Ellite">
-                  Ellite
-                </option>
-              </select>
-            </label>
-          </div>
-          <div className="form-group" style={{ marginBottom: "15px" }}>
-            <label style={{ marginBottom: "5px" }}> status</label>
+              //radio
+            }
+            <div className="form-group" style={{ marginBottom: "15px" }}>
+              <label style={{ marginBottom: "5px" }}>
+                Pick your Package
+                <select
+                  className="form-control"
+                  value={this.state.pack}
+                  onChange={this.handleChange}
+                >
+                  <option name="pack" value="--">
+                    --select Package--
+                  </option>
+                  <option name="pack" value="Starter">
+                    Starter
+                  </option>
+                  <option name="pack" value="Premium">
+                    Premium
+                  </option>
+                  <option name="pack" value=" Ellite">
+                    Ellite
+                  </option>
+                </select>
+              </label>
+            </div>
+            <div className="form-group" style={{ marginBottom: "15px" }}>
+              <label style={{ marginBottom: "5px" }}> status</label>
 
-            <input
-              type="text"
-              className="form-control"
-              name="status"
-              placeholder="status"
-              value={this.state.status}
-              /* onChange={this.handleInputChange}*/
-              disabled={true}
-            />
-          </div>
-          <br />
-          <br />
-          <button
-            className="btn btn-success"
-            type="submit"
-            style={{ marginTop: "15px" }}
-            onClick={this.onSubmit}
-          >
-            <i className="far fa-check-square"></i>
-            submit
-          </button>
-        </form>
+              <input
+                type="text"
+                className="form-control"
+                name="status"
+                placeholder="status"
+                value={this.state.status}
+                /* onChange={this.handleInputChange}*/
+                disabled={true}
+              />
+            </div>
+            <br />
+            <br />
+            <button
+              className="btn btn-success"
+              type="submit"
+              style={{ marginTop: "15px" }}
+              onClick={this.onSubmit}
+            >
+              <i className="far fa-check-square"></i>
+              submit
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
 }
+const backImg = {
+  background: `linear-gradient( rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)) ,url("https://res.cloudinary.com/maldeniya99/image/upload/v1631555385/risen-wang-20jX9b35r_M-unsplash_4_vmfao9.jpg")`,
+  backgroundSize: "cover",
+  position: "center",
+  marginTop: "-20px",
+  right: "0%",
+  left: "0%",
+  width: "100%",
+  height: "100%",
+};
