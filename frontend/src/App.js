@@ -86,7 +86,12 @@ import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
-
+//newly added
+import Admin from "./components/trainerBlog/Request/Admin";
+import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
+import MemForm from "./components/trainerBlog/Request/MemForm";
+import PostBDetails from "./components//trainerBlog/Request/Display/PostBDetails";
+import { getBlogPosts } from "./actions/blogposts";
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
@@ -114,6 +119,10 @@ const App = () => {
   useEffect(() => {
     dispatch(getWorkouts());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getBlogPosts());
+  }, [currentId, dispatch]);
 
   return (
     <BrowserRouter>
@@ -183,7 +192,25 @@ const App = () => {
           component={PostDetails}
         ></Route>
       </div>
-
+      {/* newly added*/}
+      <div className="container">
+        <Route
+          path="/member/Admin"
+          exact
+          component={() => <Admin setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/MemForm"
+          exact
+          component={() => <MemForm setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/member/ReportPT/ReportPT"
+          exact
+          component={() => <ReportPT setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route path="/member/blogposts/:id" component={PostBDetails} />
+      </div>
       {/**Sandani */}
       <div className="container">
         <Route
