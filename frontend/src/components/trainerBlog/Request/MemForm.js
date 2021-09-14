@@ -12,7 +12,8 @@ import {
   Paper,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import "./Memback.css";
+import "./memback.css";
+
 import PostsMem from "./Posts/PostsMem";
 import Form from "./Form/Form";
 import { getBlogPosts, getBlogPostsBySearch } from "../../../actions/blogposts";

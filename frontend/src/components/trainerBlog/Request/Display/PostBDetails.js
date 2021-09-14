@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./postdetail.css";
+
 import {
   Card,
   CardActions,
@@ -91,14 +92,7 @@ const PostBDetails = () => {
           <hr />
         </Grid>
         <Grid item xs={6}>
-          <Card className="vcard dark">
-            <p>ddddddddddddddddddd</p>
-            <p>ddddddddddddddddddd</p>
-            <p>ddddddddddddddddddd</p>
-            <p>ddddddddddddddddddd</p>
-            <p>ddddddddddddddddddd</p>
-            <p>ddddddddddddddddddd</p>
-          </Card>
+          <Card></Card>
         </Grid>
       </Grid>
     );
@@ -107,7 +101,7 @@ const PostBDetails = () => {
 
 export default PostBDetails;
 {
-  /* <React.Fragment>
+  /* 
               
               <Grid item xs={4} >
               <div>
@@ -136,5 +130,5 @@ export default PostBDetails;
 </div>
 </Grid>
 
-</React.Fragment>/ */
+*/
 }
