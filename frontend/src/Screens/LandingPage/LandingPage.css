@@ -237,20 +237,21 @@ ol {
   margin: 0;
 }
 
-.title h1 {
+.title-1 h1 {
   font-size: 48px;
   color: #000;
   font-weight: bold;
   position: relative;
   margin-bottom: 50px;
+  text-align: left;
 }
-.title h1 span {
+.title-1 h1 span {
   font-size: 30px;
   color: #f36f21;
   display: block;
   font-weight: normal;
 }
-.title h1:before {
+.title-1 h1:before {
   content: "";
   background: url() no-repeat;
   width: 70px;
