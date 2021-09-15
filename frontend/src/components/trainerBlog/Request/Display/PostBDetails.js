@@ -59,7 +59,10 @@ const PostBDetails = () => {
             <br />
             <div className={classes.tipo}>
               <div style={font}>
-                <Typography style={{ color: "white" }} className="ta">
+                <Typography
+                  style={{ color: "#28edf7", letterSpacing: "5" }}
+                  className="ta"
+                >
                   TRAINER INFO
                 </Typography>
                 <hr />
@@ -141,7 +144,7 @@ const PostBDetails = () => {
             <br />
             <br />
 
-            <Typography style={{ color: "white" }} className="ta">
+            <Typography style={{ color: "#28edf7" }} className="ta">
               TIME AVAILABILITY
             </Typography>
             <hr />

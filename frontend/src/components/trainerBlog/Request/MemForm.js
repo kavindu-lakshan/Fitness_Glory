@@ -103,14 +103,14 @@ const MemForm = () => {
                     Starter package
                   </Typography>
                   <Typography
-                    style={{ color: "white" }}
+                    style={{ color: "#34deeb" }}
                     variant="h5"
                     component="h2"
                   >
                     {bull}STARTER{bull}
                   </Typography>
                   <Typography
-                    style={{ color: "white" }}
+                    style={{ color: "#28f79a" }}
                     className={classes.pos}
                     color="textSecondary"
                   >
@@ -147,14 +147,14 @@ const MemForm = () => {
                     Peremium Package
                   </Typography>
                   <Typography
-                    style={{ color: "white" }}
+                    style={{ color: "#34deeb" }}
                     variant="h5"
                     component="h2"
                   >
                     {bull}PREMIUM{bull}
                   </Typography>
                   <Typography
-                    style={{ color: "white" }}
+                    style={{ color: "#28f79a" }}
                     className={classes.pos}
                     color="textSecondary"
                   >
@@ -191,14 +191,14 @@ const MemForm = () => {
                     Ellite Package
                   </Typography>
                   <Typography
-                    style={{ color: "white" }}
+                    style={{ color: "#34deeb" }}
                     variant="h5"
                     component="h2"
                   >
                     {bull}ELLITE{bull}
                   </Typography>
                   <Typography
-                    style={{ color: "white" }}
+                    style={{ color: "#28f79a" }}
                     className={classes.pos}
                     color="textSecondary"
                   >
