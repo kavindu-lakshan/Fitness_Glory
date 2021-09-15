@@ -158,7 +158,9 @@ const Form = ({ currentId, setCurrentId }) => {
         <div className="title">{currentId ? "Edit" : "Create New"} Workout</div>
         <div className="form">
           <div className="input_field">
-            <label>Workout Name *</label>
+            <label>
+              Workout Name <span style={{ color: "#c30101" }}>*</span>
+            </label>
             <input
               type="text"
               className="input"
@@ -169,11 +171,26 @@ const Form = ({ currentId, setCurrentId }) => {
             />
           </div>
           {Object.keys(nameError).map((key) => {
-            return <div className="error">{nameError[key]}</div>;
+            return (
+              <div
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  marginTop: "-10px",
+                  marginLeft: "245px",
+                  marginBottom: "5px",
+                }}
+              >
+                {nameError[key]}
+              </div>
+            );
           })}
 
           <div className="input_field">
-            <label>Workout Category *</label>
+            <label>
+              Workout Category <span style={{ color: "#c30101" }}>*</span>
+            </label>
             <div className="custom_select">
               <select
                 value={workoutData.workout_category}
@@ -191,11 +208,26 @@ const Form = ({ currentId, setCurrentId }) => {
             </div>
           </div>
           {Object.keys(categoryError).map((key) => {
-            return <div className="error">{categoryError[key]}</div>;
+            return (
+              <div
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  marginTop: "-10px",
+                  marginLeft: "245px",
+                  marginBottom: "5px",
+                }}
+              >
+                {categoryError[key]}
+              </div>
+            );
           })}
 
           <div className="input_field">
-            <label>Muscle Group *</label>
+            <label>
+              Muscle Group <span style={{ color: "#c30101" }}>*</span>
+            </label>
             <input
               type="text"
               className="input"
@@ -206,11 +238,26 @@ const Form = ({ currentId, setCurrentId }) => {
             />
           </div>
           {Object.keys(muscleError).map((key) => {
-            return <div className="error">{muscleError[key]}</div>;
+            return (
+              <div
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  marginTop: "-10px",
+                  marginLeft: "245px",
+                  marginBottom: "5px",
+                }}
+              >
+                {muscleError[key]}
+              </div>
+            );
           })}
 
           <div className="input_field">
-            <label>Instructions *</label>
+            <label>
+              Instructions <span style={{ color: "#c30101" }}>*</span>
+            </label>
             <textarea
               className="textarea"
               value={workoutData.instructions}
@@ -220,11 +267,26 @@ const Form = ({ currentId, setCurrentId }) => {
             />
           </div>
           {Object.keys(instructionError).map((key) => {
-            return <div className="error">{instructionError[key]}</div>;
+            return (
+              <div
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  marginTop: "-10px",
+                  marginLeft: "245px",
+                  marginBottom: "5px",
+                }}
+              >
+                {instructionError[key]}
+              </div>
+            );
           })}
 
           <div className="input_field">
-            <label>Action *</label>
+            <label>
+              Action <span style={{ color: "#c30101" }}>*</span>
+            </label>
             <textarea
               className="textarea"
               value={workoutData.action}
@@ -234,7 +296,20 @@ const Form = ({ currentId, setCurrentId }) => {
             />
           </div>
           {Object.keys(actionError).map((key) => {
-            return <div className="error">{actionError[key]}</div>;
+            return (
+              <div
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  marginTop: "-10px",
+                  marginLeft: "245px",
+                  marginBottom: "5px",
+                }}
+              >
+                {actionError[key]}
+              </div>
+            );
           })}
 
           <div className="input_field">
@@ -249,7 +324,10 @@ const Form = ({ currentId, setCurrentId }) => {
           </div>
 
           <div className="input_field">
-            <label>Starting Position Image *</label>
+            <label>
+              Starting Position Image{" "}
+              <span style={{ color: "#c30101" }}>*</span>
+            </label>
             <FileBase
               type="file"
               multiple={false}
@@ -263,7 +341,9 @@ const Form = ({ currentId, setCurrentId }) => {
           </div>
 
           <div className="input_field">
-            <label>Mid Position Image *</label>
+            <label>
+              Mid Position Image <span style={{ color: "#c30101" }}>*</span>
+            </label>
             <FileBase
               type="file"
               multiple={false}
