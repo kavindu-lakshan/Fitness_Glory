@@ -70,16 +70,6 @@ export default class CreatePost extends Component {
     return true;
   }
   //
-  onDemo = () => {
-    const data = {
-      name: "Anne merry",
-      tname: "personal trainer",
-      time: "8.30-103.0",
-      date: "2020-10-20",
-      pack: "starter",
-      status: "pending",
-    };
-  };
 
   onSubmit = (e) => {
     if (this.validate()) {
@@ -279,15 +269,6 @@ export default class CreatePost extends Component {
             >
               <i className="far fa-check-square"></i>
               submit
-            </button>
-            <button
-              className="btn btn-success"
-              type="submit"
-              style={{ marginTop: "15px", marginBottom: "40px" }}
-              onClick={this.onDemo}
-            >
-              <i className="far fa-check-square"></i>
-              demo
             </button>
           </form>
         </div>

@@ -196,21 +196,21 @@ const App = () => {
       {/* newly added*/}
       <div className="container">
         <Route
-          path="/member/Admin"
+          path="/employee/trainerblog/Admin"
           exact
           component={() => <Admin setCurrentId={setCurrentId} />}
         ></Route>
         <Route
-          path="/MemForm"
+          path="/member/trainerblog/MemForm"
           exact
           component={() => <MemForm setCurrentId={setCurrentId} />}
         ></Route>
         <Route
-          path="/member/ReportPT/ReportPT"
+          path="/member/trainerblog/ReportPT/ReportPT"
           exact
           component={() => <ReportPT setCurrentId={setCurrentId} />}
         ></Route>
-        <Route path="/member/blogposts/:id" component={PostBDetails} />
+        <Route path="/blogposts/:id" component={PostBDetails} />
       </div>
       {/**Sandani */}
       <div className="container">

@@ -19,8 +19,9 @@ export default makeStyles({
     justifyContent: "space-between",
     borderRadius: "0px",
     height: "100%",
-    width:"75%",
+    width: "75%",
     position: "relative",
+    borderRadius: "225",
   },
   overlay: {
     position: "absolute",
@@ -51,7 +52,5 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
-  btnsuc:{
-
-  }
+  btnsuc: {},
 });
