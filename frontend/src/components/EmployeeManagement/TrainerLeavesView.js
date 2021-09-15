@@ -182,5 +182,6 @@ const bStyles = {
   marginLeft: '520px',
   color: 'black',
   fontWeight: 'bold',
-  fontSize: '24px'
+  fontSize: '16px',
+  width: '220px'
 }

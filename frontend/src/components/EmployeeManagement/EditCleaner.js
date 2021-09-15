@@ -42,7 +42,7 @@ export default class EditCleaner extends Component{
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/Cleaners/' + this.props.match.params.id)
+        axios.get('http://localhost:5000/Cleaners/admin/' + this.props.match.params.id)
         .then(response => {
             this.setState({
                 FirstName: response.data.FirstName,
@@ -123,20 +123,6 @@ export default class EditCleaner extends Component{
             isValid = false;
         }
 
-        if(DOB.length < 1){
-            errors.DOBLength = "Selecting the date of birth is required";
-            isValid = false;
-        }
-
-        if(Shift.length < 1){
-            errors.ShiftLength = "Selecting the shift is a required field";
-            isValid = false;
-        }
-
-        if(Gender.length < 1){
-            errors.GenderLength = "Selecting the gender is required";
-            isValid = false;
-        }
 
         this.setState({errors});
         return isValid;
@@ -161,6 +147,7 @@ export default class EditCleaner extends Component{
         axios.post('http://localhost:5000/Cleaners/admin/update/'+this.props.match.params.id, Cleaner)
         .then(() => {
             alert("Cleaner details have been update successfully!")
+            window.location = '/admin/EmployeeHome';
         }).catch((err) => {
             alert("Error in registering! This is due to the error displayed below")
         })
@@ -176,12 +163,14 @@ export default class EditCleaner extends Component{
                 <div style = {bgStyles}>
                 <h3 style = {headingStyles}>EDIT CLEANER INFORMATION</h3>
                 <br></br>
+                <br></br>
                 <form onSubmit = {this.onSubmit}>
                     {Object.keys(errors).map((key)=>{
                     return <div style = {errorStyles} key = {key}>ERROR: {errors[key]}</div>
                     })}
-                    <br></br>
                     <div className = "form-group">
+                    <br></br>
+                    <br></br>
                         <label style= {labelStyles}> First Name : </label>
                         <div>
                         <div>
@@ -323,6 +312,7 @@ export default class EditCleaner extends Component{
                     </div>
                 </form>
                 </div>
+                <br></br>
             </div>
         )
     }
@@ -334,8 +324,8 @@ const errorStyles = {
     width: '800px',
     textAlign: 'center',
     marginLeft: '200px',
-    height: '30px',
-    marginTop: '-40px'
+    marginTop: '-40px',
+    height: '60px'
 }
 
 const fafaStyles = {
@@ -347,7 +337,7 @@ const fafaStyles = {
 const bgStyles = {
     backgroundColor: 'black',
     width: '91%',
-    height: '1000px',
+    height: '1100px',
     marginLeft: '65px',
     margintop: '0px',
     marginBottom: '20px'

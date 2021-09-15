@@ -7,6 +7,8 @@ import CleanerRegistrationFormCards from './CleanerRegistrationFormCards';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+const minDate = new Date(Date.now());
+
 const StyledButton = withStyles({
     root: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -16,9 +18,9 @@ const StyledButton = withStyles({
       height: 48,
       padding: '0 30px',
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-      marginLeft: '380px',
+      marginLeft: '490px',
       marginBottom: '20px',
-      marginTop: '-60px'
+      marginTop: '-20px'
     },
     label: {
       textTransform: 'capitalize',
@@ -151,7 +153,7 @@ export default class CleanerRegistration extends Component{
             Address: this.state.Address
         }
 
-        axios.post('http://localhost:5000/Cleaners/cleaner/add', Cleaner).then(()=>{
+        axios.post('http://localhost:5000/Cleaners/admin/cleaner/add', Cleaner).then(()=>{
             alert("Cleaner registered succesfully!")
         }).catch((err)=>{
             alert("Error in registering! This maybe because the cleaner NIC Number already exists or due to the error displayed below")
@@ -240,6 +242,7 @@ export default class CleanerRegistration extends Component{
                                 selected = {this.state.DOB}
                                 onChange = {this.onChangeDOB}
                                 placeholder = "Select Date"
+                                maxDate={minDate} 
                                 required
                             />
                         </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./AllTrainers.css";
-import a from "../../components/QAndASection/ImagesD/createAnswerBg.png"
+import GradientButton from 'react-linear-gradient-button';
 
 export default class AllTrainers extends Component {
   constructor(props) {
@@ -89,8 +89,10 @@ export default class AllTrainers extends Component {
                       </div>
                       </div>
                     </div><br/><br/>
+                    <GradientButton style = {btnStyles}><a href = "/admin/EmployeeHome">BACK TO HOME</a></GradientButton>
+                  <br></br>
                     </div>
-                  </div>
+                   </div>
     );
   }
 }
@@ -102,4 +104,9 @@ const bstyles = {
   height: '100%',
   width: '100%',
   marginTop: '-30px'
+}
+
+const btnStyles = {
+  marginLeft: '600px',
+  color: 'black'
 }

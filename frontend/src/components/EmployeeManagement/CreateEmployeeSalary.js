@@ -139,7 +139,7 @@ export default class CreateEmployeeSalary extends Component{
             alert("Error in registering!")
         })
 
-        window.location = '/';
+        window.location = '/admin/EmployeeHome';
     }
 
     componentDidMount() {
@@ -325,11 +325,19 @@ export default class CreateEmployeeSalary extends Component{
                             ASSIGN SALARY
                         </GradientButton>
                         </div>
+
+
                         <br></br>
                         <br></br>
             </form>
             
+            <GradientButton style = {btnStyles}><a href = "/admin/ViewSalaries">VIEW ALL SALARIES</a></GradientButton>
+          
+                        <br></br>
+            <br></br>
             </div>
+            <br></br>
+            
             </div>
         )
     }
@@ -414,5 +422,19 @@ const linkStyles = {
     textDecoration: 'none',
     color: 'black',
     fontWeight: 'bold',
-    marginLeft: '540px'
+    marginLeft: '420px'
+}
+
+const linkStyles2 = {
+  textDecoration: 'none',
+  color: 'black',
+  fontWeight: 'bold',
+  marginLeft: '680px',
+  marginTop: '-97px'
+}
+
+const btnStyles = {
+  marginTop: '-95px',
+  marginLeft: '650px',
+  color: 'black'
 }

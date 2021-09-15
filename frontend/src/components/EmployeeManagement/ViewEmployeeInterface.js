@@ -11,6 +11,7 @@ class ViewEmployeeInterface extends React.Component {
         <div style = {AppBarStyles}>
           <CenteredTabs/>
         </div>
+        <br></br>
       </div>
     );
   }

@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import CleanerRegistration from './CleanerRegistrationStep1';
+import ThankYou from './CleanerRegistrationStep2';
 
 const StyledButton = withStyles({
   root: {
@@ -61,6 +62,8 @@ function getStepContent(step) {
     case 1:
       return (
         <div>
+          <br></br>
+          <ThankYou/>
         </div>
     );
   }
@@ -166,19 +169,12 @@ export default function CleanerRegistrationForm() {
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-              <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-              <StyledButton
-                variant="contained"
-                color="black"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                NEXT STEP
-              </StyledButton>
+              <br></br><br></br><br></br><br></br><br></br><br></br>
             </div>
           </div>
         )}
       </div>
+      <br></br>
     </div>
   );
 }

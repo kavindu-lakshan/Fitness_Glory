@@ -24,6 +24,7 @@ import {AllTrainerLeaves} from './components/EmployeeManagement/AllTrainerLeaves
 import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
 import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
 import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
+import { AllSalaries } from "./components/EmployeeManagement/ViewSalaries";
 /*Janudi --> Employee Registration ---> End*/
 
 //shehan imports
@@ -82,8 +83,8 @@ import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
 import TrainerRegisterScreen from "./Screens/RegisterScreen/TrainerRegisterScreen";
 import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
 import TrainerHeader from "./components/Header/TrainerHeader";
-import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
+import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -205,18 +206,17 @@ const App = () => {
           component={TrainerProfileScreen}
         />
         <Route
-          path="/employee/trainer-register"
+          path="/admin/trainer-register"
           component={TrainerRegisterScreen}
         />
         <Route
           path="/employee/trainerHome"
           component={() => <TrainerHomePage />}
         />
-        <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
         <Route path="/employee/memberDetails" component={viewMembers}></Route>
         <Route path="/employee/editDetails/:id" component={editMember}></Route>
-
+        <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
         <Route path="/employee/adminPanel" component={memberPannel}></Route>
 
         {/*Janudi Routes --> Begin*/}
@@ -235,6 +235,8 @@ const App = () => {
         <Route exact path = "/admin/updateL/:id" component = {TrainerLeavesEdit}/>
         <Route exact path = "/admin/salary/add" component = {CreateEmployeeSalary}/>
         <Route exact path = "/admin/CreateSalary" component = {CreateEmployeeSalary}/>
+        <Route exact path = "/admin/salary" component = {AllSalaries}/>
+        <Route exact path = "/admin/ViewSalaries" component = {AllSalaries}/>
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}
