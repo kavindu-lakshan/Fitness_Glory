@@ -1,0 +1,20 @@
+.back {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/maldeniya99/image/upload/v1631461843/matthew-payne-4tHbsNGFp18-unsplash_teure1.jpg")
+      no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.main {
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: "cover";
+
+  padding: "10px 0";
+}
+.pagemem {
+  width: 100%;
+}

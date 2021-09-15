@@ -10,11 +10,13 @@ import {
   trainerLoginReducer,
   trainerRegisterReducer,
   trainerUpdateReducer,
+} from "./reducers/trainerReducers";
+import {
   adminLoginReducer,
   adminUpdateReducer,
-} from "./reducers/trainerReducers";
+} from "./reducers/adminReducers";
 import { work } from "./reducers/workouts";
-
+import { blogposts } from "./reducers/blogposts";
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -23,6 +25,7 @@ const reducer = combineReducers({
   trainerRegister: trainerRegisterReducer,
   trainerUpdate: trainerUpdateReducer,
   workouts: work,
+  blogposts: blogposts,
   adminLogin: adminLoginReducer,
   adminUpdate: adminUpdateReducer,
 });

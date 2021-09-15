@@ -69,12 +69,12 @@ import { UpdateAnswerT } from "./components/QAndASection/UpdateAnswerT";
 import { OtherQuestionsT } from "./components/QAndASection/OtherQuestionsT";
 import { DeleteAnswerT } from "./components/QAndASection/DeleteAnswerT";
 //------------------------------Dulshan Feedback Management-----------------------------------
-import { Feedback } from './components/FeedbackSection/Feedback';
-import { CreateFeedback } from './components/FeedbackSection/CreateFeedback';
-import { Trainers } from './components/FeedbackSection/Trainers';
-import { TrainerDetails } from './components/FeedbackSection/TrainerDetails';
-import { UpdateFeedback } from './components/FeedbackSection/UpdateFeedback';
-import { DeleteFeedback } from './components/FeedbackSection/DeleteFeedback';
+import { Feedback } from "./components/FeedbackSection/Feedback";
+import { CreateFeedback } from "./components/FeedbackSection/CreateFeedback";
+import { Trainers } from "./components/FeedbackSection/Trainers";
+import { TrainerDetails } from "./components/FeedbackSection/TrainerDetails";
+import { UpdateFeedback } from "./components/FeedbackSection/UpdateFeedback";
+import { DeleteFeedback } from "./components/FeedbackSection/DeleteFeedback";
 
 //-------------------------------Dulshan Trainer Feedback----------------------------------------
 import { FeedbackT } from "./components/FeedbackSection/FeedbackT";
@@ -86,7 +86,12 @@ import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
-
+//newly added
+import Admin from "./components/trainerBlog/Request/Admin";
+import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
+import MemForm from "./components/trainerBlog/Request/MemForm";
+import PostBDetails from "./components//trainerBlog/Request/Display/PostBDetails";
+import { getBlogPosts } from "./actions/blogposts";
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
@@ -101,13 +106,11 @@ import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
 import TrainerHeader from "./components/Header/TrainerHeader";
 import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
-//Admin Login
-import AdminLogin from "./Screens/LoginScreen/AdminLogin";
+
+// Admin
+import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
 import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
 import AdminHomePage from "./Screens/HomePage/AdminHomePage";
-
-
-
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -116,6 +119,10 @@ const App = () => {
   useEffect(() => {
     dispatch(getWorkouts());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getBlogPosts());
+  }, [currentId, dispatch]);
 
   return (
     <BrowserRouter>
@@ -185,7 +192,25 @@ const App = () => {
           component={PostDetails}
         ></Route>
       </div>
-
+      {/* newly added*/}
+      <div className="container">
+        <Route
+          path="/member/Admin"
+          exact
+          component={() => <Admin setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/MemForm"
+          exact
+          component={() => <MemForm setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/member/ReportPT/ReportPT"
+          exact
+          component={() => <ReportPT setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route path="/member/blogposts/:id" component={PostBDetails} />
+      </div>
       {/**Sandani */}
       <div className="container">
         <Route
@@ -238,15 +263,9 @@ const App = () => {
         />
         <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
-        <Route path="/employee/memberDetails" component={viewMembers}></Route>
-        <Route path="/employee/editDetails/:id" component={editMember}></Route>
-
-        <Route path="/employee/adminPanel" component={memberPannel}></Route>
-
-        {/* Admin */}
-        <Route path="/admin/admin-login" component={AdminLogin} />
-        <Route path="/admin/admin-profile" component={AdminProfileScreen} />
-        <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
+        <Route path="/admin/memberDetails" component={viewMembers}></Route>
+        <Route path="/admin/editDetails/:id" component={editMember}></Route>
+        <Route path="/admin/adminPanel" component={memberPannel}></Route>
 
         {/*Janudi Routes --> Begin*/}
         <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
@@ -312,28 +331,49 @@ const App = () => {
         ></Route>
 
         {/*Dulshan Routes*/}
-        <Route exact path = "/member/QandA/:email" component={QandA} />
-        <Route exact path = "/member/createQ/:email" component={CreateQuestion}/>
-        <Route exact path = "/member/updateQ/:id" component={UpdateQuestion} />
-        <Route exact path = "/member/deleteQ/:id" component={DeleteQuestion} />
-        <Route exact path = "/member/otherQ/" component={OtherQuestionsM} />
-        <Route exact path = "/employee/otherQ/" component={OtherQuestionsT} />
-        <Route exact path = "/employee/a/createA/:id" component={CreateAnswerT} />
-        <Route exact path = "/employee/myAnswers/:username" component={MyAnswersT}/>
-        <Route exact path = "/employee/updateA/:id" component={UpdateAnswerT} />
-        <Route exact path = "/employee/deleteA/:id" component={DeleteAnswerT} />
-        <Route exact path = "/member/a/createA/:id" component={CreateAnswer} />
-        <Route exact path = "/member/myAnswers/:email" component={MyAnswers}/>
-        <Route exact path = "/member/updateA/:id" component={UpdateAnswer} />
-        <Route exact path = "/member/deleteA/:id" component={DeleteAnswer} />
-        <Route exact path = "/member/feedback/:email" component = {Feedback}/>
-        <Route exact path = "/employee/feedback/:username" component = {FeedbackT}/>
-        <Route exact path = "/employee/viewF/:id" component = {ViewFeedbackT }/>
-        <Route exact path = "/member/trainers/" component = {Trainers}/>
-        <Route exact path = "/member/trainer/:username" component = {TrainerDetails}/>
-        <Route exact path = "/member/trainer/createF/:id" component = {CreateFeedback}/>
-        <Route exact path = "/member/updateF/:id" component = {UpdateFeedback }/>
-        <Route exact path = "/member/deleteF/:id" component = {DeleteFeedback}/>
+        <Route exact path="/member/QandA/:email" component={QandA} />
+        <Route exact path="/member/createQ/:email" component={CreateQuestion} />
+        <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
+        <Route exact path="/member/deleteQ/:id" component={DeleteQuestion} />
+        <Route exact path="/member/otherQ/" component={OtherQuestionsM} />
+        <Route exact path="/employee/otherQ/" component={OtherQuestionsT} />
+        <Route exact path="/employee/a/createA/:id" component={CreateAnswerT} />
+        <Route
+          exact
+          path="/employee/myAnswers/:username"
+          component={MyAnswersT}
+        />
+        <Route exact path="/employee/updateA/:id" component={UpdateAnswerT} />
+        <Route exact path="/employee/deleteA/:id" component={DeleteAnswerT} />
+        <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
+        <Route exact path="/member/myAnswers/:email" component={MyAnswers} />
+        <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
+        <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
+        <Route exact path="/member/feedback/:email" component={Feedback} />
+        <Route
+          exact
+          path="/employee/feedback/:username"
+          component={FeedbackT}
+        />
+        <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
+        <Route exact path="/member/trainers/" component={Trainers} />
+        <Route
+          exact
+          path="/member/trainer/:username"
+          component={TrainerDetails}
+        />
+        <Route
+          exact
+          path="/member/trainer/createF/:id"
+          component={CreateFeedback}
+        />
+        <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
+        <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
+
+        {/* Admin */}
+        <Route path="/admin/login" component={AdminLoginScreen} />
+        <Route path="/admin/admin-profile" component={AdminProfileScreen} />
+        <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
       </main>
 
       <Footer />

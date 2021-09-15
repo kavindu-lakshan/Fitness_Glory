@@ -1,7 +1,7 @@
 import TrainerMainScreen from "../../components/TrainerMainScreen";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./Trainerhome.css";
 const TrainerHomePage = () => {
   const adminLogin = useSelector((state) => state.adminLogin);
@@ -10,13 +10,13 @@ const TrainerHomePage = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("adminInfo")) {
-      history.push("/admin/admin-login");
+      history.push("/admin/login");
     }
   }, [adminInfo]);
 
   return (
-    <TrainerMainScreen title={"Welcome" + " " + adminInfo?.username}>
-      Home Page
+    <TrainerMainScreen title={"Welcome" + " " + adminInfo?.name}>
+      Admin Home Page
     </TrainerMainScreen>
   );
 };

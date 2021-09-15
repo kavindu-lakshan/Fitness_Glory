@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { adminlogout } from "../../actions/trainerActions";
+import { adminlogout } from "../../actions/adminActions";
 import "./Header.css";
 import Logo from "../../logo.png";
 
@@ -15,7 +15,7 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch(adminlogout());
-    history.push("/admin/admin-login");
+    history.push("/admin/login");
   };
 
   useEffect(() => {}, [adminInfo]);
@@ -35,6 +35,9 @@ const Header = () => {
             <Nav className="me-auto">
               <Nav.Link href="/admin/adminHome">
                 <Link to="/admin/adminHome">Home</Link>
+              </Nav.Link>
+              <Nav.Link href="/admin/memberDetails">
+                <Link to="/admin/memberDetails">Members</Link>
               </Nav.Link>
               <NavDropdown title={adminInfo?.name} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/admin/admin-profile">
