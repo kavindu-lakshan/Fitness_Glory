@@ -7,9 +7,10 @@ const app = express();
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
+
+const workout_programs_routes = require("./routes/workout_programs.js");
 const adminRoutes = require("./routes/admin");
 const enroll_programs = require("./routes/enroll_programs");
-const workout_programs_routes = require("./routes/workout_programs");
 
 // import express from 'express';
 // import mongoose from 'mongoose';
@@ -113,7 +114,8 @@ app.use("/Employee_Salary", SalaryRouter);
 //Manushi
 const zpostRoutes = require("./routes/zposts");
 app.use(zpostRoutes);
-
+const blogpostRoutes = require("./routes/blogposts.js");
+app.use("/blogposts", blogpostRoutes);
 //Sandani
 const XpostRoutes = require("./routes/Xposts");
 app.use(XpostRoutes);

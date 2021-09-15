@@ -11,6 +11,7 @@ const authAdmin = asyncHandler(async (req, res) => {
     res.json({
       _id: admin._id,
       name: admin.name,
+      username: admin.username,
       token: generateToken(admin._id),
     });
   } else {

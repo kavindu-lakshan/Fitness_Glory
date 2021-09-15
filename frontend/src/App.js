@@ -34,9 +34,11 @@ import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/
 import CreateProgramAdmin from "./components/WorkoutProgramAdmin/CreateProgramAdmin/CreateProgramAdmin";
 import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/EditProgramAdmin";
 import ProgramDetailsAdmin from "./components/WorkoutProgramAdmin/ProgramDetailsAdmin/ProgramDetailsAdmin";
+import Programexpand from "./components/WorkoutProgramsMember/SelectProgram/Programexpand";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/footer";
+import FooterTrainer from "./components/Footer/FooterTrainer";
 import LandingPage from "./Screens/LandingPage/LandingPage";
 import HomePage from "./Screens/HomePage/HomePage";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen";
@@ -86,7 +88,12 @@ import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
-
+//newly added
+import Admin from "./components/trainerBlog/Request/Admin";
+import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
+import MemForm from "./components/trainerBlog/Request/MemForm";
+import PostBDetails from "./components//trainerBlog/Request/Display/PostBDetails";
+import { getBlogPosts } from "./actions/blogposts";
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
@@ -124,6 +131,10 @@ const App = () => {
   useEffect(() => {
     dispatch(getWorkouts());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getBlogPosts());
+  }, [currentId, dispatch]);
 
   return (
     <BrowserRouter>
@@ -193,7 +204,25 @@ const App = () => {
           component={PostDetails}
         ></Route>
       </div>
-
+      {/* newly added*/}
+      <div className="container">
+        <Route
+          path="/employee/trainerblog/Admin"
+          exact
+          component={() => <Admin setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/member/trainerblog/MemForm"
+          exact
+          component={() => <MemForm setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/member/trainerblog/ReportPT/ReportPT"
+          exact
+          component={() => <ReportPT setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route path="/blogposts/:id" component={PostBDetails} />
+      </div>
       {/**Sandani */}
       <div className="container">
         <Route
@@ -308,6 +337,10 @@ const App = () => {
           path="/member/workout-programs"
           component={AllprogramsMemer}
         ></Route>
+        <Route
+          path="/member/expand-program/:id"
+          component={Programexpand}
+        ></Route>
         <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
         <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
@@ -320,7 +353,7 @@ const App = () => {
           component={ProgramDetailsAdmin}
         ></Route>
 
-        {/*Dulshan Routes*/}
+        {/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
         <Route exact path="/member/QandA/:email" component={QandA} />
         <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
@@ -364,9 +397,10 @@ const App = () => {
         <Route path="/admin/login" component={AdminLoginScreen} />
         <Route path="/admin/admin-profile" component={AdminProfileScreen} />
         <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
-      </main>
 
-      <Footer />
+        <Route path="/member" component={Footer} />
+        <Route path="/employee" component={FooterTrainer} />
+      </main>
     </BrowserRouter>
   );
 };
