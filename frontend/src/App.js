@@ -34,6 +34,7 @@ import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/
 import CreateProgramAdmin from "./components/WorkoutProgramAdmin/CreateProgramAdmin/CreateProgramAdmin";
 import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/EditProgramAdmin";
 import ProgramDetailsAdmin from "./components/WorkoutProgramAdmin/ProgramDetailsAdmin/ProgramDetailsAdmin";
+import Programexpand from "./components/WorkoutProgramsMember/SelectProgram/Programexpand";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -318,6 +319,10 @@ const App = () => {
         <Route
           path="/member/workout-programs"
           component={AllprogramsMemer}
+        ></Route>
+        <Route
+          path="/member/expand-program/:id"
+          component={Programexpand}
         ></Route>
         <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
         <Route path="/admin/programs" component={AllProgramsAdmin}></Route>

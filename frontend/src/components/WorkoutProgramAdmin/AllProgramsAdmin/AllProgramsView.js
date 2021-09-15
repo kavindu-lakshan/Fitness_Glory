@@ -52,7 +52,7 @@ export default function AllProgramsView(props) {
           </tbody>
         </table>
 
-        <button className="btn btn-success"> <a href="/admin/add-program" style ={{textDecoration: 'none', color: 'white'}}>Create New Post</a></button>
+        <button className="btn btn-success mb-2"> <a href="/admin/add-program" style ={{textDecoration: 'none', color: 'white'}}>Create New Post</a></button>
       </div>
     )
 }
