@@ -125,7 +125,7 @@ export default class viewMembers extends Component {
         <button className="btn btn-success">
           {" "}
           <a
-            href="/employee/adminPanel"
+            href="/admin/adminPanel"
             style={{ textDecoration: "none", color: "white" }}
           >
             Summary
@@ -156,7 +156,7 @@ export default class viewMembers extends Component {
                   <a
                     className="btn btn-warning"
                     style={{ width: "70%", marginBottom: "1px" }}
-                    href={`/employee/editDetails/${details._id}`}
+                    href={`/admin/editDetails/${details._id}`}
                   >
                     <i className="fas fa-edit"></i>&nbsp;Edit
                   </a>

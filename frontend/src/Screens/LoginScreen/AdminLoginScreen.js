@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, FormGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import MainScreen from "../../components/MainScreens/memberLogin";
+import MainScreen from "../../components/MainScreens/adminLogin";
 import "./LoginScreen.css";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
