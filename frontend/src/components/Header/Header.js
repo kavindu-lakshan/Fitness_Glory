@@ -39,6 +39,11 @@ const Header = () => {
               <Nav.Link href="/member/workouts">
                 <Link to="/member/workouts">Workout Library</Link>
               </Nav.Link>
+              <Nav.Link href="/member/workout-programs">
+                <Link to="/member/workout-programs">
+                  Programs
+                </Link>
+              </Nav.Link>
               <Nav.Link href="/member/feedback/:email">
                 <Link to="/member/feedback/:email">Feedback</Link>
               </Nav.Link>
