@@ -22,7 +22,7 @@ const Post = ({ blogpost, setCurrentId }) => {
   const openPost = (e) => {
     // dispatch(getPost(post._id, history));
 
-    history.push(`member/blogposts/${blogpost._id}`);
+    history.push(`/blogposts/${blogpost._id}`);
   };
   return (
     <Card className={classes.card} raised elevation={6}>
@@ -35,8 +35,10 @@ const Post = ({ blogpost, setCurrentId }) => {
         title={blogpost.title}
       />
       <div className={classes.overlay}>
-        <Typography variant="h6">{blogpost.creator}</Typography>
-        <Typography variant="body2">
+        <Typography style={{ color: "white" }} variant="h6">
+          {blogpost.creator}
+        </Typography>
+        <Typography style={{ color: "white" }} variant="body2">
           {moment(blogpost.createdAt).fromNow()}
         </Typography>
       </div>

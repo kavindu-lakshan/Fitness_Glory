@@ -27,47 +27,62 @@ const Admin = () => {
   }, [currentId, dispatch]);
 
   return (
-    <Container maxWidth="100px">
-      <Button
-        variant="btn btn-success"
-        onClick={() => history.push("member/MemForm")}
-      >
-        Home
-      </Button>
-      <br />
-      <Button
-        variant="btn btn-success"
-        onClick={() => history.push("/ReportPT/ReportPT")}
-      >
-        report
-      </Button>
+    <div style={backImg}>
+      <Container maxWidth="100px">
+        <Button
+          variant="btn btn-success"
+          onClick={() => history.push("member/trainerblog/MemForm")}
+        >
+          Home
+        </Button>
+        <br />
+        <Button
+          variant="btn btn-success"
+          onClick={() => history.push("/ReportPT/ReportPT")}
+        >
+          report
+        </Button>
 
-      <div className={classes.upcard}>
-        <Typography component="div">
-          <Box textAlign="center" fontSize={40} letterSpacing={16} m={5}>
-            FITNESS GLORY PERSONAL TRAINERS BLOG
-          </Box>
-        </Typography>
-      </div>
-      <Grow in className="con">
-        <Container>
-          <Grid
-            container
-            justify="space-between"
-            alignItems="stretch"
-            spacing={1}
-          >
-            <Grid item xs={12} xs={8}>
-              <Posts setCurrentId={setCurrentId} />
+        <div styele={boxn} className={classes.upcard}>
+          <Typography component="div">
+            <Box textAlign="center" fontSize={40} letterSpacing={16} m={5}>
+              FITNESS GLORY PERSONAL TRAINERS BLOG
+            </Box>
+          </Typography>
+        </div>
+        <Grow in className="con">
+          <Container>
+            <Grid
+              container
+              justify="space-between"
+              alignItems="stretch"
+              spacing={1}
+            >
+              <Grid item xs={12} xs={8}>
+                <Posts setCurrentId={setCurrentId} />
+              </Grid>
+              <Grid item xs={6} sm={4}>
+                <Form currentId={currentId} setCurrentId={setCurrentId} />
+              </Grid>
             </Grid>
-            <Grid item xs={6} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId} />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
+          </Container>
+        </Grow>
+      </Container>
+    </div>
   );
 };
 
 export default Admin;
+const backiImg =
+  "https://res.cloudinary.com/maldeniya99/image/upload/v1631621169/anastase-maragos-4dlhin0ghOk-unsplash_mwpe9l.jpg";
+const backImg = {
+  background: `linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url(${backiImg})`,
+  backgroundSize: "cover",
+  position: "center",
+  width: "100%",
+  height: "100%",
+  opacity: "10",
+};
+const boxn = {
+  paddingBottom: "150px",
+};

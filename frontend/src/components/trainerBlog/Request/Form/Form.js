@@ -39,6 +39,16 @@ const Form = ({ currentId, setCurrentId }) => {
   const [titleerror, setCreatorerror] = useState({});
   const [messageerror, setMessageerror] = useState({});
   const [tagserror, setTagserror] = useState({});
+  const [whaterror, setWerror] = useState({});
+  const [faceerror, setFerror] = useState({});
+  const [emailerror, setEerror] = useState({});
+  const [monerror, setMONerror] = useState({});
+  const [tueerror, setTUEerror] = useState({});
+  const [wederror, setWEDerror] = useState({});
+  const [thuerror, setTHUerror] = useState({});
+  const [frierror, setFRIerror] = useState({});
+  const [saterror, setSATerror] = useState({});
+  const [sunerror, setSUNerror] = useState({});
 
   const blogpost = useSelector((state) =>
     currentId ? state.blogposts.find((p) => p._id === currentId) : null
@@ -74,6 +84,16 @@ const Form = ({ currentId, setCurrentId }) => {
     let titleerror = {};
     let tagserror = {};
     let messageerror = {};
+    let monerror = {};
+    let tueerror = {};
+    let wederror = {};
+    let thuerror = {};
+    let frierror = {};
+    let saterror = {};
+    let sunerror = {};
+    let whaterror = {};
+    let faceerror = {};
+    let emailerror = {};
 
     let isValid = true;
 
@@ -93,10 +113,61 @@ const Form = ({ currentId, setCurrentId }) => {
       tagserror.tags = " * tags are required";
       isValid = false;
     }
+    if (blogpostData.mon === "") {
+      monerror.mon = " *  required";
+      isValid = false;
+    }
+    if (blogpostData.tue === "") {
+      tueerror.tue = " * required";
+      isValid = false;
+    }
+    if (blogpostData.wed === "") {
+      wederror.wed = " * required";
+      isValid = false;
+    }
+    if (blogpostData.thu === "") {
+      thuerror.thu = " *  required";
+      isValid = false;
+    }
+    if (blogpostData.fri === "") {
+      frierror.fri = " *  required";
+      isValid = false;
+    }
+    if (blogpostData.sat === "") {
+      saterror.sat = " *  required";
+      isValid = false;
+    }
+    if (blogpostData.sun === "") {
+      sunerror.sun = " *  required";
+      isValid = false;
+    }
+    if (blogpostData.what === "") {
+      whaterror.what = " *  required";
+      isValid = false;
+    }
+    if (blogpostData.face === "") {
+      faceerror.face = " *  required";
+      isValid = false;
+    }
+    if (blogpostData.email === "") {
+      emailerror.email = " *  required";
+      isValid = false;
+    }
+
     setTitleerror(titleerror);
     setCreatorerror(creatorerror);
     setMessageerror(messageerror);
     setTagserror(tagserror);
+    setMONerror(monerror);
+    setTUEerror(tueerror);
+    setWEDerror(wederror);
+    setTHUerror(thuerror);
+    setFRIerror(frierror);
+    setSATerror(saterror);
+    setSUNerror(sunerror);
+    setWerror(whaterror);
+    setFerror(faceerror);
+    setEerror(emailerror);
     return isValid;
   };
   const clear = () => {
@@ -122,6 +193,16 @@ const Form = ({ currentId, setCurrentId }) => {
     setCreatorerror({});
     setMessageerror({});
     setTagserror({});
+    setMONerror({});
+    setTUEerror({});
+    setWEDerror({});
+    setTHUerror({});
+    setFRIerror({});
+    setSATerror({});
+    setSUNerror({});
+    setWerror({});
+    setFerror({});
+    setEerror({});
   };
 
   const demo = () => {
@@ -148,6 +229,7 @@ const Form = ({ currentId, setCurrentId }) => {
   return (
     <Paper className={classes.paper}>
       <form
+        style={formback}
         autoComplete="off"
         noValidate
         className={`${classes.root} ${classes.form}`}
@@ -245,6 +327,10 @@ const Form = ({ currentId, setCurrentId }) => {
             setBlogPostData({ ...blogpostData, face: e.target.value })
           }
         />
+        {Object.keys(faceerror).map((key) => {
+          return <div className="error">{faceerror[key]}</div>;
+        })}
+
         <TextField
           name="what"
           variant="outlined"
@@ -256,6 +342,9 @@ const Form = ({ currentId, setCurrentId }) => {
             setBlogPostData({ ...blogpostData, what: e.target.value })
           }
         />
+        {Object.keys(whaterror).map((key) => {
+          return <div className="error">{whaterror[key]}</div>;
+        })}
         <TextField
           name="email"
           variant="outlined"
@@ -267,6 +356,9 @@ const Form = ({ currentId, setCurrentId }) => {
             setBlogPostData({ ...blogpostData, email: e.target.value })
           }
         />
+        {Object.keys(emailerror).map((key) => {
+          return <div className="error">{emailerror[key]}</div>;
+        })}
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Monday</InputLabel>
           <Select
@@ -284,6 +376,9 @@ const Form = ({ currentId, setCurrentId }) => {
             <MenuItem value="Available">Available</MenuItem>
             <MenuItem value="Not Available">Not Available</MenuItem>
           </Select>
+          {Object.keys(monerror).map((key) => {
+            return <div className="error">{monerror[key]}</div>;
+          })}
         </FormControl>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Tuesday</InputLabel>
@@ -302,6 +397,9 @@ const Form = ({ currentId, setCurrentId }) => {
             <MenuItem value="Available">Available</MenuItem>
             <MenuItem value="Not Available">Not Available</MenuItem>
           </Select>
+          {Object.keys(tueerror).map((key) => {
+            return <div className="error">{tueerror[key]}</div>;
+          })}
         </FormControl>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Wednesday</InputLabel>
@@ -320,6 +418,9 @@ const Form = ({ currentId, setCurrentId }) => {
             <MenuItem value="Available">Available</MenuItem>
             <MenuItem value="Not Available">Not Available</MenuItem>
           </Select>
+          {Object.keys(wederror).map((key) => {
+            return <div className="error">{wederror[key]}</div>;
+          })}
         </FormControl>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Thursday</InputLabel>
@@ -337,6 +438,9 @@ const Form = ({ currentId, setCurrentId }) => {
             <MenuItem value="Available">Available</MenuItem>
             <MenuItem value="Not Available">Not Available</MenuItem>
           </Select>
+          {Object.keys(thuerror).map((key) => {
+            return <div className="error">{thuerror[key]}</div>;
+          })}
         </FormControl>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Friday</InputLabel>
@@ -355,6 +459,9 @@ const Form = ({ currentId, setCurrentId }) => {
             <MenuItem value="Available">Available</MenuItem>
             <MenuItem value="Not Available">Not Available</MenuItem>
           </Select>
+          {Object.keys(frierror).map((key) => {
+            return <div className="error">{frierror[key]}</div>;
+          })}
         </FormControl>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Saturday</InputLabel>
@@ -373,6 +480,9 @@ const Form = ({ currentId, setCurrentId }) => {
             <MenuItem value="Available">Available</MenuItem>
             <MenuItem value="Not Available">Not Available</MenuItem>
           </Select>
+          {Object.keys(saterror).map((key) => {
+            return <div className="error">{saterror[key]}</div>;
+          })}
         </FormControl>
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Sunday</InputLabel>
@@ -391,6 +501,9 @@ const Form = ({ currentId, setCurrentId }) => {
             <MenuItem value="Available">Available</MenuItem>
             <MenuItem value="Not Available">Not Available</MenuItem>
           </Select>
+          {Object.keys(sunerror).map((key) => {
+            return <div className="error">{sunerror[key]}</div>;
+          })}
         </FormControl>
 
         {/*}
@@ -490,3 +603,6 @@ const Form = ({ currentId, setCurrentId }) => {
 };
 
 export default Form;
+const formback = {
+  color: "red",
+};
