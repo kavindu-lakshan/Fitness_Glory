@@ -48,9 +48,20 @@ const Header = () => {
                 <Link to="/member/feedback/:email">Feedback</Link>
               </Nav.Link>
               <NavDropdown title="Personal Trainer" id="basic-nav-dropdown">
-                <NavDropdown.Item href="">Request</NavDropdown.Item>
+                <NavDropdown.Item href="/member/memberPTRequest/home">
+                  Request
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="">Blogs</NavDropdown.Item>
+                <NavDropdown.Item href="/member/trainerblog/MemForm">
+                  Blogs
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="Workout Schedules" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/member/scheduleR/MemHome">
+                  Request
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="">pre-defines</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title={userInfo?.name} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/member/profile">
