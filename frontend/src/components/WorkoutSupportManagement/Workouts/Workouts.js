@@ -31,6 +31,9 @@ const Workouts = ({ setCurrentId }) => {
   ) : (
     <div>
       <div className="container">
+        <h1 style={{ textAlign: "center", marginTop: "10px" }}>
+          Workouts Library
+        </h1>
         <div className="input-group" style={{ marginTop: "20px" }}>
           <input
             type="search"
