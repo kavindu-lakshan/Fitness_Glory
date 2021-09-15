@@ -44,6 +44,7 @@ import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
 //Sandani's imports
+/*request workout schedules CRUD function*/
 import CreateRequest from "./components/RequestSchedule/CreateRequest";
 import HomeRequest from "./components/RequestSchedule/HomeRequest";
 import EditRequest from "./components/RequestSchedule/EditRequest";
@@ -51,6 +52,9 @@ import RequestDetails from "./components/RequestSchedule/RequestDetails";
 import NavBar from "./components/RequestSchedule/NavBar";
 import MemHome from "./components/RequestSchedule/MemHome";
 import SchReport from "./components/RequestSchedule/SchReport";
+
+/*pre-defined workout schedule function*/
+
 
 //-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
