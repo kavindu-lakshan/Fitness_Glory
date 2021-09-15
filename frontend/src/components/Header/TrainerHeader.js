@@ -87,8 +87,8 @@ const TrainerHeader = () => {
                   title={trainerInfo?.username}
                   id="basic-nav-dropdown"
                 />
-                <NavDropdown.Item href="/employee/trainer-profile">
-                  My Profile
+                <NavDropdown.Item href="/employee/feedback/:username">
+                  My Feedback
                 </NavDropdown.Item>
 
                 <NavDropdown.Divider />

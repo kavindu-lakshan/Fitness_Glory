@@ -39,6 +39,14 @@ const Header = () => {
               <Nav.Link href="/member/workouts">
                 <Link to="/member/workouts">Workout Library</Link>
               </Nav.Link>
+              <Nav.Link href="/member/workout-programs">
+                <Link to="/member/workout-programs">
+                  Programs
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="/member/feedback/:email">
+                <Link to="/member/feedback/:email">Feedback</Link>
+              </Nav.Link>
               <NavDropdown title="Personal Trainer" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/member/memberPTRequest/home">
                   Request
@@ -57,7 +65,7 @@ const Header = () => {
               </NavDropdown>
               <NavDropdown title={userInfo?.name} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/member/profile">
-                  My Profile
+                  My Profile 
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logoutHandler}>
