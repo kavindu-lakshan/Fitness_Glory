@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../logo.png";
 
-const Footer = () => {
+const FooterTrainer = () => {
   return (
     <footer className="pt-0">
       <div style={bg}>
@@ -28,7 +28,7 @@ const Footer = () => {
             <h5 style={{color:'silver'}}>Contact us</h5>
               <hr />
               <p style={para}>
-                <i className="fas fa-home mr-3"  ></i> FitnessTown, FT 102
+                <i className="fas fa-home mr-3" style={{marginLeft:'5px'}} ></i> FitnessTown, FT 102
               </p>
               <p style={para}>
                 <i className="fas fa-phone mr-3"></i> + 94 234 567 88
@@ -43,7 +43,7 @@ const Footer = () => {
               <div>
                     <a href="#" style={navBtn1}> About Us </a><br/>
                     <a href="#" style={navBtn2}> Contact Us </a><br/>
-                    <a href="/member/OtherQ/" style={navBtn2}> Q and A Section</a>
+                    <a href="/employee/OtherQ/" style={navBtn2}> Q and A Section</a>
                 </div>
               </div>
               <div>
@@ -90,7 +90,7 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterTrainer;
 
 const bg = {
   backgroundColor: "black",
