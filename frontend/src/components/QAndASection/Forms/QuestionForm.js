@@ -11,6 +11,14 @@ export const QuestionForm = ({questions, onSubmit}) =>{
         date: questions.data ? questions.date: ""
     }})
 
+    const disablePastDate = () => {
+        const today = new Date();
+        const dd = String(today.getDate() + 1).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const yyyy = today.getFullYear();
+        return yyyy + "-" + mm + "-" + dd;
+    };
+
     const submitHandler = handleSubmit((data) =>{
         onSubmit(data)
     })
@@ -42,7 +50,7 @@ export const QuestionForm = ({questions, onSubmit}) =>{
         <div class="w-100"></div>
         <div className="col-md-6">
             <label style={labelStyle} for="date" className="form-label">Select Date</label>
-            <input style={inputFieldStyle} className="form-control" {...register("date", { required: true })} type ="date" name="date" id="date"/>
+            <input style={inputFieldStyle} className="form-control" {...register("date", { required: true })} type ="date" name="date" id="date" min={disablePastDate()}/>
             {errors.date && (<small style={{color:'red'}}>Please select the current date! You Cannot leave this field empty</small>)}
             <br/><br/>
         </div>

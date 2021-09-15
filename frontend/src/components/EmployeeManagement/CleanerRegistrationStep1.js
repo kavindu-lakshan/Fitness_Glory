@@ -151,7 +151,7 @@ export default class CleanerRegistration extends Component{
             Address: this.state.Address
         }
 
-        axios.post('http://localhost:5000/Cleaners/cleaner/add', Cleaner).then(()=>{
+        axios.post('http://localhost:5000/Cleaners/admin/cleaner/add', Cleaner).then(()=>{
             alert("Cleaner registered succesfully!")
         }).catch((err)=>{
             alert("Error in registering! This maybe because the cleaner NIC Number already exists or due to the error displayed below")

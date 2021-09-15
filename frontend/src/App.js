@@ -36,7 +36,8 @@ import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/
 import ProgramDetailsAdmin from "./components/WorkoutProgramAdmin/ProgramDetailsAdmin/ProgramDetailsAdmin";
 
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/footer";
+import Footer from "./components/Footer/Footer";
+import FooterTrainer from "./components/Footer/FooterTrainer";
 import LandingPage from "./Screens/LandingPage/LandingPage";
 import HomePage from "./Screens/HomePage/HomePage";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen";
@@ -330,7 +331,7 @@ const App = () => {
           component={ProgramDetailsAdmin}
         ></Route>
 
-        {/*Dulshan Routes*/}
+{/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
         <Route exact path="/member/QandA/:email" component={QandA} />
         <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
@@ -338,11 +339,7 @@ const App = () => {
         <Route exact path="/member/otherQ/" component={OtherQuestionsM} />
         <Route exact path="/employee/otherQ/" component={OtherQuestionsT} />
         <Route exact path="/employee/a/createA/:id" component={CreateAnswerT} />
-        <Route
-          exact
-          path="/employee/myAnswers/:username"
-          component={MyAnswersT}
-        />
+        <Route exact path="/employee/myAnswers/:username" component={MyAnswersT} />
         <Route exact path="/employee/updateA/:id" component={UpdateAnswerT} />
         <Route exact path="/employee/deleteA/:id" component={DeleteAnswerT} />
         <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
@@ -350,23 +347,11 @@ const App = () => {
         <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
         <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
         <Route exact path="/member/feedback/:email" component={Feedback} />
-        <Route
-          exact
-          path="/employee/feedback/:username"
-          component={FeedbackT}
-        />
+        <Route exact path="/employee/feedback/:username" component={FeedbackT} />
         <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
         <Route exact path="/member/trainers/" component={Trainers} />
-        <Route
-          exact
-          path="/member/trainer/:username"
-          component={TrainerDetails}
-        />
-        <Route
-          exact
-          path="/member/trainer/createF/:id"
-          component={CreateFeedback}
-        />
+        <Route exact path="/member/trainer/:username" component={TrainerDetails} />
+        <Route exact path="/member/trainer/createF/:id" component={CreateFeedback} />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
 
@@ -374,9 +359,12 @@ const App = () => {
         <Route path="/admin/login" component={AdminLoginScreen} />
         <Route path="/admin/admin-profile" component={AdminProfileScreen} />
         <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
+
+        <Route path="/member" component={Footer}/>
+        <Route path="/employee" component={FooterTrainer}/>
       </main>
 
-      <Footer />
+      
     </BrowserRouter>
   );
 };
