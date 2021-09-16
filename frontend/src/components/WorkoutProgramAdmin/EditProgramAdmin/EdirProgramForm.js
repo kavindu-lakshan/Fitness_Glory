@@ -7,10 +7,10 @@ export default function EdirProgramForm(props) {
                 <hr/>
                 <img src={props.values.previewURL} class="img-fluid" alt="Responsive image"/>
                     <form className='needs-validation' noValidate>
-                        <div className='form-group' style={{marginBottom:'15px'}}>
+                        <div className='form-group' style={{marginBottom:'20px'}}>
                         <br/>
-                        <div className='form-group' style={{marginBottom:'15px'}}>
-                            <label style={{marginBottom:'5px'}}>Change Image</label>
+                        <div className='form-group' style={{marginBottom:'20px'}}>
+                            <p style={{marginBottom:'5px'}}>Change Image</p>
                             <input 
                                 type="file" 
                                 accept=".png, .jpg, .jpeg"
@@ -19,7 +19,7 @@ export default function EdirProgramForm(props) {
                             />
                         </div>
 
-                            <label style={{marginBottom:'5px'}}>Name</label>
+                            <p style={{marginBottom:'5px'}}>Name</p>
                             <input type="text"
                             className="form-control"
                             name="name"
@@ -28,8 +28,8 @@ export default function EdirProgramForm(props) {
                             onChange={props.handleInputChange}/>
                         </div>
 
-                        <div className='form-group' style={{marginBottom:'15px'}}>
-                            <label style={{marginBottom:'5px'}}>Description</label>
+                        <div className='form-group' style={{marginBottom:'20px'}}>
+                            <p style={{marginBottom:'5px'}}>Description</p>
                             <input type="text"
                             className="form-control"
                             name="description"
@@ -38,8 +38,8 @@ export default function EdirProgramForm(props) {
                             onChange={props.handleInputChange}/>
                         </div>
 
-                        <div className='form-group' style={{marginBottom:'15px'}}>
-                            <label style={{marginBottom:'5px'}}>Conducted by</label>
+                        <div className='form-group' style={{marginBottom:'20px'}}>
+                            <p style={{marginBottom:'5px'}}>Conducted by</p>
                             <input type="text"
                             className="form-control"
                             name="conducted_by"
@@ -48,8 +48,8 @@ export default function EdirProgramForm(props) {
                             onChange={props.handleInputChange}/>
                         </div>
 
-                        <div className='form-group' style={{marginBottom:'15px'}}>
-                            <label style={{marginBottom:'5px'}}>Monthly Fee (Rs)</label>
+                        <div className='form-group' style={{marginBottom:'20px'}}>
+                            <p style={{marginBottom:'5px'}}>Monthly Fee (Rs)</p>
                             <input type="number"
                             className="form-control"
                             name="fee"
@@ -58,8 +58,8 @@ export default function EdirProgramForm(props) {
                             onChange={props.handleInputChange}/>
                         </div>
 
-                        <div className='form-group' style={{marginBottom:'15px'}}>
-                            <label style={{marginBottom:'5px'}}>Time Duration</label>
+                        <div className='form-group' style={{marginBottom:'20px'}}>
+                            <p style={{marginBottom:'5px'}}>Time Duration</p>
                             <input type="time"
                             className="form-control"
                             name="time"
@@ -68,8 +68,8 @@ export default function EdirProgramForm(props) {
                             onChange={props.handleInputChange}/>
                         </div>
 
-                        <div className='form-group' style={{marginBottom:'15px'}}>
-                            <label style={{marginBottom:'5px'}}>Conducting Day</label>
+                        <div className='form-group' style={{marginBottom:'20px'}}>
+                            <p style={{marginBottom:'5px'}}>Conducting Day</p>
                             <select className="dropdown-toggle" name="day" id="day" value={props.values.day} onChange={props.handleInputChange}>
                                 <option value="Mondays">Mondays</option>
                                 <option value="Tuesdays">Tuesdays</option>
@@ -81,7 +81,7 @@ export default function EdirProgramForm(props) {
                             </select>
                         </div>
 
-                        <button className='btn btn-success' type='button' style={{marginTop:'15px'}} disabled={props.values.isLoading} onClick={props.handleUpload}>
+                        <button className='btn btn-success' type='button' style={{marginTop:'20px'}} disabled={props.values.isLoading} onClick={props.handleUpload}>
                             <i className='far fa-check-square'></i>
                             &nbsp; {props.values.isLoading ? "Updating..." : "Update"}
                         </button>

@@ -35,7 +35,15 @@ const RegisterScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    if (
+    if(name==""){
+      setMessage("Name is required");
+    }else if(email==""){
+      setMessage("Email is required");
+    }else if (!validator.isEmail(email)) {
+      setMessage("Enter Valid Email");
+     }else if(password==""){
+      setMessage("Enter a password");
+     }else if (
       !validator.isStrongPassword(password, {
         minLength: 8,
         minLowercase: 1,
@@ -47,11 +55,9 @@ const RegisterScreen = () => {
       setMessage("Password is not strong enough");
     } else if (password !== confirmPassword) {
       setMessage(
-        "Password length must be 8 and It should contain minimum one Lowercase, Uppercase, Number and Symbol"
+        "Password is not equal"
       );
-    } //else if (!validator.isEmail(email)) {
-    //   setMessage("Enter Valid Email");
-    // }
+    } 
     else {
       dispatch(register(name, email, password, pic));
     }
@@ -92,7 +98,9 @@ const RegisterScreen = () => {
         {loading && <Loading />}
         <Form onSubmit={submitHandler} className="form-register">
           <Form.Group controlId="name">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>
+              Name <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="name"
@@ -102,7 +110,9 @@ const RegisterScreen = () => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>
+              Email <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="email"
@@ -112,7 +122,9 @@ const RegisterScreen = () => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>
+              Password <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="password"
@@ -122,7 +134,9 @@ const RegisterScreen = () => {
             />
           </Form.Group>
           <Form.Group controlId="confirmPassword">
-            <Form.Label>Confirm Password</Form.Label>
+            <Form.Label>
+              Confirm Password <span style={{ color: "#c30101" }}>*</span>
+            </Form.Label>
             <Form.Control
               className="form-styling"
               type="password"

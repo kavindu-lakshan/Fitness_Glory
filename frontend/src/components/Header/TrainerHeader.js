@@ -54,15 +54,21 @@ const TrainerHeader = () => {
               </NavDropdown>
 
               <NavDropdown title="Requests" id="basic-nav-dropdown">
-                <NavDropdown.Item href="">Trainer Requests</NavDropdown.Item>
+                <NavDropdown.Item href="/employee/memberPTRequest/ptEdit">
+                  Trainer Requests
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="">Schedule Requests</NavDropdown.Item>
+                <NavDropdown.Item href="/employee/scheduleR/HomeRequest">
+                  Schedule Requests
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/employee/CreateLeave">Leave Requests</NavDropdown.Item>
+                <NavDropdown.Item href="/employee/CreateLeave">
+                  Leave Requests
+                </NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="/employee/trainerHome">
-                <Link to="/employee/trainerHome">View Blogs</Link>
+                <Link to="/employee/trainerblog/Admin">View Blogs</Link>
               </Nav.Link>
 
               <Nav.Link href="/employee/trainerHome">
@@ -81,8 +87,8 @@ const TrainerHeader = () => {
                   title={trainerInfo?.username}
                   id="basic-nav-dropdown"
                 />
-                <NavDropdown.Item href="/employee/trainer-profile">
-                  My Profile
+                <NavDropdown.Item href="/employee/feedback/:username">
+                  My Feedback
                 </NavDropdown.Item>
 
                 <NavDropdown.Divider />

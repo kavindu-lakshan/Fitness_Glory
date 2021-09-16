@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Workoutprogramcard from './workoutprogram-card';
+import Header from '../../Header/Header';
 
 export default class AllprogramsMemer extends Component {
     constructor(props){
@@ -13,6 +14,7 @@ export default class AllprogramsMemer extends Component {
 
     componentDidMount(){
         this.retrievePrograms();
+        console.log(Header)
     }
 
     filterData(programs, searchKey){
@@ -26,6 +28,7 @@ export default class AllprogramsMemer extends Component {
   
         this.setState({programs: result})
       }
+      
   
       handleSearchArea = (e) => {
         const searchKey = e.currentTarget.value.toLowerCase();
@@ -39,7 +42,6 @@ export default class AllprogramsMemer extends Component {
 
     retrievePrograms(){
         axios.get("http://localhost:5000/programs").then(res => {
-            console.log(res.data.success)
             if(res.data.success){
                 this.setState({
                     programs: res.data.existingPrograms
@@ -48,6 +50,25 @@ export default class AllprogramsMemer extends Component {
                 console.log("error retrieving from database")
             }
         })
+    }
+
+    EnrollController = (id, programName) => {
+
+        const myCurrentTime = new Date().toLocaleString()
+
+        const data ={
+            programName:programName,
+            member_id:id,
+            enroll_datetime:myCurrentTime,
+            activeness:true
+        }
+
+        axios.post("http://localhost:5000/enroll-program/save",data).then((res) =>{
+            if(res.data.success){
+                alert('Enrolled successfully');
+            }
+        })
+    
     }
 
     render() {
@@ -70,9 +91,9 @@ export default class AllprogramsMemer extends Component {
             <div className="row" style={{marginTop:'30px'}}>
                 {this.state.programs.map((program, index) => (
                     <div className="col-md-4 col-sm-6" key={index}>
-                        {console.log(program)}
                         <Workoutprogramcard
                             program={program}
+                            EnrollController={this.EnrollController}
                         />
                     </div>
                 ))}            

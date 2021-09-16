@@ -18,9 +18,9 @@ import ViewEmployeeInterface from "./components/EmployeeManagement/ViewEmployeeI
 import { AllCleaners } from "./components/EmployeeManagement/EditCleanerInterface";
 import EditCleaner from "./components/EmployeeManagement/EditCleaner";
 import { DeleteCleaners } from "./components/EmployeeManagement/DeleteCleanerInterface";
-import { DeleteConf } from './components/EmployeeManagement/DeleteConf';
+import { DeleteConf } from "./components/EmployeeManagement/DeleteConf";
 import LeaveRegistration from "./components/EmployeeManagement/CreateLeave";
-import {AllTrainerLeaves} from './components/EmployeeManagement/AllTrainerLeaves';
+import { AllTrainerLeaves } from "./components/EmployeeManagement/AllTrainerLeaves";
 import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
 import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
 import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
@@ -30,14 +30,16 @@ import { AllSalaries } from "./components/EmployeeManagement/ViewSalaries";
 //shehan imports
 
 import AllprogramsMemer from "./components/WorkoutProgramsMember/AllPrograms/member-programs";
-import workoutprogramcard from "./components/WorkoutProgramsMember/AllPrograms/workoutprogram-card";
+import ReportPage from "./components/WorkoutProgramAdmin/ProgramsReport/ReportPage";
 import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/AllProgramsAdmin";
 import CreateProgramAdmin from "./components/WorkoutProgramAdmin/CreateProgramAdmin/CreateProgramAdmin";
 import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/EditProgramAdmin";
 import ProgramDetailsAdmin from "./components/WorkoutProgramAdmin/ProgramDetailsAdmin/ProgramDetailsAdmin";
+import Programexpand from "./components/WorkoutProgramsMember/SelectProgram/Programexpand";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/footer";
+import FooterTrainer from "./components/Footer/FooterTrainer";
 import LandingPage from "./Screens/LandingPage/LandingPage";
 import HomePage from "./Screens/HomePage/HomePage";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen";
@@ -53,16 +55,33 @@ import NavBar from "./components/RequestSchedule/NavBar";
 import MemHome from "./components/RequestSchedule/MemHome";
 import SchReport from "./components/RequestSchedule/SchReport";
 
-//Dulshan QandA section
+//-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
 import { CreateQuestion } from "./components/QAndASection/CreateQuestion";
 import { UpdateQuestion } from "./components/QAndASection/UpdateQuestion";
 import { DeleteQuestion } from "./components/QAndASection/DeleteQuestion";
-import { OtherQuestions } from "./components/QAndASection/OtherQuestions";
+import { OtherQuestionsM } from "./components/QAndASection/OtherQuestionsM";
 import { CreateAnswer } from "./components/QAndASection/CreateAnswer";
 import { MyAnswers } from "./components/QAndASection/MyAnswers";
 import { UpdateAnswer } from "./components/QAndASection/UpdateAnswer";
 import { DeleteAnswer } from "./components/QAndASection/DeleteAnswer";
+//-------------------------------Dulshan Trainer QandA----------------------------------------
+import { MyAnswersT } from "./components/QAndASection/MyAnswersT";
+import { CreateAnswerT } from "./components/QAndASection/CreateAnswerT.js";
+import { UpdateAnswerT } from "./components/QAndASection/UpdateAnswerT";
+import { OtherQuestionsT } from "./components/QAndASection/OtherQuestionsT";
+import { DeleteAnswerT } from "./components/QAndASection/DeleteAnswerT";
+//------------------------------Dulshan Feedback Management-----------------------------------
+import { Feedback } from "./components/FeedbackSection/Feedback";
+import { CreateFeedback } from "./components/FeedbackSection/CreateFeedback";
+import { Trainers } from "./components/FeedbackSection/Trainers";
+import { TrainerDetails } from "./components/FeedbackSection/TrainerDetails";
+import { UpdateFeedback } from "./components/FeedbackSection/UpdateFeedback";
+import { DeleteFeedback } from "./components/FeedbackSection/DeleteFeedback";
+
+//-------------------------------Dulshan Trainer Feedback----------------------------------------
+import { FeedbackT } from "./components/FeedbackSection/FeedbackT";
+import { ViewFeedbackT } from "./components/FeedbackSection/ViewFeedbackT";
 
 //  Manushika ClientRequest
 import CreatePost from "./components/ClientRequest/CreatePost";
@@ -70,7 +89,12 @@ import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
-
+//newly added
+import Admin from "./components/trainerBlog/Request/Admin";
+import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
+import MemForm from "./components/trainerBlog/Request/MemForm";
+import PostBDetails from "./components//trainerBlog/Request/Display/PostBDetails";
+import { getBlogPosts } from "./actions/blogposts";
 //Lakshan Receptionist
 import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
@@ -86,6 +110,11 @@ import TrainerHeader from "./components/Header/TrainerHeader";
 import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
 import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 
+// Admin
+import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
+import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
+import AdminHomePage from "./Screens/HomePage/AdminHomePage";
+
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
@@ -93,6 +122,10 @@ const App = () => {
   useEffect(() => {
     dispatch(getWorkouts());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getBlogPosts());
+  }, [currentId, dispatch]);
 
   return (
     <BrowserRouter>
@@ -162,7 +195,25 @@ const App = () => {
           component={PostDetails}
         ></Route>
       </div>
-
+      {/* newly added*/}
+      <div className="container">
+        <Route
+          path="/employee/trainerblog/Admin"
+          exact
+          component={() => <Admin setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/member/trainerblog/MemForm"
+          exact
+          component={() => <MemForm setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route
+          path="/member/trainerblog/ReportPT/ReportPT"
+          exact
+          component={() => <ReportPT setCurrentId={setCurrentId} />}
+        ></Route>
+        <Route path="/blogposts/:id" component={PostBDetails} />
+      </div>
       {/**Sandani */}
       <div className="container">
         <Route
@@ -244,39 +295,71 @@ const App = () => {
           path="/member/workout-programs"
           component={AllprogramsMemer}
         ></Route>
-        <Route path="/admin-card" component={workoutprogramcard}></Route>
-        <Route path="/admin-programs" component={AllProgramsAdmin}></Route>
-        <Route path="/admin-add-program" component={CreateProgramAdmin}></Route>
         <Route
-          path="/admin-edit-program/:id"
+          path="/member/expand-program/:id"
+          component={Programexpand}
+        ></Route>
+        <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
+        <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
+        <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
+        <Route
+          path="/admin/edit-program/:id"
           component={EditProgramAdmin}
         ></Route>
         <Route
-          path="/admin-expand-program/:id"
+          path="/admin/expand-program/:id"
           component={ProgramDetailsAdmin}
         ></Route>
 
-        {/*Dulshan Routes*/}
-        <Route exact path="/member/QandA/:mUsername" component={QandA} />
-        <Route
-          exact
-          path="/member/q/createQ/:mUsername"
-          component={CreateQuestion}
-        />
+        {/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
+        <Route exact path="/member/QandA/:email" component={QandA} />
+        <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
         <Route exact path="/member/deleteQ/:id" component={DeleteQuestion} />
-        <Route exact path="/member/otherQ/" component={OtherQuestions} />
-        <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
+        <Route exact path="/member/otherQ/" component={OtherQuestionsM} />
+        <Route exact path="/employee/otherQ/" component={OtherQuestionsT} />
+        <Route exact path="/employee/a/createA/:id" component={CreateAnswerT} />
         <Route
           exact
-          path="/member/myAnswers/:mUsername"
-          component={MyAnswers}
+          path="/employee/myAnswers/:username"
+          component={MyAnswersT}
         />
+        <Route exact path="/employee/updateA/:id" component={UpdateAnswerT} />
+        <Route exact path="/employee/deleteA/:id" component={DeleteAnswerT} />
+        <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
+        <Route exact path="/member/myAnswers/:email" component={MyAnswers} />
         <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
         <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
-      </main>
+        <Route exact path="/member/feedback/:email" component={Feedback} />
+        <Route
+          exact
+          path="/employee/feedback/:username"
+          component={FeedbackT}
+        />
+        <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
+        <Route exact path="/member/trainers/" component={Trainers} />
+        <Route
+          exact
+          path="/member/trainer/:username"
+          component={TrainerDetails}
+        />
+        <Route
+          exact
+          path="/member/trainer/createF/:id"
+          component={CreateFeedback}
+        />
+        <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
+        <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
 
-      <Footer />
+        {/* Admin */}
+        <Route path="/admin/login" component={AdminLoginScreen} />
+        <Route path="/admin/admin-profile" component={AdminProfileScreen} />
+        <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
+
+        <Route path="/member" component={Footer} />
+        <Route path="/employee" component={FooterTrainer} />
+        <Route path="/admin" component={Footer} />
+      </main>
     </BrowserRouter>
   );
 };

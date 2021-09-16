@@ -24,13 +24,16 @@ const Workouts = ({ setCurrentId }) => {
     }
   }, [history]);
 
-  console.log(workouts);
+  // console.log(workouts);
 
   return !workouts?.length ? (
     <CircularProgress />
   ) : (
     <div>
       <div className="container">
+        <h1 style={{ textAlign: "center", marginTop: "10px" }}>
+          Workouts Library
+        </h1>
         <div className="input-group" style={{ marginTop: "20px" }}>
           <input
             type="search"

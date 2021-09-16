@@ -8,7 +8,9 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 
-const workout_programs_routes = require("./routes/workout_programs");
+const workout_programs_routes = require("./routes/workout_programs.js");
+const adminRoutes = require("./routes/admin");
+const enroll_programs = require("./routes/enroll_programs");
 
 // import express from 'express';
 // import mongoose from 'mongoose';
@@ -67,7 +69,7 @@ app.use(memDetailsRoute);
 app.use("/workouts", workoutRoutes);
 
 //B Shehan
-
+app.use(enroll_programs);
 app.use(workout_programs_routes);
 
 //Dulshan
@@ -77,6 +79,12 @@ app.use("/qu", qRouter);
 const aRouter = require("./routes/Answer.js");
 app.use("/an", aRouter);
 
+const feedbackRouter = require("./routes/Feedback.js");
+app.use("/fb", feedbackRouter);
+
+const trainerRouter = require("./routes/Trainer.js");
+app.use("/tr", trainerRouter);
+
 //Amantha
 const trainerRoutes = require("./routes/trainerRoutes");
 app.use("/FitnessGlory/trainers", trainerRoutes);
@@ -84,28 +92,30 @@ const trainerDetailsRoute = require("./routes/trainerDetails");
 app.use(trainerDetailsRoute);
 
 /*Janudi ---> Start*/
-const CleanersRouter = require('./routes/Cleaners');
-app.use('/Cleaners', CleanersRouter);
+const CleanersRouter = require("./routes/Cleaners");
+app.use("/Cleaners", CleanersRouter);
 
-const DeleteRoute = require('./routes/Employee_Delete');
-app.use('/Employee_Delete', DeleteRoute);
+const DeleteRoute = require("./routes/Employee_Delete");
+app.use("/Employee_Delete", DeleteRoute);
 
-const LeaveRouter = require('./routes/Leaves');
-app.use('/Leaves', LeaveRouter);
+const LeaveRouter = require("./routes/Leaves");
+app.use("/Leaves", LeaveRouter);
 
-const SalaryRouter = require('./routes/Employee_Salary');
-app.use('/Employee_Salary', SalaryRouter);
+const SalaryRouter = require("./routes/Employee_Salary");
+app.use("/Employee_Salary", SalaryRouter);
 /*Janudi ---> End*/
 
 //Manushi
 const zpostRoutes = require("./routes/zposts");
 app.use(zpostRoutes);
-
+const blogpostRoutes = require("./routes/blogposts.js");
+app.use("/blogposts", blogpostRoutes);
 //Sandani
-const XpostRoutes = require('./routes/Xposts');
-app.use(XpostRoutes); 
+const XpostRoutes = require("./routes/Xposts");
+app.use(XpostRoutes);
 
-
+//Admin
+app.use("/admin", adminRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT: ${PORT}`);

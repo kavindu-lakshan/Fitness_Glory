@@ -4,12 +4,20 @@ import Button from '@material-ui/core/Button';
 
 export const QuestionForm = ({questions, onSubmit}) =>{
     
-    const {register, handleSubmit} = useForm({defaultValues: {
-        mUsername: questions ? questions.mUsername: "",
-        qTopic: questions ? questions.qTopic: "",
-        question: questions ? questions.question: "",
-        date: questions ? questions.date: ""
+    const {register, handleSubmit, formState:{errors}} = useForm({defaultValues: {
+        email: questions.email ? questions.email: "",
+        qTopic: questions.qTopic ? questions.qTopic: "Regarding Barbell Curls",
+        question: questions.question ? questions.question: "Which grip is the most effective to train biceps?",
+        date: questions.data ? questions.date: ""
     }})
+
+    const disablePastDate = () => {
+        const today = new Date();
+        const dd = String(today.getDate() + 1).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const yyyy = today.getFullYear();
+        return yyyy + "-" + mm + "-" + dd;
+    };
 
     const submitHandler = handleSubmit((data) =>{
         onSubmit(data)
@@ -17,38 +25,53 @@ export const QuestionForm = ({questions, onSubmit}) =>{
     
     return(
         <form onSubmit={submitHandler}>
-        <h4 style={head}>Question Details</h4>
-        <div className="form-group">
-        <div className="form-group col-md-100">
-            <label style={labelStyle} for="mUsername" className="form-label">Member Username</label>
-            <input style={inputFieldStyle} className="form-control" {...register("mUsername", { required: true })} type ="text" name="mUsername" id="mUsername"/>
+        <h4 style={head}>QUESTION DETAILS</h4>
+        <div className="row justify-content-center">
+        <div className="row justify-content-center text-center">
+        <div className="col-md-6 ml-auto"><br/>
+            <label style={labelStyle} for="name" className="form-label">Member Email</label>
+            <input style={disInputFieldStyle} className="form-control" {...register("email", { required: true })} type ="text" name="email" id="email" disabled="true"/>
         <br/>
         </div>
-        <div className="form-group col-md-100">
+        <div class="w-100"></div>
+        <div className="col-md-6">
             <label style={labelStyle} for="qTopic" className="form-label">Question Topic</label>
-            <input style={inputFieldStyle} className="form-control" {...register("qTopic", { required: true })} type ="text" name="qTopic" id="qTopic"/>
+            <input style={inputFieldStyle} className="form-control" {...register("qTopic", { required:true })} type ="text" name="qTopic" id="qTopic"/>
+            {errors.qTopic && (<small style={{color:'red'}}>Fill the Question Topic field! You cannot submit with this field empty!</small>)}
         <br/>
         </div>
-
-        <div className="form-group col-md-100">
+        <div class="w-100"></div>
+        <div className="col-md-6">
             <label style={labelStyle} for="question" className="form-label">Question Description</label>
             <input style={inputFieldStyle} className="form-control" {...register("question", { required: true })} type ="text" name="question" id="question"/>
+            {errors.question && (<small style={{color:'red'}}>Fill the Question field! You cannot submit with this field empty!</small>)}
         <br/>
         </div>
-        <div className="form-group col-md-100">
+        <div class="w-100"></div>
+        <div className="col-md-6">
             <label style={labelStyle} for="date" className="form-label">Select Date</label>
-            <input style={inputFieldStyle} className="form-control" {...register("date", { required: true })} type ="date" name="date" id="date"/>
+            <input style={inputFieldStyle} className="form-control" {...register("date", { required: true })} type ="date" name="date" id="date" min={disablePastDate()}/>
+            {errors.date && (<small style={{color:'red'}}>Please select the current date! You Cannot leave this field empty</small>)}
+            <br/><br/>
+        </div>
+        </div>
+        <center><Button style={btn} size="large" type="submit" className="btn btn-primary">Submit Details</Button></center>
         </div>
         <br/>
-        </div>
-        <center><Button style={btn} size="large" type="submit" className="btn btn-primary">Submit Details</Button></center><br/><br/>
         </form>
     )
 
 }
 
-const inputFieldStyle={
+const disInputFieldStyle={
+    border:'3px solid white',
+    background:'transparent',
+    color:'silver',
+    fontFamily: 'Helvetica',
+    fontWeight:'bold',
+}
 
+const inputFieldStyle={
     border:'3px solid white',
     background:'transparent',
     color:'white',
@@ -60,7 +83,8 @@ const labelStyle={
     color:'white',
     fontFamily: 'Helvetica',
     fontWeight:'bold',
-    fontSize:'15pt'
+    fontSize:'15pt',
+    textTransform:'none' 
 }
 
 const head ={

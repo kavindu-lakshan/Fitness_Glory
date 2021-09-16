@@ -53,8 +53,8 @@ const LandingPage = ({ history }) => {
         <div className="overlay"></div>
 
         <video
-          playsinline="playsinline"
-          autoplay="autoplay"
+          playsInline="playsInline"
+          autoPlay="autoPlay"
           muted="muted"
           loop="loop"
         >
@@ -73,8 +73,7 @@ const LandingPage = ({ history }) => {
               </div>
               <div className="slidertext04">
                 <a href="/member/register">
-                  Join Us{" "}
-                  <i className="fa fa-arrow-right" aria-hidden="true"></i>
+                  Join Us <i className="fa fa-arrow-right" aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -85,7 +84,7 @@ const LandingPage = ({ history }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-7">
-              <div className="title">
+              <div className="title-1">
                 <h1>
                   <span>Welcome To</span> FITNESS PROGRAMME
                 </h1>

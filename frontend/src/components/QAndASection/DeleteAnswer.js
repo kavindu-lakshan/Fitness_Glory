@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import { deleteAnswer, getAnswers } from '../../api/apiFBQA';
 import { DeleteAnswerForm } from '../QAndASection/Forms/DeleteAnswerForm';
-import deleteAnswerBg from './ImagesD/deleteAnswerBg.png';
+// import deleteAnswerBg from './ImagesD/deleteAnswerBg.png';
 
 export const DeleteAnswer = () =>{
     const match = useRouteMatch();
@@ -19,7 +19,7 @@ export const DeleteAnswer = () =>{
 
     const onSubmit = async(data) =>{
         await deleteAnswer(data, match.params.id)
-        history.push("/member/myAnswers/:mUsername");
+        history.push("/member/myAnswers/:email");
     }
 
     return answer ?(
@@ -35,6 +35,7 @@ export const DeleteAnswer = () =>{
     ):(<div>Loading Data .......</div>)
 }
 
+const deleteAnswerBg = 'https://res.cloudinary.com/dulshan/image/upload/v1631385890/deleteAnswerBg_yw2piq.png'
 const bgImg ={
     background: `linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.58)) ,url(${deleteAnswerBg})`,
     backgroundSize: 'cover',

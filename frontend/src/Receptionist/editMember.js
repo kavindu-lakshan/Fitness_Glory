@@ -93,7 +93,7 @@ export default class editMember extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to={{ pathname: "/employee/memberDetails" }} />;
+      return <Redirect to={{ pathname: "/admin/memberDetails" }} />;
     }
     return (
       <MainScreen title="Edit Member Details">

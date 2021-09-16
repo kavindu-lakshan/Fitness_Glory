@@ -136,10 +136,9 @@ export default class CreateEmployeeSalary extends Component{
         axios.post('http://localhost:5000/Employee_Salary/admin/salary/add', Salary).then(()=>{
             alert("Salary assigned successfully!")
         }).catch((err)=>{
-            alert("Error in registering!")
         })
 
-        window.location = '/admin/EmployeeHome';
+        window.location = '/admin/ViewSalaries';
     }
 
     componentDidMount() {
@@ -156,10 +155,13 @@ export default class CreateEmployeeSalary extends Component{
             console.log(this.state.details);
           }
         });
+
+        
       }
 
     render(){
         return (
+          <div>
             <div>
               <br></br>
                 <Wrapper>
@@ -325,20 +327,17 @@ export default class CreateEmployeeSalary extends Component{
                             ASSIGN SALARY
                         </GradientButton>
                         </div>
-
-
                         <br></br>
                         <br></br>
             </form>
             
-            <GradientButton style = {btnStyles}><a href = "/admin/ViewSalaries">VIEW ALL SALARIES</a></GradientButton>
-          
                         <br></br>
             <br></br>
             </div>
             <br></br>
             
             </div>
+             </div>
         )
     }
 }
