@@ -328,10 +328,10 @@ const App = () => {
         />
         {/*________________________ Amantha Routes End  ________________________*/}
 
-        <Route path="/employee/memberDetails" component={viewMembers}></Route>
-        <Route path="/employee/editDetails/:id" component={editMember}></Route>
-
-        <Route path="/employee/adminPanel" component={memberPannel}></Route>
+        <Route path="/admin/memberDetails" component={viewMembers}></Route>
+        <Route path="/admin/editDetails/:id" component={editMember}></Route>
+        <Route path="/admin/adminPanel" component={memberPannel}></Route>
+        
 
         {/*Janudi Routes --> Begin*/}
         <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
