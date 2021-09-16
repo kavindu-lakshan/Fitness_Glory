@@ -9,6 +9,7 @@ import PrePosts from './PrePosts/PrePosts';
 import PreForm from './PreForm/PreForm';
 import useStyles from './styles';
 import './backstyles.css';
+import './backstyles.css';
  
 
 const App = () => {

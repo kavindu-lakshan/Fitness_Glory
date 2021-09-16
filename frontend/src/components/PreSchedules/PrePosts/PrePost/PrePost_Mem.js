@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import {likePrePost} from '../../../../actions/preposts';
 
 
-const PrePost = ({prepost, setCurrentId}) => {
+const PrePost_Mem = ({prepost, setCurrentId}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -48,5 +48,5 @@ const PrePost = ({prepost, setCurrentId}) => {
     );
 }
 
-export default PrePost;
+export default PrePost_Mem;
 

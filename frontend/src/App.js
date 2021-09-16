@@ -268,15 +268,15 @@ const App = () => {
       {/*Sandani-predefiend schedules  */}
       <div className="container">
       <Route
-          path="/PreAdmin"
+          path="/employee/PreAdmin"
           exact
           component={() => <PreAdmin setCurrentId={setCurrentId} />}
         ></Route>
 
       <Route
-          path="/PreAdmin_Mem"
+          path="/member/PreAdmin_Mem"
           exact
-          component={() => <PreAdmin setCurrentId={setCurrentId} />}
+          component={() => <PreAdmin_Mem setCurrentId={setCurrentId} />}
         ></Route>
         </div>
 
