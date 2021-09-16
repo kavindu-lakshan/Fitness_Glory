@@ -99,7 +99,7 @@ const PostBDetails = () => {
                 <p>
                   <Typography style={{ color: "white" }}>
                     {" "}
-                    <EmailIcon /> &nbsp;{blogpost.what}
+                    <EmailIcon /> &nbsp;{blogpost.email}
                   </Typography>
                 </p>
                 <br />
@@ -107,7 +107,7 @@ const PostBDetails = () => {
                   <Typography style={{ color: "white" }}>
                     {" "}
                     <WhatsAppIcon />
-                    &nbsp;{blogpost.email}
+                    &nbsp;{blogpost.what}
                   </Typography>
                 </p>
                 {/* <Typography className="ta">Time Availability</Typography>*/}
