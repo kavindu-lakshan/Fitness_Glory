@@ -43,7 +43,7 @@ export const UpdateAnswerFormT = ({answers, onSubmit}) =>{
             <br/>
             <div className="row">
                 <div class="col-6 col-sm-6">
-                    <label style={labelStyle} for="username" className="form-label">Member username</label>
+                    <label style={labelStyle} for="username" className="form-label">Trainer username</label>
                     <input style={disInputFieldStyle} type="text" className="form-control"{...register("username", { required: true })} id="username" name="username" disabled="true"/>
                 </div>
             <div class="w-100"></div><br/>
