@@ -39,7 +39,7 @@ export default function TrainerHomePage() {
           <br /> as you want Now!
         </p>
         <div className="btnAma">
-          <a href="/trainer-profile">
+          <a href="/employee/trainer-profile">
             <span>View Profile</span>
           </a>
         </div>
@@ -58,7 +58,7 @@ export default function TrainerHomePage() {
           Lifestyles Now!
         </p>
         <div className="btnAma">
-          <a href="eventspage">
+          <a href="/employee/eventspage">
             <span>Create Events</span>
           </a>
         </div>
@@ -75,15 +75,15 @@ export default function TrainerHomePage() {
           you need to take to plan and organize <br />a fitness event.{" "}
         </p>
         <div className="btnAma">
-          <a href="allevents">
+          <a href="/employee/allevents">
             <span>All Events</span>
           </a>
         </div>
-        <div className="btnAma1">
+        {/* <div className="btnAma1">
           <a href="#">
             <span>Manage Events</span>
           </a>
-        </div>
+        </div> */}
       </div>
 
       <div style={style4}>

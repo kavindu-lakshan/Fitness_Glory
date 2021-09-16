@@ -15,25 +15,203 @@ const TrainerLandingPage = ({ history }) => {
     <div className="main">
       <Container>
         <Row>
-          <div className="intro-text">
-            <div></div>
-            <div className="buttonContainer">
+          <center>
+            <div
+              className="text-center"
+              style={{
+                textTransform: "uppercase",
+                textAlign: "center",
+                fontSize: "50px",
+                fontFamily: "Arial",
+              }}
+            >
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "	#00CC00" }}
+              >
+                "M
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                o
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                t
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                i
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                v
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                a
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                t
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                i
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                o
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                n
+              </span>
+              &nbsp;
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                i
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                s
+              </span>
+              &nbsp;
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                w
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                h
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                a
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                t
+              </span>
+              &nbsp;
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                g
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                e
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                t
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                s
+              </span>
+              &nbsp;
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                y
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                o
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                u
+              </span>
+              &nbsp;
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                s
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                t
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                a
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                r
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                t
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                e
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "silver" }}
+              >
+                d
+              </span>
+              <span
+                style={{ textShadow: "7px 7px 60px black", color: "#00CC00" }}
+              >
+                !"
+              </span>
+            </div>
+            <div
+              className="intro-text"
+              style={{ color: "silver", fontFamily: "Agency FB Bold" }}
+            >
+              Exercise is King. Nutrition is Queen. Put them together & you’ve
+              got a kingdom
+            </div>
+            <div>
               <a href="/employee/trainer-login">
-                <Button size="lg" className="landingbutton">
-                  Login
-                </Button>
-              </a>
-              <a href="/employee/trainer-register">
                 <Button
-                  size="lg"
-                  className="landingbutton"
-                  variant="outline-primary"
+                  style={{
+                    width: "200px",
+                    height: "45px",
+                    background: "#00CC00",
+                    borderRadius: "50px",
+                    marginTop: "20px",
+                  }}
                 >
-                  Signup
+                  <center>
+                    <span style={{ marginTop: "-10px" }}> Get started</span>
+                  </center>
                 </Button>
+                {/* Exercise is King. Nutrition is Queen. Put them together & you’ve got a kingdom */}
               </a>
             </div>
-          </div>
+          </center>
         </Row>
       </Container>
     </div>
