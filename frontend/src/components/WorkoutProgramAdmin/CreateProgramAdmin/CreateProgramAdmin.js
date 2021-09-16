@@ -22,6 +22,17 @@ export default class CreateProgramAdmin extends Component {
         }
     }
 
+    demo = () => {
+        this.setState({
+            name: 'Boxing',
+            description:'Boxing is a combat sport in which two people, usually wearing protective gloves and other protective equipment',
+            conducted_by:'Mr. Lakshan',
+            fee:'1500',
+            day:'Mondays',
+            time:'10:00',
+        })
+    }
+
     handleInputChange = (e) => {
         const {name, value} = e.target;
 
@@ -112,6 +123,7 @@ export default class CreateProgramAdmin extends Component {
                 handlePhoto={this.handlePhoto}
                 handleInputChange={this.handleInputChange}
                 handleUpload={this.handleUpload}
+                demo={this.demo}
             />
         )
     }

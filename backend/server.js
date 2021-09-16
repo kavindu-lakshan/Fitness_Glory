@@ -90,6 +90,12 @@ const trainerRoutes = require("./routes/trainerRoutes");
 app.use("/FitnessGlory/trainers", trainerRoutes);
 const trainerDetailsRoute = require("./routes/trainerDetails");
 app.use(trainerDetailsRoute);
+const eventRouter = require("./routes/events.js");
+//http://localhost:5000/event
+app.use("/event", eventRouter);
+
+const interest = require("./routes/interestRoutes.js");
+app.use('/event-interest',interest);
 
 /*Janudi ---> Start*/
 const CleanersRouter = require("./routes/Cleaners");

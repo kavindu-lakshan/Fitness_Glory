@@ -84,7 +84,7 @@ const LandingPage = ({ history }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-7">
-              <div className="title">
+              <div className="title-1">
                 <h1>
                   <span>Welcome To</span> FITNESS PROGRAMME
                 </h1>

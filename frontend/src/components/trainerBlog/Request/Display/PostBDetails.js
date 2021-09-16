@@ -42,45 +42,78 @@ const PostBDetails = () => {
   if (!blogpost) return null;
   {
     return (
-      <Grid container spacing={3} className={classes.gridn}>
-        <Grid item xs={6}>
-          <img
-            className={classes.pname}
-            src={blogpost.selectedFile}
-            alt="..loading"
-            style={{ margin: "10px 30px 30px", width: "60%", display: "flex" }}
-          />
-          &nbsp; &nbsp; &nbsp;
-          <br />
-          <div className={classes.tipo}>
-            <Typography className="ta">Trainer Info</Typography>
-            <hr />
-            &nbsp;
-            <p>{blogpost.creator}</p>
-            <p>{blogpost.title}</p>
-            <Chip color="secondary" label={blogpost.tags} variant="outlined" />
-            <p>{blogpost.message}</p>
+      <div style={backImg}>
+        <Grid container spacing={3} className={classes.gridn}>
+          <Grid item xs={6}>
+            <img
+              className={classes.pname}
+              src={blogpost.selectedFile}
+              alt="..loading"
+              style={{
+                margin: "10px 30px 30px",
+                width: "60%",
+                display: "flex",
+              }}
+            />
+            &nbsp; &nbsp; &nbsp;
             <br />
-            <div>
-              <p>
-                {" "}
-                <FacebookIcon /> &nbsp;{blogpost.face}
-              </p>
+            <div className={classes.tipo}>
+              <div style={font}>
+                <Typography
+                  style={{ color: "#28edf7", letterSpacing: "5" }}
+                  className="ta"
+                >
+                  TRAINER INFO
+                </Typography>
+                <hr />
+                &nbsp;
+                <Typography style={{ color: "white" }} className="ta">
+                  {blogpost.creator}
+                </Typography>
+                <br />
+                <Typography style={{ color: "white" }} className="ta">
+                  {blogpost.title}
+                </Typography>
+                <br />
+                <Chip
+                  color="secondary"
+                  label={blogpost.tags}
+                  variant="outlined"
+                />
+                <br />
+                <br />
+                <Typography style={{ color: "white" }} className="ta">
+                  {blogpost.message}
+                </Typography>
+                <br />
+                <div>
+                  <p>
+                    {" "}
+                    <Typography style={{ color: "white" }}>
+                      {" "}
+                      <FacebookIcon /> &nbsp;{blogpost.face}
+                    </Typography>
+                  </p>
+                </div>
+                <br />
+                <p>
+                  <Typography style={{ color: "white" }}>
+                    {" "}
+                    <EmailIcon /> &nbsp;{blogpost.what}
+                  </Typography>
+                </p>
+                <br />
+                <p>
+                  <Typography style={{ color: "white" }}>
+                    {" "}
+                    <WhatsAppIcon />
+                    &nbsp;{blogpost.email}
+                  </Typography>
+                </p>
+                {/* <Typography className="ta">Time Availability</Typography>*/}
+              </div>
             </div>
-            <br />
-            <p>
-              <EmailIcon />
-              &nbsp;{blogpost.what}
-            </p>
-            <br />
-            <p>
-              <WhatsAppIcon />
-              &nbsp;{blogpost.email}
-            </p>
-            <Typography className="ta">Time Availability</Typography>
-          </div>
-          <hr />
-          <div className={classes.chart}>
+            {/*<div className={classes.chart}>
             <p>{blogpost.mon} ON MONDAY</p>
             <p>{blogpost.tue} ON TUESDAY</p>
             <p>{blogpost.wed} ON WEDNESDAY</p>
@@ -89,12 +122,74 @@ const PostBDetails = () => {
             <p>{blogpost.sat}ON SATURDAY</p>
             <p>{blogpost.sun}ON SUNDAY</p>
           </div>
-          <hr />
+    <hr />*/}
+          </Grid>
+          <Grid item xs={6}>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <Typography style={{ color: "#28edf7" }} className="ta">
+              TIME AVAILABILITY
+            </Typography>
+            <hr />
+            <div className={classes.chart}>
+              <p>
+                {" "}
+                <Typography style={{ color: "white" }}>
+                  {blogpost.mon} ON MONDAY{" "}
+                </Typography>
+              </p>{" "}
+              <p>
+                <Typography style={{ color: "white" }}>
+                  {blogpost.tue} ON TUESDAY{" "}
+                </Typography>
+              </p>
+              <p>
+                <Typography style={{ color: "white" }}>
+                  {blogpost.wed} ON WEDNESDAY{" "}
+                </Typography>
+              </p>
+              <p>
+                <Typography style={{ color: "white" }}>
+                  {blogpost.thu} ON THURSDAY{" "}
+                </Typography>
+              </p>
+              <p>
+                <Typography style={{ color: "white" }}>
+                  {blogpost.fri} ON FRIDAY{" "}
+                </Typography>
+              </p>
+              <p>
+                <Typography style={{ color: "white" }}>
+                  {blogpost.sat} ON SATURDAY{" "}
+                </Typography>
+              </p>
+              <p>
+                <Typography style={{ color: "white" }}>
+                  {blogpost.sun} ON SUNDAY{" "}
+                </Typography>
+              </p>
+            </div>
+            <hr />
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Card></Card>
-        </Grid>
-      </Grid>
+      </div>
     );
   }
 };
@@ -132,3 +227,26 @@ export default PostBDetails;
 
 */
 }
+const backiImg =
+  "https://res.cloudinary.com/maldeniya99/image/upload/v1631621169/anastase-maragos-4dlhin0ghOk-unsplash_mwpe9l.jpg";
+const backImg = {
+  background: `linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url(${backiImg})`,
+  backgroundSize: "cover",
+  position: "center",
+  width: "100%",
+  height: "100%",
+  opacity: "10",
+};
+const font = {
+  color: "white",
+  fontspacing: "3",
+  height: "1000",
+};
+const editpostti = {
+  fontSize: 50,
+  color: "white",
+  letterSpacing: 20,
+  textAlign: "center",
+
+  paddingTop: "150px",
+};
