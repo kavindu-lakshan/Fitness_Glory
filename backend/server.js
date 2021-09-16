@@ -119,6 +119,8 @@ app.use("/blogposts", blogpostRoutes);
 //Sandani
 const XpostRoutes = require("./routes/Xposts");
 app.use(XpostRoutes);
+const postRoutes = require ('./routes/preposts.js');
+app.use('/preposts', postRoutes);
 
 //Admin
 app.use("/admin", adminRoutes);

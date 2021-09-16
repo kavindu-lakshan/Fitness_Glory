@@ -115,7 +115,7 @@ export default function TrainerHomePage() {
           <br /> your own schedules from here!
         </p>
         <div className="btnAma">
-          <a href="#">
+          <a href="/employee/PreAdmin">
             <span style={{ fontSize: "13px" }}>Create Schedules</span>
           </a>
         </div>
@@ -133,7 +133,7 @@ export default function TrainerHomePage() {
           to help them to find ways to be more active and fit.
         </p>
         <div className="btnAma">
-          <a href="#">
+          <a href="/employee/trainerblog/Admin">
             <span>View Blogs</span>
           </a>
         </div>
