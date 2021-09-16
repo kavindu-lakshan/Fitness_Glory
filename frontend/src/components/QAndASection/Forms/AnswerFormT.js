@@ -9,7 +9,7 @@ export const AnswerFormT = ({questions, onSubmit}) =>{
         qTopic: questions.qTopic ? questions.qTopic:"",
         date: questions.date ? questions.date: "",
         question: questions.question ? questions.question:"",
-        username: "ShavinSL",
+        username: "dulshanPerera",
         QID:questions.QID? questions.QID:"",
         answer: questions.answer? questions.answer:"Each variance of grips have their own advantages. Use Underhand grip for overall efffect",
     }})
@@ -60,7 +60,7 @@ export const AnswerFormT = ({questions, onSubmit}) =>{
                 <div class="col-6 col-sm-5">
                     <label style={labelStyle} for="username" className="form-label">Trainer Username</label>
                     <input style={inputFieldStyle} type="text" className="form-control"{...register("username", { required: true })} id="username" name="username"/>
-                    {errors.email && (<small style={{color:'red'}}>Enter your username! Cannot leave this field empty</small>)}
+                    {errors.username && (<small style={{color:'red'}}>Enter your username! Cannot leave this field empty</small>)}
                 </div>
                 <div class="w-100"></div><br/>
                 <div class="col-6 col-sm-6">
