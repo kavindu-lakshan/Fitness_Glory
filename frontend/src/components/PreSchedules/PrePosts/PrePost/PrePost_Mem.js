@@ -17,8 +17,8 @@ const PrePost_Mem = ({prepost, setCurrentId}) => {
         <Card className={classes.card}>
       <CardMedia className={classes.media} image={prepost.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={prepost.title} />
       <div className={classes.overlay}>
-        <Typography variant="h6">{prepost.creator}</Typography>
-        <Typography variant="body2">{moment(prepost.createdAt).fromNow()}</Typography>
+        <Typography variant="h6" style={{ color: 'white' }}>{prepost.creator}</Typography>
+        <Typography variant="body2" style={{ color: 'white' }}>{moment(prepost.createdAt).fromNow()}</Typography>
         
       </div>
       <div className={classes.overlay2}>
