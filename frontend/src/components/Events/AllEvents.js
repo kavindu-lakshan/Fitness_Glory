@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { Component } from "react";
 import "../StylesA/Events.css";
+import {
+  Button
+} from "@material-ui/core";
 // export default function AllEvents(){
 
 //     const [events, setEvents] = useState([]);
@@ -118,7 +121,8 @@ export default class AllEvents extends Component {
               }}
             ></input>
           </div>
-          <br />
+          <Button style={{background:'black',color:'white',fontSize:'13px',marginLeft:'1000px'}}><a href="/employee/event-interest/allInterests">Interests</a></Button>
+          <br /><br />
           <div class="row">
             {/* <!-- Start col --> */}
             {this.state.events.map((row) => (

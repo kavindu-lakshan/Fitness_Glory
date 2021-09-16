@@ -84,7 +84,7 @@ const Header = () => {
                   My Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/member/allevents-member">
+                <NavDropdown.Item href="/member/event-interest/event-landing">
                   Events
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
