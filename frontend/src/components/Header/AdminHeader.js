@@ -39,6 +39,9 @@ const Header = () => {
               <Nav.Link href="/admin/memberDetails">
                 <Link to="/admin/memberDetails">Members</Link>
               </Nav.Link>
+              <Nav.Link href="/admin/ViewEmployeeInterface">
+                <Link to="/admin/ViewEmployeeInterface">Employees</Link>
+              </Nav.Link>
               <NavDropdown title={adminInfo?.name} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/admin/admin-profile">
                   My Profile

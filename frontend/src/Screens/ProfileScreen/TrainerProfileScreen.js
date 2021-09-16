@@ -817,7 +817,7 @@ const TrainerProfileScreen = ({ location, history }) => {
                           type="password"
                           class="form-control"
                           id="sTate"
-                          placeholder="Enter State"
+                          placeholder="Enter Password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           style={{
@@ -839,7 +839,7 @@ const TrainerProfileScreen = ({ location, history }) => {
                           type="password"
                           class="form-control"
                           id="sTate"
-                          placeholder="Enter State"
+                          placeholder="Enter Password again"
                           value={confirmPassword}
                           onChange={(e) => setConfirmPassword(e.target.value)}
                           style={{

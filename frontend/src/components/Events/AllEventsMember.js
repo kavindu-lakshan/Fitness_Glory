@@ -279,7 +279,7 @@ export default class AllEventsMember extends Component {
                   <center>
                     <div className="btnView" style={{ marginTop: "-28px" }}>
                       {" "}
-                      <a href={`/eventdetails/${row._id}`}>
+                      <a href={`/member/eventdetails/${row._id}`}>
                         <span>View Event</span>
                       </a>{" "}
                     </div>

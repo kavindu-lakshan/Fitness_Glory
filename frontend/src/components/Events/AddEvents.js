@@ -21,8 +21,8 @@ export default function AddEvents() {
   const [details, setDetails] = useState("");
   const [members, setMembers] = useState("");
   const [crslimg, setCrslimg] = useState("");
-  const [message, setMessage] = useState("null");
-  const [picMessage, setPicMessage] = useState("null");
+  const [message, setMessage] = useState(null);
+  const [picMessage, setPicMessage] = useState(null);
 
   function sendData(e) {
     e.preventDefault();
@@ -111,6 +111,8 @@ export default function AddEvents() {
                       type="text"
                       placeholder="Enter Tagline"
                       required="required"
+                      maxlength="25"
+                      minLength="5"
                       style={{
                         background: "transparent",
                         border: "2px solid #808080",
@@ -129,8 +131,11 @@ export default function AddEvents() {
                     </Form.Label>
                     <Form.Control
                       type="text"
+                      // defaultValue="hey"
                       placeholder="Event Title"
                       required="required"
+                      maxlength="40"
+                      minLength="8"
                       style={{
                         width: "200px",
                         border: "2px solid #808080",
@@ -151,7 +156,7 @@ export default function AddEvents() {
                 </Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Event Descrption(Max 300)"
+                  placeholder="Event Description(Max 300)"
                   style={{
                     border: "2px solid 	#808080",
                     background: "transparent",
