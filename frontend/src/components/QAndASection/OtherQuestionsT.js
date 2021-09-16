@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import { allQuestionsM } from '../../api/apiFBQA'
 import { NavBarT } from './NavBarT';
+import './scrollBar.css'
 // import otherQuestionBg from './ImagesD/otherQuestionBg.png'
 
 export const OtherQuestionsT = () => {
@@ -39,7 +40,7 @@ export const OtherQuestionsT = () => {
                 <br/>
                 <h3 style={labelStyle} className = "text-center">ALL QUESTIONS</h3>
                 <div style={hideScroll}>
-                <div style={scrollable}>
+                <div className="carbrQ" style={scrollable}>
                 <table style ={textStyle} class="table">
                 <thead>
                     <tr>

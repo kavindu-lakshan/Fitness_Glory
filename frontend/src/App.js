@@ -56,9 +56,9 @@ import MemHome from "./components/RequestSchedule/MemHome";
 import SchReport from "./components/RequestSchedule/SchReport";
 
 /*pre-defined workout schedule function*/
-import PreAdmin from './components/PreSchedules/PreAdmin';
-import PreAdmin_Mem from './components/PreSchedules/PreAdmin_Mem';
-import { getPrePosts } from './actions/preposts';
+import PreAdmin from "./components/PreSchedules/PreAdmin";
+import PreAdmin_Mem from "./components/PreSchedules/PreAdmin_Mem";
+import { getPrePosts } from "./actions/preposts";
 
 //-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
@@ -144,7 +144,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-    
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
       <Route path="/admin" component={AdminHeader} />
@@ -178,7 +177,7 @@ const App = () => {
       />
       <Route
         exact
-        path="/employee/workoutReport"
+        path="/admin/workoutReport"
         exact
         component={ReportWorkout}
       />
@@ -229,12 +228,6 @@ const App = () => {
         <Route path="/blogposts/:id" component={PostBDetails} />
       </div>
 
-
-        
-
-
-
-
       {/**Sandani */}
       {/**predefined schedules requests CRUD */}
       <div className="container">
@@ -265,20 +258,18 @@ const App = () => {
       </div>
       {/*Sandani-predefiend schedules  */}
       <div className="container">
-      <Route
+        <Route
           path="/employee/PreAdmin"
           exact
           component={() => <PreAdmin setCurrentId={setCurrentId} />}
         ></Route>
 
-      <Route
+        <Route
           path="/member/PreAdmin_Mem"
           exact
           component={() => <PreAdmin_Mem setCurrentId={setCurrentId} />}
         ></Route>
-        </div>
-
-
+      </div>
 
       <main>
         <Route path="/member" component={LandingPage} exact />
@@ -331,7 +322,6 @@ const App = () => {
         <Route path="/admin/memberDetails" component={viewMembers}></Route>
         <Route path="/admin/editDetails/:id" component={editMember}></Route>
         <Route path="/admin/adminPanel" component={memberPannel}></Route>
-        
 
         {/*Janudi Routes --> Begin*/}
         <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
@@ -408,11 +398,7 @@ const App = () => {
         <Route exact path="/member/otherQ/" component={OtherQuestionsM} />
         <Route exact path="/employee/otherQ/" component={OtherQuestionsT} />
         <Route exact path="/employee/a/createA/:id" component={CreateAnswerT} />
-        <Route
-          exact
-          path="/employee/myAnswers/:username"
-          component={MyAnswersT}
-        />
+        <Route exact path="/employee/myAnswers/:username" component={MyAnswersT} />
         <Route exact path="/employee/updateA/:id" component={UpdateAnswerT} />
         <Route exact path="/employee/deleteA/:id" component={DeleteAnswerT} />
         <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
@@ -420,23 +406,11 @@ const App = () => {
         <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
         <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
         <Route exact path="/member/feedback/:email" component={Feedback} />
-        <Route
-          exact
-          path="/employee/feedback/:username"
-          component={FeedbackT}
-        />
+        <Route exact path="/employee/feedback/:username" component={FeedbackT} />
         <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
         <Route exact path="/member/trainers/" component={Trainers} />
-        <Route
-          exact
-          path="/member/trainer/:username"
-          component={TrainerDetails}
-        />
-        <Route
-          exact
-          path="/member/trainer/createF/:id"
-          component={CreateFeedback}
-        />
+        <Route exact path="/member/trainer/:username" component={TrainerDetails} />
+        <Route exact path="/member/trainer/createF/:id" component={CreateFeedback} />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
 

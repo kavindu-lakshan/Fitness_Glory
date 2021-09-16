@@ -36,15 +36,25 @@ const Header = () => {
               <Nav.Link href="/member/Home">
                 <Link to="/member/Home">Home</Link>
               </Nav.Link>
-              <Nav.Link href="/member/workouts">
+              <NavDropdown title="Workouts|Programs" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/member/workouts">
+                  Workouts
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/member/workout-programs">
+                  Programs
+                </NavDropdown.Item>
+              </NavDropdown>
+              
+              {/* <Nav.Link href="/member/workouts">
                 <Link to="/member/workouts">Workouts</Link>
               </Nav.Link>
               <Nav.Link href="/member/workout-programs">
                 <Link to="/member/workout-programs">Programs</Link>
-              </Nav.Link>
-              <Nav.Link href="/member/feedback/:email">
+              </Nav.Link> */}
+              {/* <Nav.Link href="/member/feedback/:email">
                 <Link to="/member/feedback/:email">Feedback</Link>
-              </Nav.Link>
+              </Nav.Link> */}
               <NavDropdown title="Personal Trainer" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/member/memberPTRequest/home">
                   Request
@@ -72,6 +82,14 @@ const Header = () => {
               >
                 <NavDropdown.Item href="/member/profile">
                   My Profile
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/member/allevents-member">
+                  Events
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/member/feedback/:email">
+                  My Feedback
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logoutHandler}>
