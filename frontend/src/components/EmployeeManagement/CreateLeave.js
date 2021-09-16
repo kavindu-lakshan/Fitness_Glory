@@ -10,6 +10,8 @@ import styled from 'styled-components';
 import Particle from './Particles2';
 import GradientButton from 'react-linear-gradient-button';
 
+const minDate = new Date(Date.now());
+
 const useStyles = makeStyles((theme) => ({
     container: {
         display: 'flex',
@@ -102,12 +104,12 @@ export default class LeaveRegistration extends Component{
             Status: this.state.Status
         }
 
-        axios.post('http://localhost:5000/Leaves/admin/leaves/add', Leave).then(()=>{
+        axios.post('http://localhost:5000/Leaves/employee/leaves/add', Leave).then(()=>{
             alert("Leave requested successfully!")
         }).catch((err)=>{
         })
 
-        window.location = '/';
+        window.location = '/admin/EmployeeHome';
     }
 
     render(){
@@ -142,7 +144,7 @@ export default class LeaveRegistration extends Component{
                                         <i className="fa fa-user prefix"></i>
                                     </span>
                                 </div>
-                                <input value = {this.state.Request} onChange = {this.onChangeRequest} type="text" className="form-control"  placeholder="REASON FOR DISMISSAL" aria-label="REASON :" aria-describedby="basic-addon" required style = {inpStyles}/>
+                                <input value = {this.state.Request} onChange = {this.onChangeRequest} type="text" className="form-control"  placeholder="REASON FOR LEAVE REQUEST" aria-label="REASON :" aria-describedby="basic-addon" required style = {inpStyles}/>
                             </div>
                         </div> 
                         <br></br>
@@ -154,6 +156,7 @@ export default class LeaveRegistration extends Component{
                                 <DatePicker
                                     selected = {this.state.LeaveDate}
                                     onChange = {this.onChangeLeaveDate}
+                                    minDate={minDate}
                                 />
                             </div>
                         </div>
@@ -165,6 +168,7 @@ export default class LeaveRegistration extends Component{
                                 <DatePicker
                                     selected = {this.state.ReturnDate}
                                     onChange = {this.onChangeReturnDate}
+                                    minDate={minDate}
                                 />
                             </div>
                         </div>

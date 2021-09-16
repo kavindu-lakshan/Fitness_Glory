@@ -136,10 +136,9 @@ export default class CreateEmployeeSalary extends Component{
         axios.post('http://localhost:5000/Employee_Salary/admin/salary/add', Salary).then(()=>{
             alert("Salary assigned successfully!")
         }).catch((err)=>{
-            alert("Error in registering!")
         })
 
-        window.location = '/';
+        window.location = '/admin/ViewSalaries';
     }
 
     componentDidMount() {
@@ -156,10 +155,13 @@ export default class CreateEmployeeSalary extends Component{
             console.log(this.state.details);
           }
         });
+
+        
       }
 
     render(){
         return (
+          <div>
             <div>
               <br></br>
                 <Wrapper>
@@ -329,8 +331,13 @@ export default class CreateEmployeeSalary extends Component{
                         <br></br>
             </form>
             
+                        <br></br>
+            <br></br>
             </div>
+            <br></br>
+            
             </div>
+             </div>
         )
     }
 }
@@ -414,5 +421,19 @@ const linkStyles = {
     textDecoration: 'none',
     color: 'black',
     fontWeight: 'bold',
-    marginLeft: '540px'
+    marginLeft: '420px'
+}
+
+const linkStyles2 = {
+  textDecoration: 'none',
+  color: 'black',
+  fontWeight: 'bold',
+  marginLeft: '680px',
+  marginTop: '-97px'
+}
+
+const btnStyles = {
+  marginTop: '-95px',
+  marginLeft: '650px',
+  color: 'black'
 }

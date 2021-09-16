@@ -1,115 +1,43 @@
-import React, { useState,useEffect } from 'react';
-import { getCleaners } from './api';
-import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import React, { Component } from 'react';
+import './ThankYou.css'
 
-export const AllCleaners =() =>{
-    const[cleaners, setCleaners] = useState([]);
-    const[search, setSearchTerm] = useState("");
-
-    useEffect(()=>{
-        const displayCleaners = async() => {
-        const cleaners = await getCleaners()
-            setCleaners(cleaners)
-        }
-        displayCleaners()
-    }, [])
-
-    return (
-        <div>
-            <div>
-                <i style = {fafaStyles} class = "fa fa-search"></i>
-                <div className = "Row">
-                    <div className = "col-lg-3 mt-2 mb-2">
-                        <div>
-                            <input className = "form-control" type = "text" placeholder="Search" 
-                                onChange={(e)=>{
-                                    setSearchTerm(e.target.value);
-                                }}
-                                style = {searchStyles}
-                    
-                            />
+export default class ThankYou extends Component {
+    render(){
+        return(
+            <div >
+            <section class="content-item grey" id="gallery-item">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <img src="https://res.cloudinary.com/djg9iitcl/image/upload/v1631736949/shirtless-sportsman-posing-gym_mgwhha.jpg" class="img-responsive" alt=""></img>
+                            </div>
+                            <div class="col-sm-4">
+                            <h2 style = {thankStyles}>THANK YOU!</h2>
+                                <div class="box">
+                                    The cleaner registration has been completed successfully. You can view, update or remove the details through the Employee Home.
+                                </div>
+                                <br></br>
+                                <br></br>
+                                <a style = {btnStyles} href="/admin/EmployeeHome" class="btn btn-normal scroll">BACK TO HOME</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br></br>
-                {
-                cleaners.filter((row)=>{
-                    if(search == ""){
-                        return row
-                    }else if(row.NICNumber.toLowerCase().includes(search.toLowerCase())){
-                        return row
-                    }
-                    }).map((row)=>(
-                        <div>
-                            <MDBCard style={cardStyles}>
-                                <MDBRow className='g-0'>
-                                    <MDBCol md='4'>
-                                        <MDBCardImage src='https://res.cloudinary.com/djg9iitcl/image/upload/v1631205509/emily-sea-coiWR0gT8Cw-unsplash_jybqtd.jpg' alt='...' fluid  style = {imageStyles}/>
-                                    </MDBCol>
-                                    <MDBCol md='8'>
-                                        <MDBCardBody>
-                                            <MDBCardTitle style = {headingStyles}>{row.FirstName} {row.LastName}</MDBCardTitle>
-                                            <hr
-                                                style={{
-                                                    color: 'white',
-                                                    height: 5
-                                                }}
-                                            />
-                                                <MDBCardText>
-                                                    <div style = {textDesign}>
-                                                        NIC NUMBER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.NICNumber} <br></br>
-                                                        DATE OF BIRTH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.DOB.substring(0,10)} <br></br>
-                                                        WORKING SHIFT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.Shift}<br></br>
-                                                        GENDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.Gender}<br></br>
-                                                        MOBILE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.Mobile}<br></br>
-                                                        ADDRESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.Address}<br></br>
-                                                    </div>
-                                                </MDBCardText>
-                                        </MDBCardBody>
-                                    </MDBCol>
-                                </MDBRow>
-                            </MDBCard>
-                            <br></br>
-                        </div>
-                    ))
-                }
+                </section>
             </div>
-        </div> 
-    )
+        );
+    }
 }
 
-const textDesign = {
-    fontSize: '16px',
+const bgColor = {
+    backgroundColor: 'black'
+}
+
+const thankStyles = {
     color: 'white',
-    lineHeight: '26px'
+    marginLeft: '140px',
+    marginTop: '50px'
 }
 
-const imageStyles = {
-    width: '200px',
-    height: '200px',
-    marginTop: '25px',
-    marginLeft: '30px'
-}
-
-const cardStyles = {
-    background: 'black',
-    opacity: 0.9,
-    marginLeft: '150px',
-    height: '250px',
-    width: '1000px'
-}
-
-const headingStyles = {
-    color: 'white',
-    fontSize: '24px'
-}
-
-const searchStyles = {
-    marginTop: '-45px',
-    marginLeft: '475px'
-}
-
-const fafaStyles = {
-    marginTop: '-100px',
-    marginLeft: '770px'
+const btnStyles = {
+    marginLeft: '150px'
 }

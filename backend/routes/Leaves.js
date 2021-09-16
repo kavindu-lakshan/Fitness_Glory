@@ -7,7 +7,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/admin/leaves/add').post((req, res) => {
+router.route('/employee/leaves/add').post((req, res) => {
     const NICNumber = req.body.NICNumber;
     const Request = req.body.Request;
     const LeaveDate = Date.parse(req.body.LeaveDate);

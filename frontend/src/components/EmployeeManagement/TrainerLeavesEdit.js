@@ -3,6 +3,34 @@ import { Component } from "react";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import ImageBoxAnimation from "./ImageBoxAnimated7";
+import ScrollToTop from "react-scroll-to-top";
+
+const Wrapper = styled.div``;
+
+const StyledButton = withStyles({
+    root: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 3,
+      border: 0,
+      color: 'black',
+      height: 48,
+      width: '200px',
+      padding: '0 30px',
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      textAlign: 'center',
+      marginLeft: '400px',
+      marginTop: '-20px',
+      fontWeight: 'bold',
+      
+    },
+    label: {
+      textTransform: 'capitalize'
+    },
+  })(Button);
 
 export default class TrainerLeavesEdit extends Component{
         
@@ -25,7 +53,8 @@ export default class TrainerLeavesEdit extends Component{
             ReturnDate: new Date(),
             LeaveTime: '',
             ReturnTime: '',
-            Status: ''
+            Status: '',
+            errors: {}
         }
     }
 
@@ -94,6 +123,7 @@ export default class TrainerLeavesEdit extends Component{
         });
     }
 
+
     onSubmit(e) {
         e.preventDefault();
         
@@ -110,24 +140,35 @@ export default class TrainerLeavesEdit extends Component{
         console.log(Leave);
 
         axios.post('http://localhost:5000/Leaves/admin/updateL/'+this.props.match.params.id, Leave)
-        .then(res => console.log(res.data));
+        .then(()=>{
+            alert("The leave has been approved/ rejected!")
+            window.location = '/admin/EmployeeHome';
+        }).catch((err)=>{
+            alert("Error in approving/rejecting leave!")
+        })
 
-        window.location = '/';
-    }
+        
+        }
 
     render(){
         return (
             <div>
-                
-        
+                 <br></br>     
+          <Wrapper>
+                <ImageBoxAnimation/>
+            </Wrapper>
+            <div style = {backgroundStyles}>
+              <br></br>
+            <h1 style = {topicStyles}>DECLINE/ APPROVE LEAVE REQUESTS</h1>
+            </div>
+            <ScrollToTop smooth style = {scrollStyles} />
+            <div style = {backStyles}>
+            <br></br>
                 <form onSubmit = {this.onSubmit}>
                       
                     <div className = "form-group">
-                        <label > NIC NUMBER : </label>
+                        <label style= {labelStyles}> NIC NUMBER : </label>
                         <div>
-                        <div>
-                        <i style = {fafaStyles} class="fas fa-pencil-alt" value="" onClick={this.handleClick.bind(this)}></i>
-                        </div>
                         <input  
                             type = "text"
                             required
@@ -135,6 +176,7 @@ export default class TrainerLeavesEdit extends Component{
                             value = {this.state.NICNumber}
                             onChange = {this.onChangeNICNumber}
                             style = {inputStyles}
+                            disabled
                         />
                         </div>
                         <div>
@@ -142,9 +184,6 @@ export default class TrainerLeavesEdit extends Component{
                     </div>
                     <div className = "form-group">
                         <label style= {labelStyles}> REQUEST : </label>
-                        <div>
-                        <i style = {fafaStyles} class="fas fa-pencil-alt" value="" onClick={this.handleClick.bind(this)}></i>
-                        </div>
                         <input 
                             type = "text"
                             required
@@ -152,12 +191,14 @@ export default class TrainerLeavesEdit extends Component{
                             value = {this.state.Request}
                             onChange = {this.onChangeRequest}
                             style = {inputStyles}
+                            disabled
                         />
                     </div>
                     <div className = "form-group">
                         <label style= {labelStyles}> LEAVE DATE: </label>
                         <div style = {DateStyles}>
                             <DatePicker
+                                disabled
                                 selected = {this.state.LeaveDate}
                                 onChange = {this.onChangeLeaveDate}
                             />
@@ -168,6 +209,7 @@ export default class TrainerLeavesEdit extends Component{
                         <label style= {labelStyles}> RETURN DATE : </label>
                         <div style = {DateStyles}>
                             <DatePicker
+                                disabled
                                 selected = {this.state.ReturnDate}
                                 onChange = {this.onChangeReturnDate}
                             />
@@ -176,9 +218,6 @@ export default class TrainerLeavesEdit extends Component{
                     <br></br>
                     <div className = "form-group">
                         <label style= {labelStyles}> LEAVE TIME : </label>
-                        <div>
-                        <i style = {fafaStyles} class="fas fa-pencil-alt" value="" onClick={this.handleClick.bind(this)}></i>
-                        </div>
                         <input
                             type = "text"
                             required
@@ -186,13 +225,11 @@ export default class TrainerLeavesEdit extends Component{
                             value = {this.state.LeaveTime}
                             onChange = {this.onChangeLeaveTime}
                             style = {inputStyles}
+                            disabled
                         />
                     </div>
                     <div className = "form-group">
                         <label style= {labelStyles}> RETURN TIME : </label>
-                        <div>
-                        <i style = {fafaStyles} class="fas fa-pencil-alt" value="" onClick={this.handleClick.bind(this)}></i>
-                        </div>
                         <input
                             type = "text"
                             required
@@ -200,38 +237,89 @@ export default class TrainerLeavesEdit extends Component{
                             value = {this.state.ReturnTime}
                             onChange = {this.onChangeReturnTime}
                             style = {inputStyles}
+                            disabled
                         />
                     </div>
+                    
                     <div className = "form-group">
-                        <label style= {labelStyles}> STATUS : </label>
-                        <div>
-                        <i style = {fafaStyles} class="fas fa-pencil-alt" value="" onClick={this.handleClick.bind(this)}></i>
+                            <label style= {labelStyles}> STATUS: </label>
+                            <div onChange = {this.onChangeStatus} required>
+                                <span>
+                                    <input style = {radioStyles1} type="radio" value="approve" name="gender" required/>
+                                        <span 
+                                            style = {label2Styles} class="to-be-red">APPROVE
+                                        </span>
+                                </span>
+                                <span>
+                                    <input style = {radioStyles2} type="radio" value="reject" name="gender" />
+                                        <span 
+                                            style = {label2Styles}  class="to-be-red">REJECT
+                                        </span>
+                                </span>
+                            </div>
                         </div>
-                        <input
-                            type = "text"
-                            required
-                            className = "form-control"
-                            value = {this.state.Status}
-                            onChange = {this.onChangeStatus}
-                            style = {inputStyles}
-                        />
-                    </div>
+
+                    
                     <br></br>
                     <br></br>
                     <div className = "form-group" >
-                        <input type = "submit" value = "Accept/Reject" className = "btn btn-primary" />
+                        <input type = "submit" value = "ACCEPT/REJECT" className = "btn btn-primary" style = {submitStyles}/>
                     </div>
                 </form>
                 </div>
+                </div>
+            
         )
     }
 }
 
 
 const fafaStyles = {
-    marginLeft: '860px',
+    marginLeft: '870px',
     marginBottom: '30px',
-    color: 'red'
+    color: 'white'
+}
+
+const StatusStyles = {
+    marginLeft: '86px',
+    height: '30px',
+    width: '240px'
+}
+
+const backgroundStyles = {
+  backgroundColor: 'black',
+  height: '80px',
+  width: '1229px',
+  marginLeft: '55px'
+}
+
+const scrollStyles = {
+    color: 'black',
+    backgroundColor: 'grey'
+}
+
+const submitStyles = {
+    marginTop: '-60px',
+    marginLeft: '500px',
+    textDecoration: 'none',
+    width: '240px',
+    height: '50px',
+    color: 'black',
+    fontSize: '16px',
+    animation: 'glowing 1300ms infinite',
+    background: 'linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)'
+}
+
+const backStyles = {
+    backgroundColor: 'black',
+    width: '1229px',
+    marginLeft: '55px'
+}
+  
+const topicStyles = {
+    color: 'white',
+    textAlign: 'center',
+    marginLeft: '45px'
 }
 
 const inputStyles = {
@@ -241,21 +329,43 @@ const inputStyles = {
     borderBottom: 'groove',
     borderBottomColor:'grey',
     backgroundColor: 'black',
-    width: '400px',
-    marginLeft: '500px',
-    color: 'red',
+    width: '360px',
+    marginLeft: '540px',
+    color: 'white',
     textAlign: 'left',
     fontSize: '18px',
-    marginTop: '-65px'
+    marginTop: '-50px'
 }
 
 const labelStyles = {
-    color: 'red',
+    color: 'white',
     fontSize: '18px',
     marginLeft: '350px'
 }
 
 const DateStyles = {
-    marginLeft: '500px',
+    marginLeft: '540px',
     marginTop: '-25px'
+}
+
+const radioStyles1 = {
+    marginLeft: '540px',
+    marginTop: '-150px',
+    height: '20px',
+    width: '20px',
+    textColor: 'white'
+}
+
+const radioStyles2 = {
+    marginLeft: '45px',
+    marginTop: '-30px',
+    height: '20px',
+    width: '20px',
+    textColor: 'white'
+}
+
+const label2Styles = {
+    color: 'white',
+    marginLeft: '10px',
+    marginTop: '-10px'
 }

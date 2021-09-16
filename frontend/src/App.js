@@ -24,6 +24,7 @@ import { AllTrainerLeaves } from "./components/EmployeeManagement/AllTrainerLeav
 import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
 import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
 import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
+import { AllSalaries } from "./components/EmployeeManagement/ViewSalaries";
 /*Janudi --> Employee Registration ---> End*/
 
 //shehan imports
@@ -112,8 +113,8 @@ import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
 import TrainerRegisterScreen from "./Screens/RegisterScreen/TrainerRegisterScreen";
 import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
 import TrainerHeader from "./components/Header/TrainerHeader";
-import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
+import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 
 // {/*----------->> Amantha Events <<-----------*/}
 import AddEvents from "./components/Events/AddEvents";
@@ -294,7 +295,6 @@ const App = () => {
           path="/employee/trainerHome"
           component={() => <TrainerHomePage />}
         />
-        <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
         {/*----------->> Amantha Event Routes <<-----------*/}
         <Route path="/employee/allevents" component={AllEvents} />
@@ -324,49 +324,23 @@ const App = () => {
         <Route path="/admin/adminPanel" component={memberPannel}></Route>
 
         {/*Janudi Routes --> Begin*/}
-        <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
-        <Route exact path="/admin/RegisterMenu" component={RegisterMenu} />
-        <Route
-          exact
-          path="/admin/CleanerRegistrationForm"
-          component={CleanerRegistrationForm}
-        />
-        <Route
-          exact
-          path="/admin/ViewEmployeeInterface"
-          component={ViewEmployeeInterface}
-        />
-        <Route
-          exact
-          path="/admin/EditCleanerInterface"
-          component={AllCleaners}
-        />
-        <Route exact path="/admin/update/:id" component={EditCleaner} />
-        <Route
-          exact
-          path="/admin/DeleteCleanerInterface"
-          component={DeleteCleaners}
-        />
-        <Route exact path="/admin/delete/:id" component={DeleteConf} />
-        <Route exact path="/admin/leaves/add" component={LeaveRegistration} />
-        <Route
-          exact
-          path="/employee/CreateLeave"
-          component={LeaveRegistration}
-        />
-        <Route exact path="/admin/leaves" component={AllTrainerLeaves} />
-        <Route exact path="/admin/leave/:Status" component={LeavesList} />
-        <Route exact path="/admin/updateL/:id" component={TrainerLeavesEdit} />
-        <Route
-          exact
-          path="/admin/salary/add"
-          component={CreateEmployeeSalary}
-        />
-        <Route
-          exact
-          path="/admin/CreateSalary"
-          component={CreateEmployeeSalary}
-        />
+        <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
+        <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
+        <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
+        <Route exact path = "/admin/ViewEmployeeInterface" component = {ViewEmployeeInterface}/>
+        <Route exact path = "/admin/EditCleanerInterface" component = {AllCleaners}/>
+        <Route exact path = "/admin/update/:id" component = {EditCleaner}/>
+        <Route exact path = "/admin/DeleteCleanerInterface" component = {DeleteCleaners}/>
+        <Route exact path = "/admin/delete/:id" component = {DeleteConf}/>
+        <Route exact path = "/admin/leaves/add" component = {LeaveRegistration}/>
+        <Route exact path = "/employee/CreateLeave" component = {LeaveRegistration}/>
+        <Route exact path = "/admin/leaves" component = {AllTrainerLeaves}/>
+        <Route exact path = "/admin/leave/:Status" component = {LeavesList}/>
+        <Route exact path = "/admin/updateL/:id" component = {TrainerLeavesEdit}/>
+        <Route exact path = "/admin/salary/add" component = {CreateEmployeeSalary}/>
+        <Route exact path = "/admin/CreateSalary" component = {CreateEmployeeSalary}/>
+        <Route exact path = "/admin/salary" component = {AllSalaries}/>
+        <Route exact path = "/admin/ViewSalaries" component = {AllSalaries}/>
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}
@@ -421,6 +395,7 @@ const App = () => {
 
         <Route path="/member" component={Footer} />
         <Route path="/employee" component={FooterTrainer} />
+        <Route path="/admin" component={Footer} />
       </main>
     </BrowserRouter>
   );
