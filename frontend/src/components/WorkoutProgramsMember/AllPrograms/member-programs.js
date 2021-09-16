@@ -73,10 +73,16 @@ export default class AllprogramsMemer extends Component {
 
     render() {
         return (
-          <div className="container" style={{marginTop:'20px'}}>
+            <div style={{  
+                backgroundImage: "url(" + "https://res.cloudinary.com/fitness-glory/image/upload/v1630854420/outlook-photography-and-studio-CvvF9lPJy6U-unsplash_cmxfi8.jpg" + ")",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
+              }}>
+          <div className="container">
             <div className="row">
                 <div className="col-lg-9 mt-2 mb-2">
-                    <h1>Workout Programs</h1>
+                    <h1 className="text-light">Workout Programs</h1>
                 </div>
                 <div className="col-lg-3 mt-2 mb-2">
                     <input className="form-control"
@@ -88,7 +94,7 @@ export default class AllprogramsMemer extends Component {
                 </div>
                 <hr/>
             </div>
-            <div className="row" style={{marginTop:'30px'}}>
+            <div className="row" style={{marginTop:'30px'}} >
                 {this.state.programs.map((program, index) => (
                     <div className="col-md-4 col-sm-6" key={index}>
                         <Workoutprogramcard
@@ -98,6 +104,7 @@ export default class AllprogramsMemer extends Component {
                     </div>
                 ))}            
             </div>
+          </div>
           </div>
         )
       }

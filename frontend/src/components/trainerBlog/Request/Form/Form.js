@@ -35,8 +35,8 @@ const Form = ({ currentId, setCurrentId }) => {
     what: "",
     email: "",
   });
-  const [creatorerror, setTitleerror] = useState({});
-  const [titleerror, setCreatorerror] = useState({});
+  const [creatorerror, setCreatorerror] = useState({});
+  const [titleerror, setTitleerror] = useState({});
   const [messageerror, setMessageerror] = useState({});
   const [tagserror, setTagserror] = useState({});
   const [whaterror, setWerror] = useState({});

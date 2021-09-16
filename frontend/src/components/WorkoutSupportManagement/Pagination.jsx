@@ -27,7 +27,7 @@ const Paginate = ({ page }) => {
             <PaginationItem
               {...item}
               component={Link}
-              to={`/workouts?page=${item.page}`}
+              to={`/employee/workouts?page=${item.page}`}
             />
           )}
           style={{ height: "100px" }}

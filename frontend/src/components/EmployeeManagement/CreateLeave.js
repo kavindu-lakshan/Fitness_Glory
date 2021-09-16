@@ -104,7 +104,7 @@ export default class LeaveRegistration extends Component{
             Status: this.state.Status
         }
 
-        axios.post('http://localhost:5000/Leaves/admin/leaves/add', Leave).then(()=>{
+        axios.post('http://localhost:5000/Leaves/employee/leaves/add', Leave).then(()=>{
             alert("Leave requested successfully!")
         }).catch((err)=>{
         })

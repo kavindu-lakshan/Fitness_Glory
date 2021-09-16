@@ -4,6 +4,7 @@ import { getFeedback } from '../../api/apiFBQA';
 import { useRouteMatch } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import { NavBarFB } from './NavBarFB';
+import './scrollBar.css'
 // import feedbackBg from './ImagesD/feedbackBg.png'
 
 export const Feedback = () => {
@@ -31,7 +32,7 @@ export const Feedback = () => {
                 <br/>
                 <h3 style={labelStyle}className = "text-center">MY FEEDBACKS</h3>
                 <div style={hideScroll}>
-                <div style={scrollable}>
+                <div className="carbrQ" style={scrollable}>
                 <table style ={textStyle} class="table">
                 <thead>
                     <tr>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { getTrainers } from '../../api/apiFBQA';
 import { Button } from '@material-ui/core';
 import { NavBarFB } from './NavBarFB';
+import './scrollBar.css'
 // import trainersBg from './ImagesD/trainersBg.png'
 
 export const Trainers = () =>{
@@ -29,7 +30,7 @@ export const Trainers = () =>{
                 <br/>
                 <h3 style={labelStyle}className = "text-center">TRAINERS</h3>
                 <div style={hideScroll}>
-                <div style={scrollable}>
+                <div className="carbrQ" style={scrollable}>
                 <table style ={textStyle} class="table">
                 <thead>
                     <tr>                       

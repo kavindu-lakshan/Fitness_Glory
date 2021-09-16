@@ -39,7 +39,7 @@ export default function TrainerHomePage() {
           <br /> as you want Now!
         </p>
         <div className="btnAma">
-          <a href="/trainer-profile">
+          <a href="/employee/trainer-profile">
             <span>View Profile</span>
           </a>
         </div>
@@ -58,7 +58,7 @@ export default function TrainerHomePage() {
           Lifestyles Now!
         </p>
         <div className="btnAma">
-          <a href="eventspage">
+          <a href="/employee/eventspage">
             <span>Create Events</span>
           </a>
         </div>
@@ -75,15 +75,15 @@ export default function TrainerHomePage() {
           you need to take to plan and organize <br />a fitness event.{" "}
         </p>
         <div className="btnAma">
-          <a href="allevents">
+          <a href="/employee/allevents">
             <span>All Events</span>
           </a>
         </div>
-        <div className="btnAma1">
+        {/* <div className="btnAma1">
           <a href="#">
             <span>Manage Events</span>
           </a>
-        </div>
+        </div> */}
       </div>
 
       <div style={style4}>
@@ -115,7 +115,7 @@ export default function TrainerHomePage() {
           <br /> your own schedules from here!
         </p>
         <div className="btnAma">
-          <a href="#">
+          <a href="/employee/PreAdmin">
             <span style={{ fontSize: "13px" }}>Create Schedules</span>
           </a>
         </div>
@@ -133,7 +133,7 @@ export default function TrainerHomePage() {
           to help them to find ways to be more active and fit.
         </p>
         <div className="btnAma">
-          <a href="#">
+          <a href="/employee/trainerblog/Admin">
             <span>View Blogs</span>
           </a>
         </div>
