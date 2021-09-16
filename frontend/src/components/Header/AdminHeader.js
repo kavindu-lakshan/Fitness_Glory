@@ -39,6 +39,9 @@ const Header = () => {
               <Nav.Link href="/admin/memberDetails">
                 <Link to="/admin/memberDetails">Members</Link>
               </Nav.Link>
+              <Nav.Link href="/admin/ViewEmployeeInterface">
+                <Link to="/admin/ViewEmployeeInterface">Employees</Link>
+                </Nav.Link>
               <Nav.Link href="/admin/programs">
                 <Link to="/admin/programs">Programs</Link>
               </Nav.Link>

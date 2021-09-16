@@ -82,35 +82,17 @@ const TrainerHeader = () => {
                 {/* <NavDropdown.Divider /> */}
               </NavDropdown>
 
-
-
-
-
-
-{/* 
-              <Nav.Link href="/employee/trainerHome">
-                <Link to="/employee/trainerDetails">All Trainers</Link>
-              </Nav.Link> */}
-
-              <NavDropdown
-                title={trainerInfo?.username}
-                id="basic-nav-dropdown"
-              >
+              <NavDropdown title={trainerInfo?.username} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/employee/trainer-profile">
-                  My Profile
+                My Profile
                 </NavDropdown.Item>
-
-                <NavDropdown
-                  title={trainerInfo?.username}
-                  id="basic-nav-dropdown"
-                />
+                <NavDropdown.Divider />
                 <NavDropdown.Item href="/employee/feedback/:username">
-                  My Feedback
+                My Feedback
                 </NavDropdown.Item>
-
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logoutHandler}>
-                  Logout
+                Logout
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
