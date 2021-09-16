@@ -1,0 +1,116 @@
+/* hide scrollbar but allow scrolling */
+.carousel_border {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  display: flex;
+  border-top: 3px solid rgb(165, 165, 165);
+  border-bottom: 3px solid rgb(165, 165, 165);
+  border-left: 3px solid rgb(165, 165, 165);
+  border-right: 3px solid rgb(165, 165, 165);
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(255, 253, 253, 0.568),
+    0 6px 20px 0 rgba(255, 255, 255, 0.575);
+  border-radius: 30px;
+}
+
+.carousel_border::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.btn a {
+  position: relative;
+  color: #f5f5f5;
+  height: 50px;
+  width: 180px;
+  display: block;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  background-image: linear-gradient(
+    115deg,
+    #00ff40,
+    #ffcf0e,
+    rgb(255, 0, 0),
+    #ad5cff,
+    #00b7ff,
+    #91ff00
+  );
+  animation: rotate 1s linear infinite;
+  margin-top: -5px;
+}
+.btn a:hover {
+  animation: rotate 0.3s linear infinite;
+}
+@keyframes rotate {
+  100% {
+    filter: hue-rotate(-360deg);
+  }
+}
+.btn a span {
+  height: 86%;
+  width: 95%;
+  background: #111;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  line-height: 38px;
+  font-size: 15px;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+}
+
+.btnUp a {
+  position: relative;
+  color: #f5f5f5;
+  height: 40px;
+  width: 100px;
+  display: block;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: green;
+  margin-top: -5px;
+  display: flex;
+  border-top: 3px solid rgb(128, 128, 128);
+  border-bottom: 3px solid grey;
+  border-left: 3px solid grey;
+  border-right: 3px solid grey;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(251, 255, 5, 0.692),
+    0 6px 20px 0 rgba(1, 255, 22, 0.575);
+  border-radius: 30px;
+}
+.btnUp a:hover {
+  animation: rotate 0.7s infinite;
+}
+@keyframes rotate {
+  100% {
+    filter: hue-rotate(-360deg);
+  }
+}
+.btnUp a span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  line-height: 38px;
+  font-size: 10px;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+}
+
+.btnUp a i {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  line-height: 38px;
+  font-size: 10px;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+  margin-left: -29px;
+}

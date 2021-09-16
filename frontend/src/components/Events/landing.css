@@ -1,61 +1,4 @@
-.main {
-  min-height: 93vh;
-  display: flex;
-  align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.568), rgba(0, 0, 0, 0.568)),
-    url("https://res.cloudinary.com/fitness-glory/image/upload/v1631729658/couple-training-together-gym_kbqacr.jpg");
-  background-position: center;
-  background-size: cover;
-  background-position: 0px 0;
-  background-repeat: no-repeat;
-}
-
-.title {
-  font-size: 95px;
-  color: #ffffff;
-}
-.subtitle {
-  font-size: 25px;
-  color: #ffffff;
-  padding-top: 10px;
-}
-
-.intro-text {
-  width: 100%;
-  text-align: center;
-}
-
-.buttonContainer {
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.landingbutton {
-  width: 200px;
-  height: 55px;
-}
-
-@media only screen and (min-width: 1200px) {
-  .buttonContainer {
-    padding: 0 200px;
-  }
-  .title {
-    padding: 0 100px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .title {
-    font-size: 60px;
-  }
-  .landingbutton {
-    width: 150px;
-    height: 50px;
-  }
-}
-
-.myBtnLand {
+.myBtn {
   border: none;
   width: 180px;
   height: 50px;
@@ -90,7 +33,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #04938b;
+  background: red;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
