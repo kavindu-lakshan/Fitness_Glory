@@ -17,6 +17,8 @@ import {
 } from "./reducers/adminReducers";
 import { work } from "./reducers/workouts";
 import { blogposts } from "./reducers/blogposts";
+import { preposts } from './reducers/preposts';
+
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -28,6 +30,7 @@ const reducer = combineReducers({
   blogposts: blogposts,
   adminLogin: adminLoginReducer,
   adminUpdate: adminUpdateReducer,
+  preposts: preposts,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

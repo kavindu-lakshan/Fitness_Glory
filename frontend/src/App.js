@@ -46,6 +46,7 @@ import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
 //Sandani's imports
+/*request workout schedules CRUD function*/
 import CreateRequest from "./components/RequestSchedule/CreateRequest";
 import HomeRequest from "./components/RequestSchedule/HomeRequest";
 import EditRequest from "./components/RequestSchedule/EditRequest";
@@ -53,6 +54,11 @@ import RequestDetails from "./components/RequestSchedule/RequestDetails";
 import NavBar from "./components/RequestSchedule/NavBar";
 import MemHome from "./components/RequestSchedule/MemHome";
 import SchReport from "./components/RequestSchedule/SchReport";
+
+/*pre-defined workout schedule function*/
+import PreAdmin from './components/PreSchedules/PreAdmin';
+import PreAdmin_Mem from './components/PreSchedules/PreAdmin_Mem';
+import { getPrePosts } from './actions/preposts';
 
 //-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
@@ -138,6 +144,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+    
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
       <Route path="/admin" component={AdminHeader} />
@@ -223,7 +230,15 @@ const App = () => {
         ></Route>
         <Route path="/blogposts/:id" component={PostBDetails} />
       </div>
+
+
+        
+
+
+
+
       {/**Sandani */}
+      {/**predefined schedules requests CRUD */}
       <div className="container">
         <Route
           path="/employee/scheduleR/HomeRequest"
@@ -250,6 +265,22 @@ const App = () => {
           component={RequestDetails}
         ></Route>
       </div>
+      {/*Sandani-predefiend schedules  */}
+      <div className="container">
+      <Route
+          path="/employee/PreAdmin"
+          exact
+          component={() => <PreAdmin setCurrentId={setCurrentId} />}
+        ></Route>
+
+      <Route
+          path="/member/PreAdmin_Mem"
+          exact
+          component={() => <PreAdmin_Mem setCurrentId={setCurrentId} />}
+        ></Route>
+        </div>
+
+
 
       <main>
         <Route path="/member" component={LandingPage} exact />
