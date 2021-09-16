@@ -130,6 +130,12 @@ export default class EditProgramAdmin extends Component {
 
     render() {  
         return (
+            <div style={{  
+                backgroundImage: "url(" + "https://res.cloudinary.com/fitness-glory/image/upload/v1630854420/outlook-photography-and-studio-CvvF9lPJy6U-unsplash_cmxfi8.jpg" + ")",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
+              }}>
             <EditProgramForm
                 values={this.state}
                 handleInputChange={this.handleInputChange}
@@ -137,6 +143,7 @@ export default class EditProgramAdmin extends Component {
                 handlePhoto={this.handlePhoto}
                 handleUpload={this.handleUpload}
             />
+            </div>
         )
     }
 }

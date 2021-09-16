@@ -73,7 +73,7 @@ const Header = () => {
                   Request
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="">pre-defines</NavDropdown.Item>
+                <NavDropdown.Item href="/member/PreAdmin_Mem">pre-defines</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown
                 title={userInfo?.name}

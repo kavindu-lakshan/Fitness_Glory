@@ -4,11 +4,12 @@ function CreateProgramForm(props) {
     return (
         <div className="">
             <div className='col-md-8 mx-auto mb-2'>
-                <h1>Create new program</h1>
+                <h1 className="text-light">Create new program</h1>
                 <hr/>
+                <div className="px-3 py-3 bg-dark">
                     <form className='needs-validation' noValidate encType='multipart/form-data'>
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Cover photo</p><br/>
+                            <label>Cover photo</label><br/>
                             <img src={props.values.previewURL} class="img-fluid"/>
                             <input 
                                 type="file" 
@@ -19,9 +20,9 @@ function CreateProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Name</p>
+                            <label style={{marginBottom:'5px'}}>Name</label>
                             <input type="text"
-                            className="form-control"
+                            className="form-control "
                             name="name"
                             placeholder="Enter name"
                             value={props.values.name}
@@ -29,7 +30,7 @@ function CreateProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Description</p>
+                            <label style={{marginBottom:'5px'}}>Description</label>
                             <input type="text"
                             className="form-control"
                             name="description"
@@ -38,7 +39,7 @@ function CreateProgramForm(props) {
                             onChange={props.handleInputChange}/>
                         </div>
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Conducted by</p>
+                            <label style={{marginBottom:'5px'}}>Conducted by</label>
                             <input type="text"
                             className="form-control"
                             name="conducted_by"
@@ -48,7 +49,7 @@ function CreateProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Monthly Fee (Rs)</p>
+                            <label style={{marginBottom:'5px'}}>Monthly Fee (Rs)</label>
                             <input type="number"
                             className="form-control"
                             name="fee"
@@ -58,7 +59,7 @@ function CreateProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Starting Time</p>
+                            <label style={{marginBottom:'5px'}}>Starting Time</label>
                             <input type="time"
                             className="form-control"
                             name="time"
@@ -68,8 +69,8 @@ function CreateProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Conducting Day</p>
-                            <select className="dropdown-toggle" name="day" id="day" onChange={props.handleInputChange}>
+                            <label style={{marginBottom:'5px'}}>Conducting Day</label>
+                            <select className="dropdown-toggle mx-2 btn btn-info" name="day" id="day" onChange={props.handleInputChange}>
                                 <option>Choose..</option>
                                 <option value="Mondays">Mondays</option>
                                 <option value="Tuesdays">Tuesdays</option>
@@ -90,6 +91,7 @@ function CreateProgramForm(props) {
                             Demo
                         </button>
                     </form>
+                    </div>
             </div>
             </div>
     )

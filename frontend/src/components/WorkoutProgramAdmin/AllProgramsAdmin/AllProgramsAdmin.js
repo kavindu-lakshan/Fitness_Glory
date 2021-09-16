@@ -63,11 +63,18 @@ export default class AllProgramsAdmin extends Component {
 
     render() {
         return (
+          <div style={{  
+            backgroundImage: "url(" + "https://res.cloudinary.com/fitness-glory/image/upload/v1630854420/outlook-photography-and-studio-CvvF9lPJy6U-unsplash_cmxfi8.jpg" + ")",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+          }}>
             <AllProgramsView
               values={this.state.programs}
               onDelete={this.onDelete}
               handleSearchArea={this.handleSearchArea}
             />
+            </div>
         )
       }
     }
