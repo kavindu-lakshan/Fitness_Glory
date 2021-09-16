@@ -2,26 +2,27 @@ import React from "react";
 
 export default function Programexpandview(props) {
   return (
-    <div style={{ marginTop: "20px" }} className="container">
-      <div className="card rounded shadow border">
+    <div className="container">
+      <div className="card rounded shadow bg-dark">
         <img className="card-img-top" src={props.values.photoURL} />
         <div className="container">
-          <h1>{props.values.name}</h1>
+          <br/>
+          <h1 className="text-white">{props.values.name}</h1>
           <d1 className="row">
-            <dt className="">{props.values.description}</dt>
-            <dd className=""></dd>
+            <dt className="text-light">{props.values.description}</dt>
+            <dd className="text-light"></dd>
             <br />
-            <dt className="col-sm-3">Conducted by</dt>
-            <dd className="col-sm-9">{props.values.conducted_by}</dd>
+            <dt className="col-sm-3 text-light">Conducted by</dt>
+            <dd className="col-sm-9 text-light">{props.values.conducted_by}</dd>
 
-            <dt className="col-sm-3">Monthly fee (Rs)</dt>
-            <dd className="col-sm-9">{props.values.fee}</dd>
+            <dt className="col-sm-3 text-light">Monthly fee (Rs)</dt>
+            <dd className="col-sm-9 text-light">{props.values.fee}</dd>
 
-            <dt className="col-sm-3">Weekly on</dt>
-            <dd className="col-sm-9">{props.values.day}</dd>
+            <dt className="col-sm-3 text-light">Weekly on</dt>
+            <dd className="col-sm-9 text-light">{props.values.day}</dd>
 
-            <dt className="col-sm-3">Time</dt>
-            <dd className="col-sm-9">{props.values.time}</dd>
+            <dt className="col-sm-3 text-light">Time</dt>
+            <dd className="col-sm-9 text-light">{props.values.time}</dd>
           </d1>
         </div>
       </div>
