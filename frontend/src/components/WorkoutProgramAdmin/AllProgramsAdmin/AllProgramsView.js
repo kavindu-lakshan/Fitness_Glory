@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function AllProgramsView(props) {
     return (
-        <div style={{marginTop:'20px'}} className="container">
+        <div  className="container">
           <div className="row">
             <div className="col-lg-9 mt-2 mb-2">
-              <h1>Workout Programs</h1>
+              <h1 className="text-light">Workout Programs</h1>
             </div>
             <div className="col-lg-3 mt-2 mb-2">
               <input className="form-control"
