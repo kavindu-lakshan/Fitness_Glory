@@ -116,10 +116,10 @@ import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
 
 // {/*----------->> Amantha Events <<-----------*/}
-import AddEvents from './components/Events/AddEvents';
-import AllEvents from './components/Events/AllEvents';
-import UpdateEvent from './components/Events/UpdateEvent';
-import EventDetails from './components/Events/EventDetails';
+import AddEvents from "./components/Events/AddEvents";
+import AllEvents from "./components/Events/AllEvents";
+import UpdateEvent from "./components/Events/UpdateEvent";
+import EventDetails from "./components/Events/EventDetails";
 import AddInterest from "./components/Interests/AddInterest";
 import AllInterest from "./components/Interests/AllInterests";
 import EventLandingPage from "./components/Events/EventLandingPage";
@@ -149,13 +149,11 @@ const App = () => {
       <Route path="/member" component={Header} />
       <Route path="/admin" component={AdminHeader} />
       <Route path="/employee/" component={TrainerHeader} />
-      <div className="container-fluid">
-        <Route
-          path="/employee/workouts"
-          exact
-          component={() => <Workouts setCurrentId={setCurrentId} />}
-        ></Route>
-      </div>
+      <Route
+        path="/employee/workouts"
+        exact
+        component={() => <Workouts setCurrentId={setCurrentId} />}
+      ></Route>
       <Route
         path="/employee/workouts/add"
         exact
@@ -293,23 +291,41 @@ const App = () => {
         {/*----------->> Amantha Trainer Login Routes <<-----------*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
-        <Route path="/employee/trainer-profile"component={TrainerProfileScreen}/>
-        <Route path="/admin/trainer-register"component={TrainerRegisterScreen}/>
-        <Route path="/employee/trainerHome"component={() => <TrainerHomePage />}/>
+        <Route
+          path="/employee/trainer-profile"
+          component={TrainerProfileScreen}
+        />
+        <Route
+          path="/admin/trainer-register"
+          component={TrainerRegisterScreen}
+        />
+        <Route
+          path="/employee/trainerHome"
+          component={() => <TrainerHomePage />}
+        />
         <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
         {/*----------->> Amantha Event Routes <<-----------*/}
-        <Route path="/employee/allevents" component={AllEvents}/>
-        <Route path="/employee/eventspage" component={AddEvents}/> 
-        <Route path="/employee/update/:id" component={UpdateEvent}/>
-        <Route path="/member/eventdetails/:id" component={EventDetails}/>
-        <Route path="/employee/event-interest/allInterests" component={AllInterest}/>
-        <Route path="/member/allevents-member" component={AllEventsMember}/>
+        <Route path="/employee/allevents" component={AllEvents} />
+        <Route path="/employee/eventspage" component={AddEvents} />
+        <Route path="/employee/update/:id" component={UpdateEvent} />
+        <Route path="/member/eventdetails/:id" component={EventDetails} />
+        <Route
+          path="/employee/event-interest/allInterests"
+          component={AllInterest}
+        />
+        <Route path="/member/allevents-member" component={AllEventsMember} />
 
         {/*----------->> Amantha Interest Routes <<-----------*/}
-        <Route path="/event-interest/addInterests" component={AddInterest}/>
-        <Route path="/member/event-interest/event-landing" component={EventLandingPage}/>
-        <Route path="/employee/event-interest/allInterests" component={AllInterest}/>
+        <Route path="/event-interest/addInterests" component={AddInterest} />
+        <Route
+          path="/member/event-interest/event-landing"
+          component={EventLandingPage}
+        />
+        <Route
+          path="/employee/event-interest/allInterests"
+          component={AllInterest}
+        />
         {/*________________________ Amantha Routes End  ________________________*/}
 
         <Route path="/admin/memberDetails" component={viewMembers}></Route>
