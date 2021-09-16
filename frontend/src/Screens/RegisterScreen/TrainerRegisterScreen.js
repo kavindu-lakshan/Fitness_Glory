@@ -210,6 +210,8 @@ const TrainerRegisterScreen = () => {
                   value={nic}
                   onChange={(e) => setNic(e.target.value)}
                   required="required"
+                  maxlength="12"
+                  minLength="10"
                   style={{
                     color: "white",
                     background: "transparent",
@@ -271,13 +273,14 @@ const TrainerRegisterScreen = () => {
                   Mobile Phone
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   id="mobile"
                   className="form-input"
-                  placeholder="Enter Trainer's Contact"
+                  placeholder="Enter Trainer's Contact-0777112233"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                   required="required"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                   style={{
                     color: "white",
                     background: "transparent",
