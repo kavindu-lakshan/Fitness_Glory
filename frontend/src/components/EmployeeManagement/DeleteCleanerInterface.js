@@ -7,6 +7,7 @@ import { getCleaners } from './api';
 import Fade from 'react-reveal/Fade';
 import ScrollToTop from "react-scroll-to-top";
 import CreateDismissal from './CreateDismissalConnection';
+import GradientButton from 'react-linear-gradient-button';
 
 const StyledButton = withStyles({
     root: {
@@ -107,11 +108,17 @@ export const DeleteCleaners =() =>{
                                 </MDBRow>
                             </MDBCard>
                             <br></br>
+                            <br></br>
+                            <br></br>
                         </div>
                     ))
                 }
             </div>
-        </div> 
+            </div> 
+        <br></br>
+        <br></br>
+        <br></br>
+        <GradientButton style = {btnStyles2}><a href = "/admin/EmployeeHome">BACK TO HOME</a></GradientButton>
         <br></br>
         </div>
     )
@@ -209,4 +216,8 @@ const scrollStyles = {
     backgroundColor: 'grey'
 }
 
-
+const btnStyles2 = {
+    marginTop: '-130px',
+  marginLeft: '650px',
+  color: 'black'
+}

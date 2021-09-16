@@ -9,9 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { AllCleaners } from './ViewCleaners';
 import ScrollToTop from "react-scroll-to-top";
-import AllTrainers from '../../Screens/ProfileScreen/AllTrainers';
 import '../../Screens/ProfileScreen/AllTrainers.css';
 import './Background.css';
+import AllTrainers from '../../Screens/ProfileScreen/AllTrainers';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

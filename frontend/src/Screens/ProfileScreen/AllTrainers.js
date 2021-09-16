@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./AllTrainers.css";
+import GradientButton from 'react-linear-gradient-button';
 
 export default class AllTrainers extends Component {
   constructor(props) {
@@ -179,7 +180,9 @@ export default class AllTrainers extends Component {
                           </div>
                         </div>
                       ))}
+                
                     </div>
+                    <GradientButton style = {btnStyles}><a href = "/admin/EmployeeHome">BACK TO HOME</a></GradientButton>
                   </div>
                 </div>
               </div>
@@ -202,3 +205,8 @@ const bstyles = {
   width: "100%",
   marginTop: "-30px",
 };
+
+const btnStyles = {
+  marginLeft: '440px',
+  color: 'black'
+}

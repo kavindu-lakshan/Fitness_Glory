@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { getCleaners } from './api';
 import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import GradientButton from 'react-linear-gradient-button';
 
 export const AllCleaners =() =>{
     const[cleaners, setCleaners] = useState([]);
@@ -21,7 +22,7 @@ export const AllCleaners =() =>{
                 <div className = "Row">
                     <div className = "col-lg-3 mt-2 mb-2">
                         <div>
-                            <input className = "form-control" type = "text" placeholder="Search" 
+                            <input className = "form-control" type = "text" placeholder="SEARCH YOUR NIC" 
                                 onChange={(e)=>{
                                     setSearchTerm(e.target.value);
                                 }}
@@ -74,6 +75,8 @@ export const AllCleaners =() =>{
                     ))
                 }
             </div>
+            
+            <GradientButton style = {btnStyles}><a href = "/admin/EmployeeHome">BACK TO HOME</a></GradientButton>
         </div> 
     )
 }
@@ -112,4 +115,9 @@ const searchStyles = {
 const fafaStyles = {
     marginTop: '-100px',
     marginLeft: '770px'
+}
+
+const btnStyles = {
+    marginLeft: '600px',
+    color: 'black'
 }

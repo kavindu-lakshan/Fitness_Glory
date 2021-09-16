@@ -96,7 +96,7 @@ export const AllCleaners =() =>{
                                                         MOBILE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.Mobile}<br></br>
                                                         ADDRESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{row.Address}<br></br>
                                                         <br></br>
-                                                        <StyledButton style = {btnStyles}><Link to = {"/admin/update/"+row._id} style = {linkStyles}>EDIT INFORMATION</Link></StyledButton>
+                                                        <StyledButton style = {btnStyles}><Link to = {`/admin/update/${row._id}`} style = {linkStyles}>EDIT INFORMATION</Link></StyledButton>
                                                     </div>
                                                 </MDBCardText>
                                         </MDBCardBody>

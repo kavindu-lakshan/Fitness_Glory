@@ -1,7 +1,7 @@
 const router = require('express').Router();
 let Salary = require('../models/Employee_Salaries.model');
 
-router.route('/admin/').get((req, res) => {
+router.route('/admin/salary').get((req, res) => {
     Salary.find()
     .then(Salaries => res.json(Salaries))
     .catch(err => res.status(400).json('Error: ' + err));
@@ -35,12 +35,6 @@ router.route('/admin/salary/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/admin/:id').get((req, res) => {
-    Salary.findById(req.params.id)
-    .then(Salary => res.json(Salary))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
 router.route("/admin/delete/:id").delete(async (req,res)=>{
     let id=req.params.id;
     await Salary.findByIdAndDelete(id).then(()=>{
@@ -50,23 +44,5 @@ router.route("/admin/delete/:id").delete(async (req,res)=>{
     })
 })
 
-router.route('/admin/salary/update/:id').post((req, res) => {
-    Salary.findById(req.params.id)
-    .then(Cleaner => {
-        Salary.NICNumber = req.body.NICNumber;
-        Salary.Month = req.body.Month;
-        Salary.Year = req.body.Year;
-        Salary.SalaryID = req.body.SalaryID;
-        Salary.BasicSalary = req.body.BasicSalary;
-        Salary.OTHrs = req.body.OTHrs;
-        Salary.OTRate = req.body.OTRate;
-        Salary.OTTotal = req.body.OTTotal;
-        Salary.TotSalary = req.body.TotSalary;
-
-        Salary.save()
-        .then(() => res.json('The cleaner details have been updated'))
-        .catch(err => res.status(400).json('Error: ' + err));
-    });
-})
 
 module.exports = router;
