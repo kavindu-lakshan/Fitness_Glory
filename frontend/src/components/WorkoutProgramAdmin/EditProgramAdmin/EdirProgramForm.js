@@ -2,16 +2,17 @@ import React from 'react'
 
 export default function EdirProgramForm(props) {
     return (
-            <div className='col-md-8 mt-4 mx-auto'>
-                <h1>Edit Program</h1>
+            <div className='col-md-8 mx-auto'>
+                <h1 className="text-light">Edit Program</h1>
                 <hr/>
+                <div className="px-3 py-3 bg-dark">
                 <img src={props.values.previewURL} class="img-fluid" alt="Responsive image"/>
                     <form className='needs-validation' noValidate>
                         <div className='form-group' style={{marginBottom:'20px'}}>
                         <br/>
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Change Image</p>
-                            <input 
+                            <label style={{marginBottom:'5px'}}>Change Image</label>
+                            <input className="btn"
                                 type="file" 
                                 accept=".png, .jpg, .jpeg"
                                 name="photo"
@@ -19,7 +20,7 @@ export default function EdirProgramForm(props) {
                             />
                         </div>
 
-                            <p style={{marginBottom:'5px'}}>Name</p>
+                            <label style={{marginBottom:'5px'}}>Name</label>
                             <input type="text"
                             className="form-control"
                             name="name"
@@ -29,7 +30,7 @@ export default function EdirProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Description</p>
+                            <label style={{marginBottom:'5px'}}>Description</label>
                             <input type="text"
                             className="form-control"
                             name="description"
@@ -39,7 +40,7 @@ export default function EdirProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Conducted by</p>
+                            <label style={{marginBottom:'5px'}}>Conducted by</label>
                             <input type="text"
                             className="form-control"
                             name="conducted_by"
@@ -49,7 +50,7 @@ export default function EdirProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Monthly Fee (Rs)</p>
+                            <label style={{marginBottom:'5px'}}>Monthly Fee (Rs)</label>
                             <input type="number"
                             className="form-control"
                             name="fee"
@@ -59,7 +60,7 @@ export default function EdirProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Time Duration</p>
+                            <label style={{marginBottom:'5px'}}>Time Duration</label>
                             <input type="time"
                             className="form-control"
                             name="time"
@@ -69,8 +70,8 @@ export default function EdirProgramForm(props) {
                         </div>
 
                         <div className='form-group' style={{marginBottom:'20px'}}>
-                            <p style={{marginBottom:'5px'}}>Conducting Day</p>
-                            <select className="dropdown-toggle" name="day" id="day" value={props.values.day} onChange={props.handleInputChange}>
+                            <label style={{marginBottom:'5px'}}>Conducting Day</label>
+                            <select className="dropdown-toggle mx-2 btn btn-info" name="day" id="day" value={props.values.day} onChange={props.handleInputChange}>
                                 <option value="Mondays">Mondays</option>
                                 <option value="Tuesdays">Tuesdays</option>
                                 <option value="Wednesdays">Wednesdays</option>
@@ -86,6 +87,7 @@ export default function EdirProgramForm(props) {
                             &nbsp; {props.values.isLoading ? "Updating..." : "Update"}
                         </button>
                     </form>
+                    </div>
             </div>
     )
 }
