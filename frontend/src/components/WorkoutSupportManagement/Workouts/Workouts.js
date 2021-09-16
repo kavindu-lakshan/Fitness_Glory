@@ -29,8 +29,22 @@ const Workouts = ({ setCurrentId }) => {
   return !workouts?.length ? (
     <CircularProgress />
   ) : (
-    <div>
+    <div
+      style={{
+        backgroundImage:
+          "url(" +
+          "https://res.cloudinary.com/maldeniya99/image/upload/v1631461843/matthew-payne-4tHbsNGFp18-unsplash_teure1.jpg" +
+          ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        padding: "10px 20px",
+      }}
+    >
       <div className="container">
+        <h1 style={{ textAlign: "center", marginTop: "10px", color: "white" }}>
+          Workouts Library
+        </h1>
         <div className="input-group" style={{ marginTop: "20px" }}>
           <input
             type="search"

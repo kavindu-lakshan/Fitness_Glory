@@ -34,9 +34,10 @@ import AllProgramsAdmin from "./components/WorkoutProgramAdmin/AllProgramsAdmin/
 import CreateProgramAdmin from "./components/WorkoutProgramAdmin/CreateProgramAdmin/CreateProgramAdmin";
 import EditProgramAdmin from "./components/WorkoutProgramAdmin/EditProgramAdmin/EditProgramAdmin";
 import ProgramDetailsAdmin from "./components/WorkoutProgramAdmin/ProgramDetailsAdmin/ProgramDetailsAdmin";
+import Programexpand from "./components/WorkoutProgramsMember/SelectProgram/Programexpand";
 
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/footer";
 import FooterTrainer from "./components/Footer/FooterTrainer";
 import LandingPage from "./Screens/LandingPage/LandingPage";
 import HomePage from "./Screens/HomePage/HomePage";
@@ -45,6 +46,7 @@ import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 
 //Sandani's imports
+/*request workout schedules CRUD function*/
 import CreateRequest from "./components/RequestSchedule/CreateRequest";
 import HomeRequest from "./components/RequestSchedule/HomeRequest";
 import EditRequest from "./components/RequestSchedule/EditRequest";
@@ -52,6 +54,11 @@ import RequestDetails from "./components/RequestSchedule/RequestDetails";
 import NavBar from "./components/RequestSchedule/NavBar";
 import MemHome from "./components/RequestSchedule/MemHome";
 import SchReport from "./components/RequestSchedule/SchReport";
+
+/*pre-defined workout schedule function*/
+import PreAdmin from './components/PreSchedules/PreAdmin';
+import PreAdmin_Mem from './components/PreSchedules/PreAdmin_Mem';
+import { getPrePosts } from './actions/preposts';
 
 //-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
@@ -98,7 +105,7 @@ import viewMembers from "./Receptionist/viewMembers";
 import editMember from "./Receptionist/editMember";
 import memberPannel from "./Receptionist/memberPannel";
 
-//Amantha Trainer Login
+// {/*----------->> Amantha Trainer Login <<-----------*/}
 import TrainerLandingPage from "./Screens/LandingPage/TrainerLandingPage";
 import TrainerHomePage from "./Screens/HomePage/TrainerHomePage";
 import TrainerLoginScreen from "./Screens/LoginScreen/TrainerLoginScreen";
@@ -107,6 +114,16 @@ import TrainerProfileScreen from "./Screens/ProfileScreen/TrainerProfileScreen";
 import TrainerHeader from "./components/Header/TrainerHeader";
 import AllTrainers from "./Screens/ProfileScreen/AllTrainers";
 import ReportWorkout from "./components/WorkoutSupportManagement/Report/ReportWorkout";
+
+// {/*----------->> Amantha Events <<-----------*/}
+import AddEvents from "./components/Events/AddEvents";
+import AllEvents from "./components/Events/AllEvents";
+import UpdateEvent from "./components/Events/UpdateEvent";
+import EventDetails from "./components/Events/EventDetails";
+import AddInterest from "./components/Interests/AddInterest";
+import AllInterest from "./components/Interests/AllInterests";
+import EventLandingPage from "./components/Events/EventLandingPage";
+import AllEventsMember from "./components/Events/AllEventsMember";
 
 // Admin
 import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
@@ -127,17 +144,16 @@ const App = () => {
 
   return (
     <BrowserRouter>
+    
       <Route exact path="/" render={() => <Redirect to="/member" />} />
       <Route path="/member" component={Header} />
       <Route path="/admin" component={AdminHeader} />
-      <Route path="/employee" component={TrainerHeader} />
-      <div className="container-fluid">
-        <Route
-          path="/employee/workouts"
-          exact
-          component={() => <Workouts setCurrentId={setCurrentId} />}
-        ></Route>
-      </div>
+      <Route path="/employee/" component={TrainerHeader} />
+      <Route
+        path="/employee/workouts"
+        exact
+        component={() => <Workouts setCurrentId={setCurrentId} />}
+      ></Route>
       <Route
         path="/employee/workouts/add"
         exact
@@ -212,7 +228,15 @@ const App = () => {
         ></Route>
         <Route path="/blogposts/:id" component={PostBDetails} />
       </div>
+
+
+        
+
+
+
+
       {/**Sandani */}
+      {/**predefined schedules requests CRUD */}
       <div className="container">
         <Route
           path="/employee/scheduleR/HomeRequest"
@@ -239,6 +263,22 @@ const App = () => {
           component={RequestDetails}
         ></Route>
       </div>
+      {/*Sandani-predefiend schedules  */}
+      <div className="container">
+      <Route
+          path="/employee/PreAdmin"
+          exact
+          component={() => <PreAdmin setCurrentId={setCurrentId} />}
+        ></Route>
+
+      <Route
+          path="/member/PreAdmin_Mem"
+          exact
+          component={() => <PreAdmin_Mem setCurrentId={setCurrentId} />}
+        ></Route>
+        </div>
+
+
 
       <main>
         <Route path="/member" component={LandingPage} exact />
@@ -247,7 +287,8 @@ const App = () => {
         <Route path="/member/register" component={RegisterScreen} />
         <Route path="/member/Home" component={() => <HomePage />} />
 
-        {/*Amantha Routes*/}
+        {/*________________________ Amantha Routes Start ________________________*/}
+        {/*----------->> Amantha Trainer Login Routes <<-----------*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
         <Route
@@ -255,7 +296,7 @@ const App = () => {
           component={TrainerProfileScreen}
         />
         <Route
-          path="/employee/trainer-register"
+          path="/admin/trainer-register"
           component={TrainerRegisterScreen}
         />
         <Route
@@ -264,9 +305,33 @@ const App = () => {
         />
         <Route path="/employee/trainerDetails" component={AllTrainers}></Route>
 
+        {/*----------->> Amantha Event Routes <<-----------*/}
+        <Route path="/employee/allevents" component={AllEvents} />
+        <Route path="/employee/eventspage" component={AddEvents} />
+        <Route path="/employee/update/:id" component={UpdateEvent} />
+        <Route path="/member/eventdetails/:id" component={EventDetails} />
+        <Route
+          path="/employee/event-interest/allInterests"
+          component={AllInterest}
+        />
+        <Route path="/member/allevents-member" component={AllEventsMember} />
+
+        {/*----------->> Amantha Interest Routes <<-----------*/}
+        <Route path="/event-interest/addInterests" component={AddInterest} />
+        <Route
+          path="/member/event-interest/event-landing"
+          component={EventLandingPage}
+        />
+        <Route
+          path="/employee/event-interest/allInterests"
+          component={AllInterest}
+        />
+        {/*________________________ Amantha Routes End  ________________________*/}
+
         <Route path="/admin/memberDetails" component={viewMembers}></Route>
         <Route path="/admin/editDetails/:id" component={editMember}></Route>
         <Route path="/admin/adminPanel" component={memberPannel}></Route>
+        
 
         {/*Janudi Routes --> Begin*/}
         <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
@@ -319,6 +384,10 @@ const App = () => {
           path="/member/workout-programs"
           component={AllprogramsMemer}
         ></Route>
+        <Route
+          path="/member/expand-program/:id"
+          component={Programexpand}
+        ></Route>
         <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
         <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
@@ -331,7 +400,7 @@ const App = () => {
           component={ProgramDetailsAdmin}
         ></Route>
 
-{/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
+        {/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
         <Route exact path="/member/QandA/:email" component={QandA} />
         <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
@@ -339,7 +408,11 @@ const App = () => {
         <Route exact path="/member/otherQ/" component={OtherQuestionsM} />
         <Route exact path="/employee/otherQ/" component={OtherQuestionsT} />
         <Route exact path="/employee/a/createA/:id" component={CreateAnswerT} />
-        <Route exact path="/employee/myAnswers/:username" component={MyAnswersT} />
+        <Route
+          exact
+          path="/employee/myAnswers/:username"
+          component={MyAnswersT}
+        />
         <Route exact path="/employee/updateA/:id" component={UpdateAnswerT} />
         <Route exact path="/employee/deleteA/:id" component={DeleteAnswerT} />
         <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
@@ -347,11 +420,23 @@ const App = () => {
         <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
         <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
         <Route exact path="/member/feedback/:email" component={Feedback} />
-        <Route exact path="/employee/feedback/:username" component={FeedbackT} />
+        <Route
+          exact
+          path="/employee/feedback/:username"
+          component={FeedbackT}
+        />
         <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
         <Route exact path="/member/trainers/" component={Trainers} />
-        <Route exact path="/member/trainer/:username" component={TrainerDetails} />
-        <Route exact path="/member/trainer/createF/:id" component={CreateFeedback} />
+        <Route
+          exact
+          path="/member/trainer/:username"
+          component={TrainerDetails}
+        />
+        <Route
+          exact
+          path="/member/trainer/createF/:id"
+          component={CreateFeedback}
+        />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
 
@@ -360,11 +445,9 @@ const App = () => {
         <Route path="/admin/admin-profile" component={AdminProfileScreen} />
         <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
 
-        <Route path="/member" component={Footer}/>
-        <Route path="/employee" component={FooterTrainer}/>
+        <Route path="/member" component={Footer} />
+        <Route path="/employee" component={FooterTrainer} />
       </main>
-
-      
     </BrowserRouter>
   );
 };

@@ -37,19 +37,41 @@ const Header = () => {
                 <Link to="/member/Home">Home</Link>
               </Nav.Link>
               <Nav.Link href="/member/workouts">
-                <Link to="/member/workouts">Workout Library</Link>
+                <Link to="/member/workouts">Workouts</Link>
+              </Nav.Link>
+              <Nav.Link href="/member/workout-programs">
+                <Link to="/member/workout-programs">Programs</Link>
               </Nav.Link>
               <Nav.Link href="/member/feedback/:email">
                 <Link to="/member/feedback/:email">Feedback</Link>
               </Nav.Link>
               <NavDropdown title="Personal Trainer" id="basic-nav-dropdown">
-                <NavDropdown.Item href="">Request</NavDropdown.Item>
+                <NavDropdown.Item href="/member/memberPTRequest/home">
+                  Request
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="">Blogs</NavDropdown.Item>
+                <NavDropdown.Item href="/member/trainerblog/MemForm">
+                  Blogs
+                </NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title={userInfo?.name} id="basic-nav-dropdown">
+              <NavDropdown
+                title="Workout Schedules"
+                id="basic-nav-dropdown"
+                style={{ marginLeft: "-27px" }}
+              >
+                <NavDropdown.Item href="/member/scheduleR/MemHome">
+                  Request
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/member/PreAdmin_Mem">pre-defines</NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown
+                title={userInfo?.name}
+                id="basic-nav-dropdown"
+                style={{ marginRight: "-40px" }}
+              >
                 <NavDropdown.Item href="/member/profile">
-                  My Profile 
+                  My Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logoutHandler}>

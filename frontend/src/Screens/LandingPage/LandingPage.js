@@ -84,9 +84,9 @@ const LandingPage = ({ history }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-7">
-              <div className="title">
+              <div className="title-1">
                 <h1>
-                  <span>Welcome To</span> FITNESS PROGRAMME
+                  <span>Welcome To</span> FITNESS GLORY
                 </h1>
               </div>
               <p style={{ fontSize: "20px" }}>
