@@ -408,11 +408,7 @@ const App = () => {
         <Route exact path="/member/otherQ/" component={OtherQuestionsM} />
         <Route exact path="/employee/otherQ/" component={OtherQuestionsT} />
         <Route exact path="/employee/a/createA/:id" component={CreateAnswerT} />
-        <Route
-          exact
-          path="/employee/myAnswers/:username"
-          component={MyAnswersT}
-        />
+        <Route exact path="/employee/myAnswers/:username" component={MyAnswersT} />
         <Route exact path="/employee/updateA/:id" component={UpdateAnswerT} />
         <Route exact path="/employee/deleteA/:id" component={DeleteAnswerT} />
         <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
@@ -420,23 +416,11 @@ const App = () => {
         <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
         <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
         <Route exact path="/member/feedback/:email" component={Feedback} />
-        <Route
-          exact
-          path="/employee/feedback/:username"
-          component={FeedbackT}
-        />
+        <Route exact path="/employee/feedback/:username" component={FeedbackT} />
         <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
         <Route exact path="/member/trainers/" component={Trainers} />
-        <Route
-          exact
-          path="/member/trainer/:username"
-          component={TrainerDetails}
-        />
-        <Route
-          exact
-          path="/member/trainer/createF/:id"
-          component={CreateFeedback}
-        />
+        <Route exact path="/member/trainer/:username" component={TrainerDetails} />
+        <Route exact path="/member/trainer/createF/:id" component={CreateFeedback} />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
 

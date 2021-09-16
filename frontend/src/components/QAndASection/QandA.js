@@ -3,6 +3,7 @@ import { Link, useRouteMatch } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import { getQuestions } from '../../api/apiFBQA'
 import { NavBar } from './NavBar';
+import './scrollBar.css'
 // import QAndABg from './ImagesD/QandABg.png'
 
 export const QandA = () =>{
@@ -30,7 +31,7 @@ export const QandA = () =>{
                 <br/>
                 <h3 style={labelStyle}className = "text-center">MY QUESTIONS</h3>
                 <div style={hideScroll}>
-                <div style={scrollable}>
+                <div className="carbrQ" style={scrollable}>
                 <table style ={textStyle} class="table">
                 <thead>
                     <tr>
