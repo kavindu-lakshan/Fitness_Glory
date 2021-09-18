@@ -37,9 +37,9 @@ function CreateNote({ history }) {
   useEffect(() => {}, []);
 
   return (
-    <MainScreen title="Create a Note">
+    <MainScreen title="Create a Notice">
       <Card>
-        <Card.Header>Create a new Note</Card.Header>
+        <Card.Header>Create a new Notice</Card.Header>
         <Card.Body>
           <Form onSubmit={submitHandler}>
             {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
@@ -65,7 +65,7 @@ function CreateNote({ history }) {
             </Form.Group>
             {content && (
               <Card>
-                <Card.Header>Note Preview</Card.Header>
+                <Card.Header>Notice Preview</Card.Header>
                 <Card.Body>
                   <ReactMarkdown>{content}</ReactMarkdown>
                 </Card.Body>
@@ -83,7 +83,7 @@ function CreateNote({ history }) {
             </Form.Group>
             {loading && <Loading size={50} />}
             <Button type="submit" variant="primary">
-              Create Note
+              Create Notice
             </Button>
             <Button className="mx-2" onClick={resetHandler} variant="danger">
               Reset Feilds

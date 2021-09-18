@@ -58,9 +58,9 @@ function SingleNote({ match, history }) {
   };
 
   return (
-    <MainScreen title="Edit Note">
+    <MainScreen title="Edit Notice">
       <Card>
-        <Card.Header>Edit your Note</Card.Header>
+        <Card.Header>Edit your Notice</Card.Header>
         <Card.Body>
           <Form onSubmit={updateHandler}>
             {loadingDelete && <Loading />}
@@ -90,7 +90,7 @@ function SingleNote({ match, history }) {
             </Form.Group>
             {content && (
               <Card>
-                <Card.Header>Note Preview</Card.Header>
+                <Card.Header>Notice Preview</Card.Header>
                 <Card.Body>
                   <ReactMarkdown>{content}</ReactMarkdown>
                 </Card.Body>
@@ -108,14 +108,14 @@ function SingleNote({ match, history }) {
             </Form.Group>
             {loading && <Loading size={50} />}
             <Button variant="primary" type="submit">
-              Update Note
+              Update Notice
             </Button>
             <Button
               className="mx-2"
               variant="danger"
               onClick={() => deleteHandler(match.params.id)}
             >
-              Delete Note
+              Delete Notice
             </Button>
           </Form>
         </Card.Body>

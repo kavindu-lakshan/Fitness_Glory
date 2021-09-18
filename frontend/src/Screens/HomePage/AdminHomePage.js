@@ -60,7 +60,7 @@ function AdminHomePage({ history, search }) {
       {console.log(notes)}
       <Link to="/admin/createnote">
         <Button style={{ marginLeft: 10, marginBottom: 6 }} size="md">
-          Create new Note
+          Create new Notice
         </Button>
       </Link>
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
@@ -113,9 +113,11 @@ function AdminHomePage({ history, search }) {
                 <Accordion.Collapse eventKey="0">
                   <Card.Body>
                     <h4>
-                      <Badge variant="success">
-                        Category - {note.category}
-                      </Badge>
+                      <span className="badge bg-success">
+                        <Badge variant="success">
+                          Category - {note.category}
+                        </Badge>
+                      </span>
                     </h4>
                     <blockquote className="blockquote mb-0">
                       <ReactMarkdown>{note.content}</ReactMarkdown>

@@ -66,6 +66,9 @@ app.use("/api/notes", noteRoutes);
 const memDetailsRoute = require("./routes/memberDetails");
 app.use(memDetailsRoute);
 
+const noteDetailRoute = require("./routes/notesDetails");
+app.use(noteDetailRoute);
+
 //K shehan
 
 app.use("/workouts", workoutRoutes);
