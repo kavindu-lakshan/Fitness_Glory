@@ -86,7 +86,7 @@ export default class memberPannel extends Component {
       tableRows.push(memberDetail);
     });
     doc.text("Members Report", 14, 15).setFontSize(12);
-    doc.addImage(Logo, "JPEG", 190, 5, 15, 15);
+    doc.addImage(Logo, "JPEG", 115, 5, 80, 30);
     doc.autoTable(tableColumn, tableRows, {
       styles: { fontSize: 8 },
       startY: 35,

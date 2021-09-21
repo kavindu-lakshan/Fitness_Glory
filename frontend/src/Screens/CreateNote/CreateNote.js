@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MainScreen from "../../components/MainScreen";
+import MainScreen from "../../components/MainScreens/createNewNotice";
 import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createNoteAction } from "../../actions/notesActions";
@@ -44,7 +44,7 @@ function CreateNote({ history }) {
           <Form onSubmit={submitHandler}>
             {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
+              <Form.Label style={{ color: "black" }}>Title</Form.Label>
               <Form.Control
                 type="title"
                 value={title}
@@ -54,7 +54,7 @@ function CreateNote({ history }) {
             </Form.Group>
 
             <Form.Group controlId="content">
-              <Form.Label>Content</Form.Label>
+              <Form.Label style={{ color: "black" }}>Content</Form.Label>
               <Form.Control
                 as="textarea"
                 value={content}
@@ -73,7 +73,7 @@ function CreateNote({ history }) {
             )}
 
             <Form.Group controlId="content">
-              <Form.Label>Category</Form.Label>
+              <Form.Label style={{ color: "black" }}>Category</Form.Label>
               <Form.Control
                 type="content"
                 value={category}
