@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MainScreen from "../../components/MainScreen";
+import MainScreen from "../../components/MainScreens/createNewNotice";
 import axios from "axios";
 import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -69,7 +69,7 @@ function SingleNote({ match, history }) {
               <ErrorMessage variant="danger">{errorDelete}</ErrorMessage>
             )}
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
+              <Form.Label style={{ color: "black" }}>Title</Form.Label>
               <Form.Control
                 type="title"
                 placeholder="Enter the title"
@@ -79,7 +79,7 @@ function SingleNote({ match, history }) {
             </Form.Group>
 
             <Form.Group controlId="content">
-              <Form.Label>Content</Form.Label>
+              <Form.Label style={{ color: "black" }}>Content</Form.Label>
               <Form.Control
                 as="textarea"
                 placeholder="Enter the content"
@@ -90,7 +90,9 @@ function SingleNote({ match, history }) {
             </Form.Group>
             {content && (
               <Card>
-                <Card.Header>Notice Preview</Card.Header>
+                <Card.Header style={{ color: "black" }}>
+                  Notice Preview
+                </Card.Header>
                 <Card.Body>
                   <ReactMarkdown>{content}</ReactMarkdown>
                 </Card.Body>
@@ -98,7 +100,7 @@ function SingleNote({ match, history }) {
             )}
 
             <Form.Group controlId="content">
-              <Form.Label>Category</Form.Label>
+              <Form.Label style={{ color: "black" }}>Category</Form.Label>
               <Form.Control
                 type="content"
                 placeholder="Enter the Category"
