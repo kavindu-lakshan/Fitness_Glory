@@ -1,23 +1,20 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
 import Workoutprogramcard from './workoutprogram-card';
-import Header from '../../Header/Header';
 
-export default class AllprogramsMemer extends Component {
-    constructor(props){
-        super(props);
+function AllprogramsMemer(props) {
+        const [programs, setPrograms] = useState([]);
 
-        this.state={
-            programs:[]
-        }
-    }
+    useEffect(()=>{
+        retrievePrograms();
+      },[])
 
-    componentDidMount(){
-        this.retrievePrograms();
-        console.log(Header)
-    }
+      const userLogin = useSelector((state) => state.userLogin);
+      const { userInfo } = userLogin;
+      console.log(userInfo)
 
-    filterData(programs, searchKey){
+    const filterData = (programs, searchKey) => {
         const result = programs.filter((program) =>
           program.name.toLowerCase().includes(searchKey) ||
           program.description.toLowerCase().includes(searchKey) ||
@@ -25,34 +22,31 @@ export default class AllprogramsMemer extends Component {
           program.name.toLowerCase().includes(searchKey) ||
           program.day.toLowerCase().includes(searchKey)
         )
-  
-        this.setState({programs: result})
+        setPrograms(result)
       }
       
   
-      handleSearchArea = (e) => {
+      const handleSearchArea = (e) => {
         const searchKey = e.currentTarget.value.toLowerCase();
   
           axios.get("http://localhost:5000/programs").then(res => {
               if(res.data.success){
-                this.filterData(res.data.existingPrograms,searchKey)
+                filterData(res.data.existingPrograms,searchKey)
               }
           })
       }
 
-    retrievePrograms(){
+    const retrievePrograms = () =>{
         axios.get("http://localhost:5000/programs").then(res => {
             if(res.data.success){
-                this.setState({
-                    programs: res.data.existingPrograms
-                })
+                setPrograms(res.data.existingPrograms)
             }else {
                 console.log("error retrieving from database")
             }
         })
     }
 
-    EnrollController = (id, programName) => {
+    const EnrollController = (id, programName) => {
 
         const myCurrentTime = new Date().toLocaleString()
 
@@ -71,7 +65,7 @@ export default class AllprogramsMemer extends Component {
     
     }
 
-    render() {
+
         return (
             <div style={{  
                 backgroundImage: "url(" + "https://res.cloudinary.com/fitness-glory/image/upload/v1630854420/outlook-photography-and-studio-CvvF9lPJy6U-unsplash_cmxfi8.jpg" + ")",
@@ -89,17 +83,17 @@ export default class AllprogramsMemer extends Component {
                     type="search"
                     placeholder="Search"
                     name="searchQuery"
-                    onChange={this.handleSearchArea}
+                    onChange={handleSearchArea}
                     />
                 </div>
                 <hr/>
             </div>
             <div className="row" style={{marginTop:'30px'}} >
-                {this.state.programs.map((program, index) => (
+                {programs.map((program, index) => (
                     <div className="col-md-4 col-sm-6" key={index}>
                         <Workoutprogramcard
                             program={program}
-                            EnrollController={this.EnrollController}
+                            EnrollController={EnrollController}
                         />
                     </div>
                 ))}            
@@ -107,6 +101,8 @@ export default class AllprogramsMemer extends Component {
           </div>
           </div>
         )
-      }
+
+    
     }
     
+    export default AllprogramsMemer
