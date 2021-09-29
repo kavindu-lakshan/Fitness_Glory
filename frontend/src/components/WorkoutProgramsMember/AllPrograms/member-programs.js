@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import Workoutprogramcard from './workoutprogram-card';
 
 function AllprogramsMemer(props) {
         const [programs, setPrograms] = useState([]);
+        const [enrolls, setEnrolls] = useState([]);
 
     useEffect(()=>{
         retrievePrograms();
@@ -12,7 +13,7 @@ function AllprogramsMemer(props) {
 
       const userLogin = useSelector((state) => state.userLogin);
       const { userInfo } = userLogin;
-      console.log(userInfo)
+      const member_id = userInfo._id;
 
     const filterData = (programs, searchKey) => {
         const result = programs.filter((program) =>
@@ -46,23 +47,46 @@ function AllprogramsMemer(props) {
         })
     }
 
-    const EnrollController = (id, programName) => {
+    const isAlreadyEnrolled = async (mem_id, program_id) => {
+        var result = false;
 
-        const myCurrentTime = new Date().toLocaleString()
-
-        const data ={
-            programName:programName,
-            member_id:id,
-            enroll_datetime:myCurrentTime,
-            activeness:true
-        }
-
-        axios.post("http://localhost:5000/enroll-program/save",data).then((res) =>{
-            if(res.data.success){
-                alert('Enrolled successfully');
-            }
+        await axios.get("http://localhost:5000/enroll-programs").then((res) => {
+            
+          if (res.data.success) {
+            res.data.enrolls.map((enroll) => {
+                if(mem_id === enroll.member_id && program_id === enroll.programName){
+                    result = true;
+                }
+            })
+          } else {
+            console.log("error retrieving from database");
+          }
         })
+        return result
+      }
+
+    const EnrollController = async (id, programName) => {
+        var IsEnorolled = await isAlreadyEnrolled(id,programName)
+        
+        if (IsEnorolled){
+            alert('You have already enrolled in this program!');
+        }
+        else {
+            const myCurrentTime = new Date().toLocaleString()
+
+            const data ={
+                programName:programName,
+                member_id:id,
+                enroll_datetime:myCurrentTime,
+                activeness:true
+            }
     
+            axios.post("http://localhost:5000/enroll-program/save",data).then((res) =>{
+                if(res.data.success){
+                    alert('Enrolled successfully');
+                }
+            })
+        }
     }
 
 
@@ -94,6 +118,7 @@ function AllprogramsMemer(props) {
                         <Workoutprogramcard
                             program={program}
                             EnrollController={EnrollController}
+                            member_id={member_id}
                         />
                     </div>
                 ))}            
@@ -101,8 +126,6 @@ function AllprogramsMemer(props) {
           </div>
           </div>
         )
-
-    
     }
     
     export default AllprogramsMemer

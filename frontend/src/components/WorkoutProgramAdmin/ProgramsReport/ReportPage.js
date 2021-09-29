@@ -84,6 +84,7 @@ export default class ReportPage extends Component {
         this.setState({
           enrolls: res.data.enrolls,
         });
+        console.log(this.state.enrolls[0].member_id)
         this.test1();
         this.test2();
       } else {
