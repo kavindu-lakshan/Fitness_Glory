@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+//import {useSelector} from "react-redux";
 
 export default class MemHome extends Component{
   constructor(props){
@@ -7,10 +8,9 @@ export default class MemHome extends Component{
 
     this.state = {
       posts:[]
-    };
+    };}
 
-
-  }
+   // constUserLogin = useSelector
 
 componentDidMount(){
   this.retrievePosts();
@@ -35,6 +35,8 @@ componentDidMount(){
       this.retrievePosts();
     });
   };
+
+
 
 
   filterData(posts,searchKey){
