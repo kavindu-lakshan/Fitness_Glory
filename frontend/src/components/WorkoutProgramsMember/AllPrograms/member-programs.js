@@ -42,7 +42,7 @@ function AllprogramsMemer(props) {
             if(res.data.success){
                 setPrograms(res.data.existingPrograms)
             }else {
-                console.log("error retrieving from database")
+                console.log("error retrieving from database");
             }
         })
     }
