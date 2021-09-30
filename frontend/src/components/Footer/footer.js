@@ -3,7 +3,7 @@ import Logo from "../../logo.png";
 
 const Footer = () => {
   return (
-    <footer className="pt-0">
+    <footer className="">
       <div style={bg}>
         <div className="row">
           <div className="col-md-3">
