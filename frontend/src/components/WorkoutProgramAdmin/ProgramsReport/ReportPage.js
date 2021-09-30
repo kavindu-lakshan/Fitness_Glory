@@ -14,26 +14,19 @@ export default class ReportPage extends Component {
       data: [],
       incomeTableData: [],
       incomeTableDataSendReady: [],
-      count: 0,
-      count1: 0,
-      incomeTableFilerMonth: "9",
     };
   }
 
   getChartsData() {
     this.state.programs.map((program, id) => {
-      this.setState({
-        count: 0,
-      });
+      var count = 0
 
       this.state.enrolls.map((enroll, index) => {
         if (enroll.programName === program._id && enroll.activeness) {
-          this.setState({
-            count: this.state.count + 1,
-          });
+            count = count + 1
         }
         if (index === this.state.enrolls.length - 1) {
-          this.state.data.push({ x: program.name, y: this.state.count });
+          this.state.data.push({ x: program.name, y: count });
         }
       });
     });
@@ -135,7 +128,6 @@ export default class ReportPage extends Component {
             <ExpectedIncome
               values={this.state.incomeTableDataSendReady}
               filterIncomeTableByMonth={this.filterIncomeTableByMonth}
-              incomeTableFilerMonth={this.state.incomeTableFilerMonth}
             />
           </div>
         </div>
