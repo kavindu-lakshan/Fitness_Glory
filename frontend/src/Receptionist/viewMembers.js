@@ -106,7 +106,10 @@ export default class viewMembers extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: "20px" }} className="container">
+      <div
+        style={{ marginTop: "20px", backgroundColor: "#fffdd0" }}
+        className="container"
+      >
         &nbsp;
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
