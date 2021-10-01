@@ -95,6 +95,7 @@ import Home from "./components/ClientRequest/Home";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
+import Request_Report from "./components/ClientRequest/Request_Report";
 //newly added
 import Admin from "./components/trainerBlog/Request/Admin";
 import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
@@ -201,6 +202,10 @@ const App = () => {
         <Route
           path="/member/memberPTRequest/add"
           component={CreatePost}
+        ></Route>
+        <Route
+          path="/employee/memberPTRequest/Request_Report"
+          component={Request_Report}
         ></Route>
         <Route
           path="/employee/memberPTRequest/edit/:id"

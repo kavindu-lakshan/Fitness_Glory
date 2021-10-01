@@ -240,7 +240,7 @@ export default class CreatePost extends Component {
                   <option name="pack" value="Premium">
                     Premium
                   </option>
-                  <option name="pack" value=" Ellite">
+                  <option name="pack" value="Ellite">
                     Ellite
                   </option>
                 </select>
