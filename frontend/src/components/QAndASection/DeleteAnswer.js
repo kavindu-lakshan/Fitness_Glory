@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import { deleteAnswer, getAnswers } from '../../api/apiFBQA';
 import { DeleteAnswerForm } from '../QAndASection/Forms/DeleteAnswerForm';
+import { useSelector } from "react-redux";
 // import deleteAnswerBg from './ImagesD/deleteAnswerBg.png';
 
 export const DeleteAnswer = () =>{
     const match = useRouteMatch();
     const[answer, setAnswer] = useState();
     const history = useHistory();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
  
     useEffect(() =>{
         const displayAnswer = async() =>{
@@ -19,7 +24,7 @@ export const DeleteAnswer = () =>{
 
     const onSubmit = async(data) =>{
         await deleteAnswer(data, match.params.id)
-        history.push("/member/myAnswers/:email");
+        history.push(`/member/myAnswers/${member_email}`);
     }
 
     return answer ?(

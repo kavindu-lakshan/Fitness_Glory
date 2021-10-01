@@ -3,7 +3,7 @@ import Logo from "../../logo.png";
 
 const Footer = () => {
   return (
-    <footer className="pt-0">
+    <footer className="">
       <div style={bg}>
         <div className="row">
           <div className="col-md-3">
@@ -41,8 +41,8 @@ const Footer = () => {
             <h5 style={{color:'silver'}}>Useful links</h5>
               <hr />
               <div>
-                    <a href="#" style={navBtn1}> About Us </a><br/>
-                    <a href="#" style={navBtn2}> Contact Us </a><br/>
+                    <a href="/member/AboutUs/" style={navBtn1}> About Us </a><br/>
+                    <a href="" style={navBtn2}> Contact Us </a><br/>
                     <a href="/member/OtherQ/" style={navBtn2}> Q and A Section</a>
                 </div>
               </div>

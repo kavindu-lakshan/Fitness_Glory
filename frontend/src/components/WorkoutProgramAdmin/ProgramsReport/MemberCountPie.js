@@ -7,6 +7,7 @@ export default function MemberCountPrograms(props) {
     <div className="">
       <svg viewBox="0 0 400 400">
         <VictoryPie
+        style={{ labels: { fill: "white", fontSize: 15, } }}
         padAngle={({ datum }) => datum.y}
           standalone={false}
           innerRadius={80}
@@ -15,15 +16,15 @@ export default function MemberCountPrograms(props) {
             duration: 500,
             onLoad: { duration: 500 },
           }}
-          colorScale={["#008f68", "#6DB65B", "#4AAE9B", "#EFBB35"]}
+          colorScale={["#000000", "#6DB65B", "#4AAE9B", "#EFBB35"]}
           data={props.data}
         />
         <VictoryLabel
           textAnchor="middle"
-          style={{ fontSize: 15 }}
+          style={{  fill: "white", fontSize: 15 }}
           x={200}
           y={200}
-          text="Memebrs is Programs"
+          text="Distribution"
         />
         
       </svg>

@@ -6,8 +6,8 @@ export default class ExpectedIncome extends Component {
     super(props);
 
     this.state = {
-      month: 1,
-      year: 2018,
+      month: 9,
+      year: 2021,
       updatedValues: [],
       values: props.values,
     };
@@ -24,7 +24,7 @@ export default class ExpectedIncome extends Component {
     return (
       <div className="py-2 px-2">
         <div className="row">
-          <div className="col-md-5">
+          <div className="col-md-5 text-white">
             <MonthYearPicker
               selectedMonth={this.state.month}
               selectedYear={this.state.year}
@@ -41,8 +41,8 @@ export default class ExpectedIncome extends Component {
             />
           </div>
           <div className="col-md-7">
-          <h4>Incomes per workout program in {this.state.year}-{this.state.month}</h4>
-            <table className="table table-striped table-dark">
+          <p className="text-light text-center">Incomes per Workout Program in {this.state.year}-{this.state.month}</p>
+            <table className="table table-striped small table-dark">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -70,7 +70,7 @@ export default class ExpectedIncome extends Component {
                 ))}
               </tbody>
             </table>
-          </div>
+            </div>
         </div>
       </div>
     );
