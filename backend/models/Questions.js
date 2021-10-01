@@ -11,6 +11,12 @@ const Question = mongoose.Schema({
         type:String
     },
     date:{
+        type:String
+    },
+    status:{
+        type:String,
+    },
+    weekNo:{
         type:String,
     }
 })

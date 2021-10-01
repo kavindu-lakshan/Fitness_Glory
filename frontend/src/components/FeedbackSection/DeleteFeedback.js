@@ -3,12 +3,17 @@ import { FBDeleteForm } from './Forms/FBDeleteForm';
 import { useRouteMatch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { selectFeedback, deleteFeedback } from '../../api/apiFBQA';
+import { useSelector } from "react-redux";
 // import deleteFeedbackBg from './ImagesD/deleteFeedbackBg.png'
 
 export const DeleteFeedback = () =>{
     const match = useRouteMatch()
     const [feedback, setFeedback] = useState()
     const history = useHistory();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
 
     useEffect(() =>{ 
         const displayFeedbacks = async() =>{
@@ -21,7 +26,7 @@ export const DeleteFeedback = () =>{
 
     const onSubmit = async(data) =>{
         await deleteFeedback(data, match.params.id)
-        history.push("/member/feedback/:email");
+        history.push(`/member/feedback/${member_email}`);
     }
     return feedback ?(
         <div>

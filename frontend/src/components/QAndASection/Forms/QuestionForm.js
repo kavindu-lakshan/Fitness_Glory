@@ -1,23 +1,26 @@
 import React from 'react';
 import {useForm} from 'react-hook-form'
 import Button from '@material-ui/core/Button';
+import moment from 'moment';
 
 export const QuestionForm = ({questions, onSubmit}) =>{
+
+
+        const today = new Date();
+        const dd = String(today.getDate());
+        const mm = String(today.getMonth()); //January is 0!
+        const yyyy = today.getFullYear();
+
+        const weeknumber = moment().week();
     
     const {register, handleSubmit, formState:{errors}} = useForm({defaultValues: {
         email: questions.email ? questions.email: "",
-        qTopic: questions.qTopic ? questions.qTopic: "Regarding Barbell Curls",
-        question: questions.question ? questions.question: "Which grip is the most effective to train biceps?",
-        date: questions.data ? questions.date: ""
+        qTopic: questions.qTopic ? questions.qTopic: "",
+        question: questions.question ? questions.question: "",
+        date: `${dd + ' / ' +  mm + ' / ' + yyyy}`,
+        status:"Unanswered",
+        weekNo:`${weeknumber}`
     }})
-
-    const disablePastDate = () => {
-        const today = new Date();
-        const dd = String(today.getDate() + 1).padStart(2, "0");
-        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-        const yyyy = today.getFullYear();
-        return yyyy + "-" + mm + "-" + dd;
-    };
 
     const submitHandler = handleSubmit((data) =>{
         onSubmit(data)
@@ -49,8 +52,8 @@ export const QuestionForm = ({questions, onSubmit}) =>{
         </div>
         <div class="w-100"></div>
         <div className="col-md-6">
-            <label style={labelStyle} for="date" className="form-label">Select Date</label>
-            <input style={inputFieldStyle} className="form-control" {...register("date", { required: true })} type ="date" name="date" id="date" min={disablePastDate()}/>
+            <label style={labelStyle} for="date" className="form-label">Current Date</label>
+            <input style={disInputFieldStyle} className="form-control" {...register("date", { required: true })} type ="text" name="date" id="date" disabled = "true"/>
             {errors.date && (<small style={{color:'red'}}>Please select the current date! You Cannot leave this field empty</small>)}
             <br/><br/>
         </div>
