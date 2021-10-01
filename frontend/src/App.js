@@ -77,6 +77,7 @@ import { CreateAnswerT } from "./components/QAndASection/CreateAnswerT.js";
 import { UpdateAnswerT } from "./components/QAndASection/UpdateAnswerT";
 import { OtherQuestionsT } from "./components/QAndASection/OtherQuestionsT";
 import { DeleteAnswerT } from "./components/QAndASection/DeleteAnswerT";
+import { ReportUnansweredQ } from "./components/QAndASection/ReportUnansweredQ";
 //------------------------------Dulshan Feedback Management-----------------------------------
 import { Feedback } from "./components/FeedbackSection/Feedback";
 import { CreateFeedback } from "./components/FeedbackSection/CreateFeedback";
@@ -131,6 +132,8 @@ import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
 import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
 import AdminHomePage from "./Screens/HomePage/AdminHomePage";
 import { AboutUs } from "./Screens/AboutUs/AboutUs";
+import CreateNote from "./Screens/CreateNote/CreateNote";
+import SingleNote from "./Screens/CreateNote/SingleNote";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -228,28 +231,60 @@ const App = () => {
         <Route path="/employee/event-interest/allInterests" component={AllInterest}  />
 
         {/*________________________ Amantha Routes End  ________________________*/}
+        {/*________________________ Lakshan Extra Routes ________________________*/}
+
         <Route path="/admin/memberDetails" component={viewMembers}></Route>
         <Route path="/admin/editDetails/:id" component={editMember}></Route>
         <Route path="/admin/adminPanel" component={memberPannel}></Route>
 
+        {/*________________________ Lakshan Extra Routes End________________________*/}
+
         {/*Janudi Routes --> Begin*/}
-        <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
-        <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
-        <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
-        <Route exact path = "/admin/ViewEmployeeInterface" component = {ViewEmployeeInterface}/>
-        <Route exact path = "/admin/EditCleanerInterface" component = {AllCleaners}/>
-        <Route exact path = "/admin/update/:id" component = {EditCleaner}/>
-        <Route exact path = "/admin/DeleteCleanerInterface" component = {DeleteCleaners}/>
-        <Route exact path = "/admin/delete/:id" component = {DeleteConf}/>
-        <Route exact path = "/admin/leaves/add" component = {LeaveRegistration}/>
-        <Route exact path = "/employee/CreateLeave" component = {LeaveRegistration}/>
-        <Route exact path = "/admin/leaves" component = {AllTrainerLeaves}/>
-        <Route exact path = "/admin/leave/:Status" component = {LeavesList}/>
-        <Route exact path = "/admin/updateL/:id" component = {TrainerLeavesEdit}/>
-        <Route exact path = "/admin/salary/add" component = {CreateEmployeeSalary}/>
-        <Route exact path = "/admin/CreateSalary" component = {CreateEmployeeSalary}/>
-        <Route exact path = "/admin/salary" component = {AllSalaries}/>
-        <Route exact path = "/admin/ViewSalaries" component = {AllSalaries}/>
+        <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
+        <Route exact path="/admin/RegisterMenu" component={RegisterMenu} />
+        <Route
+          exact
+          path="/admin/CleanerRegistrationForm"
+          component={CleanerRegistrationForm}
+        />
+        <Route
+          exact
+          path="/admin/ViewEmployeeInterface"
+          component={ViewEmployeeInterface}
+        />
+        <Route
+          exact
+          path="/admin/EditCleanerInterface"
+          component={AllCleaners}
+        />
+        <Route exact path="/admin/update/:id" component={EditCleaner} />
+        <Route
+          exact
+          path="/admin/DeleteCleanerInterface"
+          component={DeleteCleaners}
+        />
+        <Route exact path="/admin/delete/:id" component={DeleteConf} />
+        <Route exact path="/admin/leaves/add" component={LeaveRegistration} />
+        <Route
+          exact
+          path="/employee/CreateLeave"
+          component={LeaveRegistration}
+        />
+        <Route exact path="/admin/leaves" component={AllTrainerLeaves} />
+        <Route exact path="/admin/leave/:Status" component={LeavesList} />
+        <Route exact path="/admin/updateL/:id" component={TrainerLeavesEdit} />
+        <Route
+          exact
+          path="/admin/salary/add"
+          component={CreateEmployeeSalary}
+        />
+        <Route
+          exact
+          path="/admin/CreateSalary"
+          component={CreateEmployeeSalary}
+        />
+        <Route exact path="/admin/salary" component={AllSalaries} />
+        <Route exact path="/admin/ViewSalaries" component={AllSalaries} />
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}
@@ -262,6 +297,7 @@ const App = () => {
         <Route path="/admin/expand-program/:id" component={ProgramDetailsAdmin} ></Route>
 
         {/*-------------------------------Dulshan Routes START---------------------------------------*/}
+        
         <Route exact path="/member/QandA/:email" component={QandA} />
         <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
@@ -285,6 +321,7 @@ const App = () => {
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
         <Route exact path="/member/aboutUs" component={AboutUs} />
+        <Route exact path="/employee/unasnweredQ/:weekNo" component={ReportUnansweredQ} />
         {/*--------------------------------Dulshan Routes END-----------------------------------------*/}
 
         {/* Admin */}
@@ -292,6 +329,9 @@ const App = () => {
         <Route path="/admin/admin-profile" component={AdminProfileScreen} />
         <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
         {/*--------------------------------Footer-----------------------------------------*/}  
+        <Route path="/admin/createnote" component={CreateNote} />
+        <Route path="/admin/note/:id" component={SingleNote} />
+
         <Route path="/member" component={Footer} />
         <Route path="/employee" component={FooterTrainer} />
         <Route path="/admin" component={Footer} />

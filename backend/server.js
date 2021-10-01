@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const app = express();
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
+const noteRoutes = require("./routes/noteRoutes");
 const cookieParser = require("cookie-parser");
 
 const workout_programs_routes = require("./routes/workout_programs.js");
@@ -60,9 +61,13 @@ connection.once("open", () => {
 //Lakshan
 
 app.use("/FitnessGlory/users", userRoutes);
+app.use("/api/notes", noteRoutes);
 
 const memDetailsRoute = require("./routes/memberDetails");
 app.use(memDetailsRoute);
+
+const noteDetailRoute = require("./routes/notesDetails");
+app.use(noteDetailRoute);
 
 //K shehan
 
@@ -95,7 +100,7 @@ const eventRouter = require("./routes/events.js");
 app.use("/event", eventRouter);
 
 const interest = require("./routes/interestRoutes.js");
-app.use('/event-interest',interest);
+app.use("/event-interest", interest);
 
 /*Janudi ---> Start*/
 const CleanersRouter = require("./routes/Cleaners");
@@ -119,8 +124,8 @@ app.use("/blogposts", blogpostRoutes);
 //Sandani
 const XpostRoutes = require("./routes/Xposts");
 app.use(XpostRoutes);
-const postRoutes = require ('./routes/preposts.js');
-app.use('/preposts', postRoutes);
+const postRoutes = require("./routes/preposts.js");
+app.use("/preposts", postRoutes);
 
 //Admin
 app.use("/admin", adminRoutes);

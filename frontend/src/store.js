@@ -7,6 +7,12 @@ import {
   userUpdateReducer,
 } from "./reducers/userReducers";
 import {
+  noteCreateReducer,
+  noteDeleteReducer,
+  noteListReducer,
+  noteUpdateReducer,
+} from "./reducers/notesReducers";
+import {
   trainerLoginReducer,
   trainerRegisterReducer,
   trainerUpdateReducer,
@@ -17,7 +23,7 @@ import {
 } from "./reducers/adminReducers";
 import { work } from "./reducers/workouts";
 import { blogposts } from "./reducers/blogposts";
-import { preposts } from './reducers/preposts';
+import { preposts } from "./reducers/preposts";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -31,6 +37,10 @@ const reducer = combineReducers({
   adminLogin: adminLoginReducer,
   adminUpdate: adminUpdateReducer,
   preposts: preposts,
+  noteList: noteListReducer,
+  noteCreate: noteCreateReducer,
+  noteDelete: noteDeleteReducer,
+  noteUpdate: noteUpdateReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

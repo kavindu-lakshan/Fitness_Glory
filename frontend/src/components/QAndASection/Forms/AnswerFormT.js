@@ -1,17 +1,23 @@
 import React from 'react';
 import {useForm} from 'react-hook-form'
 import Button from '@material-ui/core/Button';
+import { useSelector } from "react-redux";
+
 
 export const AnswerFormT = ({questions, onSubmit}) =>{
+
+    const trainerLogin = useSelector((state) => state.trainerLogin);
+    const { trainerInfo } = trainerLogin;
+    const username = trainerInfo.username;
     
     const {register, handleSubmit, formState:{errors}} = useForm({defaultValues: {
         emailQ: questions.email ? questions.email: "",
         qTopic: questions.qTopic ? questions.qTopic:"",
         date: questions.date ? questions.date: "",
         question: questions.question ? questions.question:"",
-        username: "dulshanPerera",
+        username: `${username}`,
         QID:questions.QID? questions.QID:"",
-        answer: questions.answer? questions.answer:"Each variance of grips have their own advantages. Use Underhand grip for overall efffect",
+        answer: questions.answer? questions.answer:"",
     }})
 
     const submitHandler = handleSubmit((data) =>{
@@ -59,7 +65,7 @@ export const AnswerFormT = ({questions, onSubmit}) =>{
                 </div>
                 <div class="col-6 col-sm-5">
                     <label style={labelStyle} for="username" className="form-label">Trainer Username</label>
-                    <input style={inputFieldStyle} type="text" className="form-control"{...register("username", { required: true })} id="username" name="username"/>
+                    <input style={disInputFieldStyle} type="text" className="form-control"{...register("username", { required: true })} id="username" name="username" disabled="true"/>
                     {errors.username && (<small style={{color:'red'}}>Enter your username! Cannot leave this field empty</small>)}
                 </div>
                 <div class="w-100"></div><br/>
