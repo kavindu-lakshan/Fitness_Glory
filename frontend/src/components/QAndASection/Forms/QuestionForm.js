@@ -8,7 +8,7 @@ export const QuestionForm = ({questions, onSubmit}) =>{
 
         const today = new Date();
         const dd = String(today.getDate());
-        const mm = String(today.getMonth()); //January is 0!
+        const mm = String(today.getMonth() + 1); //January is 0!
         const yyyy = today.getFullYear();
 
         const weeknumber = moment().week();
@@ -17,7 +17,7 @@ export const QuestionForm = ({questions, onSubmit}) =>{
         email: questions.email ? questions.email: "",
         qTopic: questions.qTopic ? questions.qTopic: "",
         question: questions.question ? questions.question: "",
-        date: `${dd + ' / ' +  mm + ' / ' + yyyy}`,
+        date: `${dd + ' / ' + mm + ' / ' + yyyy}`,
         status:"Unanswered",
         weekNo:`${weeknumber}`
     }})

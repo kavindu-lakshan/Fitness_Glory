@@ -18,6 +18,7 @@ export const AnswerFormT = ({questions, onSubmit}) =>{
         username: `${username}`,
         QID:questions.QID? questions.QID:"",
         answer: questions.answer? questions.answer:"",
+        status:"Answered"
     }})
 
     const submitHandler = handleSubmit((data) =>{

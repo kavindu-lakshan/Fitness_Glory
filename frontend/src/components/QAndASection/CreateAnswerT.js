@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom';
-import { createAnswerT, selectQuestionDetailsA } from '../../api/apiFBQA';
+import { createAnswerT, selectQuestionDetailsA, updateQStatus} from '../../api/apiFBQA';
 import { AnswerFormT } from './Forms/AnswerFormT';
 import { useSelector } from "react-redux";
 // import createAnswerBg from './ImagesD/createAnswerBg.png'
@@ -24,6 +24,7 @@ export const CreateAnswerT = () =>{
 
     const onSubmit = async (data) =>{
         await createAnswerT(data)
+        await updateQStatus(data, match.params.id)
         history.push(`/employee/myAnswers/${username}`);
     };
     
