@@ -39,15 +39,16 @@ export default class ReportPage extends Component {
       var enrolledCount = 0;
 
       this.state.enrolls.map((enroll, indexEnroll) => {
-        if (enroll.programName === program._id) {
+        if (enroll.programName === program._id && enroll.enroll_datetime.split("/")[0] == month) {
           totalFee = totalFee + Number(program.fee);
           enrolledCount = enrolledCount + 1;
         }
+        
         if (
           this.state.enrolls.length === indexEnroll + 1 &&
-          enroll.enroll_datetime.split("/")[0] == month &&
           enroll.enroll_datetime.split("/")[2].substring(0, 4) == year
         ) {
+
           if (this.state.incomeTableData.length !== 0) {
             this.setState({
               incomeTableData: [],
