@@ -1,18 +1,18 @@
 import React, { useState, useEffect} from 'react';
 import { Link, useRouteMatch } from 'react-router-dom'
 import { Button } from '@material-ui/core';
-import { unansweredT } from '../../api/apiFBQA'
-import { NavBar } from './NavBar';
+import { unansweredT} from '../../api/apiFBQA'
 import './scrollBar.css'
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import Logo from "../.././logo.png";
-import { TextSize } from 'victory';
 // import QAndABg from './ImagesD/QandABg.png'
 
 export const ReportUnansweredQ = () =>{
     const match = useRouteMatch()
     const [questions, setQuestions] = useState([]);
+    let count = 0;
+    let countU = 0;
 
     useEffect(()=>{
         const displayQuestions = async() =>{
@@ -27,27 +27,44 @@ export const ReportUnansweredQ = () =>{
        setQuestions(filteredData)
    }
 
+       questions.map((row)=>{
+           if(row.status === "Answered"){
+               count = count + 1;
+           }
+       });
+       questions.map((row)=>{
+           if(row.status === "Unanswered"){
+               countU = countU + 1;
+           }
+       });
+
    const pdf = () =>{
         var doc = new jsPDF();
-        const tableColumn = ["Question Topic", "Question Status"];
+        const tableColumn = ["Question Topic", "Posted Date", "Question Status"];
         const tableRows = [];
         questions.map((row) => {
             const questionDetails = [
               row.qTopic,
-              row.status,
+              row.date,
+              row.status
             ];
             tableRows.push(questionDetails);
           });
           doc.text("Workout Report", 14, 20).setFontSize(12);
             doc.setFillColor(204, 204, 204, 0);
-            doc.rect(0,0, 400, 50, "F");
+            doc.rect(0,0, 400, 60, "F");
             doc.addImage(Logo, "JPEG", 75, 2, 60, 30);
             doc.setTextColor(255,255,255);
             doc.setFontSize(15);
-            doc.text(60, 40, 'The Questions posted by Members this week');
+            doc.text(55, 40, 'The Questions posted by Members this week');
+            doc.setFontSize(10);
+            doc.text(55, 50, 'Answered Questions');
+            doc.text(120, 50, 'Unanswered Questions');
+            doc.text(90, 50, `${count}`);
+            doc.text(160, 50, `${countU}`);
             doc.autoTable(tableColumn, tableRows, {
             styles: { fontSize: 12, halign: "center", backgroundColor:"transparent"},
-            startY: 55,}
+            startY: 65,}
             
     );
     doc.save("QuestionReport.pdf");
@@ -66,12 +83,13 @@ export const ReportUnansweredQ = () =>{
                 <Button style={btn1} color="Secondary" variant="contained" onClick={()=>pdf()}>GENERATE PDF</Button>
                 <div style={hideScroll}>
                 <div className="carbrQ" style={scrollable}>
-                    <center>
+                    <center><br/>
                 <table style ={textStyle} class="table">
                 <thead>
                     <tr>
-                        <th className="col-md-4">Topic of Question</th>
-                        <th className="col-md-5">Status</th>
+                        <th className="col">Topic of Question</th>
+                        <th className="col">Date</th>
+                        <th className="col">Status</th>
                         <th className="col">Action</th>
                     </tr>
                 </thead>
@@ -81,6 +99,9 @@ export const ReportUnansweredQ = () =>{
                         <tr>
                         <td>
                             {row.qTopic}
+                        </td>
+                        <td>
+                            {row.date}
                         </td>
                         <td>
                             {row.status}
@@ -104,7 +125,7 @@ export const ReportUnansweredQ = () =>{
     </div>
     )
 }
-const ReportBg = 'https://res.cloudinary.com/dulshan/image/upload/v1633072796/reportBg_zqb5hi.png'
+const ReportBg = 'https://res.cloudinary.com/dulshan/image/upload/v1633107671/reportWeeklyBg_erahhj.png'
 const bgImg ={
     background: `linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ,url(${ReportBg})`,
     backgroundSize: 'cover',
@@ -124,7 +145,7 @@ const labelStyle={
 }
 
 const textStyle={
-    width:'80%',
+    width:'100%',
     background:'transparent',
     color:'white',
     fontFamily: 'Helvetica',
@@ -133,8 +154,8 @@ const textStyle={
 }
 
 const btn ={
-    marginTop:'-60px',
-    marginLeft:'20px',
+    marginTop:'-50px',
+    marginLeft:'580px',
     backgroundColor: 'transparent', 
     border: '2px solid #04938b',
     color:'white'
@@ -147,8 +168,8 @@ const btnSel ={
 }
 
 const btn1 ={
-    marginTop:'-60px',
-    marginLeft:'50px',
+    marginTop:'70px',
+    marginLeft:'-152px',
     backgroundColor: 'transparent', 
     border: '2px solid #04938b',
     color:'white'
