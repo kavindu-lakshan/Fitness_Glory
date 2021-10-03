@@ -28,6 +28,16 @@ export const updateQuestion =  (questions, id)=> fetch(`http://localhost:5000/qu
     body:JSON.stringify(questions)
 });
 
+//Update question Status
+export const updateQStatus =  (questions, id)=> fetch(`http://localhost:5000/qu/member/a/createA/${id}`,{
+    method: "POST",
+    headers: {
+        "Accept":"application/json",
+        "Content-Type": "application/json"
+    },
+    body:JSON.stringify(questions)
+});
+
 //Deletes selected Question
 export const deleteQuestion = (question, id) => fetch(`http://localhost:5000/qu/member/deleteQ/${id}`, {
     method:"DELETE", 
@@ -90,6 +100,9 @@ export const deleteAnswer = (answer, id) => fetch(`http://localhost:5000/an/memb
 
 //Display all questions Traner
 export const allQuestionsT =() =>fetch("http://localhost:5000/qu/employee/").then(res => res.clone().json());
+
+//Display unanswered Questions
+export const unansweredT = (weekNo) =>fetch(`http://localhost:5000/qu/employee/unasnweredQ/${weekNo}`).then(res => res.clone().json());
 
 //Create answer Trainer
 export const createAnswerT = (answer) => fetch("http://localhost:5000/an/employee/a/createA",{

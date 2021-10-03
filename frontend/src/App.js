@@ -77,6 +77,7 @@ import { CreateAnswerT } from "./components/QAndASection/CreateAnswerT.js";
 import { UpdateAnswerT } from "./components/QAndASection/UpdateAnswerT";
 import { OtherQuestionsT } from "./components/QAndASection/OtherQuestionsT";
 import { DeleteAnswerT } from "./components/QAndASection/DeleteAnswerT";
+import { ReportUnansweredQ } from "./components/QAndASection/ReportUnansweredQ";
 //------------------------------Dulshan Feedback Management-----------------------------------
 import { Feedback } from "./components/FeedbackSection/Feedback";
 import { CreateFeedback } from "./components/FeedbackSection/CreateFeedback";
@@ -92,6 +93,7 @@ import { ViewFeedbackT } from "./components/FeedbackSection/ViewFeedbackT";
 //  Manushika ClientRequest
 import CreatePost from "./components/ClientRequest/CreatePost";
 import Home from "./components/ClientRequest/Home";
+import ContactUs from "./Screens/ContactUs/ContactUs";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
@@ -131,6 +133,8 @@ import AllEventsMember from "./components/Events/AllEventsMember";
 import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
 import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
 import AdminHomePage from "./Screens/HomePage/AdminHomePage";
+import { AboutUs } from "./Screens/AboutUs/AboutUs";
+
 import CreateNote from "./Screens/CreateNote/CreateNote";
 import SingleNote from "./Screens/CreateNote/SingleNote";
 
@@ -215,7 +219,30 @@ const App = () => {
           path="/member/memberPTRequest/post/:id"
           component={PostDetails}
         ></Route>
+        <Route
+          path="/member/memberPTRequest/home"
+          exact
+          component={Home}
+        ></Route>
+        <Route
+          path="/employee/memberPTRequest/ptEdit"
+          exact
+          component={ptEdit}
+        ></Route>
+        <Route
+          path="/member/memberPTRequest/add"
+          component={CreatePost}
+        ></Route>
+        <Route
+          path="/employee/memberPTRequest/edit/:id"
+          component={EditPost}
+        ></Route>
+        <Route
+          path="/member/memberPTRequest/post/:id"
+          component={PostDetails}
+        ></Route>
       </div>
+      <Route path="/member/Contactus" component={ContactUs} />
       {/* newly added*/}
       <div className="container">
         <Route
@@ -271,7 +298,6 @@ const App = () => {
           exact
           component={() => <PreAdmin setCurrentId={setCurrentId} />}
         ></Route>
-
         <Route
           path="/member/PreAdmin_Mem"
           exact
@@ -287,6 +313,7 @@ const App = () => {
         <Route path="/member/Home" component={() => <HomePage />} />
 
         {/*________________________ Amantha Routes Start ________________________*/}
+
         {/*----------->> Amantha Trainer Login Routes <<-----------*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
@@ -324,8 +351,8 @@ const App = () => {
           path="/employee/event-interest/allInterests"
           component={AllInterest}
         />
-        {/*________________________ Amantha Routes End  ________________________*/}
 
+        {/*________________________ Amantha Routes End  ________________________*/}
         {/*________________________ Lakshan Extra Routes ________________________*/}
 
         <Route path="/admin/memberDetails" component={viewMembers}></Route>
@@ -403,7 +430,8 @@ const App = () => {
           component={ProgramDetailsAdmin}
         ></Route>
 
-        {/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
+        {/*-------------------------------Dulshan Routes START---------------------------------------*/}
+
         <Route exact path="/member/QandA/:email" component={QandA} />
         <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
@@ -442,11 +470,19 @@ const App = () => {
         />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
+        <Route exact path="/member/aboutUs" component={AboutUs} />
+        <Route
+          exact
+          path="/employee/unasnweredQ/:weekNo"
+          component={ReportUnansweredQ}
+        />
+        {/*--------------------------------Dulshan Routes END-----------------------------------------*/}
 
         {/* Admin */}
         <Route path="/admin/login" component={AdminLoginScreen} />
         <Route path="/admin/admin-profile" component={AdminProfileScreen} />
         <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
+        {/*--------------------------------Footer-----------------------------------------*/}
         <Route path="/admin/createnote" component={CreateNote} />
         <Route path="/admin/note/:id" component={SingleNote} />
 

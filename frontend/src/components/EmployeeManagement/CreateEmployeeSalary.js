@@ -5,6 +5,7 @@ import Particle from './Particles2';
 import GradientButton from 'react-linear-gradient-button';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -326,6 +327,11 @@ export default class CreateEmployeeSalary extends Component{
                         <GradientButton type="submit" className="CheckButton" style = {linkStyles}>
                             ASSIGN SALARY
                         </GradientButton>
+
+                        <Link to = {"/admin/ViewSalaries"}><GradientButton className="CheckButton" style = {linkStyles}>
+                            VIEW ALL SALARIES
+                        </GradientButton></Link>
+
                         </div>
                         <br></br>
                         <br></br>

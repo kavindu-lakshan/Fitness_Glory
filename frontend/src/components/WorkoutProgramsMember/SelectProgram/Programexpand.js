@@ -32,7 +32,7 @@ export default class Programexpand extends Component {
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
-              }}>
+              }} className="py-5 px-5">
             <Programexpandview
                 values={this.state.program}
             />

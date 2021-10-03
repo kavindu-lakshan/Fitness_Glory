@@ -88,7 +88,7 @@ const Header = () => {
                   Events
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/member/feedback/:email">
+                <NavDropdown.Item href={`/member/feedback/${userInfo?.email}`}>
                   My Feedback
                 </NavDropdown.Item>
                 <NavDropdown.Divider />

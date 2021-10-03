@@ -52,13 +52,6 @@ export default class CreatePost extends Component {
     }
 
     {
-      /*}
-  const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (!this.state.tname || reg.test(this.state.tname) === false) {
-    emailError = "Email Field is Invalid ";
-  }
-  {
-  }*/
       if (!this.state.tname) {
         passwordError = "Password field is required";
       }

@@ -3,6 +3,7 @@ import { Link, useRouteMatch } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import { NavBar } from './NavBar';
 import { getAnswer } from '../../api/apiFBQA';
+import './scrollBar.css'
 // import myAnswerBg from './ImagesD/myAnswerBg.png'
 
 export const MyAnswers = () => {
@@ -30,7 +31,7 @@ export const MyAnswers = () => {
                 <br/>
                 <h3 style={labelStyle} className = "text-center" >MY ANSWERS</h3>
                 <div style={hideScroll}>
-                <div style={scrollable}>
+                <div className="carbrQ" style={scrollable}>
                 <table style={textStyle} class="table">
                 <thead>
                     <tr>

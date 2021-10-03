@@ -308,7 +308,7 @@ export default class AllEventsMember extends Component {
               border: "2px solid white",
               minWidth: "100px",
               minHeight: "100%",
-              height: "520px",
+              height: "570px",
               width: "20%",
               marginLeft: "1100px",
               background: "transparent",
@@ -317,11 +317,10 @@ export default class AllEventsMember extends Component {
             <CardContent>
               <Grid container>
                 <Grid>
-                  <br />
                   <center>
                     <h1
                       className="h3 mb-3 font-weight-normal"
-                      style={{ fontSize: "18px" }}
+                      style={{ fontSize: "18px", color:"white" }}
                     >
                       Add Your Interest
                     </h1>
@@ -374,7 +373,6 @@ export default class AllEventsMember extends Component {
                     <div className="form-group right">
                       <label className="label-title">Status</label>
                       <div
-                        className="input-group"
                         value={this.state.interestStatus}
                         onChange={this.handleInputChange}
                       >
@@ -430,7 +428,7 @@ export default class AllEventsMember extends Component {
             <br />
             <br />
           </div>
-          <br />
+          <br /><br /><br /><br />
         </div>
       </div>
     );

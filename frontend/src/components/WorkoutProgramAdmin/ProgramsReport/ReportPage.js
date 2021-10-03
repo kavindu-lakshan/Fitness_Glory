@@ -14,26 +14,20 @@ export default class ReportPage extends Component {
       data: [],
       incomeTableData: [],
       incomeTableDataSendReady: [],
-      count: 0,
-      count1: 0,
-      incomeTableFilerMonth: "9",
+      MonthlyTotal: 0
     };
   }
 
   getChartsData() {
     this.state.programs.map((program, id) => {
-      this.setState({
-        count: 0,
-      });
+      var count = 0
 
       this.state.enrolls.map((enroll, index) => {
         if (enroll.programName === program._id && enroll.activeness) {
-          this.setState({
-            count: this.state.count + 1,
-          });
+            count = count + 1
         }
         if (index === this.state.enrolls.length - 1) {
-          this.state.data.push({ x: program.name, y: this.state.count });
+          this.state.data.push({ x: program.name, y: count });
         }
       });
     });
@@ -75,9 +69,12 @@ export default class ReportPage extends Component {
     await this.retrieveEnrolls().then(() => {
       this.getChartsData();
     });
+
+    
     this.setState({
       incomeTableDataSendReady: this.state.incomeTableData,
     });
+
   };
 
   retrievePrograms = async () => {
@@ -105,7 +102,7 @@ export default class ReportPage extends Component {
     });
   };
 
-  filterIncomeTableByMonth = (month, year) => {
+  filterIncomeTableByMonth = async (month, year) => {
     this.getTabledata(month, year);
     this.setState({
       incomeTableDataSendReady: this.state.incomeTableData,
@@ -114,28 +111,29 @@ export default class ReportPage extends Component {
 
   render() {
     return (
-      <div  >
-        <div className="container">
+      <div className="bg-primary" >
+        <div className="px-5 pb-3">
         <div className="row">
-          <div className="col-md-6">
-            <div className="card rounded shadow mt-4">
+          <div className="col-md-4">
+            <div className="card rounded bg-dark shadow mt-4">
               <MemberCountPrograms data={this.state.data} />
+              <p class="card-title text-light text-center pb-2">Number of Active Members in Each Program</p>
             </div>
           </div>
 
-          <div className="col-md-6">
-            <div className="card rounded shadow mt-4">
+          <div className="col-md-4">
+            <div className="card text-white bg-dark rounded shadow mt-4">
               <MemberCountPie data={this.state.data} />
+              <p class="card-title text-light text-center pb-2">Distribution of Active Members in Programs </p>
             </div>
           </div>
         </div>
 
-        <div className="card rounded shadow">
-          <div className="container-fluid">
+        <div className="card rounded bg-dark shadow">
+          <div className="pt-3">
             <ExpectedIncome
               values={this.state.incomeTableDataSendReady}
               filterIncomeTableByMonth={this.filterIncomeTableByMonth}
-              incomeTableFilerMonth={this.state.incomeTableFilerMonth}
             />
           </div>
         </div>

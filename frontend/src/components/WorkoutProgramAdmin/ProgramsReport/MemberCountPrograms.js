@@ -1,11 +1,29 @@
 import React from "react";
-import { VictoryBar, VictoryChart, VictoryLegend, VictoryTheme, VictoryAxis } from "victory";
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryLegend,
+  VictoryTheme,
+  VictoryAxis,
+} from "victory";
 
 export default function MemberCountPrograms(props) {
   const data = props.data;
+  const chartTheme = {
+    axis: {
+      style: {
+        tickLabels: {
+          // this changed the color of my numbers to white
+          fill: "white",
+        },
+      },
+    },
+  };
+
   return (
     <div className="">
       <VictoryChart
+        style={{ fill: "white", fontSize: 15 }}
         responsive={false}
         animate={{
           duration: 500,
@@ -14,17 +32,44 @@ export default function MemberCountPrograms(props) {
         domainPadding={{ x: 0 }}
         theme={VictoryTheme.material}
       >
-        <VictoryLegend
-          x={125}
-          y={50}
-          title=" Active Members"
-          centerTitle
-          orientation="horizontal"
-          gutter={20}
-          style={{ border: { stroke: "black" }, title: { fontSize: 20 } }}
+        <VictoryAxis
+          tickFormat={(x) => x}
+          style={{
+            axis: {
+              stroke: "white", //CHANGE COLOR OF X-AXIS
+            },
+            tickLabels: {
+              fill: "white", //CHANGE COLOR OF X-AXIS LABELS
+            },
+            grid: {
+              stroke: "white", //CHANGE COLOR OF X-AXIS GRID LINES
+              strokeDasharray: "7",
+            },
+          }}
+        />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(y) => y}
+          style={{
+            axis: {
+              stroke: "white", //CHANGE COLOR OF Y-AXIS
+            },
+            tickLabels: {
+              fill: "white", //CHANGE COLOR OF Y-AXIS LABELS
+            },
+            grid: {
+              stroke: "white", //CHANGE COLOR OF Y-AXIS GRID LINES
+              strokeDasharray: "7",
+            },
+          }}
+        />
+
+        <VictoryBar
+          style={{
+            data: { fill: "#EFBB35" },
+          }}
           data={data}
         />
-        <VictoryBar data={data} />
       </VictoryChart>
     </div>
   );
