@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import ReactToPrint from "react-to-print";
+import PrintIcon from "@material-ui/icons/Print";
 import {
   MDBContainer,
   MDBRow,
@@ -63,9 +64,10 @@ class ComponentToPrint extends React.Component {
           <Grid item xs={6}>
             <Grid>
               <Card>
+                <h5>PACKAGE</h5>
                 <Grid container spacing={4}>
                   <Grid item xs={6}>
-                    <img src="https://image.freepik.com/free-vector/set-couples-exercising_74855-1470.jpg " />
+                    <img src="https://cdn2.vectorstock.com/i/thumb-large/48/31/team-tiny-business-people-doing-marketing-vector-33294831.jpg " />
                   </Grid>
 
                   <Grid item xs={6}>
@@ -81,15 +83,15 @@ class ComponentToPrint extends React.Component {
                           {
                             label: "Posts",
                             backgroundColor: [
-                              "rgba(255, 134,159,0.4)",
-                              "rgba(98,  182, 239,0.4)",
-                              "rgba(113, 205, 205,0.4)",
+                              "rgba(232, 56, 115,1)",
+                              "rgba(59, 56, 232,1)",
+                              "rgba(216, 240, 0,1)",
                             ],
                             fill: false,
                             borderColor: [
-                              "rgba(255, 134, 159, 1)",
-                              "rgba(98,  182, 239, 1)",
-                              "rgba(113, 205, 205, 1)",
+                              "rgba(232, 56, 115,1)",
+                              "rgba(59, 56, 232,1)",
+                              "rgba(216, 240, 0,1)",
                             ],
                             borderWidth: 1,
                             data: [
@@ -119,10 +121,11 @@ class ComponentToPrint extends React.Component {
 
             <Grid>
               <Card>
+                <h5> TIMESLOT</h5>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
                     {" "}
-                    <img src="https://image.freepik.com/free-vector/set-couples-exercising_74855-1470.jpg" />
+                    <img src="https://cdn4.vectorstock.com/i/thumb-large/53/88/office-scene-with-business-people-working-vector-33325388.jpg" />
                   </Grid>
                   <Grid item xs={6}>
                     <Bar
@@ -132,17 +135,17 @@ class ComponentToPrint extends React.Component {
                           {
                             label: ["time"],
                             backgroundColor: [
-                              "rgba(255, 134,159,0.4)",
-                              "rgba(98,  182, 239,0.4)",
-                              "rgba(255, 218, 128,0.4)",
-                              "rgba(113, 205, 205,0.4)",
+                              "rgba(10, 109, 207,1)",
+                              "rgba(10, 207, 200,1)",
+                              "rgba(191, 207, 10,1)",
+                              "rgba(162, 56, 232,1)",
                             ],
                             fill: false,
                             borderColor: [
-                              "rgba(255, 134, 159, 1)",
-                              "rgba(98,  182, 239, 1)",
-                              "rgba(255, 218, 128, 1)",
-                              "rgba(113, 205, 205, 1)",
+                              "rgba(10, 109, 207,1)",
+                              "rgba(10, 207, 200,1)",
+                              "rgba(191, 207, 10,1)",
+                              "rgba(162, 56, 232,1)",
                             ],
                             borderWidth: 1,
                             data: [
@@ -173,7 +176,11 @@ class ComponentToPrint extends React.Component {
           </Grid>
 
           <Grid item xs={6}>
-            <h5>PERSONAL TRAINER QUEST ANALYSIS</h5> <br />
+            <h1 style={{ color: "Purple" }}>
+              PERSONAL TRAINER REQUEST ANALYSIS
+            </h1>{" "}
+            <br />
+            <br />
             <p>
               <Button>Accepted Requests </Button>
               &nbsp; &nbsp;
@@ -188,13 +195,14 @@ class ComponentToPrint extends React.Component {
               <Button> {this.RequestStatus("pending")}</Button>
             </p>
             <Card>
+              <h5> STATUS</h5>
               <Grid container spacing={2}>
                 <Grid item xs={6}>
                   {" "}
-                  <img src="https://image.freepik.com/free-vector/set-couples-exercising_74855-1470.jpg" />
+                  <img src="https://cdn4.vectorstock.com/i/thumb-large/04/43/finance-presentation-business-information-vector-31600443.webp" />
                 </Grid>
                 <Grid item xs={6}>
-                  <Line
+                  <Doughnut
                     style={{ width: 50, height: 50, padding: 20 }}
                     data={{
                       labels: ["pending", "Accepted", "Rejected"],
@@ -202,15 +210,15 @@ class ComponentToPrint extends React.Component {
                         {
                           label: "Posts",
                           backgroundColor: [
-                            "rgba(255, 134,159,0.4)",
-                            "rgba(98,  182, 239,0.4)",
-                            "rgba(113, 205, 205,0.4)",
+                            "rgba(141, 10, 207,1)",
+                            "rgba(15, 99, 184,1)",
+                            "rgba(10, 207, 115,1)",
                           ],
                           fill: false,
                           borderColor: [
-                            "rgba(255, 134, 159, 1)",
-                            "rgba(98,  182, 239, 1)",
-                            "rgba(113, 205, 205, 1)",
+                            "rgba(141, 10, 207,1)",
+                            "rgba(15, 99, 184, 1)",
+                            "rgba(10, 207, 115, 1)",
                           ],
                           borderWidth: 1,
                           data: [
@@ -283,7 +291,11 @@ class Request_Report extends React.Component {
         <ReactToPrint
           trigger={() => (
             <Button>
-              <a href="#">Print this Report!</a>
+              <a href="#">
+                {" "}
+                <PrintIcon />
+                &nbsp; Print this Report
+              </a>
             </Button>
           )}
           content={() => this.componentRef}
