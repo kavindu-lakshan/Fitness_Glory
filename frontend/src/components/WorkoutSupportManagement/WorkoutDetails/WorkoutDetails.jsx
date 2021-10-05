@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getWorkout } from "../../../actions/workouts";
 import useStyles from "./styles";
+import VisibilityIcon from "@material-ui/icons/Visibility";
 
 const WorkoutDetails = () => {
   const { workout, workouts } = useSelector((state) => state.workouts);
@@ -37,6 +38,8 @@ const WorkoutDetails = () => {
             >
               Workout Category - {workout.workout_category}
             </Typography>
+            <VisibilityIcon fontSize="medium" />
+            <strong>&nbsp; {workout.viewCount}</strong>
             <Divider style={{ margin: "20px 0" }} />
             <Typography variant="body1">
               <strong>Muscle Group - {workout.muscle_group}</strong>
@@ -54,9 +57,6 @@ const WorkoutDetails = () => {
               <strong>Tips - {workout.tips}</strong>
             </Typography>
             <Divider style={{ margin: "20px 0" }} />
-            <Typography variant="body1">
-              <strong>Views - {workout.viewCount}</strong>
-            </Typography>
           </div>
           <div className={classes.imageSection}>
             <img
