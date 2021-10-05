@@ -1,36 +1,22 @@
 import React, { useEffect } from "react";
 import "./postdetail.css";
 
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  Grid,
-  Item,
-  CircularProgress,
-  Divider,
-} from "@material-ui/core/";
+import { Typography, Grid } from "@material-ui/core/";
 import Chip from "@material-ui/core/Chip";
 import { useDispatch, useSelector } from "react-redux";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 import EmailIcon from "@material-ui/icons/Email";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import {
-  getBlogPost,
-  getBlogPostsBySearch,
-} from "../../../../actions/blogposts";
+import { getBlogPost } from "../../../../actions/blogposts";
 import useStyles from "./styles";
 
 const PostBDetails = () => {
-  const { blogpost, blogposts } = useSelector((state) => state.blogposts);
+  const { blogpost } = useSelector((state) => state.blogposts);
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const classes = useStyles();
   const { id } = useParams();
 
@@ -38,7 +24,6 @@ const PostBDetails = () => {
     dispatch(getBlogPost(id));
   }, [id, dispatch]);
 
-  const bull = <span className={classes.bullet}>•</span>;
   if (!blogpost) return null;
   {
     return (
@@ -113,16 +98,6 @@ const PostBDetails = () => {
                 {/* <Typography className="ta">Time Availability</Typography>*/}
               </div>
             </div>
-            {/*<div className={classes.chart}>
-            <p>{blogpost.mon} ON MONDAY</p>
-            <p>{blogpost.tue} ON TUESDAY</p>
-            <p>{blogpost.wed} ON WEDNESDAY</p>
-            <p>{blogpost.thu} ON THURSDAY</p>
-            <p>{blogpost.fri} ON FRIDAY</p>
-            <p>{blogpost.sat}ON SATURDAY</p>
-            <p>{blogpost.sun}ON SUNDAY</p>
-          </div>
-    <hr />*/}
           </Grid>
           <Grid item xs={6}>
             <br />
@@ -195,38 +170,7 @@ const PostBDetails = () => {
 };
 
 export default PostBDetails;
-{
-  /* 
-              
-              <Grid item xs={4} >
-              <div>
-        <Typography className="ta">Personal Trainer Packages</Typography>
-        <Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-        be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-</div>
-</Grid>
 
-*/
-}
 const backiImg =
   "https://res.cloudinary.com/maldeniya99/image/upload/v1631621169/anastase-maragos-4dlhin0ghOk-unsplash_mwpe9l.jpg";
 const backImg = {
@@ -241,12 +185,4 @@ const font = {
   color: "white",
   fontspacing: "3",
   height: "1000",
-};
-const editpostti = {
-  fontSize: 50,
-  color: "white",
-  letterSpacing: 20,
-  textAlign: "center",
-
-  paddingTop: "150px",
 };

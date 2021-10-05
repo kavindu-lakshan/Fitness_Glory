@@ -9,12 +9,16 @@ router.route("/member/q/createQ").post((req, res)=>{
     const qTopic = req.body.qTopic;
     const question = req.body.question;
     const date = req.body.date;
+    const status = req.body.status;
+    const weekNo = req.body.weekNo;
 
     const nQuestion = new Question({
         email,
         qTopic,
         question,
-        date
+        date,
+        status,
+        weekNo
 
     })
     nQuestion.save().then((nQuestion) =>{
@@ -62,6 +66,18 @@ router.route("/member/selectedQ/:id").get((req, res)=>{
     });
 });
 
+//Fetch Unanswered Questions
+router.route("/employee/unasnweredQ/:weekNo").get((req, res) =>{
+    let uName = req.params.weekNo;
+    const question = Question.find({weekNo:uName}).exec().then(question =>{
+        res.json(question)
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({error:err});
+    });
+});
+
 
 //Update selected Question
 router.route("/member/updateQ/:id").post((req, res)=>{
@@ -104,6 +120,24 @@ router.route('/member/').get((req, res) =>{
     });
 });
 
+//Update status of question
+router.route("/member/a/createA/:id").post((req, res)=>{
+    Question.findById(req.params.id, (err, questions) =>{
+        if(!questions){
+            res.status(404).send("Question not Found!")
+        }else{
+            const{status} = req.body;
+            const updateQuestion = {
+                status
+            }
+            Question.findByIdAndUpdate(req.params.id, (err, updateQuestion))
+            .then(()=>{
+                res.status(200).send({status:"Question Details Updated"})
+            }).catch(err => res.status(500).send(err.message));
+        }
+    });
+});
+
 //Display all Questions Trainer
 router.route('/employee/').get((req, res) =>{
     Question.find((err, question) =>{ 
@@ -114,5 +148,6 @@ router.route('/employee/').get((req, res) =>{
         }
     });
 });
+
 
 module.exports = router ;

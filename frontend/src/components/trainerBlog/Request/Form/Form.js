@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  TextField,
-  Button,
-  Typography,
-  Paper,
-  NativeSelect,
-} from "@material-ui/core";
+import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -15,7 +9,6 @@ import FileBase from "react-file-base64";
 import useStyles from "./styles";
 import { createBlogPost, updateBlogPost } from "../../../../actions/blogposts";
 import "./memf.css";
-import { useHistory } from "react-router-dom";
 
 const Form = ({ currentId, setCurrentId }) => {
   const [blogpostData, setBlogPostData] = useState({
@@ -56,7 +49,6 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const dispatch = useDispatch();
   const classes = useStyles();
-  const history = useHistory();
 
   useEffect(() => {
     if (blogpost) setBlogPostData(blogpost);

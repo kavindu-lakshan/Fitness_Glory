@@ -1,16 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  AppBar,
-  Typography,
-  Grow,
-  Grid,
-  Button,
-  Box,
-  TextField,
-  Link,
-  Paper,
-} from "@material-ui/core";
+import { Container, Typography, Grid, Button, Box } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -18,24 +7,17 @@ import { useDispatch } from "react-redux";
 import "./Memback.css";
 
 import PostsMem from "./Posts/PostsMem";
-import Form from "./Form/Form";
-import { getBlogPosts, getBlogPostsBySearch } from "../../../actions/blogposts";
-import useStyles from "./memstyles";
-import { useHistory, useLocation } from "react-router-dom";
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+import { getBlogPosts } from "../../../actions/blogposts";
+import useStyles from "./memstyles";
+import { useHistory } from "react-router-dom";
+
 const MemForm = () => {
-  const query = useQuery();
-  const History = useHistory();
-  const page = query.get("page") || 1;
-  const searchQuery = query.get("searchQuery");
   const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-  const [tags, setTags] = useState([]);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -232,7 +214,5 @@ const MemForm = () => {
 const backImg = {
   backgroundColor: "black",
 };
-const cb = {
-  backgroundColor: "rgb(204, 255, 229,5)",
-};
+
 export default MemForm;

@@ -52,13 +52,6 @@ export default class CreatePost extends Component {
     }
 
     {
-      /*}
-  const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (!this.state.tname || reg.test(this.state.tname) === false) {
-    emailError = "Email Field is Invalid ";
-  }
-  {
-  }*/
       if (!this.state.tname) {
         passwordError = "Password field is required";
       }
@@ -151,6 +144,7 @@ export default class CreatePost extends Component {
                 onChange={this.handleInputChange}
                 required
               />
+
               <span className="text-danger">{this.state.nameError}</span>
             </div>
 
@@ -240,7 +234,7 @@ export default class CreatePost extends Component {
                   <option name="pack" value="Premium">
                     Premium
                   </option>
-                  <option name="pack" value=" Ellite">
+                  <option name="pack" value="Ellite">
                     Ellite
                   </option>
                 </select>

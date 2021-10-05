@@ -52,7 +52,8 @@ export default function AllProgramsView(props) {
           </tbody>
         </table>
 
-        <button className="btn btn-success mb-2"> <a href="/admin/add-program" style ={{textDecoration: 'none', color: 'white'}}>Create New Post</a></button>
+        <button className="btn btn-success mb-2"> <a href="/admin/add-program" style ={{textDecoration: 'none', color: 'white'}}>New Program</a></button>
+        <button className="btn btn-info mb-2 mx-3"> <a href="/admin/programsReport" style ={{textDecoration: 'none', color: 'white'}}>Programs Stats</a></button>
       </div>
     )
 }

@@ -240,13 +240,13 @@ export default class EditPost extends Component {
                 value={this.state.status}
                 onChange={this.handleChangeOne}
               >
-                <option name="status" value="Pending">
+                <option name="status" value="pending">
                   Pending
                 </option>
-                <option name="status" value=" Accepted">
+                <option name="status" value="Accepted">
                   Accepted
                 </option>
-                <option name="status" value=" Rejected">
+                <option name="status" value="Rejected">
                   Rejected
                 </option>
               </select>
