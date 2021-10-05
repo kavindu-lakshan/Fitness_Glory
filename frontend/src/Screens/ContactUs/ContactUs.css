@@ -1,0 +1,11 @@
+.ctback {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://res.cloudinary.com/dulshan/image/upload/v1631808256/aboutUsbg_t4yzuo.png");
+  background-position: center;
+  background-size: cover;
+  background-position: 0px 0;
+  background-repeat: no-repeat;
+}

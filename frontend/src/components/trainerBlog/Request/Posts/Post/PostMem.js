@@ -9,12 +9,10 @@ import {
 
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
-import { useDispatch } from "react-redux";
 
 import useStyles from "./memstyles";
 import { useHistory } from "react-router";
 const PostMem = ({ blogpost, setCurrentId }) => {
-  const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
   const openPost = (e) => {

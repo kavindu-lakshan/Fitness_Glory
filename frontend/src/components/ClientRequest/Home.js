@@ -122,12 +122,6 @@ export default class Home extends Component {
                   <td>{posts.pack}</td>
                   <td>{posts.status}</td>
                   <td>
-                    {/*}  <a
-                    className="btn btn-dark"
-                    href={`/member/memberPTRequest/edit/${posts._id}`}
-                  >
-                    <i className="btn btn-warning"></i>&nbsp;Edit
-            </a>*/}
                     &nbsp; &nbsp;
                     <a
                       className="btn btn-danger"
