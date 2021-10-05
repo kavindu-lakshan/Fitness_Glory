@@ -219,28 +219,6 @@ const App = () => {
           path="/member/memberPTRequest/post/:id"
           component={PostDetails}
         ></Route>
-        <Route
-          path="/member/memberPTRequest/home"
-          exact
-          component={Home}
-        ></Route>
-        <Route
-          path="/employee/memberPTRequest/ptEdit"
-          exact
-          component={ptEdit}
-        ></Route>
-        <Route
-          path="/member/memberPTRequest/add"
-          component={CreatePost}
-        ></Route>
-        <Route
-          path="/employee/memberPTRequest/edit/:id"
-          component={EditPost}
-        ></Route>
-        <Route
-          path="/member/memberPTRequest/post/:id"
-          component={PostDetails}
-        ></Route>
       </div>
       <Route path="/member/Contactus" component={ContactUs} />
       {/* newly added*/}

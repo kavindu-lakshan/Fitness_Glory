@@ -144,6 +144,7 @@ export default class CreatePost extends Component {
                 onChange={this.handleInputChange}
                 required
               />
+
               <span className="text-danger">{this.state.nameError}</span>
             </div>
 
