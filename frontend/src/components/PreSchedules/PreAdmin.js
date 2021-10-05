@@ -22,7 +22,18 @@ const App = () => {
     }, [currentId,dispatch]);
 
     return (
-
+      <div
+      style={{
+        backgroundImage:
+          "url(" +
+          "https://res.cloudinary.com/dxnsjtp5n/image/upload/v1632939052/jose-g-ortega-castro-bvh5HXcvsvw-unsplash_wl2uq8.jpg" +
+          ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        padding: "2px 20px",
+      }}
+    >
 
 
       
@@ -37,7 +48,7 @@ const App = () => {
         <Container>
           <Grid container justify="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={7}>
-              <PrePosts setCurrentId={setCurrentId} />
+              <PrePosts setCurrentId={setCurrentId} /> 
             </Grid>
             <Grid item xs={12} sm={4}>
               <PreForm currentId={currentId} setCurrentId={setCurrentId}/>
@@ -46,6 +57,7 @@ const App = () => {
         </Container>
       </Grow>
       </Container>
+      </div>
     );
 }
 export default App;

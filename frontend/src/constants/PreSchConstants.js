@@ -1,0 +1,12 @@
+export const PRE_CREATE = "PRE_CREATE";
+export const PRE_UPDATE = "PRE_UPDATE";
+export const PRE_DELETE = "PRE_DELETE";
+export const PRE_FETCH_ALL = "PRE_FETCH_ALL";
+export const PRE_FETCH = "PRE_FETCH";
+// export const PRE_LIKE = "PRE_LIKE";
+
+// export const FETCH_BY_SEARCH_BLOGPOST = "FETCH_BY_SEARCH_BLOGPOST";
+// export const FETCH_POST_BLOGPOST = "FETCH_POST_BLOGPOST";
+// export const LIKE_BLOGPOST = "LIKE_BLOGPOST";
+// export const END_LOADING_BLOGPOST = "END_LOADING_BLOGPOST";
+// export const START_LOADING_BLOGPOST = "START_LOADING_BLOGPOST";

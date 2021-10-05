@@ -14,7 +14,7 @@ const PostsMem = ({ setCurrentId }) => {
   ) : (
     <Grid className={classes.container} container spacing={3}>
       {blogposts.map((blogpost) => (
-        <Grid key={blogpost._id} item xs={12} sm={3} md={3}>
+        <Grid key={blogpost._id} item xs={12} sm={6} md={6}>
           <PostMem blogpost={blogpost} setCurrentId={setCurrentId} />
         </Grid>
       ))}
