@@ -3,6 +3,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import Workoutprogramcard from "./workoutprogram-card";
 import Myprograms from "./my-programs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function AllprogramsMemer(props) {
   const [programs, setPrograms] = useState([]);
@@ -11,6 +13,8 @@ function AllprogramsMemer(props) {
 
   useEffect(() => {
     retrievePrograms();
+    AOS.init();
+    AOS.refresh();
   }, []);
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -161,7 +165,7 @@ function AllprogramsMemer(props) {
         </div>
         <div style={{ marginTop: "30px" }}>
           <div className="row">
-            <div className="col-md-3">
+            <div data-aos="fade-up" className="col-md-3">
               <p className="text-white text-center">ENROLLED PROGRAMS</p>
               {enrolls.map((enroll, index) => (
                 <div className="" key={index}>
@@ -175,7 +179,7 @@ function AllprogramsMemer(props) {
             <div className="col-md-9">
               <div className="row">
                 {programs.map((program, index) => (
-                  <div className="col-md-6 col-sm-6" key={index}>
+                  <div data-aos="fade-up" className="col-md-6 col-sm-6" key={index}>
                     <Workoutprogramcard
                       program={program}
                       EnrollController={EnrollController}

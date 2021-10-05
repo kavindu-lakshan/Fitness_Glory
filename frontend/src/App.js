@@ -399,14 +399,9 @@ const App = () => {
         <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
         <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
-        <Route
-          path="/admin/edit-program/:id"
-          component={EditProgramAdmin}
-        ></Route>
-        <Route
-          path="/admin/expand-program/:id"
-          component={ProgramDetailsAdmin}
-        ></Route>
+
+        <Route path="/admin/edit-program/:id" component={EditProgramAdmin}></Route>
+        <Route path="/admin/expand-program/:id" component={Programexpand} ></Route>
 
         {/*-------------------------------Dulshan Routes START---------------------------------------*/}
 
