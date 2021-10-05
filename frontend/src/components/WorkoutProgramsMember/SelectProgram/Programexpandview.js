@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Programexpandview(props) {
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
     <div className="mx-5">
       <div className="rounded shadow bg-primary">
         <div className="row">
-          <div className="my-3 col-md-6">
+          <div data-aos="fade-left" className="my-3 col-md-6">
           <img className="card-img-top" src={props.values.photoURL} />
           </div>
 
-          <div className="my-3 col-md-6">
+          <div  data-aos="fade-right" className="my-3 col-md-6">
           <h1 className="text-white">{props.values.name}</h1>
           <d1 className="row">
             <dt className="text-light">{props.values.description}</dt>
