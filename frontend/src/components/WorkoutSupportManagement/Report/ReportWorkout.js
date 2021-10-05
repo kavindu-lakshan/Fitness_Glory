@@ -45,11 +45,23 @@ export default class ReportWorkout extends Component {
         ];
         tableRows.push(workoutDetails);
       });
+    // doc.text("Workout Report", 14, 20).setFontSize(12);
+    // doc.addImage(Logo, "JPEG", 135, 2, 60, 30);
     doc.text("Workout Report", 14, 20).setFontSize(12);
-    doc.addImage(Logo, "JPEG", 135, 2, 60, 30);
+    doc.setFillColor(204, 204, 204, 0);
+    doc.rect(0, 0, 400, 60, "F");
+    doc.addImage(Logo, "JPEG", 75, 2, 60, 30);
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(15);
+    doc.text(75, 40, "Top 10 Most Viewed Workouts");
+    doc.setFontSize(10);
     doc.autoTable(tableColumn, tableRows, {
-      styles: { fontSize: 12, halign: "center" },
-      startY: 35,
+      styles: {
+        fontSize: 12,
+        halign: "center",
+        backgroundColor: "transparent",
+      },
+      startY: 63,
     });
     window.open(URL.createObjectURL(doc.output("blob")));
     doc.save("workout_Report.pdf");
