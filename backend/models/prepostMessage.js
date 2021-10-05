@@ -11,6 +11,7 @@ const prepostSchema = mongoose.Schema({
     sups:String,
     tags:[String],
     selectedFile:String,
+    selectedFile2:String,
     likeCount: {
         type:Number,
         default:0,

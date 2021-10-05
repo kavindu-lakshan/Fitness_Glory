@@ -54,12 +54,16 @@ import EditRequest from "./components/RequestSchedule/EditRequest";
 import RequestDetails from "./components/RequestSchedule/RequestDetails";
 import NavBar from "./components/RequestSchedule/NavBar";
 import MemHome from "./components/RequestSchedule/MemHome";
-import SchReport from "./components/RequestSchedule/SchReport";
+// import SchReport from "./components/RequestSchedule/Sch_Req_Report";
 
 /*pre-defined workout schedule function*/
 import PreAdmin from "./components/PreSchedules/PreAdmin";
 import PreAdmin_Mem from "./components/PreSchedules/PreAdmin_Mem";
+// import ScheduleReport from "./components/PreSchedules/SchReport/ScheduleReport";
+import Sch_Req_Report from "./components/RequestSchedule/Sch_Req_Report";
 import { getPrePosts } from "./actions/preposts";
+import Predisplay from "./components/PreSchedules/PrePosts/PrePost/Predisplay";
+
 
 //-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
@@ -232,7 +236,7 @@ const App = () => {
       </div>
 
       {/**Sandani */}
-      {/**predefined schedules requests CRUD */}
+      {/**schedules requests CRUD */}
       <div className="container">
         <Route
           path="/employee/scheduleR/HomeRequest"
@@ -244,11 +248,11 @@ const App = () => {
           exact
           component={MemHome}
         ></Route>
-        <Route
+        {/* <Route
           path="/admin/scheduleR/SchReport"
           exact
           component={SchReport}
-        ></Route>
+        ></Route> */}
         <Route path="/member/scheduleR/add" component={CreateRequest}></Route>
         <Route
           path="/member/scheduleR/edit/:id"
@@ -258,6 +262,12 @@ const App = () => {
           path="/member/scheduleR/Xpost/:id"
           component={RequestDetails}
         ></Route>
+         <Route
+        exact
+        path="/member/Sch_Req_Report"
+        exact
+        component={Sch_Req_Report}
+         />
       </div>
       {/*Sandani-predefiend schedules  */}
       <div className="container">
@@ -266,12 +276,22 @@ const App = () => {
           exact
           component={() => <PreAdmin setCurrentId={setCurrentId} />}
         ></Route>
-
+         
+           <Route  path="/employee/preposts/:id" exact component={Predisplay}></Route>
+           <Route  path="/member/preposts/:id"  exact component={Predisplay}></Route>
+          
         <Route
           path="/member/PreAdmin_Mem"
           exact
           component={() => <PreAdmin_Mem setCurrentId={setCurrentId} />}
         ></Route>
+
+        {/* <Route
+        exact
+        path="/member/ScheduleReport"
+        exact
+        component={ScheduleReport}
+         /> */}
       </div>
 
       <main>

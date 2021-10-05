@@ -121,6 +121,7 @@ const zpostRoutes = require("./routes/zposts");
 app.use(zpostRoutes);
 const blogpostRoutes = require("./routes/blogposts.js");
 app.use("/blogposts", blogpostRoutes);
+
 //Sandani
 const XpostRoutes = require("./routes/Xposts");
 app.use(XpostRoutes);
