@@ -70,6 +70,14 @@ export default class ptEdit extends Component {
         <br />
         <br />
         &nbsp;
+        <button className="btn btn-success">
+          <a
+            href="/employee/memberPTRequest/Request_Report"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Report
+          </a>
+        </button>
         <div style={font}>
           <h1 style={editpostti}> member request status</h1>
           <br />
