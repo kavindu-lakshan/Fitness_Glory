@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./AllTrainers.css";
-import GradientButton from 'react-linear-gradient-button';
 
 export default class AllTrainersF extends Component {
   constructor(props) {
@@ -67,6 +66,7 @@ export default class AllTrainersF extends Component {
                           >
                             <img
                               src={details.pic}
+                              alt="detalspic"
                               className="mr-3 img-fluid rounded"
                               style={{ border: "2px solid #c9c9c9" }}
                             />
@@ -175,9 +175,7 @@ export default class AllTrainersF extends Component {
                           </a>
                         </div>
                       ))}
-                
                     </div>
-                    
                   </div>
                 </div>
               </div>
@@ -200,8 +198,3 @@ const bstyles = {
   width: "100%",
   marginTop: "-30px",
 };
-
-const btnStyles = {
-  marginLeft: '440px',
-  color: 'black'
-}

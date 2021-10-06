@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import React from "react";
+import { Container, Row } from "react-bootstrap";
 import "./AboutUs.css";
 
 export const AboutUs = () => {
@@ -47,7 +47,7 @@ export const AboutUs = () => {
                 <div className="abtOwner">
                     <div class="row" style={{marginLeft:"150px"}}>
                     <div class="col-6 col-sm-3">
-                       <img src="https://res.cloudinary.com/dulshan/image/upload/v1631815226/avatar_bmbwov.png" height="160px" width="150px" style={{marginLeft:'100px'}}></img>
+                       <img src="https://res.cloudinary.com/dulshan/image/upload/v1631815226/avatar_bmbwov.png" alt="avatar" height="160px" width="150px" style={{marginLeft:'100px'}}></img>
                     </div>
                     <div class="col-6 col-sm-6">
                         <h3>Owner</h3>

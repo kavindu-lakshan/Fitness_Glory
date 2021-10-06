@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import { useHistory } from 'react-router';
 import {selectFeedbackT} from '../../api/apiFBQA';
 import { FBViewFormT } from './Forms/FBViewFormT';
 import { Button } from "@material-ui/core";

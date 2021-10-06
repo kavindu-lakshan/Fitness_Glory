@@ -9,7 +9,7 @@ const FooterTrainer = () => {
           <div className="col-md-3">
             <div className="row">
               <div>
-                <img className="" src={Logo} style={im} />
+                <img className="" src={Logo} alt="logo" style={im} />
               </div>
             </div>
           </div>
