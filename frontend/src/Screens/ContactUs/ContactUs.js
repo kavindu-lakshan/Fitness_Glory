@@ -50,13 +50,13 @@ export class ContactUs extends Component {
         <Container style={conStyles}>
        
           <center>
-            <Card className="customCard" style={{width: "123rem"}}>
+            <Card className="customCard" style={{width: "90rem"}}>
           <h1 style={hStyle}>CONTACT US</h1>
             </Card>
           </center>
 
           <center>
-          <Card bg="primary" style={{width: "123rem"}} className="customCard2">
+          <Card bg="primary" style={{width: "90rem"}} className="customCard2">
 
           <Table>
             <th>
@@ -64,7 +64,9 @@ export class ContactUs extends Component {
           <h3 style={hStyle}>
             <CallRoundedIcon />
             &nbsp; CALL US <br></br>
-            +943366667890 
+            <WhatsAppIcon />
+             WHATSAPP<br></br>
+            +94336667890 
           </h3>
             </Card>
            </th>
@@ -106,7 +108,7 @@ export class ContactUs extends Component {
 
            <br></br>
 
-           <th>
+           {/* <th>
               <Card className="customCard">
           <h3 style={hStyle}>
             <WhatsAppIcon />
@@ -115,7 +117,7 @@ export class ContactUs extends Component {
 
           </h3>
           </Card>
-           </th>
+           </th> */}
 
            {/* <tr>
              <td> <Link>+94763366667</Link></td>
