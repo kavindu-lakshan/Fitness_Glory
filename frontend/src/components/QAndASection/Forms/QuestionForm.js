@@ -11,13 +11,13 @@ export const QuestionForm = ({questions, onSubmit}) =>{
         const mm = String(today.getMonth() + 1); //January is 0!
         const yyyy = today.getFullYear();
 
-        const weeknumber = moment().week();
+        const weeknumber = (moment().week() - 1);
     
     const {register, handleSubmit, formState:{errors}} = useForm({defaultValues: {
         email: questions.email ? questions.email: "",
         qTopic: questions.qTopic ? questions.qTopic: "",
         question: questions.question ? questions.question: "",
-        date: `${dd + ' / ' + mm + ' / ' + yyyy}`,
+        date: `${yyyy + ' / ' + mm + ' / ' + dd}`,
         status:"Unanswered",
         weekNo:`${weeknumber}`
     }})

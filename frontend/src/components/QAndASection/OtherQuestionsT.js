@@ -18,7 +18,7 @@ export const OtherQuestionsT = () => {
         }
         displayQuestion();
     },[])
-    const weeknumber = moment().week();
+    const weeknumber = (moment().week() - 1);
     
     return (
         <div>

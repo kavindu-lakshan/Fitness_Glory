@@ -25,6 +25,7 @@ export const UpdateAnswer = () =>{
  
     const onSubmit = async(data) =>{
         await updateAnswer(data, match.params.id)
+        alert("Answer Updated Successfully");
         history.push(`/member/myAnswers/${member_email}`);
     }
 

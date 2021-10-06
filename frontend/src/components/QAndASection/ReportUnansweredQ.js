@@ -5,6 +5,7 @@ import { unansweredT} from '../../api/apiFBQA'
 import './scrollBar.css'
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import moment from 'moment';
 import Logo from "../.././logo.png";
 // import QAndABg from './ImagesD/QandABg.png'
 
@@ -22,8 +23,10 @@ export const ReportUnansweredQ = () =>{
         displayQuestions()
     }, [])
 
+    var yr = moment().year();
+
    const filter = (button) =>{
-       const filteredData = questions.filter(questions => questions.status === button)
+    const filteredData = questions.filter(questions => questions.date.substring(0,4) === button && questions.status ==='Unanswered')
        setQuestions(filteredData)
    }
 
@@ -79,7 +82,7 @@ export const ReportUnansweredQ = () =>{
             <div className="mt-3">
                 <br/>
                 <h3 style={labelStyle}className = "text-center">THIS WEEK QUESTIONS</h3>
-                <Button style={btn} color="Secondary" variant="contained" onClick={()=>filter('Unanswered')}>UNANSWERED</Button>
+                <Button style={btn} color="Secondary" variant="contained" onClick={()=>filter(`${yr}`)}>UNANSWERED</Button>
                 <Button style={btn1} color="Secondary" variant="contained" onClick={()=>pdf()}>GENERATE PDF</Button>
                 <div style={hideScroll}>
                 <div className="carbrQ" style={scrollable}>

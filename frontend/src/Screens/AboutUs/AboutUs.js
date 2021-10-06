@@ -24,9 +24,9 @@ export const AboutUs = () => {
                 <div class="col-6 col-sm-5">
                 <div className="abtMission" style={{marginLeft:"10px", marginRight:"-50px"}}>
                     <h3>Our Mission </h3>
-                    <p>It is our mission to use health and fitness as a catalyst to help people from all walks
-                    of life achieve their best, inside and outside of the gym. Whether they are completely
-                        new to health and fitness or a seasoned athlete </p>
+                    <p>Fitness Glory is a gym. Don’t let that word “gym” scare you because we’re redefining that term. Fitness Glory, 
+                      today’s gym, is a place where ambitious, motivated individuals work to reach their goals and is an intelligent 
+                      approach to fitness. Here, you will become better at whatever it is you do. We welcome you to Fitness Glory. </p>
                 </div>
 
                 </div>
@@ -36,9 +36,9 @@ export const AboutUs = () => {
                 <div class="col-8 col-sm-5">
                 <div className="abtVison" style={{marginRight:"10px", marginLeft:"-100px"}}>
                     <h3>Our Vision </h3>
-                    <p>It is our mission to use health and fitness as a catalyst to help people from all walks
-                        of life achieve their best, inside and outside of the gym. Whether they are completely
-                        new to health and fitness or a seasoned athlete </p>
+                    <p>At Fitness Glory, members who actively and regularly participate in our health and wellness programs will 
+                      experience improvements in physical well-being as well as joy and contentment.Members will be leaders in 
+                      creating lasting and meaningful relationships that promote total well-being and care for self and others.</p>
                 </div>
                 </div>
                 <hr className="abtHr"/>
@@ -51,8 +51,10 @@ export const AboutUs = () => {
                     </div>
                     <div class="col-6 col-sm-6">
                         <h3>Owner</h3>
-                        <p >It is our mission to use health and fitness as a catalyst to help people from all walks
-                            of life achieve their best, inside and outside of the gym. </p>
+                        <p >As the owner of Fitness Glory, I would like to say that we have a group of talented, motivated and experienced Trainers
+                          at our gym. Take advantage and stop thinking about building the dream body you always wanted and start taking action!
+                          Register now!
+                        </p>
                     </div>
                 </div>
                 <br/>

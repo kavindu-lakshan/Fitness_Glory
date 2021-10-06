@@ -1,15 +1,19 @@
 import React from 'react';
 import {useForm} from 'react-hook-form'
 import Button from '@material-ui/core/Button';
+import { useSelector } from "react-redux";
 
 export const FBForm = ({feedbacks, onSubmit}) =>{
-    
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
+
     const {register, handleSubmit, formState:{errors}} = useForm({defaultValues: {
         username: feedbacks.username  ? feedbacks.username: "",
-        email: feedbacks.email  ? feedbacks.email: "dulshanperera@gmail.com",
-        topic: feedbacks.topic ? feedbacks.topic: "Effective Training",
-        feedback: feedbacks.feedback  ? feedbacks.feedback: "Good Schedule",
-        ratings: feedbacks.ratings  ? feedbacks.ratings: "5"
+        email: `${member_email}`,
+        topic: feedbacks.topic ? feedbacks.topic: "",
+        feedback: feedbacks.feedback  ? feedbacks.feedback: "",
+        ratings: feedbacks.ratings  ? feedbacks.ratings: ""
     }})
 
     const submitHandler = handleSubmit((data) =>{
@@ -35,7 +39,7 @@ export const FBForm = ({feedbacks, onSubmit}) =>{
         <div className=" row">
         <div className=" col-md-4">
             <label style={labelStyle} for="text">Member Email:</label>
-            <input style={inputFieldStyle} className="form-control" {...register("email", { required: true })} type ="text" name="email" id="email"/>
+            <input style={disInputFieldStyle} className="form-control" {...register("email", { required: true })} type ="text" name="email" id="email"/>
             {errors.email && (<small style={{color:'red'}}>Please enter your Email! You Cannot leave this field empty</small>)}
         </div>
         <div className=" col-md-4">
