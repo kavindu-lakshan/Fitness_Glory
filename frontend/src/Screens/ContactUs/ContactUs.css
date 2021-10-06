@@ -9,3 +9,14 @@
   background-position: 0px 0;
   background-repeat: no-repeat;
 }
+.customCard {
+  background: black !important;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%,
+}
+
+.customCard2 {
+  background: yellowgreen !important;
+}

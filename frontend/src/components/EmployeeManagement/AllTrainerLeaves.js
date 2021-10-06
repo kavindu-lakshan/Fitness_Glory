@@ -45,7 +45,7 @@ export const AllTrainerLeaves =() =>{
                 <br></br>
                 {
                 leaves.filter((row)=>{
-                    if(search == ""){
+                    if(search === ""){
                         return row
                     }else if(row.NICNumber.toLowerCase().includes(search.toLowerCase())){
                         return row

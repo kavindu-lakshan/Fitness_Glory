@@ -31,4 +31,6 @@ export const getLeaves = () => fetch(`http://localhost:5000/Leaves/`).then(res=>
 
 export const getCleaners = () => fetch(`http://localhost:5000/Cleaners/admin/cl/`).then(res=>res.clone().json());
 
-export const getSalary = () => fetch(`http://localhost:5000/Employee_Salary/admin/salary/`).then(res=>res.clone().json());
+export const getSalary = (Month) => fetch(`http://localhost:5000/Employee_Salary/admin/salary/${Month}`).then(res=>res.clone().json());
+
+export const getAllSalaries = () => fetch(`http://localhost:5000/Employee_Salary/admin/salary/`).then(res=>res.clone().json());

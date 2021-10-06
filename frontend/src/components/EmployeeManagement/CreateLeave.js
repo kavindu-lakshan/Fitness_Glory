@@ -12,18 +12,6 @@ import GradientButton from 'react-linear-gradient-button';
 
 const minDate = new Date(Date.now());
 
-const useStyles = makeStyles((theme) => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 200,
-    },
-}));
-
 const Wrapper = styled.div``;
 
 export default class LeaveRegistration extends Component{

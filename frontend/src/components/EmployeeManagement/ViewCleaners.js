@@ -35,7 +35,7 @@ export const AllCleaners =() =>{
                 <br></br>
                 {
                 cleaners.filter((row)=>{
-                    if(search == ""){
+                    if(search === ""){
                         return row
                     }else if(row.NICNumber.toLowerCase().includes(search.toLowerCase())){
                         return row
