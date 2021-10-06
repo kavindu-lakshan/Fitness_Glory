@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 
 const PreForm = ({currentId, setCurrentId}) => {
-    const [prepostData, setPrePostData] = useState({ creator: '', name: '', equipment: '', sups: '', tags: '', goal: '', type: '', level: '', noWeeks: '', selectedFile: '' });
+    const [prepostData, setPrePostData] = useState({ creator: '', name: '', equipment: '', sups: '', tags: '', goal: '', type: '', level: '', noWeeks: '', selectedFile: '',selectedFile2: '' });
 
     const [creatorerror, setCreatorerror] = useState({});
     const [nameeerror, setNameerror] = useState({});
@@ -119,7 +119,7 @@ const PreForm = ({currentId, setCurrentId}) => {
 
     const clear = () => {
         setCurrentId(0);
-        setPrePostData({ creator: '', name: '', goal: '',type: '',level: '',noWeeks: '',equipment: '',sups: '', tags: '', selectedFile: '' });
+        setPrePostData({ creator: '', name: '', goal: '',type: '',level: '',noWeeks: '',equipment: '',sups: '', tags: '', selectedFile: '',selectedFile2: '' });
         setNameerror({});
         setCreatorerror({});
         setNoWeekserror({});
@@ -142,6 +142,7 @@ const PreForm = ({currentId, setCurrentId}) => {
             <TextField name="noWeeks" variant="outlined" label="NoWeeks" fullWidth value={prepostData.noWeeks} onChange={(e) => setPrePostData({ ...prepostData, noWeeks: e.target.value })} />
            
             <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPrePostData({ ...prepostData, selectedFile: base64 })} /></div>
+            <div className={classes.fileInput}><FileBase type="file2" multiple={false} onDone={({ base64 }) => setPrePostData({ ...prepostData, selectedFile2: base64 })} /></div>
 
             <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth> Submit </Button>
             <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>

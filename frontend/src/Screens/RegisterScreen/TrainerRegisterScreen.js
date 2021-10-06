@@ -36,7 +36,7 @@ const TrainerRegisterScreen = () => {
 
   useEffect(() => {
     if (trainerInfo) {
-      history.push("/employee/trainerDetails");
+      history.push("/employee/trainer-profile");
     }
   }, [history, trainerInfo]);
 
@@ -280,7 +280,7 @@ const TrainerRegisterScreen = () => {
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                   required="required"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                   style={{
                     color: "white",
                     background: "transparent",

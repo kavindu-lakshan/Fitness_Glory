@@ -2,12 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import { selectQuestion, deleteQuestion } from '../../api/apiFBQA'
 import { QDeleteForm } from './Forms/QDeleteForm'
+import { useSelector } from "react-redux";
 // import deleteQuestionBg from './ImagesD/deleteQuestionBg.png';
 
 export const DeleteQuestion = () =>{
     const match = useRouteMatch();
     const [question, setQuestion] = useState();
     const history = useHistory();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
+ 
 
     useEffect(() =>{
         const displayQuestions = async() => {
@@ -19,7 +25,7 @@ export const DeleteQuestion = () =>{
  
     const onSubmit = async(data) =>{
         await deleteQuestion(data, match.params.id)
-        history.push("/member/QandA/:email");
+        history.push(`/member/QandA/${member_email}`);
     }
 
     return question ?(

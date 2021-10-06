@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router} from 'react-router-dom'
 import { AppBar, Tabs, Tab, } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector } from "react-redux";
 
 export const NavBarFB = () =>{
     const useStyles = makeStyles({
@@ -19,6 +20,10 @@ export const NavBarFB = () =>{
 
     const classes = useStyles()
 
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
+
     return(
         <div>
             <Router>
@@ -26,7 +31,7 @@ export const NavBarFB = () =>{
                 <AppBar style={nav}position="static">
                 <div className={classes.flexGrow}/>
                     <Tabs  aria-label="simple tabs example">
-                        <Tab className={classes.button} label="My Feedback" href="/member/feedback/:email"/>
+                        <Tab className={classes.button} label="My Feedback" href={`/member/feedback/${member_email}`}/>
                         <Tab className={classes.button} label="Create Feedback" href="/member/trainers"/>
                     </Tabs>
                 </AppBar>

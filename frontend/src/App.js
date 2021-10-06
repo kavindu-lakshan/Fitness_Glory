@@ -56,12 +56,15 @@ import EditRequest from "./components/RequestSchedule/EditRequest";
 import RequestDetails from "./components/RequestSchedule/RequestDetails";
 import NavBar from "./components/RequestSchedule/NavBar";
 import MemHome from "./components/RequestSchedule/MemHome";
-import SchReport from "./components/RequestSchedule/SchReport";
+
 
 /*pre-defined workout schedule function*/
 import PreAdmin from "./components/PreSchedules/PreAdmin";
 import PreAdmin_Mem from "./components/PreSchedules/PreAdmin_Mem";
+import Sch_Req_Report from "./components/RequestSchedule/Sch_Req_Report";
 import { getPrePosts } from "./actions/preposts";
+// import Predisplay from "./components/PreSchedules/PrePosts/PrePost/Predisplay";
+
 
 //-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
@@ -79,6 +82,7 @@ import { CreateAnswerT } from "./components/QAndASection/CreateAnswerT.js";
 import { UpdateAnswerT } from "./components/QAndASection/UpdateAnswerT";
 import { OtherQuestionsT } from "./components/QAndASection/OtherQuestionsT";
 import { DeleteAnswerT } from "./components/QAndASection/DeleteAnswerT";
+import { ReportUnansweredQ } from "./components/QAndASection/ReportUnansweredQ";
 //------------------------------Dulshan Feedback Management-----------------------------------
 import { Feedback } from "./components/FeedbackSection/Feedback";
 import { CreateFeedback } from "./components/FeedbackSection/CreateFeedback";
@@ -94,9 +98,11 @@ import { ViewFeedbackT } from "./components/FeedbackSection/ViewFeedbackT";
 //  Manushika ClientRequest
 import CreatePost from "./components/ClientRequest/CreatePost";
 import Home from "./components/ClientRequest/Home";
+import ContactUs from "./Screens/ContactUs/ContactUs";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
+import Request_Report from "./components/ClientRequest/Request_Report";
 //newly added
 import Admin from "./components/trainerBlog/Request/Admin";
 import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
@@ -132,6 +138,8 @@ import AllEventsMember from "./components/Events/AllEventsMember";
 import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
 import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
 import AdminHomePage from "./Screens/HomePage/AdminHomePage";
+import { AboutUs } from "./Screens/AboutUs/AboutUs";
+
 import CreateNote from "./Screens/CreateNote/CreateNote";
 import SingleNote from "./Screens/CreateNote/SingleNote";
 
@@ -205,6 +213,10 @@ const App = () => {
           component={CreatePost}
         ></Route>
         <Route
+          path="/employee/memberPTRequest/Request_Report"
+          component={Request_Report}
+        ></Route>
+        <Route
           path="/employee/memberPTRequest/edit/:id"
           component={EditPost}
         ></Route>
@@ -213,6 +225,7 @@ const App = () => {
           component={PostDetails}
         ></Route>
       </div>
+      <Route path="/member/Contactus" component={ContactUs} />
       {/* newly added*/}
       <div className="container">
         <Route
@@ -234,7 +247,7 @@ const App = () => {
       </div>
 
       {/**Sandani */}
-      {/**predefined schedules requests CRUD */}
+      {/**schedules requests CRUD */}
       <div className="container">
         <Route
           path="/employee/scheduleR/HomeRequest"
@@ -246,11 +259,11 @@ const App = () => {
           exact
           component={MemHome}
         ></Route>
-        <Route
+        {/* <Route
           path="/admin/scheduleR/SchReport"
           exact
           component={SchReport}
-        ></Route>
+        ></Route> */}
         <Route path="/member/scheduleR/add" component={CreateRequest}></Route>
         <Route
           path="/member/scheduleR/edit/:id"
@@ -260,6 +273,12 @@ const App = () => {
           path="/member/scheduleR/Xpost/:id"
           component={RequestDetails}
         ></Route>
+         <Route
+        exact
+        path="/member/Sch_Req_Report"
+        exact
+        component={Sch_Req_Report}
+         />
       </div>
       {/*Sandani-predefiend schedules  */}
       <div className="container">
@@ -268,12 +287,19 @@ const App = () => {
           exact
           component={() => <PreAdmin setCurrentId={setCurrentId} />}
         ></Route>
-
+{/* <<<<<<< HEAD
+         
+           <Route  path="/employee/preposts/:id" exact component={Predisplay}></Route>
+           <Route  path="/member/preposts/:id"  exact component={Predisplay}></Route>
+          
+=======
+>>>>>>> 5cf03d74ccd0f4691865096c16f427e8510771bb */}
         <Route
           path="/member/PreAdmin_Mem"
           exact
           component={() => <PreAdmin_Mem setCurrentId={setCurrentId} />}
         ></Route>
+
       </div>
 
       <main>
@@ -284,6 +310,7 @@ const App = () => {
         <Route path="/member/Home" component={() => <HomePage />} />
 
         {/*________________________ Amantha Routes Start ________________________*/}
+
         {/*----------->> Amantha Trainer Login Routes <<-----------*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
@@ -321,8 +348,8 @@ const App = () => {
           path="/employee/event-interest/allInterests"
           component={AllInterest}
         />
-        {/*________________________ Amantha Routes End  ________________________*/}
 
+        {/*________________________ Amantha Routes End  ________________________*/}
         {/*________________________ Lakshan Extra Routes ________________________*/}
 
         <Route path="/admin/memberDetails" component={viewMembers}></Route>
@@ -385,16 +412,12 @@ const App = () => {
         <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
         <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
-        <Route
-          path="/admin/edit-program/:id"
-          component={EditProgramAdmin}
-        ></Route>
-        <Route
-          path="/admin/expand-program/:id"
-          component={ProgramDetailsAdmin}
-        ></Route>
 
-        {/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
+        <Route path="/admin/edit-program/:id" component={EditProgramAdmin}></Route>
+        <Route path="/admin/expand-program/:id" component={Programexpand} ></Route>
+
+        {/*-------------------------------Dulshan Routes START---------------------------------------*/}
+
         <Route exact path="/member/QandA/:email" component={QandA} />
         <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
@@ -433,11 +456,19 @@ const App = () => {
         />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
+        <Route exact path="/member/aboutUs" component={AboutUs} />
+        <Route
+          exact
+          path="/employee/unasnweredQ/:weekNo"
+          component={ReportUnansweredQ}
+        />
+        {/*--------------------------------Dulshan Routes END-----------------------------------------*/}
 
         {/* Admin */}
         <Route path="/admin/login" component={AdminLoginScreen} />
         <Route path="/admin/admin-profile" component={AdminProfileScreen} />
         <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
+        {/*--------------------------------Footer-----------------------------------------*/}
         <Route path="/admin/createnote" component={CreateNote} />
         <Route path="/admin/note/:id" component={SingleNote} />
 
