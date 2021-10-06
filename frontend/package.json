@@ -37,7 +37,7 @@
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
     "react-file-base64": "^1.0.3",
-    "react-hook-form": "^7.13.0",
+    "react-hook-form": "^7.17.1",
     "react-icons": "^4.2.0",
     "react-lazy-load-image-component": "^1.5.1",
     "react-linear-gradient-button": "^1.1.1",

@@ -62,7 +62,11 @@ export default class CreateProgramAdmin extends Component {
 
         const {name,description,conducted_by,fee,day,time,photo} = this.state;
 
-        if (name === '' || description === '' || conducted_by === '' || fee === '' || day === '' || time === '') {
+            this.setState({isLoading: false});
+            
+        if (/\d/.test(name)) {
+            alert('Name cannot contain numbers');
+        }else if (name === '' || description === '' || conducted_by === '' || fee === '' || day === '' || time === '') {
             alert('You are required to fill all the inputs!');
             this.setState({isLoading: false});
 
@@ -128,6 +132,7 @@ export default class CreateProgramAdmin extends Component {
                 values={this.state}
                 handlePhoto={this.handlePhoto}
                 handleInputChange={this.handleInputChange}
+                handleInputChangeName={this.handleInputChangeName}
                 handleUpload={this.handleUpload}
                 demo={this.demo}
             />
