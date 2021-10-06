@@ -50,11 +50,13 @@ export class ContactUs extends Component {
         <Container style={conStyles}>
        
           <center>
+            <Card className="customCard" style={{width: "123rem"}}>
           <h1 style={hStyle}>CONTACT US</h1>
+            </Card>
           </center>
 
           <center>
-          <Card bg="primary" style={{width: "123rem"}}>
+          <Card bg="primary" style={{width: "123rem"}} className="customCard2">
 
           <Table>
             <th>
