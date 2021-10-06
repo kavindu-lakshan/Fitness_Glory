@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Button, Container, Row } from "react-bootstrap";
-import { Card } from "@material-ui/core/";
+import { Button, Container, Row, Table} from "react-bootstrap";
+import { Card, Link } from "@material-ui/core/";
 import LocationOnRoundedIcon from "@material-ui/icons/LocationOnRounded";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import CallRoundedIcon from "@material-ui/icons/CallRounded";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import "./ContactUs.css";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 const mapStyles = {
@@ -20,7 +22,7 @@ const conStyles = {
   width: "100%",
   height: "90%",
 };
-const hStyle = { color: "Yellow" };
+const hStyle = { color: "yellow" };
 export class ContactUs extends Component {
   state = {
     showingInfoWindow: false, // Hides or shows the InfoWindow
@@ -46,20 +48,92 @@ export class ContactUs extends Component {
     return (
       <div className="ctback">
         <Container style={conStyles}>
+       
+          <center>
+            <Card className="customCard" style={{width: "123rem"}}>
           <h1 style={hStyle}>CONTACT US</h1>
+            </Card>
+          </center>
+
+          <center>
+          <Card bg="primary" style={{width: "123rem"}} className="customCard2">
+
+          <Table>
+            <th>
+              <Card className="customCard">
           <h3 style={hStyle}>
             <CallRoundedIcon />
-            &nbsp; CALL US
+            &nbsp; CALL US <br></br>
+            +943366667890 
           </h3>
+            </Card>
+           </th>
+
+           <br></br>
+
+            <th>
+              <Card className="customCard">
           <h3 style={hStyle}>
             <EmailRoundedIcon />
-            &nbsp;EMAIL US
+            &nbsp;EMAIL US <br></br>
+           fitnessglory@gmail 
           </h3>
+          </Card>
+           </th>
+
+           <br></br>
+
+           <th>
+              <Card className="customCard">
           <h3 style={hStyle}>
             {" "}
             <LocationOnRoundedIcon />
-            &nbsp; VISIT US
+            &nbsp; VISIT US <br></br>
+           No;21,5th Lane,Gamapaha.
           </h3>
+          </Card>
+           </th>
+
+           <th>
+              <Card className="customCard">
+          <h3 style={hStyle}>
+            <FacebookIcon />
+            &nbsp;FACEBOOK <br></br>
+           @fitnessGlory 
+          </h3>
+          </Card>
+           </th>
+
+           <br></br>
+
+           <th>
+              <Card className="customCard">
+          <h3 style={hStyle}>
+            <WhatsAppIcon />
+            &nbsp;WHATSAPP<br></br>
+            +94466667890 
+
+          </h3>
+          </Card>
+           </th>
+
+           {/* <tr>
+             <td> <Link>+94763366667</Link></td>
+             <td> <Link>+94763366667</Link></td>
+             <td> <Link>+94763366667</Link></td>
+             <td> <Link>+94763366667</Link></td>
+             <td> <Link>+94763366667</Link></td>
+           </tr> */}
+
+           
+
+          </Table>
+
+          </Card>
+          </center>
+
+          
+         
         </Container>
         <Map
           google={this.props.google}
