@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { getCleaners } from './api';
 import Fade from 'react-reveal/Fade';
 import ScrollToTop from "react-scroll-to-top";
-import CreateDismissal from './CreateDismissalConnection';
 import GradientButton from 'react-linear-gradient-button';
 
 const StyledButton = withStyles({
@@ -70,7 +69,7 @@ export const DeleteCleaners =() =>{
                 <br></br>
                 {
                 cleaners.filter((row)=>{
-                    if(search == ""){
+                    if(search === ""){
                         return row
                     }else if(row.NICNumber.toLowerCase().includes(search.toLowerCase())){
                         return row
