@@ -1,21 +1,12 @@
 import React, { Component } from "react";
-import { Button, Container, Row, Table} from "react-bootstrap";
-import { Card, Link } from "@material-ui/core/";
+import { Container, Table } from "react-bootstrap";
+import { Card } from "@material-ui/core/";
 import LocationOnRoundedIcon from "@material-ui/icons/LocationOnRounded";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import CallRoundedIcon from "@material-ui/icons/CallRounded";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import "./ContactUs.css";
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
-const mapStyles = {
-  marginTop: "330px",
 
-  marginLeft: "70px",
-
-  width: "88%",
-  height: "40%",
-};
 const conStyles = {
   position: "absolute",
 
@@ -48,121 +39,76 @@ export class ContactUs extends Component {
     return (
       <div className="ctback">
         <Container style={conStyles}>
-       
           <center>
-            <Card className="customCard" style={{width: "123rem"}}>
-          <h1 style={hStyle}>CONTACT US</h1>
+            <Card
+              className="customCard"
+              style={{ width: "92rem", height: "50px", paddingTop: "10px" }}
+            >
+              <h1 style={hStyle}>CONTACT US</h1>
             </Card>
           </center>
 
           <center>
-          <Card bg="primary" style={{width: "123rem"}} className="customCard2">
-
-          <Table>
-            <th>
-              <Card className="customCard">
-          <h3 style={hStyle}>
-            <CallRoundedIcon />
-            &nbsp; CALL US <br></br>
-            +943366667890 
-          </h3>
+            <Card
+              bg="primary"
+              style={{ width: "92rem" }}
+              className="customCard2"
+            >
+              <Table>
+                <th>
+                  <Card className="customCard">
+                    <h3 style={hStyle}>
+                      <CallRoundedIcon />
+                      &nbsp; CALL US <br></br>
+                      +94336667890
+                    </h3>
+                  </Card>
+                </th>
+                <br></br>
+                <th>
+                  <Card className="customCard">
+                    <h3 style={hStyle}>
+                      <EmailRoundedIcon />
+                      &nbsp;EMAIL US <br></br>
+                      fitnessglory@gmail
+                    </h3>
+                  </Card>
+                </th>
+                <br></br>
+                <th>
+                  <Card className="customCard">
+                    <h3 style={hStyle}>
+                      {" "}
+                      <LocationOnRoundedIcon />
+                      &nbsp; VISIT US <br></br>
+                      NO 21,5th Lane,Gamapaha.
+                    </h3>
+                  </Card>
+                </th>
+                <th>
+                  <Card className="customCard">
+                    <h3 style={hStyle}>
+                      <FacebookIcon />
+                      &nbsp;FACEBOOK <br></br>
+                      @fitnessGlory
+                    </h3>
+                  </Card>
+                </th>
+                <br></br>
+              </Table>
             </Card>
-           </th>
-
-           <br></br>
-
-            <th>
-              <Card className="customCard">
-          <h3 style={hStyle}>
-            <EmailRoundedIcon />
-            &nbsp;EMAIL US <br></br>
-           fitnessglory@gmail 
-          </h3>
-          </Card>
-           </th>
-
-           <br></br>
-
-           <th>
-              <Card className="customCard">
-          <h3 style={hStyle}>
-            {" "}
-            <LocationOnRoundedIcon />
-            &nbsp; VISIT US <br></br>
-           No;21,5th Lane,Gamapaha.
-          </h3>
-          </Card>
-           </th>
-
-           <th>
-              <Card className="customCard">
-          <h3 style={hStyle}>
-            <FacebookIcon />
-            &nbsp;FACEBOOK <br></br>
-           @fitnessGlory 
-          </h3>
-          </Card>
-           </th>
-
-           <br></br>
-
-           <th>
-              <Card className="customCard">
-          <h3 style={hStyle}>
-            <WhatsAppIcon />
-            &nbsp;WHATSAPP<br></br>
-            +94466667890 
-
-          </h3>
-          </Card>
-           </th>
-
-           {/* <tr>
-             <td> <Link>+94763366667</Link></td>
-             <td> <Link>+94763366667</Link></td>
-             <td> <Link>+94763366667</Link></td>
-             <td> <Link>+94763366667</Link></td>
-             <td> <Link>+94763366667</Link></td>
-           </tr> */}
-
-           
-
-          </Table>
-
-          </Card>
           </center>
-
-          
-         
         </Container>
-        <Map
-          google={this.props.google}
-          zoom={14}
-          style={mapStyles}
-          initialCenter={{
-            lat: -1.2884,
-            lng: 36.8233,
-          }}
-        >
-          <Marker onClick={this.onMarkerClick} name={"FitnessGlory"} />
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-            onClose={this.onClose}
-          >
-            <div>
-              <h4>{this.state.selectedPlace.name}</h4>
-            </div>
-          </InfoWindow>
-        </Map>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2932549101865!2d79.99132271477387!3d7.091966094878323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fbecc982cf53%3A0x8834962e11c7cd18!2sFitness%20Glory%20Gym!5e0!3m2!1sen!2slk!4v1633522668004!5m2!1sen!2slk"
+          width="100%"
+          height="450"
+          style={{ marginTop: "330px" }}
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
       </div>
     );
   }
 }
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyBcCMoMxQJXem4kmEs3zSIxrO1kgyk1bsQ",
-})(ContactUs);
-
-/*
-  apiKey: "AIzaSyBcCMoMxQJXem4kmEs3zSIxrO1kgyk1bsQ",
-*/
+export default ContactUs;
