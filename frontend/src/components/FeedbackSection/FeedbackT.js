@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { getFeedbackT } from '../../api/apiFBQA';
 import { useRouteMatch } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import { NavBarFB } from './NavBarFB';
 import './scrollBar.css'
 // import feedbackBg from './ImagesD/feedbackBg.png'
 

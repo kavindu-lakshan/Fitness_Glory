@@ -24,6 +24,7 @@ export const UpdateQuestion = () =>{
 
     const onSubmit = async(data) =>{
         await updateQuestion(data, match.params.id)
+        alert("Question Updated Successfully");
         history.push(`/member/QandA/${member_email}`);
     }
     

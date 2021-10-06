@@ -18,7 +18,7 @@ export const OtherQuestionsT = () => {
         }
         displayQuestion();
     },[])
-    const weeknumber = moment().week();
+    const weeknumber = (moment().week() - 1);
     
     return (
         <div>
@@ -54,7 +54,7 @@ export const OtherQuestionsT = () => {
                 <tbody>
                 {
                     questions.filter((row)=>{
-                        if(search == ""){
+                        if(search === ""){
                             return row
                         }else if(row.qTopic.toLowerCase().includes(search.toLowerCase())){
                             return row

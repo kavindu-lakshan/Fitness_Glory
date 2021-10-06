@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import { useHistory } from 'react-router';
 import {selectFeedbackT} from '../../api/apiFBQA';
 import { FBViewFormT } from './Forms/FBViewFormT';
 import { Button } from "@material-ui/core";
+import { useSelector } from "react-redux";
 // import updateFeedbackBg from './ImagesD/updateFeedbackBg.png'
 
 export const ViewFeedbackT = () =>{
     const match = useRouteMatch()
     const [feedback, setFeedback] = useState()
-    const history = useHistory();
+
+    const trainerLogin = useSelector((state) => state.trainerLogin);
+    const { trainerInfo } = trainerLogin;
+    const username = trainerInfo.username;
 
     useEffect(() =>{
         const displayFeedbacks = async() =>{
@@ -27,7 +30,7 @@ export const ViewFeedbackT = () =>{
         <div className="container">
         <div className="mt-3">
             <FBViewFormT feedbacks={feedback}/>
-            <Link to={`/employee/feedback/:username`} style={{ textDecoration: "none" }}>
+            <Link to={`/employee/feedback/${username}`} style={{ textDecoration: "none" }}>
                 <Button style={btn} color="Secondary" variant="contained">BACK</Button>
             </Link>
         </div>

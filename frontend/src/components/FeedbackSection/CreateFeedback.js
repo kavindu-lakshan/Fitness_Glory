@@ -25,6 +25,7 @@ export const CreateFeedback = () =>{
 
     const onSubmit = async (data) =>{
         await createFeedback(data)
+        alert("Feedback Added Successfully");
         history.push(`/member/feedback/${member_email}`);
     };
     
