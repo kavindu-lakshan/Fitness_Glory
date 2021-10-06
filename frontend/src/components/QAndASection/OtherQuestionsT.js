@@ -54,7 +54,7 @@ export const OtherQuestionsT = () => {
                 <tbody>
                 {
                     questions.filter((row)=>{
-                        if(search == ""){
+                        if(search === ""){
                             return row
                         }else if(row.qTopic.toLowerCase().includes(search.toLowerCase())){
                             return row

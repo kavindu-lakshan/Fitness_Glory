@@ -58,8 +58,8 @@ export const FBForm = ({feedbacks, onSubmit}) =>{
         <br/>
         <div className=" col-md-3">
             <label style={labelStyle} for="text">Ratings:</label>
-            <input style={inputFieldStyle} className="form-control" {...register("ratings", { required: true })} type ="text" name="ratings" id="ratings"/>
-            {errors.ratings && (<small style={{color:'red'}}>Please provide a rating! You Cannot leave this field empty</small>)}
+            <input style={inputFieldStyle} className="form-control" {...register("ratings", {required:true})} type ="number" name="ratings" id="ratings"/>
+            {errors.ratings && (<small style={{color:'red'}}>Please fill the ratings field! You cannot leave this field empty</small>)}
         </div><br/>
         <div className="">
         <center><Button style={btn} size="large" type="submit" className="btn btn-primary">Submit Feedback</Button></center><br/><br/>

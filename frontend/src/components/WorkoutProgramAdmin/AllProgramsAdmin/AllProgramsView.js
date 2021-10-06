@@ -1,8 +1,15 @@
-import React from 'react'
-
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function AllProgramsView(props) {
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
     return (
-        <div  className="container">
+        <div  data-aos="fade-top" className="container">
           <div className="row">
             <div className="col-lg-9 mt-2 mb-2">
               <h1 className="text-light">Workout Programs</h1>
@@ -40,10 +47,10 @@ export default function AllProgramsView(props) {
                 <td>{program.time}</td>
                 <td>{program.conducted_by}</td>
                 <td>
-                  <a className="btn btn-warning" style ={{width: '100%', marginBottom: '2px'}} href={'/admin/edit-program/' + program._id}>
+                  <a className="btn btn-primary" style ={{width: '100%', marginBottom: '2px'}} href={'/admin/edit-program/' + program._id}>
                     <i className="fas fa-edit"></i>&nbsp;Edit
                   </a>
-                  <a className="btn btn-danger"  style ={{width: '100%', marginBottom: '2px'}} href='' onClick={() =>props.onDelete(program._id, program.name) }>
+                  <a className="btn btn-primary"  style ={{width: '100%', marginBottom: '2px'}} href='' onClick={() =>props.onDelete(program._id, program.name) }>
                     <i className="fas fa-trash-alt"></i>&nbsp;Delete
                   </a>
                 </td>

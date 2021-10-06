@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function EdirProgramForm(props) {
+
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
+
     return (
-            <div className='col-md-8 mx-auto'>
+            <div  data-aos="fade-top" className='col-md-8 mx-auto'>
                 <h1 className="text-light">Edit Program</h1>
                 <hr/>
                 <div className="px-3 py-3 bg-dark">

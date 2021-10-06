@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 export const ViewFeedbackT = () =>{
     const match = useRouteMatch()
     const [feedback, setFeedback] = useState()
-    const history = useHistory();
 
     const trainerLogin = useSelector((state) => state.trainerLogin);
     const { trainerInfo } = trainerLogin;

@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function CreateProgramForm(props) {
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
     return (
-        <div className="">
+        <div data-aos="fade-top">
             <div className='col-md-8 mx-auto mb-2'>
                 <h1 className="text-light">Create new program</h1>
                 <hr/>

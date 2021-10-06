@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+//import {useSelector} from "react-redux";
 
 export default class MemHome extends Component{
   constructor(props){
@@ -7,10 +8,9 @@ export default class MemHome extends Component{
 
     this.state = {
       posts:[]
-    };
+    };}
 
-
-  }
+   // constUserLogin = useSelector
 
 componentDidMount(){
   this.retrievePosts();
@@ -35,6 +35,8 @@ componentDidMount(){
       this.retrievePosts();
     });
   };
+
+
 
 
   filterData(posts,searchKey){
@@ -93,16 +95,26 @@ componentDidMount(){
           </div>
         </div>
 
+        <div style={{color:'white'}}>
+        <p style={{color:'white'}}> You can request for customized workout schedule form our Fitness Glory trainers.
+           We are highly encouraged you to  visit out predefined workout shedule page before request for a new workout schedule.</p>
+
+           <p style={{color:'white'}}> Please be patience enough to wait untill one of our traine accept your request.
+           all request are meant to be accepted in first in first out order.</p>
+
+        <p style={{color:'red'}}>Note:Please provide us valid information specially a most active valid email address in order to avoid any inconvinience cause.</p>
+        </div>
+
         <table className="table table-hover" style={{ marginTop: '40px' }, {color:'white'}}>
         <thead>
           <tr>
-            <th scope = "col">#</th>
+            <th scope = "col">Req No</th>
             <th scope = "col">Name</th>
-            <th scope = "col">Age</th>
+            {/* <th scope = "col">Age</th>
             <th scope = "col">Gender</th>
             <th scope = "col">Email</th>
-            <th scope = "col">Requirement</th>
-            <th scope = "col">Status</th>
+            <th scope = "col">Requirement</th> */}
+            <th scope = "col">Status </th>
             <th scope = "col">Action</th>
           
           </tr>
@@ -117,10 +129,10 @@ componentDidMount(){
                              {posts.mname}
                              </a> 
                         </td>
-                      <td>{posts.age}</td>
+                      {/* <td>{posts.age}</td>
                       <td>{posts.gender}</td>
                       <td>{posts.email}</td>
-                      <td>{posts.requirement}</td>
+                      <td>{posts.requirement}</td> */}
                       <td>{posts.rstatus}</td>
 
                       <td>

@@ -7,6 +7,7 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 import moment from 'moment';
 import Logo from "../.././logo.png";
+import {Bar} from 'react-chartjs-2';
 // import QAndABg from './ImagesD/QandABg.png'
 
 export const ReportUnansweredQ = () =>{
@@ -40,6 +41,54 @@ export const ReportUnansweredQ = () =>{
                countU = countU + 1;
            }
        });
+    //Chart
+    const state = {
+        type:'bar',
+        data:{
+            labels: ['Answered Questions', 'Unaswered Questions'],
+            datasets: [
+            {
+                label: 'Questions',
+                backgroundColor: [
+                    'rgba(151, 203, 207, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+
+                ], 
+                borderColor: [
+                    'rgb(201, 203, 207)',
+                    'rgb(54, 162, 235)',
+                ],
+                borderWidth: 1,
+                barPercentage: 0.5,
+                barThickness: 60,
+                maxBarThickness: 80,
+                minBarLength: 2,                
+                data: [count, countU],           
+            }
+            ]
+        },
+        options:{
+            color: 'black',
+            scales:{
+                yAxes:{
+                    ticks:{
+                        beginAtZero:false,
+                        color:'black'
+                    },
+                },
+                xAxes:{
+                    ticks:{
+                        beginAtZero:false,
+                        color:'black'
+                    },
+                }
+            }
+        }
+        
+      }
+      
+    
+    
 
    const pdf = () =>{
         var doc = new jsPDF();
@@ -85,8 +134,7 @@ export const ReportUnansweredQ = () =>{
                 <Button style={btn} color="Secondary" variant="contained" onClick={()=>filter(`${yr}`)}>UNANSWERED</Button>
                 <Button style={btn1} color="Secondary" variant="contained" onClick={()=>pdf()}>GENERATE PDF</Button>
                 <div style={hideScroll}>
-                <div className="carbrQ" style={scrollable}>
-                    <center><br/>
+                <div className="carbrQ" style={scrollable}><br/>
                 <table style ={textStyle} class="table">
                 <thead>
                     <tr>
@@ -118,12 +166,19 @@ export const ReportUnansweredQ = () =>{
                     
                 </tbody>
                 </table>
+                </div>               
+                </div>
+                <center>
+                <div style={chart}>
+                    <Bar
+                    data={state.data}
+                    options={state.options}
+                    />
+                </div>
                 </center>
+            </div>
+            </div>
                 <br/><br/>
-                </div>
-                </div>
-            </div>
-            </div>
             </div>
     </div>
     )
@@ -187,4 +242,11 @@ const scrollable ={
 const hideScroll ={
     height: '550px',
     overflow:'hidden'
+}
+
+const chart ={
+    height:'80%',
+    width:'50%',
+    backgroundColor:'rgba(255, 255, 255, 0.9)',
+    padding:'50px',
 }

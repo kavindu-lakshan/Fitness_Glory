@@ -17,7 +17,7 @@ const PrePosts_Mem = ({setCurrentId}) => {
         !preposts?.length ? <CircularProgress /> : (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
               {preposts.map((prepost) => (
-                <Grid key={prepost._id} item xs={12} sm={6} md={6}>
+                <Grid key={prepost._id} item xs={12} sm={4} md={4}>
                   <PrePost_Mem prepost={prepost} setCurrentId={setCurrentId} />
                   
                 </Grid>

@@ -1,17 +1,20 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-//import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import useStyles from './styles';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import {likePrePost} from '../../../../actions/preposts';
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const PrePost_Mem = ({prepost, setCurrentId}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const openPrePost_Mem = () => history.push(`/member/preposts/${prepost._id}`);
 
     return (
         <Card className={classes.card}>
@@ -21,10 +24,10 @@ const PrePost_Mem = ({prepost, setCurrentId}) => {
         <Typography variant="body2" style={{ color: 'white' }}>{moment(prepost.createdAt).fromNow()}</Typography>
         
       </div>
-      <div className={classes.overlay2}>
+      {/* <div className={classes.overlay2}>
         <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(prepost._id)}><MoreHorizIcon fontSize="default" /></Button>
        
-      </div>
+      </div> */}
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary" component="h2">{prepost.tags.map((tag) => `#${tag} `)}</Typography>
       </div>
@@ -40,7 +43,7 @@ const PrePost_Mem = ({prepost, setCurrentId}) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" onClick={() => dispatch(likePrePost(prepost._id))}><ThumbUpAltIcon fontSize="small" /> Like {prepost.likeCount} </Button>
-        {/* <Button size="small" color="primary" onClick={() => dispatch(deletePrePost(prepost._id))}><DeleteIcon fontSize="small" /> Delete</Button>  */}
+        <Button size="small" color="primary" onClick={openPrePost_Mem}><VisibilityIcon fontSize="small"/></Button>
         
         
       </CardActions>
