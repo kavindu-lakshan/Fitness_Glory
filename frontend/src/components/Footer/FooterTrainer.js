@@ -9,7 +9,7 @@ const FooterTrainer = () => {
           <div className="col-md-3">
             <div className="row">
               <div>
-                <img className="" src={Logo} style={im} />
+                <img className="" src={Logo} alt="logo" style={im} />
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@ const FooterTrainer = () => {
             <h5 style={{color:'silver'}}>Useful links</h5>
               <hr />
               <div>
-                    <a href="#" style={navBtn1}> About Us </a><br/>
+                    <a href="/employee/AboutUs/" style={navBtn1}> About Us </a><br/>
                     <a href="#" style={navBtn2}> Contact Us </a><br/>
                     <a href="/employee/OtherQ/" style={navBtn2}> Q and A Section</a>
                 </div>

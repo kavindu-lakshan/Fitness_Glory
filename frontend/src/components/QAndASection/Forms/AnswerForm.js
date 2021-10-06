@@ -64,7 +64,7 @@ export const AnswerForm = ({questions, onSubmit}) =>{
                 </div>
                 <div class="col-6 col-sm-5">
                     <label style={labelStyle} for="email" className="form-label">Member Email</label>
-                    <input style={inputFieldStyle} type="text" className="form-control"{...register("email", { required: true })} id="email" name="email" disabled="true"/>
+                    <input style={disInputFieldStyle} type="text" className="form-control"{...register("email", { required: true })} id="email" name="email" disabled="true"/>
                     {errors.email && (<small style={{color:'red'}}>Enter your Email! Cannot leave this field empty</small>)}
                 </div>
                 <div class="w-100"></div><br/>

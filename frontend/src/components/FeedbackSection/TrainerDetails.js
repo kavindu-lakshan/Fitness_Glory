@@ -53,6 +53,12 @@ export const TrainerDetails = () => {
                             <h5 style={val}>: {row.fname}</h5>
                           </div>
                           <div>
+                            <h4 style={detAlign}>Last Name</h4>
+                          </div>
+                          <div>
+                            <h5 style={val}>: {row.lname}</h5>
+                          </div>
+                          <div>
                             <h4 style={detAlign}>UserName </h4>
                           </div>
                           <div>
@@ -63,13 +69,7 @@ export const TrainerDetails = () => {
                           </div>
                           <div>
                             <h5 style={val}>: {row.qualifications}</h5>
-                          </div>
-                          <div>
-                            <h4 style={detAlign}>Last Name</h4>
-                          </div>
-                          <div>
-                            <h5 style={val}>: {row.lname}</h5>
-                          </div>
+                          </div>                          
                           <div>
                             <h4 style={detAlign}>NIC</h4>
                           </div>

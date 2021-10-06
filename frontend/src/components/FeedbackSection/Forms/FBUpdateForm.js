@@ -53,7 +53,7 @@ export const FBUpdateForm = ({feedbacks, onSubmit}) =>{
         <br/>
         <div className=" col-md-3">
             <label style={labelStyle} for="text">Ratings:</label>
-            <input style={inputFieldStyle} className="form-control" {...register("ratings", { required:true , pattern: /[0-9]/})} type ="text" name="ratings" id="ratings"/>
+            <input style={inputFieldStyle} className="form-control" {...register("ratings", { required:true , pattern: /[0-9]/})} type ="number" name="ratings" id="ratings"/>
             {errors.ratings && (<small style={{color:'red'}}>Please fill the Ratings Field! You Cannot leave this field empty</small>)}
         </div><br/>
         <div className="">

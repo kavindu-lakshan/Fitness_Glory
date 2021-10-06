@@ -27,6 +27,7 @@ export const UpdateFeedback = () =>{
 
     const onSubmit = async(data) =>{
         await updateFeedback(data, match.params.id)
+        alert("Feedback Updated Successfully");
         history.push(`/member/feedback/${member_email}`);
     }
 

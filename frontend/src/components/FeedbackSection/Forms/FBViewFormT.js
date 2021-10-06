@@ -76,9 +76,3 @@ const head ={
     background: '#04938b',
     textTransform:'uppercase' 
 }
-
-const btn ={
-    backgroundColor: 'transparent', 
-    border: '2px solid #04938b',
-    color:'#04d0c4'
-}

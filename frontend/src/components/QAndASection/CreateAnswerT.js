@@ -25,6 +25,7 @@ export const CreateAnswerT = () =>{
     const onSubmit = async (data) =>{
         await createAnswerT(data)
         await updateQStatus(data, match.params.id)
+        alert("Answer Entered Successfully");
         history.push(`/employee/myAnswers/${username}`);
     };
     

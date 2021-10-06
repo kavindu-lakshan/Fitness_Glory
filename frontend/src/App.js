@@ -86,10 +86,10 @@ import { ReportUnansweredQ } from "./components/QAndASection/ReportUnansweredQ";
 //------------------------------Dulshan Feedback Management-----------------------------------
 import { Feedback } from "./components/FeedbackSection/Feedback";
 import { CreateFeedback } from "./components/FeedbackSection/CreateFeedback";
-import { Trainers } from "./components/FeedbackSection/Trainers";
 import { TrainerDetails } from "./components/FeedbackSection/TrainerDetails";
 import { UpdateFeedback } from "./components/FeedbackSection/UpdateFeedback";
 import { DeleteFeedback } from "./components/FeedbackSection/DeleteFeedback";
+import  AllTrainersF from "./components/FeedbackSection/AllTrainersF";
 
 //-------------------------------Dulshan Trainer Feedback----------------------------------------
 import { FeedbackT } from "./components/FeedbackSection/FeedbackT";
@@ -443,20 +443,13 @@ const App = () => {
           component={FeedbackT}
         />
         <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
-        <Route exact path="/member/trainers/" component={Trainers} />
-        <Route
-          exact
-          path="/member/trainer/:username"
-          component={TrainerDetails}
-        />
-        <Route
-          exact
-          path="/member/trainer/createF/:id"
-          component={CreateFeedback}
-        />
+        <Route exact path="/member/trainers/" component={AllTrainersF} />
+        <Route exact path="/member/trainer/:username" component={TrainerDetails} />
+        <Route exact path="/member/trainer/createF/:id" component={CreateFeedback} />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
         <Route exact path="/member/aboutUs" component={AboutUs} />
+        <Route exact path="/employee/aboutUs" component={AboutUs} />
         <Route
           exact
           path="/employee/unasnweredQ/:weekNo"

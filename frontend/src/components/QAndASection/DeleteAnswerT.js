@@ -3,6 +3,7 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 import { deleteAnswerT, getAnswersT } from '../../api/apiFBQA';
 import { DeleteAnswerFormT } from './Forms/DeleteAnswerFormT';
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 // import deleteAnswerBg from './ImagesD/deleteAnswerBg.png';
 
 export const DeleteAnswerT = () =>{
@@ -23,8 +24,20 @@ export const DeleteAnswerT = () =>{
     },[]);
 
     const onSubmit = async(data) =>{
-        await deleteAnswerT(data, match.params.id)
-        history.push(`/employee/myAnswers/${username}`);
+        Swal.fire({
+            title: 'Confirm the delete process!',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+          }).then((result) => {
+            if (result.isConfirmed) {
+                deleteAnswerT(data, match.params.id)
+                    Swal.fire('The Answer has been deleted!', '', 'success')
+                    history.push(`/employee/myAnswers/${username}`);
+            } else {
+              Swal.fire('The delete process has been canceled!', '', 'info')
+            }
+          })
+        
     }
 
     return answer ?(

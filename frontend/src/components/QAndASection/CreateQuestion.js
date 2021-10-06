@@ -25,6 +25,7 @@ export const CreateQuestion = () =>{
 
     const onSubmit = async (data) =>{
         await createQuestion(data)
+        alert("Question Posted Successfully");
         history.push(`/member/QandA/${member_email}`);
     };
     
