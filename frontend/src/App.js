@@ -25,6 +25,8 @@ import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
 import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
 import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
 import { AllSalaries } from "./components/EmployeeManagement/ViewSalaries";
+import Chart from "./components/EmployeeManagement/graph";
+import { ViewAllSalaries } from "./components/EmployeeManagement/ViewAllSalaries";
 /*Janudi --> Employee Registration ---> End*/
 
 //shehan imports
@@ -363,18 +365,12 @@ const App = () => {
         <Route exact path="/admin/leaves" component={AllTrainerLeaves} />
         <Route exact path="/admin/leave/:Status" component={LeavesList} />
         <Route exact path="/admin/updateL/:id" component={TrainerLeavesEdit} />
-        <Route
-          exact
-          path="/admin/salary/add"
-          component={CreateEmployeeSalary}
-        />
-        <Route
-          exact
-          path="/admin/CreateSalary"
-          component={CreateEmployeeSalary}
-        />
+        <Route exact path="/admin/salary/add" component={CreateEmployeeSalary} />
+        <Route exact path="/admin/CreateSalary" component={CreateEmployeeSalary} />
         <Route exact path="/admin/salary" component={AllSalaries} />
-        <Route exact path="/admin/ViewSalaries" component={AllSalaries} />
+        <Route exact path="/admin/ViewSalaries/:Month" component={AllSalaries} />
+        <Route exact path="/admin/Chart" component={Chart} />
+        <Route exact path="/admin/ViewSalaries" component={ViewAllSalaries}/>
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}

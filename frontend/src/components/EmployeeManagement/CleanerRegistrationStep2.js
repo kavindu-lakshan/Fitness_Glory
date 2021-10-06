@@ -28,10 +28,6 @@ export default class ThankYou extends Component {
     }
 }
 
-const bgColor = {
-    backgroundColor: 'black'
-}
-
 const thankStyles = {
     color: 'white',
     marginLeft: '140px',

@@ -1,6 +1,24 @@
 const router = require('express').Router();
 let Salary = require('../models/Employee_Salaries.model');
 
+// router.route('/admin/salary').get((req, res) => {
+//     Salary.find()
+//     .then(Salaries => res.json(Salaries))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
+
+//new monthly salary
+router.route('/admin/salary/:Month').get((req, res) => {
+    let month = req.params.Month;
+    const salary = Salary.find({Month:month}).exec().then(salary =>{
+        res.json(salary)
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({error:err});
+    });
+});
+
 router.route('/admin/salary').get((req, res) => {
     Salary.find()
     .then(Salaries => res.json(Salaries))

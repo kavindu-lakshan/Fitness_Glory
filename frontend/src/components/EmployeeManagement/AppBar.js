@@ -118,34 +118,3 @@ const scrollStyles = {
   color: 'black',
   backgroundColor: 'grey'
 }
-
-const bgStyles = {
-  width: '98%',
-  marginTop: '30px',
-  height: '500px',
-  backgroundColor: 'black',
-  marginLeft: '15px'
-}
-
-const bgStyles2 = {
-  width: '98%',
-  marginTop: '30px',
-  height: '500px',
-  backgroundColor: 'black',
-  marginLeft: '15px'
-}
-
-const imageStyles = {
-  marginLeft: '560px',
-  height: '480px',
-  width: '725px',
-  marginTop: '10px'
-}
-
-const headingStyles = {
-  color: 'white',
-  fontSize: '28px',
-  marginLeft: '60px',
-  marginTop: '-300px'
-}
-
