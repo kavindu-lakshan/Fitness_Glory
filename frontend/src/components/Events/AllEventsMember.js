@@ -5,6 +5,7 @@ import Carousel from "react-elastic-carousel";
 import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
 import { Form } from "react-bootstrap";
+import moment from "moment";
 import "../StylesA/Events.css";
 
 export default class AllEventsMember extends Component {
@@ -15,6 +16,7 @@ export default class AllEventsMember extends Component {
       eventName: "",
       memName: "",
       interestStatus: "",
+      weekNumber: `${moment().week() - 1}`,
       events: [],
     };
   }
@@ -49,11 +51,12 @@ export default class AllEventsMember extends Component {
     alert(
       "Congratulations! You have Successfully Interested to this event. Reserve your time for this event :)"
     );
-    const { eventName, memName, interestStatus } = this.state;
+    const { eventName, memName, interestStatus, weekNumber } = this.state;
     const data = {
       eventName: eventName,
       memName: memName,
       interestStatus,
+      weekNumber,
     };
     console.log(data);
 
@@ -65,6 +68,7 @@ export default class AllEventsMember extends Component {
             eventName: "",
             memName: "",
             interestStatus: "",
+            weekNumber: "",
           });
         }
       });
@@ -93,6 +97,8 @@ export default class AllEventsMember extends Component {
       { width: 550, itemsToShow: 2 },
       { width: 768, itemsToShow: 3.4 },
     ];
+
+    const weeknumber = moment().week() - 1;
 
     function myFunction() {
       document.getElementById("mySelect").selectedIndex = "2";
@@ -320,7 +326,7 @@ export default class AllEventsMember extends Component {
                   <center>
                     <h1
                       className="h3 mb-3 font-weight-normal"
-                      style={{ fontSize: "18px", color:"white" }}
+                      style={{ fontSize: "18px", color: "white" }}
                     >
                       Add Your Interest
                     </h1>
@@ -428,7 +434,10 @@ export default class AllEventsMember extends Component {
             <br />
             <br />
           </div>
-          <br /><br /><br /><br />
+          <br />
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     );

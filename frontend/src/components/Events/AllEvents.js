@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import Swal from "sweetalert2";
 import "../StylesA/Events.css";
 import {
   Button
@@ -55,14 +56,16 @@ export default class AllEvents extends Component {
     });
   }
 
-  onDelete = (id) => {
-    axios
-      .delete(`http://localhost:5000/event/deleteEvent/${id}`)
-      .then((res) => {
-        alert("Event Delete Success");
-        this.retrieveEvents();
-      });
-  };
+  // onDelete = (id) => {
+  //   axios
+  //     .delete(`http://localhost:5000/event/deleteEvent/${id}`)
+  //     .then((res) => {
+  //       alert("Event Delete Success");
+  //       this.retrieveEvents();
+  //     });
+  // };
+
+  
   // onScroll = () => {
   //     const scrollY = window.scrollY //Don't get confused by what's scrolling - It's not the window
   //     const scrollTop = this.myRef.current.scrollTop
@@ -88,6 +91,26 @@ export default class AllEvents extends Component {
     });
   };
   render() {
+    const onDelete = (id) => {
+      Swal.fire({
+          title: 'Delete this Event?',
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'Delete',
+          denyButtonText: `Don't Delete`,
+        }).then((result) => {
+          if (result.isConfirmed) {
+              axios.delete(`http://localhost:5000/event/deleteEvent/${id}`).then((res)=>{
+                  Swal.fire('Event deleted successfully!!', '', 'success')
+                  window.location.reload('/employee/allevents');
+                  });
+                  
+          } else if (result.isDenied) {
+            Swal.fire('Event has not been deleted', '', 'info')
+          }
+        });
+      }
+
     const breakPoints = [
       { width: 1, itemsToShow: 1 },
       { width: 550, itemsToShow: 2 },
@@ -168,7 +191,7 @@ export default class AllEvents extends Component {
                           <a
                             style={{ color: "black" }}
                             href="#"
-                            onClick={() => this.onDelete(row._id)}
+                            onClick={() => onDelete(row._id)}
                           >
                             <button
                               type="button"

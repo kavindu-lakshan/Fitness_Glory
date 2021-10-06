@@ -133,6 +133,7 @@ import AddInterest from "./components/Interests/AddInterest";
 import AllInterest from "./components/Interests/AllInterests";
 import EventLandingPage from "./components/Events/EventLandingPage";
 import AllEventsMember from "./components/Events/AllEventsMember";
+import InterestReport from "./components/Interests/InterestReport";
 
 // Admin
 import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
@@ -344,11 +345,9 @@ const App = () => {
           path="/member/event-interest/event-landing"
           component={EventLandingPage}
         />
-        <Route
-          path="/employee/event-interest/allInterests"
-          component={AllInterest}
-        />
+        <Route path="/employee/interest-report/:weekNumber" component={InterestReport}/>
 
+        
         {/*________________________ Amantha Routes End  ________________________*/}
         {/*________________________ Lakshan Extra Routes ________________________*/}
 

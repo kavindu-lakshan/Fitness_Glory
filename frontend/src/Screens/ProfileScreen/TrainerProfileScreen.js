@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../actions/trainerActions";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
-import TrainerMainScreen from "../../components/TrainerMainScreen";
-import Grid from "@material-ui/core/Grid";
-import CardContent from "@material-ui/core/CardContent";
 import "./TrainerProfileScreen.css";
+
 const TrainerProfileScreen = ({ location, history }) => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");

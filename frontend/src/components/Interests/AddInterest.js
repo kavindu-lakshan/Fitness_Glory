@@ -1,17 +1,16 @@
 import React,{useState, useEffect} from 'react';
 
-import { Button,TextField,classes,Radio, FormLabel, RadioGroup, FormControl,FormControlLabel } from '@material-ui/core';
-import { mergeClasses } from '@material-ui/styles';
+import { Button,Radio, FormLabel, RadioGroup, FormControl,FormControlLabel } from '@material-ui/core';
 import { Form } from 'react-bootstrap';
 import axios from "axios";
 import '../StylesA/Events.css';
-
+import moment from "moment";
 
 
 export default function AddInterest(){
 
-       const [interests, setInterests] = useState([]);
-
+      const [interests, setInterests] = useState([]);
+       
       useEffect(()=>{
           function getInterests(){
               axios.get("http://localhost:5000/event-interest/allInterests")
@@ -27,7 +26,10 @@ export default function AddInterest(){
     
   const [eventName, setEventName]= useState("");
   const [memName, setMemName]= useState("");
+  const [weekNumber, setWeeknumber]= 10;
   const [interestStatus, setInterestStatus]= useState("");
+
+  const weeknumber=moment().week();
 
   function sendData(e){
     e.preventDefault();
@@ -35,28 +37,14 @@ export default function AddInterest(){
       eventName,
       memName,
       interestStatus,
+      weekNumber,
     }
     axios.post("http://localhost:5000/event-interest/addInterest",newInterest).then(()=>{
       alert("You are Interested to this Event :)")
     }).catch((err)=>{
       alert(err)
-    })
+    });
   }
-
-    // const [events, setEvents] = useState([]);
-
-    // useEffect(()=>{
-    //     function getEvents(){
-    //         axios.get("http://localhost:5000/event/allevents")
-    //         .then((res)=>{
-                
-    //             setEvents(res.data);
-    //         }).catch((err)=>{
-    //             alert(err.message);
-    //         })
-    //     }
-    //     getEvents();
-    // }, [])
     const[events, setEvents]= useState([]);
     const[search, setSearchTerm]= useState("");
 
@@ -155,13 +143,12 @@ export default function AddInterest(){
               <RadioGroup aria-label="gender" name="gender1"   onChange={(e)=>{
                   setInterestStatus(e.target.value);
                 }}>
-                <FormControlLabel style={{color:'black'}} value="Interested" control={<Radio />} label="Female" />
-                <FormControlLabel style={{color:'black'}} value="Not Interested" control={<Radio />} label="Male" />
-                <FormControlLabel style={{color:'black'}} value="Going" control={<Radio />} label="Both" />
-                <FormControlLabel style={{color:'black'}} value="Not Going" control={<Radio />} label="Both" />
+                <FormControlLabel style={{color:'black'}} value="Interested" control={<Radio />} label="Interested" />
+                <FormControlLabel style={{color:'black'}} value="Not Interested" control={<Radio />} label="Not Interested" />
+                <FormControlLabel style={{color:'black'}} value="Going" control={<Radio />} label="Going" />
+                <FormControlLabel style={{color:'black'}} value="Not Going" control={<Radio />} label="Not Going" />
               </RadioGroup>
             </FormControl>
-        
             <Button className="button" variant="secondary" type="submit">
               Submit
            

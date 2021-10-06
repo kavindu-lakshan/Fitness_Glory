@@ -1,17 +1,14 @@
 import axios from "axios";
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 import {
   Button,
   TextField,
-  classes,
   Radio,
-  FormLabel,
   RadioGroup,
   FormControl,
   FormControlLabel,
 } from "@material-ui/core";
 import { Form } from "react-bootstrap";
-import DatePicker from "react-datepicker";
 
 export default class UpdateEvent extends Component {
   constructor(props) {
@@ -57,7 +54,6 @@ export default class UpdateEvent extends Component {
       .put(`http://localhost:5000/event/updateEvent/${id}`, data)
       .then((res) => {
         if (res.data.success) {
-          alert("Event Updated Successfully!");
           this.setState({
             tagline: "",
             title: "",
@@ -67,7 +63,7 @@ export default class UpdateEvent extends Component {
             details: "",
             crslimg: "",
           });
-        }
+        }alert("Event Updated Successfully!");
       });
   };
 
@@ -398,8 +394,7 @@ export default class UpdateEvent extends Component {
                 />
               </Form.Group> */}
                 <Button
-                  className="button"
-                  variant="secondary"
+                  style={{background:'green', borderRadius:'20px'}}
                   type="submit"
                   onClick={this.onSubmit}
                 >

@@ -20,10 +20,14 @@ const interestSchema = new Schema({
         required : true
     },
 
+    weekNumber : {
+        type : String,
+    }
+
 },
-{
-    timestamps: true,
-  }
+    {
+        timestamps: true,
+    }
 );
 
 const Interest = mongoose.model("Interest", interestSchema);
