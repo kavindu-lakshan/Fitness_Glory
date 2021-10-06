@@ -1,4 +1,3 @@
-import TrainerMainScreen from "../../components/TrainerMainScreen";
 import { useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";

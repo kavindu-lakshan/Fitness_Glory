@@ -27,8 +27,8 @@ router.route("/addEvent").post(async(req,res)=>{
         res.json("Event Added")
     }).catch((err)=>{
         console.log(err); //error will display in the console
-    })
-})
+    });
+});
 
 
 
@@ -82,8 +82,8 @@ router.route("/updateEvent/:id").put(async (req,res)=>{
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status: "Error with updating event", error:err.message});
-    })
-})
+    });
+});
 
 router.route("/deleteEvent/:id").delete(async (req,res)=>{
     let eventId=req.params.id;
@@ -92,8 +92,8 @@ router.route("/deleteEvent/:id").delete(async (req,res)=>{
         res.status(200).send({status:"Event Deleted"});
     }).catch((errr)=>{
         res.status(500).send({status: "Error with deleted event", error:err.message});
-    })
-})
+    });
+});
 
 
 //get one event details
@@ -109,7 +109,7 @@ router.route("/eventdetails/:id").get(async (req,res)=>{
             });
         }
     });
-})
+});
 
 // router.get('/eventdetails/:id', getSpecificProgram);
 // const getSpecificProgram = (req, res) => {
