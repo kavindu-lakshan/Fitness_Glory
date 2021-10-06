@@ -27,7 +27,7 @@ const Admin = () => {
   return (
     <div style={backImg}>
       <Container maxWidth="100px">
-        <Button
+        {/*} <Button
           variant="btn btn-success"
           onClick={() => history.push("member/trainerblog/MemForm")}
         >
@@ -39,7 +39,7 @@ const Admin = () => {
           onClick={() => history.push("/ReportPT/ReportPT")}
         >
           report
-        </Button>
+  </Button>*/}
 
         <div styele={boxn} className={classes.upcard}>
           <Typography component="div">
