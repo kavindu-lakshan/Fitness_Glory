@@ -3,12 +3,18 @@ import { FBDeleteForm } from './Forms/FBDeleteForm';
 import { useRouteMatch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { selectFeedback, deleteFeedback } from '../../api/apiFBQA';
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 // import deleteFeedbackBg from './ImagesD/deleteFeedbackBg.png'
 
 export const DeleteFeedback = () =>{
     const match = useRouteMatch()
     const [feedback, setFeedback] = useState()
     const history = useHistory();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
 
     useEffect(() =>{ 
         const displayFeedbacks = async() =>{
@@ -20,8 +26,19 @@ export const DeleteFeedback = () =>{
     
 
     const onSubmit = async(data) =>{
-        await deleteFeedback(data, match.params.id)
-        history.push("/member/feedback/:email");
+        Swal.fire({
+            title: 'Confirm the delete process!',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+          }).then((result) => {
+            if (result.isConfirmed) {
+                deleteFeedback(data, match.params.id)
+                    Swal.fire('The Feedback has been deleted!', '', 'success')
+                    history.push(`/member/feedback/${member_email}`);
+            } else {
+              Swal.fire('The delete process has been canceled!', '', 'info')
+            }
+          }) 
     }
     return feedback ?(
         <div>

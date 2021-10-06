@@ -70,6 +70,14 @@ export default class ptEdit extends Component {
         <br />
         <br />
         &nbsp;
+        <button className="btn btn-success">
+          <a
+            href="/employee/memberPTRequest/Request_Report"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Report
+          </a>
+        </button>
         <div style={font}>
           <h1 style={editpostti}> member request status</h1>
           <br />
@@ -92,7 +100,7 @@ export default class ptEdit extends Component {
         <table style={fdata} className="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">REQ No</th>
               <th scope="col">Name</th>
               <th scope="col">Trainer Name</th>
               <th scope="col">Time slot</th>

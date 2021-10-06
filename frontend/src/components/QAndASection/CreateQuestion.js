@@ -3,12 +3,17 @@ import {useRouteMatch, useHistory } from 'react-router-dom'
 import { NavBar } from './NavBar';
 import { getQuestion, createQuestion } from '../../api/apiFBQA';
 import { QuestionForm } from './Forms/QuestionForm';
+import { useSelector } from "react-redux";
 // import createQuestionBg from './ImagesD/createQuestionBg.png'
-
+ 
 export const CreateQuestion = () =>{
     const history = useHistory();
     const match = useRouteMatch();
     const [question, setQuestion] = useState();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
 
     useEffect (() =>{
         const displayQuestions = async() =>{
@@ -20,7 +25,8 @@ export const CreateQuestion = () =>{
 
     const onSubmit = async (data) =>{
         await createQuestion(data)
-        history.push("/member/QandA/:email");
+        alert("Question Posted Successfully");
+        history.push(`/member/QandA/${member_email}`);
     };
     
     return question ?(

@@ -1,13 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom';
-import { createAnswer, selectQuestionDetailsA } from '../../api/apiFBQA';
+import { createAnswer, selectQuestionDetailsA, updateQStatus} from '../../api/apiFBQA';
 import { AnswerForm } from './Forms/AnswerForm';
+import { useSelector } from "react-redux";
 // import createAnswerBg from './ImagesD/createAnswerBg.png'
  
 export const CreateAnswer = () =>{
     const history = useHistory();
     const match = useRouteMatch();
     const [question, setQuestion] = useState();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
 
     useEffect (() =>{
         const displayQuestions = async() =>{
@@ -19,7 +24,9 @@ export const CreateAnswer = () =>{
 
     const onSubmit = async (data) =>{
         await createAnswer(data)
-        history.push("/member/myAnswers/:email");
+        await updateQStatus(data, match.params.id)
+        alert("Answer Entered Successfully");
+        history.push(`/member/myAnswers/${member_email}`);
     };
     
     return question ?(

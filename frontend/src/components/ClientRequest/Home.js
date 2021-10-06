@@ -94,7 +94,7 @@ export default class Home extends Component {
           <table className="table" style={fdata}>
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col"> REQ No</th>
                 <th scope="col">Name</th>
                 <th scope="col">Trainer Name</th>
                 <th scope="col">Time slot</th>
@@ -122,12 +122,6 @@ export default class Home extends Component {
                   <td>{posts.pack}</td>
                   <td>{posts.status}</td>
                   <td>
-                    {/*}  <a
-                    className="btn btn-dark"
-                    href={`/member/memberPTRequest/edit/${posts._id}`}
-                  >
-                    <i className="btn btn-warning"></i>&nbsp;Edit
-            </a>*/}
                     &nbsp; &nbsp;
                     <a
                       className="btn btn-danger"

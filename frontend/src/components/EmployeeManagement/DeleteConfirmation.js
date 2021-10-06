@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {useForm} from 'react-hook-form'
 import ImageBoxAnimation from './ImageBoxAnimated2';
 import styled from 'styled-components';
 import GradientButton from 'react-linear-gradient-button';
-import Tooltip from '@material-ui/core/Tooltip';
-
 const Wrapper = styled.div``;
 
 const TooltipText = styled.div`

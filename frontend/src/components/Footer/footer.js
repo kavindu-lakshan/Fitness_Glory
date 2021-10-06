@@ -3,32 +3,33 @@ import Logo from "../../logo.png";
 
 const Footer = () => {
   return (
-    <footer className="pt-0">
+    <footer className="">
       <div style={bg}>
         <div className="row">
           <div className="col-md-3">
             <div className="row">
               <div>
-                <img className="" src={Logo} style={im} />
+                <img className="" src={Logo} alt="logo" style={im} />
               </div>
             </div>
           </div>
-          <div className="col-md-3" style={{marginTop:'10px'}}>
+          <div className="col-md-3" style={{ marginTop: "10px" }}>
             <div className="row m-md-3">
-              <h5 style={{color:'silver'}}>FitnessGlory</h5>
+              <h5 style={{ color: "silver" }}>FitnessGlory</h5>
               <hr />
-              <p style={para} >
-                A well-equipped gym managed by a well-qualified instructor with experienced trainers.
+              <p style={para}>
+                A well-equipped gym managed by a well-qualified instructor with
+                experienced trainers.
               </p>
             </div>
           </div>
 
-          <div className="col-md-3" style={{marginTop:'10px'}}>
+          <div className="col-md-3" style={{ marginTop: "10px" }}>
             <div className="row m-md-3">
-            <h5 style={{color:'silver'}}>Contact us</h5>
+              <h5 style={{ color: "silver" }}>Contact us</h5>
               <hr />
               <p style={para}>
-                <i className="fas fa-home mr-3"  ></i> FitnessTown, FT 102
+                <i className="fas fa-home mr-3"></i> FitnessTown, FT 102
               </p>
               <p style={para}>
                 <i className="fas fa-phone mr-3"></i> + 94 234 567 88
@@ -36,18 +37,28 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="col-md-3" style={{marginTop:'10px'}}>
+          <div className="col-md-3" style={{ marginTop: "10px" }}>
             <div className="row m-md-3">
-            <h5 style={{color:'silver'}}>Useful links</h5>
+              <h5 style={{ color: "silver" }}>Useful links</h5>
               <hr />
               <div>
-                    <a href="#" style={navBtn1}> About Us </a><br/>
-                    <a href="#" style={navBtn2}> Contact Us </a><br/>
-                    <a href="/member/OtherQ/" style={navBtn2}> Q and A Section</a>
-                </div>
+                <a href="/member/AboutUs/" style={navBtn1}>
+                  {" "}
+                  About Us{" "}
+                </a>
+                <br />
+                <a href="/member/ContactUs/" style={navBtn2}>
+                  {" "}
+                  Contact Us{" "}
+                </a>
+                <br />
+                <a href="/member/OtherQ/" style={navBtn2}>
+                  {" "}
+                  Q and A Section
+                </a>
               </div>
-              <div>
             </div>
+            <div></div>
           </div>
         </div>
 
@@ -55,29 +66,59 @@ const Footer = () => {
 
         <div className="row">
           <div className="col-md-8">
-            <div className="container" style={foot}> © 2021 Copyright: <a href="#" style={footLink}> FitnessGlory.com </a>
+            <div className="container" style={foot}>
+              {" "}
+              © 2021 Copyright:{" "}
+              <a href="#" style={footLink}>
+                {" "}
+                FitnessGlory.com{" "}
+              </a>
             </div>
           </div>
           <div className="col-md-4">
             <div className="">
               <ul className="text-center">
                 <li className="list-inline-item">
-                  <a className="btn btn-primary mx-2" style={{ backgroundColor:'transparent', border: "2px solid silver" }} >
+                  <a
+                    className="btn btn-primary mx-2"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "2px solid silver",
+                    }}
+                  >
                     <i className="fab fa-facebook"> </i>
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="btn btn-primary mx-2" style={{ backgroundColor:'transparent', border: "2px solid silver" }}> 
+                  <a
+                    className="btn btn-primary mx-2"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "2px solid silver",
+                    }}
+                  >
                     <i className="fab fa-twitter"> </i>
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="btn btn-primary mx-2" style={{ backgroundColor:'transparent', border: "2px solid silver" }}>
+                  <a
+                    className="btn btn-primary mx-2"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "2px solid silver",
+                    }}
+                  >
                     <i className="fab fa-instagram"> </i>
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="btn btn-primary mx-2" style={{ backgroundColor:'transparent', border: "2px solid silver" }}>
+                  <a
+                    className="btn btn-primary mx-2"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "2px solid silver",
+                    }}
+                  >
                     <i className="fab fa-pinterest"> </i>
                   </a>
                 </li>
@@ -94,7 +135,7 @@ export default Footer;
 
 const bg = {
   backgroundColor: "black",
-  opacity:'0.92'
+  opacity: "0.92",
 };
 
 const im = {
@@ -102,51 +143,50 @@ const im = {
   width: "100%",
 };
 
-const para ={
+const para = {
   fontWeight: "5pt",
   fontSize: "19px",
   fontFamily: "calibri",
   color: "#c0bdbd",
-  textAlign: 'justify',
-  lineHeight:1.3
-}
+  textAlign: "justify",
+  lineHeight: 1.3,
+};
 
-const navBtn1={
-  justifyContent: 'center',
-  marginLeft:'10px',
-  marginTop:'5px',
-  color: 'silver',
+const navBtn1 = {
+  justifyContent: "center",
+  marginLeft: "10px",
+  marginTop: "5px",
+  color: "silver",
   fontFamily: "calibri",
-  textDecoration: 'none',
-  fontSize: '19px',
-  fontWeight: "bold",
-
-}
-
-const navBtn2={
-  justifyContent: 'center',
-  marginLeft:'10px',
-  marginTop:'5px',
-  color: 'silver',
-  fontFamily: "calibri",
-  textDecoration: 'none',
-  fontSize: '19px',
+  textDecoration: "none",
+  fontSize: "19px",
   fontWeight: "bold",
 };
 
-const foot ={
+const navBtn2 = {
+  justifyContent: "center",
+  marginLeft: "10px",
+  marginTop: "5px",
+  color: "silver",
+  fontFamily: "calibri",
+  textDecoration: "none",
+  fontSize: "19px",
+  fontWeight: "bold",
+};
+
+const foot = {
   fontWeight: "8pt",
   fontSize: "19px",
-  color: 'silver',
+  color: "silver",
   fontFamily: "calibri",
-}
+};
 
-const footLink ={
+const footLink = {
   fontWeight: "bold",
   fontSize: "22px",
   fontFamily: "calibri",
-  textTransform:'none' 
-}
+  textTransform: "none",
+};
 
 // const navBtn1={
 //   justifyContent: "center",

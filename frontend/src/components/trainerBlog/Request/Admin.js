@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
   Container,
-  AppBar,
   Typography,
   Grow,
   Box,
   Grid,
   Button,
-  responsiveFontSizes,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import "./Memback.css";
@@ -15,7 +13,7 @@ import Posts from "./Posts/Posts";
 import Form from "./Form/Form";
 import { getBlogPosts } from "../../../actions/blogposts";
 import useStyles from "./reqstyles";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Admin = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -29,7 +27,7 @@ const Admin = () => {
   return (
     <div style={backImg}>
       <Container maxWidth="100px">
-        <Button
+        {/*} <Button
           variant="btn btn-success"
           onClick={() => history.push("member/trainerblog/MemForm")}
         >
@@ -41,7 +39,7 @@ const Admin = () => {
           onClick={() => history.push("/ReportPT/ReportPT")}
         >
           report
-        </Button>
+  </Button>*/}
 
         <div styele={boxn} className={classes.upcard}>
           <Typography component="div">

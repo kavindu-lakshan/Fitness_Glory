@@ -9,25 +9,6 @@ import { withStyles } from '@material-ui/core/styles';
 import CleanerRegistration from './CleanerRegistrationStep1';
 import ThankYou from './CleanerRegistrationStep2';
 
-const StyledButton = withStyles({
-  root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    marginLeft: '600px',
-    marginBottom: '20px',
-    width: '210px',
-    marginTop: '-280px'
-  },
-  label: {
-    textTransform: 'capitalize',
-  },
-})(Button);
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%'
@@ -98,16 +79,6 @@ export default function CleanerRegistrationForm() {
 
   const isLastStep = () => {
     return activeStep === totalSteps() - 1;
-  };
-
-  const handleNext = () => {
-    const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ?
-          steps.findIndex((step, i) => !completed.has(i))
-        : activeStep + 1;
-
-    setActiveStep(newActiveStep);
   };
 
   const handleStep = (step) => () => {

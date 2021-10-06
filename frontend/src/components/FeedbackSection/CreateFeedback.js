@@ -3,12 +3,17 @@ import { useHistory } from 'react-router';
 import { createFeedback, getTUsername } from '../../api/apiFBQA';
 import { useRouteMatch } from 'react-router-dom';
 import { FBForm } from './Forms/FBForm';
+import { useSelector } from "react-redux";
 // import createFeedbackBg from './ImagesD/createFeedbackBg.png'
 
 export const CreateFeedback = () =>{
     const history = useHistory();
     const match = useRouteMatch();
     const [trainer, setTrainer] = useState();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const member_email = userInfo.email;
 
     useEffect (() =>{
         const displayQuestions = async() =>{
@@ -20,7 +25,8 @@ export const CreateFeedback = () =>{
 
     const onSubmit = async (data) =>{
         await createFeedback(data)
-        history.push("/member/feedback/:email");
+        alert("Feedback Added Successfully");
+        history.push(`/member/feedback/${member_email}`);
     };
     
     return trainer ?(

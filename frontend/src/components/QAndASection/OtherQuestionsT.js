@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 import { allQuestionsM } from '../../api/apiFBQA'
 import { NavBarT } from './NavBarT';
 import './scrollBar.css'
+import moment from 'moment';
 // import otherQuestionBg from './ImagesD/otherQuestionBg.png'
 
 export const OtherQuestionsT = () => {
@@ -17,6 +18,7 @@ export const OtherQuestionsT = () => {
         }
         displayQuestion();
     },[])
+    const weeknumber = (moment().week() - 1);
     
     return (
         <div>
@@ -31,7 +33,8 @@ export const OtherQuestionsT = () => {
                     onChange={(e)=>{
                         setSearch(e.target.value);
                     }}/>
-                    <Button style={btn} color="Secondary" variant="contained">Generate Report</Button>
+                    <Link to={`/employee/unasnweredQ/${weeknumber}`} style={{ textDecoration: 'none' }}><Button style={btn} color="Secondary" variant="contained">Generate Report</Button></Link>
+                        
             </div>
 
             </div>
@@ -51,7 +54,7 @@ export const OtherQuestionsT = () => {
                 <tbody>
                 {
                     questions.filter((row)=>{
-                        if(search == ""){
+                        if(search === ""){
                             return row
                         }else if(row.qTopic.toLowerCase().includes(search.toLowerCase())){
                             return row

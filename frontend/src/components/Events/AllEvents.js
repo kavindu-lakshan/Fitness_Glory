@@ -99,15 +99,14 @@ export default class AllEvents extends Component {
           confirmButtonText: 'Delete',
           denyButtonText: `Don't Delete`,
         }).then((result) => {
-          /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
               axios.delete(`http://localhost:5000/event/deleteEvent/${id}`).then((res)=>{
-                  Swal.fire('The record has been deleted!', '', 'success')
+                  Swal.fire('Event deleted successfully!!', '', 'success')
                   window.location.reload('/employee/allevents');
                   });
                   
           } else if (result.isDenied) {
-            Swal.fire('The record has not been deleted', '', 'info')
+            Swal.fire('Event has not been deleted', '', 'info')
           }
         });
       }

@@ -5,18 +5,8 @@ import Particle from './Particles2';
 import GradientButton from 'react-linear-gradient-button';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-  },
-  textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 200,
-  },
-}));
+import {Link} from 'react-router-dom';
+import moment from 'moment';
 
 const Wrapper = styled.div``;
 
@@ -135,11 +125,12 @@ export default class CreateEmployeeSalary extends Component{
 
         axios.post('http://localhost:5000/Employee_Salary/admin/salary/add', Salary).then(()=>{
             alert("Salary assigned successfully!")
+            window.location = `/admin/ViewSalaries/${moment().format('MMMM').toUpperCase()}`;
         }).catch((err)=>{
+          alert("The salary for this employee has been assigned already!")
+          window.location = '/admin/CreateSalary';
         })
-
-        window.location = '/admin/ViewSalaries';
-    }
+      }
 
     componentDidMount() {
         this.retrieveTrainers();
@@ -326,6 +317,14 @@ export default class CreateEmployeeSalary extends Component{
                         <GradientButton type="submit" className="CheckButton" style = {linkStyles}>
                             ASSIGN SALARY
                         </GradientButton>
+
+                        <Link to = {`/admin/ViewSalaries/${moment().format('MMMM').toUpperCase()}`}><GradientButton className="CheckButton" style = {linkStyles2}>
+                            CURRENT SALARIES
+                        </GradientButton></Link>
+
+                        <Link to = {"/admin/ViewSalaries/" }><GradientButton className="CheckButton" style = {linkStyles3}>
+                           VIEW ALL SALARIES
+                        </GradientButton></Link>
                         </div>
                         <br></br>
                         <br></br>
@@ -378,34 +377,6 @@ const labelStyles = {
   fontSize: '18px',
 
 }
-const dateStyles = {
-    marginLeft: '580px',
-    height: '35px',
-    marginTop: '-35px'
-}
-
-const textStyles1 = {
-    color : 'white',
-    backgroundColor: 'white',
-    width: '235px',
-    marginLeft: '40px',
-    height: '28px'
-}
-
-const textStyles2 = {
-    backgroundColor: 'white',
-    width: '235px',
-    marginLeft: '23px',
-    height: '28px'
-}
-
-const textStyles3 = {
-    width: '180px',
-    marginLeft: '72px',
-    height: '28px',
-    marginTop: '-150px',
-    marginLeft: '510px'
-}
 
 const inputStyles = {
   backgroundColor: 'black',
@@ -421,19 +392,23 @@ const linkStyles = {
     textDecoration: 'none',
     color: 'black',
     fontWeight: 'bold',
-    marginLeft: '420px'
+    marginLeft: '300px',
+    width: '200px',
+    marginTop: '30px'
 }
 
 const linkStyles2 = {
   textDecoration: 'none',
   color: 'black',
   fontWeight: 'bold',
-  marginLeft: '680px',
-  marginTop: '-97px'
+  marginLeft: '40px',
+  marginTop: '30px'
 }
 
-const btnStyles = {
-  marginTop: '-95px',
-  marginLeft: '650px',
-  color: 'black'
+const linkStyles3 = {
+  textDecoration: 'none',
+  color: 'black',
+  fontWeight: 'bold',
+  marginLeft: '40px',
+  marginTop: '30px'
 }

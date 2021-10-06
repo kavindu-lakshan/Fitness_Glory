@@ -1,8 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { getSalary } from './api';
 import axios from 'axios';
-import { useHistory } from 'react-router';
-import { makeStyles } from '@material-ui/core/styles';
+import { useRouteMatch } from 'react-router';
 import styled from 'styled-components';
 import './ViewSalaries.css';
 import ImageBoxAnimation from './ImageBoxAnimated6';
@@ -10,6 +9,12 @@ import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
+import moment from 'moment';
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+import Logo from "../.././logo.png";
+import Chart from './graph';
+import Swal from "sweetalert2";
 
 const StyledButton = withStyles({
     root: {
@@ -32,41 +37,92 @@ const StyledButton = withStyles({
     },
   })(Button);
 
-const useStyles = makeStyles((theme) => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 200,
-    },
-}));
 
 const Wrapper = styled.div``;
 
 export const AllSalaries =() =>{
+    
     const[salaries, setSalaries] = useState([]);
-    const[search, setSearchTerm] = useState("");
-    const history = useHistory();
+    const match = useRouteMatch();
+    const year = moment().year();
 
     useEffect(()=>{
         const displaySalaries = async() => {
-        const salaries = await getSalary()
+        const salaries = await getSalary(match.params.Month)
             setSalaries(salaries)
         }
         displaySalaries()
     }, [])
 
-    const onDelete=(id)=>{
-        axios.delete(`http://localhost:5000/Employee_Salary/admin/delete/${id}`).then((res)=>{
-            alert("Salary Deleted Successfully");
-
-            window.location.reload('/ViewSalaries');
-        })
+    // salaries.map((row)=>{
+    //     const filteredS = salaries.filter(salaries =>salaries.Year === '2021')
+    //     setSalaries(filteredS)
+    // })
+    
+    const filter = (button) =>{
+        const filteredS = salaries.filter(salaries =>salaries.Year === button)
+        setSalaries(filteredS)
+ 
     }
+  
 
+    const onDelete = (id) => {
+        Swal.fire({
+            title: 'ARE YOU SURE THAT YOU WANT TO DELETE THE RECORD?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            denyButtonText: `Don't Delete`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/Employee_Salary/admin/delete/${id}`).then((res)=>{
+                    Swal.fire('The record has been deleted!', '', 'success')
+                    window.location.reload('/ViewSalaries/OCTOBER');
+                    });
+                    
+            } else if (result.isDenied) {
+              Swal.fire('The record has not been deleted', '', 'info')
+            }
+          })
+
+        
+        }
+
+
+    const pdf = () =>{
+        var doc = new jsPDF();
+        const tableColumn = ["NIC NUMBER", "OT RATE", "OT HOURS", "OT TOTAL", "BASIC SALARY", "TOTAL SALARY"];
+
+        const tableRows = [];
+        salaries.map((row) => {
+            const questionDetails = [
+              row.NICNumber,
+              row.OTRate,
+              row.OTHrs,
+              row.OTTotal,
+              row.BasicSalary,
+              row.TotSalary
+            ];
+            tableRows.push(questionDetails);
+          });
+          doc.text("Salary Report", 14, 20).setFontSize(12);
+            doc.setFillColor(204, 204, 204, 0);
+            doc.rect(0,0, 400, 60, "F");
+            doc.addImage(Logo, "JPEG", 75, 2, 60, 30);
+            doc.setTextColor(255,255,255);
+            doc.setFontSize(15);
+            doc.text(55, 45, 'SALARY DISTRIBUTION OF THE MONTH');
+            doc.setFontSize(10);
+            doc.autoTable(tableColumn, tableRows, {
+            styles: { fontSize: 12, halign: "center", backgroundColor:"black"},
+            startY: 65,}
+            
+    );
+    doc.save("SalaryReport.pdf");
+}
+
+   
     return (
         <div>
             <br></br>
@@ -76,23 +132,6 @@ export const AllSalaries =() =>{
             <div style = {bgStyles}>
                 <br></br>
                 <h3 style = {headingStyles}>ASSIGN TRAINER SALARIES</h3>
-                <br></br>
-                <br></br>
-                <br></br>
-                <i style = {fafaStyles} class = "fa fa-search"></i>
-                <div className = "Row">
-                    <div className = "col-lg-3 mt-2 mb-2">
-                        <div>
-                            <input className = "form-control" type = "text" placeholder="TYPE MONTH" 
-                                onChange={(e)=>{
-                                    setSearchTerm(e.target.value);
-                                }}
-                                style = {searchStyles}
-                    
-                            />
-                        </div>
-                    </div>
-                </div>
                 <br></br>
                 <br></br>
                 <div>
@@ -112,13 +151,7 @@ export const AllSalaries =() =>{
                             </MDBTableHead>
                             <MDBTableBody>
                 {
-                salaries.filter((row)=>{
-                    if(search == ""){
-                        return row
-                    }else if(row.Month.toLowerCase().includes(search.toLowerCase())){
-                        return row
-                    }
-                    }).map((row)=>(
+                salaries.map((row)=>(
                                 <tr style = {dataStyles}>
                                 <td>{row.NICNumber}</td>
                                 <td>{row.Month}</td>
@@ -134,16 +167,11 @@ export const AllSalaries =() =>{
                               DELETE
                         
                             </button>
+                            
                             </div>
                                 </td>
                                 </tr>
                                 
-                                
-                            
-                           
-                    
-                            
-                            
 
                     ))
                     
@@ -151,9 +179,21 @@ export const AllSalaries =() =>{
                 <hr style = {{backgroundColor: 'white'}}></hr>
             </MDBTableBody>
             </MDBTable>
+            <hr style = {{color: "red"},{height: 5}}></hr>
+            
             <br></br>
+            <br></br>
+            <br></br>
+            
+            <Chart data={salaries}/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <StyledButton style = {btnStyles3} onClick={()=>filter(`${year}`)}>CURRENT SALARIES</StyledButton>
             <StyledButton style = {btnStyles}><Link to = {"/admin/EmployeeHome"}>BACK TO HOME</Link></StyledButton>
-            <StyledButton style = {btnStyles2}><Link to = {""}>PRINT REPORT</Link></StyledButton>
+            <StyledButton style = {btnStyles2} onClick={()=>pdf()}>GENERATE PDF</StyledButton>
             <br></br>
             <br></br>
                             </div>
@@ -176,15 +216,6 @@ const headingStyles = {
     textAlign: 'center',
 }
 
-const searchStyles = {
-    marginTop: '-45px',
-    marginLeft: '475px'
-}
-
-const fafaStyles = {
-    marginTop: '-100px',
-    marginLeft: '750px'
-}
 
 const tableheadingStyles = {
     backgroundColor: 'white',
@@ -203,10 +234,17 @@ const dataStyles = {
 }
 
 const btnStyles = {
-    marginLeft: '400px'
+    marginLeft: '80px',
+    marginTop: '-72px'
 }
 
 const btnStyles2 = {
-    marginLeft: '650px',
+    marginLeft: '80px',
     marginTop: '-72px'
+}
+
+const btnStyles3 = {
+    marginLeft: '230px',
+    marginTop: '-72px',
+    width: '215px'
 }

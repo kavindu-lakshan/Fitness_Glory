@@ -25,6 +25,8 @@ import LeavesList from "./components/EmployeeManagement/TrainerLeavesView";
 import TrainerLeavesEdit from "./components/EmployeeManagement/TrainerLeavesEdit";
 import CreateEmployeeSalary from "./components/EmployeeManagement/CreateEmployeeSalary";
 import { AllSalaries } from "./components/EmployeeManagement/ViewSalaries";
+import Chart from "./components/EmployeeManagement/graph";
+import { ViewAllSalaries } from "./components/EmployeeManagement/ViewAllSalaries";
 /*Janudi --> Employee Registration ---> End*/
 
 //shehan imports
@@ -54,12 +56,15 @@ import EditRequest from "./components/RequestSchedule/EditRequest";
 import RequestDetails from "./components/RequestSchedule/RequestDetails";
 import NavBar from "./components/RequestSchedule/NavBar";
 import MemHome from "./components/RequestSchedule/MemHome";
-import SchReport from "./components/RequestSchedule/SchReport";
+
 
 /*pre-defined workout schedule function*/
 import PreAdmin from "./components/PreSchedules/PreAdmin";
 import PreAdmin_Mem from "./components/PreSchedules/PreAdmin_Mem";
+import Sch_Req_Report from "./components/RequestSchedule/Sch_Req_Report";
 import { getPrePosts } from "./actions/preposts";
+// import Predisplay from "./components/PreSchedules/PrePosts/PrePost/Predisplay";
+
 
 //-------------------------------Dulshan Member QandA-------------------------------
 import { QandA } from "./components/QAndASection/QandA";
@@ -77,13 +82,14 @@ import { CreateAnswerT } from "./components/QAndASection/CreateAnswerT.js";
 import { UpdateAnswerT } from "./components/QAndASection/UpdateAnswerT";
 import { OtherQuestionsT } from "./components/QAndASection/OtherQuestionsT";
 import { DeleteAnswerT } from "./components/QAndASection/DeleteAnswerT";
+import { ReportUnansweredQ } from "./components/QAndASection/ReportUnansweredQ";
 //------------------------------Dulshan Feedback Management-----------------------------------
 import { Feedback } from "./components/FeedbackSection/Feedback";
 import { CreateFeedback } from "./components/FeedbackSection/CreateFeedback";
-import { Trainers } from "./components/FeedbackSection/Trainers";
 import { TrainerDetails } from "./components/FeedbackSection/TrainerDetails";
 import { UpdateFeedback } from "./components/FeedbackSection/UpdateFeedback";
 import { DeleteFeedback } from "./components/FeedbackSection/DeleteFeedback";
+import  AllTrainersF from "./components/FeedbackSection/AllTrainersF";
 
 //-------------------------------Dulshan Trainer Feedback----------------------------------------
 import { FeedbackT } from "./components/FeedbackSection/FeedbackT";
@@ -92,9 +98,11 @@ import { ViewFeedbackT } from "./components/FeedbackSection/ViewFeedbackT";
 //  Manushika ClientRequest
 import CreatePost from "./components/ClientRequest/CreatePost";
 import Home from "./components/ClientRequest/Home";
+import ContactUs from "./Screens/ContactUs/ContactUs";
 import EditPost from "./components/ClientRequest/EditPost";
 import PostDetails from "./components/ClientRequest/PostDetails";
 import ptEdit from "./components/ClientRequest/ptEdit";
+import Request_Report from "./components/ClientRequest/Request_Report";
 //newly added
 import Admin from "./components/trainerBlog/Request/Admin";
 import ReportPT from "./components/trainerBlog/Request/ReportPT/ReportPT";
@@ -131,6 +139,10 @@ import InterestReport from "./components/Interests/InterestReport";
 import AdminLoginScreen from "./Screens/LoginScreen/AdminLoginScreen";
 import AdminProfileScreen from "./Screens/ProfileScreen/AdminProfileScreen";
 import AdminHomePage from "./Screens/HomePage/AdminHomePage";
+import { AboutUs } from "./Screens/AboutUs/AboutUs";
+
+import CreateNote from "./Screens/CreateNote/CreateNote";
+import SingleNote from "./Screens/CreateNote/SingleNote";
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -202,6 +214,10 @@ const App = () => {
           component={CreatePost}
         ></Route>
         <Route
+          path="/employee/memberPTRequest/Request_Report"
+          component={Request_Report}
+        ></Route>
+        <Route
           path="/employee/memberPTRequest/edit/:id"
           component={EditPost}
         ></Route>
@@ -210,6 +226,7 @@ const App = () => {
           component={PostDetails}
         ></Route>
       </div>
+      <Route path="/member/Contactus" component={ContactUs} />
       {/* newly added*/}
       <div className="container">
         <Route
@@ -231,7 +248,7 @@ const App = () => {
       </div>
 
       {/**Sandani */}
-      {/**predefined schedules requests CRUD */}
+      {/**schedules requests CRUD */}
       <div className="container">
         <Route
           path="/employee/scheduleR/HomeRequest"
@@ -243,11 +260,11 @@ const App = () => {
           exact
           component={MemHome}
         ></Route>
-        <Route
+        {/* <Route
           path="/admin/scheduleR/SchReport"
           exact
           component={SchReport}
-        ></Route>
+        ></Route> */}
         <Route path="/member/scheduleR/add" component={CreateRequest}></Route>
         <Route
           path="/member/scheduleR/edit/:id"
@@ -257,6 +274,12 @@ const App = () => {
           path="/member/scheduleR/Xpost/:id"
           component={RequestDetails}
         ></Route>
+         <Route
+        exact
+        path="/member/Sch_Req_Report"
+        exact
+        component={Sch_Req_Report}
+         />
       </div>
       {/*Sandani-predefiend schedules  */}
       <div className="container">
@@ -265,12 +288,19 @@ const App = () => {
           exact
           component={() => <PreAdmin setCurrentId={setCurrentId} />}
         ></Route>
-
+{/* <<<<<<< HEAD
+         
+           <Route  path="/employee/preposts/:id" exact component={Predisplay}></Route>
+           <Route  path="/member/preposts/:id"  exact component={Predisplay}></Route>
+          
+=======
+>>>>>>> 5cf03d74ccd0f4691865096c16f427e8510771bb */}
         <Route
           path="/member/PreAdmin_Mem"
           exact
           component={() => <PreAdmin_Mem setCurrentId={setCurrentId} />}
         ></Route>
+
       </div>
 
       <main>
@@ -281,6 +311,7 @@ const App = () => {
         <Route path="/member/Home" component={() => <HomePage />} />
 
         {/*________________________ Amantha Routes Start ________________________*/}
+
         {/*----------->> Amantha Trainer Login Routes <<-----------*/}
         <Route path="/employee/" component={TrainerLandingPage} exact />
         <Route path="/employee/trainer-login" component={TrainerLoginScreen} />
@@ -318,29 +349,54 @@ const App = () => {
 
         
         {/*________________________ Amantha Routes End  ________________________*/}
+        {/*________________________ Lakshan Extra Routes ________________________*/}
 
         <Route path="/admin/memberDetails" component={viewMembers}></Route>
         <Route path="/admin/editDetails/:id" component={editMember}></Route>
         <Route path="/admin/adminPanel" component={memberPannel}></Route>
 
+        {/*________________________ Lakshan Extra Routes End________________________*/}
+
         {/*Janudi Routes --> Begin*/}
-        <Route exact path = "/admin/EmployeeHome" component = {EmployeeHome}/>
-        <Route exact path = "/admin/RegisterMenu" component = {RegisterMenu}/> 
-        <Route exact path = "/admin/CleanerRegistrationForm" component = {CleanerRegistrationForm}/>
-        <Route exact path = "/admin/ViewEmployeeInterface" component = {ViewEmployeeInterface}/>
-        <Route exact path = "/admin/EditCleanerInterface" component = {AllCleaners}/>
-        <Route exact path = "/admin/update/:id" component = {EditCleaner}/>
-        <Route exact path = "/admin/DeleteCleanerInterface" component = {DeleteCleaners}/>
-        <Route exact path = "/admin/delete/:id" component = {DeleteConf}/>
-        <Route exact path = "/admin/leaves/add" component = {LeaveRegistration}/>
-        <Route exact path = "/employee/CreateLeave" component = {LeaveRegistration}/>
-        <Route exact path = "/admin/leaves" component = {AllTrainerLeaves}/>
-        <Route exact path = "/admin/leave/:Status" component = {LeavesList}/>
-        <Route exact path = "/admin/updateL/:id" component = {TrainerLeavesEdit}/>
-        <Route exact path = "/admin/salary/add" component = {CreateEmployeeSalary}/>
-        <Route exact path = "/admin/CreateSalary" component = {CreateEmployeeSalary}/>
-        <Route exact path = "/admin/salary" component = {AllSalaries}/>
-        <Route exact path = "/admin/ViewSalaries" component = {AllSalaries}/>
+        <Route exact path="/admin/EmployeeHome" component={EmployeeHome} />
+        <Route exact path="/admin/RegisterMenu" component={RegisterMenu} />
+        <Route
+          exact
+          path="/admin/CleanerRegistrationForm"
+          component={CleanerRegistrationForm}
+        />
+        <Route
+          exact
+          path="/admin/ViewEmployeeInterface"
+          component={ViewEmployeeInterface}
+        />
+        <Route
+          exact
+          path="/admin/EditCleanerInterface"
+          component={AllCleaners}
+        />
+        <Route exact path="/admin/update/:id" component={EditCleaner} />
+        <Route
+          exact
+          path="/admin/DeleteCleanerInterface"
+          component={DeleteCleaners}
+        />
+        <Route exact path="/admin/delete/:id" component={DeleteConf} />
+        <Route exact path="/admin/leaves/add" component={LeaveRegistration} />
+        <Route
+          exact
+          path="/employee/CreateLeave"
+          component={LeaveRegistration}
+        />
+        <Route exact path="/admin/leaves" component={AllTrainerLeaves} />
+        <Route exact path="/admin/leave/:Status" component={LeavesList} />
+        <Route exact path="/admin/updateL/:id" component={TrainerLeavesEdit} />
+        <Route exact path="/admin/salary/add" component={CreateEmployeeSalary} />
+        <Route exact path="/admin/CreateSalary" component={CreateEmployeeSalary} />
+        <Route exact path="/admin/salary" component={AllSalaries} />
+        <Route exact path="/admin/ViewSalaries/:Month" component={AllSalaries} />
+        <Route exact path="/admin/Chart" component={Chart} />
+        <Route exact path="/admin/ViewSalaries" component={ViewAllSalaries}/>
         {/*Janudi Routes --> End*/}
 
         {/*Shehan routes */}
@@ -355,16 +411,12 @@ const App = () => {
         <Route path="/admin/ProgramsReport" component={ReportPage}></Route>
         <Route path="/admin/programs" component={AllProgramsAdmin}></Route>
         <Route path="/admin/add-program" component={CreateProgramAdmin}></Route>
-        <Route
-          path="/admin/edit-program/:id"
-          component={EditProgramAdmin}
-        ></Route>
-        <Route
-          path="/admin/expand-program/:id"
-          component={ProgramDetailsAdmin}
-        ></Route>
 
-        {/*--------------------------------------------Dulshan Routes------------------------------------------------------*/}
+        <Route path="/admin/edit-program/:id" component={EditProgramAdmin}></Route>
+        <Route path="/admin/expand-program/:id" component={Programexpand} ></Route>
+
+        {/*-------------------------------Dulshan Routes START---------------------------------------*/}
+
         <Route exact path="/member/QandA/:email" component={QandA} />
         <Route exact path="/member/createQ/:email" component={CreateQuestion} />
         <Route exact path="/member/updateQ/:id" component={UpdateQuestion} />
@@ -372,7 +424,11 @@ const App = () => {
         <Route exact path="/member/otherQ/" component={OtherQuestionsM} />
         <Route exact path="/employee/otherQ/" component={OtherQuestionsT} />
         <Route exact path="/employee/a/createA/:id" component={CreateAnswerT} />
-        <Route exact path="/employee/myAnswers/:username" component={MyAnswersT} />
+        <Route
+          exact
+          path="/employee/myAnswers/:username"
+          component={MyAnswersT}
+        />
         <Route exact path="/employee/updateA/:id" component={UpdateAnswerT} />
         <Route exact path="/employee/deleteA/:id" component={DeleteAnswerT} />
         <Route exact path="/member/a/createA/:id" component={CreateAnswer} />
@@ -380,18 +436,33 @@ const App = () => {
         <Route exact path="/member/updateA/:id" component={UpdateAnswer} />
         <Route exact path="/member/deleteA/:id" component={DeleteAnswer} />
         <Route exact path="/member/feedback/:email" component={Feedback} />
-        <Route exact path="/employee/feedback/:username" component={FeedbackT} />
+        <Route
+          exact
+          path="/employee/feedback/:username"
+          component={FeedbackT}
+        />
         <Route exact path="/employee/viewF/:id" component={ViewFeedbackT} />
-        <Route exact path="/member/trainers/" component={Trainers} />
+        <Route exact path="/member/trainers/" component={AllTrainersF} />
         <Route exact path="/member/trainer/:username" component={TrainerDetails} />
         <Route exact path="/member/trainer/createF/:id" component={CreateFeedback} />
         <Route exact path="/member/updateF/:id" component={UpdateFeedback} />
         <Route exact path="/member/deleteF/:id" component={DeleteFeedback} />
+        <Route exact path="/member/aboutUs" component={AboutUs} />
+        <Route exact path="/employee/aboutUs" component={AboutUs} />
+        <Route
+          exact
+          path="/employee/unasnweredQ/:weekNo"
+          component={ReportUnansweredQ}
+        />
+        {/*--------------------------------Dulshan Routes END-----------------------------------------*/}
 
         {/* Admin */}
         <Route path="/admin/login" component={AdminLoginScreen} />
         <Route path="/admin/admin-profile" component={AdminProfileScreen} />
         <Route path="/admin/adminHome" component={() => <AdminHomePage />} />
+        {/*--------------------------------Footer-----------------------------------------*/}
+        <Route path="/admin/createnote" component={CreateNote} />
+        <Route path="/admin/note/:id" component={SingleNote} />
 
         <Route path="/member" component={Footer} />
         <Route path="/employee" component={FooterTrainer} />
