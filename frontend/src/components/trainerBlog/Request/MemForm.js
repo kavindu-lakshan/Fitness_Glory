@@ -37,12 +37,12 @@ const MemForm = () => {
             </Typography>
           </div>
           <Container>
-            <Button
+            {/* <Button
               variant="btn btn-success"
               onClick={() => history.push("member/Admin")}
             >
               HOME
-            </Button>
+           </Button>*/}
 
             <Grid
               container

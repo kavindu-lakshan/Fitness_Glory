@@ -100,7 +100,7 @@ export default class ptEdit extends Component {
         <table style={fdata} className="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">REQ No</th>
               <th scope="col">Name</th>
               <th scope="col">Trainer Name</th>
               <th scope="col">Time slot</th>

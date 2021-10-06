@@ -94,7 +94,7 @@ export default class Home extends Component {
           <table className="table" style={fdata}>
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col"> REQ No</th>
                 <th scope="col">Name</th>
                 <th scope="col">Trainer Name</th>
                 <th scope="col">Time slot</th>
