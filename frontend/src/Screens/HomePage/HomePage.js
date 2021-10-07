@@ -6,12 +6,19 @@ import Schedule from "../../components/Schedule/Schedule";
 
 const HomePage = () => {
   return (
-    <MainScreen title="Welcome...">
-      <Notices />
-      <hr />
-      <BMI />
-      <Schedule />
-    </MainScreen>
+    <div
+      style={{
+        backgroundColor: "#2d3436",
+        backgroundImage: "linear-gradient(315deg, #2d3436 0%, #d3d3d3 74%)",
+      }}
+    >
+      <MainScreen title="Welcome...">
+        <Notices />
+        <hr />
+        <BMI />
+        <Schedule />
+      </MainScreen>
+    </div>
   );
 };
 
