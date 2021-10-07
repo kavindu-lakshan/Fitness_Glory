@@ -35,15 +35,15 @@ const RegisterScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    if(name==""){
+    if (name == "") {
       setMessage("Name is required");
-    }else if(email==""){
+    } else if (email == "") {
       setMessage("Email is required");
-    }else if (!validator.isEmail(email)) {
+    } else if (!validator.isEmail(email)) {
       setMessage("Enter Valid Email");
-     }else if(password==""){
+    } else if (password == "") {
       setMessage("Enter a password");
-     }else if (
+    } else if (
       !validator.isStrongPassword(password, {
         minLength: 8,
         minLowercase: 1,
@@ -54,11 +54,8 @@ const RegisterScreen = () => {
     ) {
       setMessage("Password is not strong enough");
     } else if (password !== confirmPassword) {
-      setMessage(
-        "Password is not equal"
-      );
-    } 
-    else {
+      setMessage("Password is not equal");
+    } else {
       dispatch(register(name, email, password, pic));
     }
   };
