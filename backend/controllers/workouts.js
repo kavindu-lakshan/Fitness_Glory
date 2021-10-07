@@ -25,9 +25,12 @@ const getWorkouts = async (req, res) => {
       .limit(LIMIT)
       .skip(startIndex);
 
+    const all = await workout.find();
+
     res.status(200).json({
       success: true,
       data: workouts,
+      report: all,
       currentPage: Number(page),
       numberOfPages: Math.ceil(total / LIMIT),
     });

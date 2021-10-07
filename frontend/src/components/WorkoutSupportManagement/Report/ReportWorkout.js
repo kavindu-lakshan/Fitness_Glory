@@ -22,7 +22,7 @@ export default class ReportWorkout extends Component {
     axios.get("/workouts").then((res) => {
       if (res.data.success) {
         this.setState({
-          workouts: res.data.data,
+          workouts: res.data.report,
         });
 
         console.log(this.state.workouts);
