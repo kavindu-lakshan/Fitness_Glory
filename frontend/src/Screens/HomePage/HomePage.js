@@ -13,6 +13,9 @@ const HomePage = () => {
       }}
     >
       <MainScreen title="Welcome...">
+        <h2>
+          <span style={{ color: "red" }}>Notices</span>
+        </h2>
         <Notices />
         <hr />
         <BMI />
